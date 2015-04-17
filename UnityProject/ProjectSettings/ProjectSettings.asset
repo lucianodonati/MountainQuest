@@ -111,10 +111,7 @@ PlayerSettings:
     m_Icons:
     - m_Icon: {fileID: 0}
       m_Size: 128
-  m_BuildTargetBatching:
-  - m_BuildTarget: Web
-    m_StaticBatching: 0
-    m_DynamicBatching: 1
+  m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Black Background
   m_TemplateCustomTags: {}
   locationUsageDescription: 

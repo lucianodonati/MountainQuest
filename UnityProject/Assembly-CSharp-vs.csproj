@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>F:/UNITY/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>F:/UNITY/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -52,8 +52,8 @@
      <Compile Include="Assets\Scripts\AfflictionStates\Damage\OneTimeHit.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
      <Compile Include="Assets\Scripts\Components\Door.cs" />
-     <Compile Include="Assets\Scripts\Components\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Components\Health\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\AttackAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\MeleeAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\RangedAI.cs" />
@@ -77,7 +77,7 @@
      <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
      <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
+ <HintPath>F:/UNITY/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
