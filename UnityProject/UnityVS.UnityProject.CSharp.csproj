@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\AfflictionStates\Damage\OneTimeHit.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
     <Compile Include="Assets\Scripts\Components\Door.cs" />
+    <Compile Include="Assets\Scripts\Components\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Components\Health\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Combat\AttackAI.cs" />

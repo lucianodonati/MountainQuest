@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour {
 	// MOVEMENT VARS
 	public float movementSpeed = 2;
 
-
 	public float jumpSpeed = 0.2f;
 	private float jumpTimer;
 	public float jumpTimerMax = 0.1f;
@@ -55,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetAxisRaw ("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f) {
-			if(jumpTimer == jumpTimerMax)
+			if(jumpTimer == jumpTimerMax && grounded)
 				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x,jumpSpeed * firstJumpModifier);
 			else
 				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed);
@@ -96,11 +95,10 @@ public class PlayerController : MonoBehaviour {
 		if (coll.gameObject.tag == "Platform") {
 			grounded = true;
 			jumpTimer = jumpTimerMax;
-			
 		}
 	}
 
 	void OnCollisionExit2D(Collision2D coll){
 		grounded = false;
-	}	
+	}
 }
