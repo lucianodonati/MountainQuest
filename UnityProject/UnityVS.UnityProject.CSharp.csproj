@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ReturnToTitleButton.cs" />
     <Compile Include="Assets\Scripts\AfflictionStates\Affliction.cs" />
     <Compile Include="Assets\Scripts\AfflictionStates\Damage\DPS.cs" />
     <Compile Include="Assets\Scripts\AfflictionStates\Damage\DamageType.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Managers\StatsManager.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\Button.cs" />
+    <Compile Include="Assets\Scripts\UI_Scripts\DisplayVolumeLevelText.cs" />
     <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
     <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
   </ItemGroup>
