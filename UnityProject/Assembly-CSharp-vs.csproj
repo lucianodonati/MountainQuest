@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ReturnToTitleButton.cs" />
      <Compile Include="Assets\Scripts\AfflictionStates\Affliction.cs" />
      <Compile Include="Assets\Scripts\AfflictionStates\Damage\DPS.cs" />
      <Compile Include="Assets\Scripts\AfflictionStates\Damage\DamageType.cs" />
