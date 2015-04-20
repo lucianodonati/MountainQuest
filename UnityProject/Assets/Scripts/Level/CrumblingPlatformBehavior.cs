@@ -7,6 +7,7 @@ public class CrumblingPlatformBehavior : MonoBehaviour {
 	public float lifetimeMax = 2f;
 	private Vector2 vibdir;
 
+	bool dead = false;
 	bool deathrow = false;
 
 	// Use this for initialization
@@ -23,36 +24,37 @@ public class CrumblingPlatformBehavior : MonoBehaviour {
 
 		renderer.color = new Color (renderer.color.r, renderer.color.g * (lifetime/lifetimeMax), renderer.color.b * (lifetime/lifetimeMax));
 
-		if (!deathrow) {
+		if (!dead) {
 
 			if (lifetime > lifetimeMax / 7) {
 				vibdir = vibdir.normalized * (lifetimeMax / lifetime) * 3;
 				psys.emissionRate = 1 * (lifetimeMax / lifetime);
 			}
 
-			if (lifetime < lifetimeMax) {
-				rigidbody2D.velocity = vibdir;
-				vibdir *= -1;
-			}
+			if(deathrow){
+				lifetime -= Time.deltaTime;
 
-			if (lifetime <= 0.0f) {
-				psys.startSpeed = 0;
-				rigidbody2D.velocity = new Vector2 (0, 0);
-				rigidbody2D.isKinematic = false;
-				rigidbody2D.gravityScale = 1;
-				deathrow = true;
+				if (lifetime < lifetimeMax) {
+					rigidbody2D.velocity = vibdir;
+					vibdir *= -1;
+				}
+				
+				if (lifetime <= 0.0f) {
+					psys.startSpeed = 0;
+					rigidbody2D.velocity = new Vector2 (0, 0);
+					rigidbody2D.isKinematic = false;
+					rigidbody2D.gravityScale = 1;
+					dead = true;
+				}
 			}
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		if (rigidbody2D.isKinematic == false)
+		if (rigidbody2D.isKinematic == false) {
 			Destroy (this.gameObject);
-	}
-
-	void OnCollisionStay2D(Collision2D coll){
-		if (coll.gameObject.tag == "Player") {
-			lifetime -= Time.deltaTime;
+		} else if (coll.gameObject.tag == "Player" && coll.gameObject.transform.position.y > transform.position.y) {
+			deathrow = true;
 		}
-	}
+	}	
 }
