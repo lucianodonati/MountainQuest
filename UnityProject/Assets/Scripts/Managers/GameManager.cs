@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     public void UpdateMusic(float newMusicVol)
     {
-        Debug.Log("Here");
         musicVol = newMusicVol;
         if (music != null)
             music.volume = musicVol / 100;
@@ -36,5 +35,10 @@ public class GameManager : MonoBehaviour
     {
         sfxVol = newSfxVol;
         AudioListener.volume = sfxVol / 100;
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

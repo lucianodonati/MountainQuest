@@ -5,6 +5,13 @@ TagManager:
   tags:
   - GameManager
   - 
+  - Platform
+  - Arrow
+  - Sword
+  - Enemy
+  - Boss
+  - Sphere
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -14,10 +21,10 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Platform
-  User Layer 9: 
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
+  User Layer 9: Player
+  User Layer 10: Entity
+  User Layer 11: Weapons
+  User Layer 12: Sphere
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
