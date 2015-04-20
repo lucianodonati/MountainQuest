@@ -37,7 +37,7 @@ AudioSource:
   m_GameObject: {fileID: 195276}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 6b4f545140819334a908dec73ba68e89, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1873fecc557d16e46af01d2d4a35d722, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 8239738}
+  TitleScreen: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

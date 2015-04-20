@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5B580621-09B4-68CB-B5F4-5B9DD210A60F}</ProjectGuid>
+	<ProjectGuid>{3CC9D2C0-C461-07D9-EDF3-4FFB4DE5C299}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,39 +46,29 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AfflictionStates\Affliction.cs" />
-     <Compile Include="Assets\Scripts\AfflictionStates\Damage\DPS.cs" />
-     <Compile Include="Assets\Scripts\AfflictionStates\Damage\DamageType.cs" />
-     <Compile Include="Assets\Scripts\AfflictionStates\Damage\OneTimeHit.cs" />
-     <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
-     <Compile Include="Assets\Scripts\Components\Door.cs" />
-     <Compile Include="Assets\Scripts\Components\Health\Health.cs" />
-     <Compile Include="Assets\Scripts\Components\Health\HealthBar.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Combat\AttackAI.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Combat\MeleeAI.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Combat\RangedAI.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Movement\Idle_Movement.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Movement\Patrol_Movement.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Movement\Seek_Movement.cs" />
-     <Compile Include="Assets\Scripts\Entities\Enemy\Movement\Wander_Movement.cs" />
-     <Compile Include="Assets\Scripts\Entities\Entity.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Player.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Boost.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Redirect.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Sphere.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\EnemyFlyweight.cs" />
-     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\StatsManager.cs" />
-     <Compile Include="Assets\Scripts\UI_Scripts\DisplayVolumeLevelText.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
+     <Compile Include="Assets\editor\MissingReferencesFinder.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+ <HintPath>C:/Users/Luciano/Google Drive/FullSail/Current/Structure of Game Production/Feisty Raccoon Studios/Mountain Quest/Project/MountainQuest/UnityProject/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+ </Reference>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+ <HintPath>C:/Users/Luciano/Google Drive/FullSail/Current/Structure of Game Production/Feisty Raccoon Studios/Mountain Quest/Project/MountainQuest/UnityProject/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityVS.VersionSpecific">
+ <HintPath>C:/Users/Luciano/Google Drive/FullSail/Current/Structure of Game Production/Feisty Raccoon Studios/Mountain Quest/Project/MountainQuest/UnityProject/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{5B580621-09B4-68CB-B5F4-5B9DD210A60F}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
