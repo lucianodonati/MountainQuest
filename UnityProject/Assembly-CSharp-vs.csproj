@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
      <Compile Include="Assets\Scripts\Components\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Components\Health\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Components\Timer.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\AttackAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\MeleeAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\RangedAI.cs" />
