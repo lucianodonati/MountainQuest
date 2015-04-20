@@ -25,6 +25,9 @@ public class CameraBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		halfHeight = camera.orthographicSize;
+		halfWidth = halfHeight * Screen.width / Screen.height;
+
 		Vector3 newpos = new Vector3 (player.transform.position.x, player.transform.position.y, transform.position.z);
 
 		if (newpos.x - halfWidth < MinBound.transform.position.x)

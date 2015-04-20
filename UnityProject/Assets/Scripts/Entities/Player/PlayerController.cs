@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	private float jumpTimer;
 	public float jumpTimerMax = 0.1f;
 	public float firstJumpModifier = 10.0f;
+	bool jumplock = false;
 
 	public bool grounded = false;
 
@@ -53,13 +54,17 @@ public class PlayerController : MonoBehaviour {
 			jumpCooldownTimer -= Time.deltaTime;
 		}
 
-		if (Input.GetAxisRaw ("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f) {
+		if (Input.GetAxisRaw ("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock) {
 			if(jumpTimer == jumpTimerMax && grounded)
 				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x,jumpSpeed * firstJumpModifier);
 			else
 				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed);
 
 			jumpTimer-=Time.deltaTime;
+		}
+
+		if(Input.GetAxisRaw("Vertical") == 0 && !grounded){
+			jumplock = true;
 		}
 
 		this.transform.up = preserveUp;
@@ -94,6 +99,7 @@ public class PlayerController : MonoBehaviour {
 	void OnCollisionStay2D(Collision2D coll){
 		if (coll.gameObject.tag == "Platform") {
 			grounded = true;
+			jumplock = false;
 			jumpTimer = jumpTimerMax;
 		}
 	}
