@@ -5,29 +5,45 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public List<GameObject> requisites;
+    private float duration = 1.0f, startTime;
+    private bool open = false;
+    private SpriteRenderer sprite;
 
     // Use this for initialization
     private void Start()
     {
-        requisites = new List<GameObject>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (open)
+        {
+            if (sprite != null)
+            {
+                float t = (Time.time - startTime) / duration;
+                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, Mathf.SmoothStep(1.0f, 0.0f, t));
+            }
+            if (sprite.color.a <= 0.0f)
+                Destroy(gameObject);
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" /*|| collision.gameObject.GetComponent<Arrow>.getOwner().gameobject.tag == "Player"*/)
         {
             if (requisites.Count == 0)
-                openDoor();
+            {
+                startTime = Time.time;
+                open = true;
+            }
         }
     }
 
-    public void openDoor()
+    public void RemoveFromKeyList(GameObject thisGuy)
     {
-        Destroy(gameObject);
+        requisites.Remove(thisGuy);
     }
 }

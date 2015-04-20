@@ -14,7 +14,7 @@ GameObject:
   - 65: {fileID: 6565540}
   m_Layer: 8
   m_Name: Left
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6139676}
   m_Layer: 8
   m_Name: Left
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ GameObject:
   - 61: {fileID: 6139678}
   m_Layer: 8
   m_Name: Right
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,6 +62,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429088}
+  - 114: {fileID: 11417946}
   m_Layer: 8
   m_Name: Platform30
   m_TagString: Platform
@@ -234,6 +235,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11417946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5067dacd0f28094c9bba632f39c4e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daddy: Platforms
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

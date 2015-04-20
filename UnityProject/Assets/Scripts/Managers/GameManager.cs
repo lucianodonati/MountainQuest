@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
         GameObject.DontDestroyOnLoad(gameObject);
     }
 
+    private void Pause()
+    {
+    }
+
     public void LoadNextLevel()
     {
         if (currentLevel < Application.levelCount)

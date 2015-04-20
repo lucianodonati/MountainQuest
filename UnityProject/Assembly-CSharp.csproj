@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\Redirect.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\Sphere.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
+     <Compile Include="Assets\Scripts\Level\OrganizeMe.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyFlyweight.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
