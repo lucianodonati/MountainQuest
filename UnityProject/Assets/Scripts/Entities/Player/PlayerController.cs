@@ -94,7 +94,6 @@ public class PlayerController : MonoBehaviour {
 
 			arrowCooldownTimer = arrowCooldownTimerMax;
 		}
-
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
