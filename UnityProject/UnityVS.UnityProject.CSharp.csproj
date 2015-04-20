@@ -59,7 +59,6 @@
     <Compile Include="Assets\Scripts\AfflictionStates\Damage\DamageType.cs" />
     <Compile Include="Assets\Scripts\AfflictionStates\Damage\OneTimeHit.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
-    <Compile Include="Assets\Scripts\Components\Door.cs" />
     <Compile Include="Assets\Scripts\Components\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Components\Health\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Combat\AttackAI.cs" />
@@ -77,6 +76,8 @@
     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Redirect.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Sphere.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
+    <Compile Include="Assets\Scripts\Level\Interactive\Door.cs" />
+    <Compile Include="Assets\Scripts\Level\Interactive\Target.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyFlyweight.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
