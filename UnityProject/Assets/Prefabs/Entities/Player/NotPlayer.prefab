@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11453492}
   - 50: {fileID: 5053492}
   - 61: {fileID: 6153492}
+  - 114: {fileID: 11408038}
   m_Layer: 0
   m_Name: NotPlayer
   m_TagString: Player
@@ -57,6 +58,23 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .133871019, y: .133870989}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11408038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb90537699653c4479ca44cf09b71ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  affectedBy: []
+  Spheres: []
+  Arrows: []
+  Swords: []
+  lives: 3
 --- !u!114 &11453492
 MonoBehaviour:
   m_ObjectHideFlags: 1
