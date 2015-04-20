@@ -61,10 +61,12 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetAxisRaw ("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock) {
-			if(jumpTimer == jumpTimerMax && grounded)
+			if(jumpTimer == jumpTimerMax && grounded){
 				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x,jumpSpeed * firstJumpModifier);
-			else
-				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed);
+			}else if(jumpTimer < jumpTimerMax/5){
+				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed * firstJumpModifier/3);
+				jumplock = true;
+			}
 
 			jumpTimer-=Time.deltaTime;
 		}
