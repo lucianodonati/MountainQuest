@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Managers\StatsManager.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\DisplayVolumeLevelText.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\ScrollingText.cs" />
      <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
      <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
  <Reference Include="UnityEngine.UI">
