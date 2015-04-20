@@ -1,2 +1,4 @@
 *.ini
 UnityProject/Library
+/UnityProject/UnityProject.sln
+/UnityProject/UnityProject-csharp.sln

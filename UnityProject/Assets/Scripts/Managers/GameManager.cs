@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private float musicVol = 100.0f, fxVol = 100.0f;
+    private float musicVol = 100.0f, sfxVol = 100.0f;
     public AudioSource music;
+    public GameObject TitleScreen;
     private int currentLevel = 0;
 
     private void Start()
     {
+        TitleScreen.SetActive(true);
         GameObject.DontDestroyOnLoad(gameObject);
     }
 
@@ -20,46 +22,19 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void UpdateMusic()
+    public void UpdateMusic(float newMusicVol)
     {
+        Debug.Log("Here");
+        musicVol = newMusicVol;
         if (music != null)
             music.volume = musicVol / 100;
         else
             Debug.LogWarning("Trying to adjust music volume with no AudioSource attached.");
     }
 
-    private void UpdateFx()
+    public void UpdateSFx(float newSfxVol)
     {
-        AudioListener.volume = fxVol / 100;
-    }
-
-    public void musicVolUp()
-    {
-        musicVol += 5.0f;
-        if (musicVol > 100.0f)
-            musicVol = 100.0f;
-        UpdateMusic();
-    }
-
-    public void musicVolDown()
-    {
-        musicVol -= 5.0f;
-        if (musicVol < 0)
-            musicVol = 0;
-        UpdateMusic();
-    }
-
-    public void fxVolUp()
-    {
-        fxVol += 5.0f;
-        if (fxVol > 100.0f)
-            fxVol = 100.0f;
-    }
-
-    public void fxVolDown()
-    {
-        fxVol -= 5.0f;
-        if (fxVol < 0)
-            fxVol = 0;
+        sfxVol = newSfxVol;
+        AudioListener.volume = sfxVol / 100;
     }
 }
