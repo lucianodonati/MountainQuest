@@ -4,12 +4,18 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	// MOVEMENT VARS
-	public float movementSpeed = 2;
+	//calculated for rigidbody2d
+	// mass 5
+	// linear drag 0
+	// angular drag 0.05
+	// gravity scale 4
 
-	public float jumpSpeed = 0.2f;
+	public float movementSpeed = 10;
+
+	public float jumpSpeed = 1f;
 	private float jumpTimer;
 	public float jumpTimerMax = 0.1f;
-	public float firstJumpModifier = 10.0f;
+	public float firstJumpModifier = 20.0f;
 	bool jumplock = false;
 
 	public bool grounded = false;
@@ -63,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 			jumpTimer-=Time.deltaTime;
 		}
 
-		if(Input.GetAxisRaw("Vertical") == 0 && !grounded){
+		if(Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock){
 			jumplock = true;
 		}
 

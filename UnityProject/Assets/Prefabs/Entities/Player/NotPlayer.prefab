@@ -40,7 +40,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -68,14 +68,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309091226dadda74989d022fb9b6abdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 7.5
+  movementSpeed: 10
   jumpSpeed: 1
-  jumpTimerMax: .200000003
-  firstJumpModifier: 10
+  jumpTimerMax: .100000001
+  firstJumpModifier: 20
   grounded: 0
   facingRight: 1
   jumpCooldownTimerMax: .100000001
-  Arrow: {fileID: 129850, guid: c364f89ee99183044b468650ec0c2bf5, type: 2}
+  Arrow: {fileID: 129850, guid: f2c19624534295447a542d161db63cb7, type: 2}
   arrowCooldownTimerMax: .5
 --- !u!212 &21253492
 SpriteRenderer:

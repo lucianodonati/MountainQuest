@@ -9,9 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 429850}
   - 50: {fileID: 5012442}
-  - 50: {fileID: 5027456}
-  - 198: {fileID: 19815332}
-  - 199: {fileID: 19915332}
+  - 198: {fileID: 19809654}
+  - 199: {fileID: 19909654}
   m_Layer: 0
   m_Name: NotArrow
   m_TagString: Untagged
@@ -104,22 +103,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!50 &5027456
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129850}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!198 &19815332
+--- !u!198 &19809654
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -368,8 +352,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .0701489449
-    angle: 1.3258636
+    radius: .0872483253
+    angle: 1.2225877
     length: 5
     boxX: 1
     boxY: 1
@@ -460,7 +444,7 @@ ParticleSystem:
   RotationModule:
     enabled: 0
     curve:
-      scalar: .785398126
+      scalar: .785398185
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1013,7 +997,7 @@ ParticleSystem:
   RotationBySpeedModule:
     enabled: 0
     curve:
-      scalar: .785398126
+      scalar: .785398185
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1171,7 +1155,7 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19915332
+--- !u!199 &19909654
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
