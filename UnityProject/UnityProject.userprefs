@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Camera\CameraBehavior.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Level\CrumblingPlatformBehavior.cs">
     <Files>
-      <File FileName="Assets\Scripts\Camera\CameraBehavior.cs" Line="32" Column="24" />
+      <File FileName="Assets\Scripts\Level\CrumblingPlatformBehavior.cs" Line="43" Column="21" />
+      <File FileName="Assets\Scripts\Camera\CameraBehavior.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Entities\Player\PlayerController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
