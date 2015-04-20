@@ -45,7 +45,6 @@ GameObject:
   - 222: {fileID: 22272386}
   - 114: {fileID: 11472390}
   - 114: {fileID: 11472388}
-  - 114: {fileID: 11472386}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -64,7 +63,6 @@ GameObject:
   - 222: {fileID: 22272390}
   - 114: {fileID: 11472398}
   - 114: {fileID: 11472396}
-  - 114: {fileID: 11472394}
   m_Layer: 5
   m_Name: ReturnToTitleButton
   m_TagString: Untagged
@@ -150,18 +148,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Options
---- !u!114 &11472386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168729194e8ba645be8f1713b6e3697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_sceneNumber: 0
 --- !u!114 &11472388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +187,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11472386}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadNewScene
         m_Mode: 1
         m_Arguments:
@@ -261,19 +247,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Return to Title Menu
---- !u!114 &11472394
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168729194e8ba645be8f1713b6e3697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_sceneNumber: 0
+  m_Text: Back
 --- !u!114 &11472396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,7 +287,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11472394}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadNewScene
         m_Mode: 1
         m_Arguments:
@@ -386,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: .325490206}
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0

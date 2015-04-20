@@ -80,7 +80,6 @@ GameObject:
   - 222: {fileID: 22240576}
   - 114: {fileID: 11440582}
   - 114: {fileID: 11440580}
-  - 114: {fileID: 11440584}
   m_Layer: 5
   m_Name: StoryButton
   m_TagString: Untagged
@@ -116,7 +115,6 @@ GameObject:
   - 222: {fileID: 22240582}
   - 114: {fileID: 11440592}
   - 114: {fileID: 11440590}
-  - 114: {fileID: 11440594}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -152,7 +150,6 @@ GameObject:
   - 222: {fileID: 22240588}
   - 114: {fileID: 11440606}
   - 114: {fileID: 11440604}
-  - 114: {fileID: 11440608}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -393,7 +390,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11440584}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadNewScene
         m_Mode: 1
         m_Arguments:
@@ -428,17 +425,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11440584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168729194e8ba645be8f1713b6e3697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11440586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,17 +525,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11440594
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168729194e8ba645be8f1713b6e3697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11440596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -615,7 +590,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11440608}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadNewScene
         m_Mode: 1
         m_Arguments:
@@ -650,17 +625,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11440608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168729194e8ba645be8f1713b6e3697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11440610
 MonoBehaviour:
   m_ObjectHideFlags: 1
