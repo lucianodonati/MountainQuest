@@ -959,7 +959,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   jumpCooldownTimerMax: .100000001
-  Arrow: {fileID: 129850, guid: c364f89ee99183044b468650ec0c2bf5, type: 2}
+  Arrow: {fileID: 129850, guid: f2c19624534295447a542d161db63cb7, type: 2}
   arrowCooldownTimerMax: .5
 --- !u!212 &619700181
 SpriteRenderer:
@@ -1254,6 +1254,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: Arrow
+      value: 
+      objectReference: {fileID: 129850, guid: f2c19624534295447a542d161db63cb7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
   m_RootGameObject: {fileID: 619700177}

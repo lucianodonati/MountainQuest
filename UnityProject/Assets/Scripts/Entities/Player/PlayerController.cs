@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour {
 
 			GameObject currArrow = (GameObject)Instantiate(Arrow,gameObject.transform.position,Quaternion.FromToRotation(preserveUp,mousepos));
 
-			currArrow.rigidbody2D.velocity = mousepos.normalized * 2.0f;
+			currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
 
 			arrowCooldownTimer = arrowCooldownTimerMax;
 		}
