@@ -114,7 +114,11 @@ public class KeyBehavior : MonoBehaviour
 
     private void OnDestroy()
     {
-        Door theDoor = attachedDoor.GetComponent<Door>();
-        theDoor.RemoveFromKeyList(gameObject);
+        if (attachedDoor != null)
+        {
+            Door theDoor = attachedDoor.GetComponent<Door>();
+            if (theDoor != null)
+                theDoor.RemoveFromKeyList(gameObject);
+        }
     }
 }

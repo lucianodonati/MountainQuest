@@ -7,12 +7,13 @@ public class Arrow : MonoBehaviour
     public float stuckTimer = 5;
     private bool stuck = false;
     public int numCollisions = 0;
-	public float Damage = 10;
+    private bool justFired = true;
+
     // Use this for initialization
     private void Start()
     {
-        Physics2D.IgnoreLayerCollision(9, 14, true);
         rigidbody2D.velocity = transform.up * speed;
+        GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     // Update is called once per frame
@@ -31,26 +32,40 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionExit2D()
     {
-        Physics2D.IgnoreLayerCollision(9, 14, false);
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        Debug.Log("HIT ");
-        CheckCollision(coll.gameObject.tag);
+        CheckCollision(coll.collider);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        CheckCollision(other.tag);
+        CheckCollision(other);
     }
 
-    private void CheckCollision(string tag)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (tag != "Sphere")
+        justFired = false;
+        GetComponent<BoxCollider2D>().isTrigger = false;
+    }
+
+    private void CheckCollision(Collider2D coll)
+    {
+        if (coll.tag != "Sphere" && !justFired)
         {
             rigidbody2D.velocity = new Vector2(0, 0);
+            GetComponent<BoxCollider2D>().isTrigger = true;
             stuck = true;
+            Transform dummyChildTransform = coll.transform.FindChild("PreserveScale");
+            if (dummyChildTransform == null)
+            {
+                GameObject dummyChild = new GameObject();
+                dummyChild.name = "PreserveScale";
+                dummyChild.transform.parent = coll.transform;
+                dummyChildTransform = dummyChild.transform;
+            }
+            transform.parent = dummyChildTransform;
         }
     }
 }
