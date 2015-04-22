@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
 	//SWORD VARS
 	public GameObject Sword = null;
 	bool swinging = false;
+	bool halfswung = false;
 
 	//SWITCH BOOL
 	bool usingSword = false;
@@ -55,13 +56,16 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
 		//MOVEMENT
+
+		if (!swinging) {
+			if (Camera.main.ScreenToWorldPoint (Input.mousePosition).x > transform.position.x)
+				facingRight = true;
+			else if (Camera.main.ScreenToWorldPoint (Input.mousePosition).x < transform.position.x)
+				facingRight = false;
+		}
+
 		float xMove = Input.GetAxisRaw ("Horizontal");
-
-		if (xMove > 0)
-			facingRight = true;
-		else if (xMove < 0)
-			facingRight = false;
-
+		
 		this.gameObject.rigidbody2D.velocity = new Vector2 (xMove * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
 
 		if (grounded) {
@@ -108,7 +112,9 @@ public class PlayerController : MonoBehaviour {
 				mousepos -= transform.position;
 				mousepos.z = 0;
 
-				GameObject currArrow = (GameObject)Instantiate (Arrow, gameObject.transform.position, Quaternion.FromToRotation (preserveUp, mousepos));
+				GameObject currArrow = (GameObject)Instantiate (Arrow,
+				                                                gameObject.transform.position,
+				                                                Quaternion.FromToRotation (preserveUp, mousepos));
 
 				currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
 
@@ -117,23 +123,63 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			//SWORD CODE
 
-			if(!facingRight && transform.GetChild(0).rotation != Quaternion.Euler(0,0,45)){
-				transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation,
-				                                                  Quaternion.Euler(0,0,45),
-				                                                  Time.deltaTime);
-				transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position,
-				                                              transform.GetChild(0).parent.position + new Vector3(-0.5f,0.5f,0),
-				                                              Time.deltaTime);
-			}else if(facingRight && transform.GetChild(0).rotation != Quaternion.Euler(0,0,-45)){
-				transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation,
-				                                                  Quaternion.Euler(0,0,-45),
-				                                                  Time.deltaTime);
-				transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position,
-				                                              transform.GetChild(0).parent.position + new Vector3(0.5f,0.5f,0),
-				                                              Time.deltaTime);
-			}
+			if(!swinging){
+				if(!facingRight && transform.GetChild(0).rotation != Quaternion.Euler(0,0,45)){
+					transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation,
+					                                                  Quaternion.Euler(0,0,45),
+					                                                  (8*Time.deltaTime));
+					transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position,
+					                                              transform.GetChild(0).parent.position + new Vector3(-0.5f,0.5f,0),
+					                                              (8*Time.deltaTime));
+				}else if(facingRight && transform.GetChild(0).rotation != Quaternion.Euler(0,0,-45)){
+					transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation,
+					                                                  Quaternion.Euler(0,0,-45),
+					                                                  (8*Time.deltaTime));
+					transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position,
+					                                              transform.GetChild(0).parent.position + new Vector3(0.5f,0.5f,0),
+					                                              (8*Time.deltaTime));
+				}
+				
+				if(Input.GetMouseButton(0) && !swinging){
+					swinging = true;
+				}
+			}else{
+				Quaternion toRot;
+				Vector3 toPos;
+				if(!halfswung){
+					if(facingRight){
+						toRot = Quaternion.Euler(0,0,-90);
+						toPos = new Vector3(1f,-0.3f,0);
+					}else{
+						toRot = Quaternion.Euler(0,0,90);
+						toPos = new Vector3(-1f,-0.3f,0);
+						
+					}
+				}else{
+					if(facingRight){
+						toRot = Quaternion.Euler(0,0,0);
+						toPos = new Vector3(0.5f,0.5f,0);
+						
+					}else{
+						toRot = Quaternion.Euler(0,0,0);
+						toPos = new Vector3(-0.5f,0.5f,0);
+						
+					}
+				}
 
-			if(Input.GetMouseButton(0) && !swinging){
+				transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation,
+				                                                  toRot,
+				                                                  (16*Time.deltaTime));
+				transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position,
+				                                              transform.GetChild(0).parent.position + toPos,
+				                                              (16*Time.deltaTime));
+
+				if(Quaternion.Angle(transform.GetChild(0).rotation,toRot) < 0.1f && !halfswung){
+					halfswung = true;
+				}else if (Quaternion.Angle(transform.GetChild(0).rotation,toRot) < 0.1f && halfswung){
+					halfswung = false;
+					swinging = false;
+				}
 			}
 		}
 	}
