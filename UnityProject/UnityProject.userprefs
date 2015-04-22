@@ -1,14 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Level\KeyBehavior.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Enemy\Movement\Patrol_Movement.cs">
     <Files>
-      <File FileName="Assets\Scripts\Level\KeyBehavior.cs" Line="31" Column="64" />
-      <File FileName="Assets\Scripts\Entities\Enemy\Movement\Patrol_Movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Camera\CameraBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Level\CrumblingPlatformBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\Enemy\Movement\Patrol_Movement.cs" Line="38" Column="72" />
       <File FileName="Assets\Scripts\Entities\Player\PlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Entities\Enemy\Movement\Wander_Movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Entities\Enemy\Movement\Seek_Movement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\Enemy\Movement\Seek_Movement.cs" Line="61" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
