@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private float musicVol = 10.0f, sfxVol = 100.0f;
+    public enum Scenes
+    {
+        MainMenu, Tutorial, Level1, Level2, Level3, Level4, Level5
+    };
+
+    private Scenes currentLevel = Scenes.MainMenu;
+    private float musicVol = 20.0f, sfxVol = 100.0f, timer;
     public AudioSource music, slowmoSfx, speedupSfx;
     public GameObject TitleScreen, pauseMenuPrefab;
     private Canvas pauseMenu;
-    private int currentLevel = 0;
-    private float timer;
     private float duration = 0.3f, startTime;
     private bool poop = false, pause = false;
 
@@ -27,74 +31,75 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (currentLevel != Scenes.MainMenu)
         {
-            startTime = Time.time;
-            pause = !pause;
-            if (pause)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (pauseMenu == null)
-                    pauseMenu = ((GameObject)Instantiate(pauseMenuPrefab)).GetComponent<Canvas>();
-                pauseMenu.gameObject.SetActive(true);
-                slowmoSfx.Play();
-            }
-            else
-            {
-                pauseMenu.gameObject.SetActive(false);
-                speedupSfx.Play();
-            }
-
-            poop = true;
-        }
-
-        if (poop)
-        {
-            float t = (Time.time - startTime) / duration;
-            if (pause)
-            {
-                Time.timeScale = Mathf.SmoothStep(0.999f, 0.0f, t);
-                music.pitch = 0.7f;
-
-                //clamp
-                if (Time.timeScale <= 0.09f)
+                startTime = Time.time;
+                pause = !pause;
+                if (pause)
                 {
-                    Time.timeScale = 0;
-                    music.Pause();
+                    if (pauseMenu == null)
+                        pauseMenu = ((GameObject)Instantiate(pauseMenuPrefab)).GetComponent<Canvas>();
+                    pauseMenu.gameObject.SetActive(true);
+                    slowmoSfx.Play();
                 }
-            }
-            else
-            {
-                Time.timeScale = Mathf.SmoothStep(0.099f, 1.0f, t);
-                music.pitch = 1.0f;
-                //clamp
-                if (Time.timeScale > 0.999f)
+                else
                 {
+                    pauseMenu.gameObject.SetActive(false);
+                    speedupSfx.Play();
                     music.Play();
-                    Time.timeScale = 1.0f;
                 }
+
+                poop = true;
             }
 
-            if (Time.timeScale == 1 || Time.timeScale == 0)
-                poop = false;
+            if (poop)
+            {
+                timer = (Time.time - startTime) / duration;
+                if (pause)
+                    Pause();
+                else
+                    UnPause();
+                if (Time.timeScale == 1 || Time.timeScale == 0)
+                    poop = false;
+            }
         }
     }
 
     private void Pause()
     {
-        //Time.timeScale = Time.timeScale == 1.0f ? 0.0f : 1.0f;
-        if (Time.timeScale >= 0.0f)
+        Time.timeScale = Mathf.SmoothStep(0.999f, 0.0f, timer);
+        music.pitch = 0.7f;
+
+        //clamp
+        if (Time.timeScale <= 0.09f)
         {
-            float t = (Time.time - startTime) / duration;
-            Time.timeScale = Mathf.SmoothStep(1.0f, 0.0f, t);
+            Time.timeScale = 0;
+            music.Pause();
         }
+    }
+
+    private void UnPause()
+    {
+        Time.timeScale = Mathf.SmoothStep(0.099f, 1.0f, timer);
+        music.pitch = 1.0f;
+        //clamp
+        if (Time.timeScale > 0.999f)
+            Time.timeScale = 1.0f;
+    }
+
+    public void Load(Scenes _scene)
+    {
+        currentLevel = _scene;
+        Time.timeScale = 1.0f;
+        transform.parent = null;
+        Application.LoadLevel((int)currentLevel);
     }
 
     public void LoadNextLevel()
     {
-        if (currentLevel < Application.levelCount)
-            currentLevel++;
-        transform.parent = null;
-        Application.LoadLevel(currentLevel);
+        Load(++currentLevel);
     }
 
     // Update is called once per frame
