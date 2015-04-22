@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>F:/installed stuff/Unity 4.6.2f1/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>F:/installed stuff/Unity 4.6.2f1/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -51,8 +51,10 @@
      <Compile Include="Assets\Scripts\AfflictionStates\Damage\DamageType.cs" />
      <Compile Include="Assets\Scripts\AfflictionStates\Damage\OneTimeHit.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
+     <Compile Include="Assets\Scripts\Components\Door.cs" />
      <Compile Include="Assets\Scripts\Components\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Components\Health\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
      <Compile Include="Assets\Scripts\Components\Timer.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\AttackAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\MeleeAI.cs" />
@@ -69,18 +71,22 @@
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\Redirect.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\Sphere.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
-     <Compile Include="Assets\Scripts\Level\Interactive\Door.cs" />
+     <Compile Include="Assets\Scripts\Level\CrumblingPlatformBehavior.cs" />
+     <Compile Include="Assets\Scripts\Level\Door.cs" />
      <Compile Include="Assets\Scripts\Level\Interactive\Target.cs" />
+     <Compile Include="Assets\Scripts\Level\KeyBehavior.cs" />
+     <Compile Include="Assets\Scripts\Level\OrganizeMe.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyFlyweight.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
      <Compile Include="Assets\Scripts\Managers\StatsManager.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\DisplayVolumeLevelText.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\LoadMainMenu.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\ScrollingText.cs" />
      <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
      <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>F:/installed stuff/Unity 4.6.2f1/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

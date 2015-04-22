@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6184274}
   - 114: {fileID: 11482140}
   m_Layer: 8
-  m_Name: Wall35
+  m_Name: Wall30
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 184274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.7000008, y: 18.6000004, z: 0}
-  m_LocalScale: {x: 1, y: 35, z: 1}
+  m_LocalScale: {x: 1, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

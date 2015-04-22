@@ -49,8 +49,6 @@ public class Door : MonoBehaviour
     private void OpenDoor()
     {
         if (requisites.Count == 0)
-        {
             open = true;
-        }
     }
 }
