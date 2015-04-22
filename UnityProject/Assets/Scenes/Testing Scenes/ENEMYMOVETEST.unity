@@ -1942,7 +1942,7 @@ MonoBehaviour:
   direction: 0
   moveSpeed: 4
   ground: {fileID: 0}
-  LimitToPlatform: 0
+  LimitToPlatform: 1
   leftBound: {fileID: 2116973109}
   rightBound: {fileID: 1923284186}
 --- !u!212 &880432710

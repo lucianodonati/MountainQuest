@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Enemy\Movement\Seek_Movement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Level\KeyBehavior.cs">
     <Files>
-      <File FileName="Assets\Scripts\DELETEME\BOXXXX.cs" Line="14" Column="44" />
-      <File FileName="Assets\Scripts\Level\KeyBehavior.cs" Line="57" Column="68" />
+      <File FileName="Assets\Scripts\Level\KeyBehavior.cs" Line="12" Column="12" />
       <File FileName="Assets\Scripts\Entities\Enemy\Movement\Patrol_Movement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Entities\Player\PlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Entities\Enemy\Movement\Wander_Movement.cs" Line="1" Column="1" />

@@ -9,6 +9,8 @@ public class KeyBehavior : MonoBehaviour {
 	ParticleSystem.Particle[] finalparticles;
 	int numparticles;
 
+	public int finalBurst;
+
 	bool touched = false;
 
 	float dieTimer;
@@ -79,7 +81,7 @@ public class KeyBehavior : MonoBehaviour {
 			Destroy (gameObject.rigidbody2D);
 
 			psys.startSpeed = 10;
-			psys.Emit (100);
+			psys.Emit (finalBurst);
 			psys.simulationSpace = ParticleSystemSimulationSpace.World;
 
 			dieTimer = dieTimerMax;

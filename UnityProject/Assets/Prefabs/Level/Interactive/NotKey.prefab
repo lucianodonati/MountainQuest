@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedDoor: {fileID: 0}
+  finalBurst: 100
   dieTimerMax: 5
 --- !u!198 &19896524
 ParticleSystem:
