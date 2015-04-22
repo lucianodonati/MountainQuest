@@ -4,13 +4,19 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	// MOVEMENT VARS
-	public float movementSpeed = 2;
+	//calculated for rigidbody2d
+	// mass 5
+	// linear drag 0
+	// angular drag 0.05
+	// gravity scale 4
 
+	public float movementSpeed = 10;
 
-	public float jumpSpeed = 0.2f;
+	public float jumpSpeed = 1f;
 	private float jumpTimer;
 	public float jumpTimerMax = 0.1f;
-	public float firstJumpModifier = 10.0f;
+	public float firstJumpModifier = 20.0f;
+	bool jumplock = false;
 
 	public bool grounded = false;
 
@@ -54,13 +60,19 @@ public class PlayerController : MonoBehaviour {
 			jumpCooldownTimer -= Time.deltaTime;
 		}
 
-		if (Input.GetAxisRaw ("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f) {
-			if(jumpTimer == jumpTimerMax)
+		if (Input.GetAxisRaw ("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock) {
+			if(jumpTimer == jumpTimerMax && grounded){
 				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x,jumpSpeed * firstJumpModifier);
-			else
-				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed);
+			}else if(jumpTimer < jumpTimerMax/5){
+				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed * firstJumpModifier/3);
+				jumplock = true;
+			}
 
 			jumpTimer-=Time.deltaTime;
+		}
+
+		if(Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock){
+			jumplock = true;
 		}
 
 		this.transform.up = preserveUp;
@@ -78,11 +90,10 @@ public class PlayerController : MonoBehaviour {
 
 			GameObject currArrow = (GameObject)Instantiate(Arrow,gameObject.transform.position,Quaternion.FromToRotation(preserveUp,mousepos));
 
-			currArrow.rigidbody2D.velocity = mousepos.normalized * 2.0f;
+			currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
 
 			arrowCooldownTimer = arrowCooldownTimerMax;
 		}
-
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
@@ -95,12 +106,12 @@ public class PlayerController : MonoBehaviour {
 	void OnCollisionStay2D(Collision2D coll){
 		if (coll.gameObject.tag == "Platform") {
 			grounded = true;
+			jumplock = false;
 			jumpTimer = jumpTimerMax;
-			
 		}
 	}
 
 	void OnCollisionExit2D(Collision2D coll){
 		grounded = false;
-	}	
+	}
 }
