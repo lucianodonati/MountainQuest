@@ -14,8 +14,9 @@ GameObject:
   - 50: {fileID: 5096524}
   - 198: {fileID: 19896524}
   - 199: {fileID: 19996524}
+  - 114: {fileID: 11403936}
   m_Layer: 0
-  m_Name: NotKey
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +60,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .0903174654
   m_Center: {x: 0, y: 0}
+--- !u!114 &11403936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5067dacd0f28094c9bba632f39c4e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daddy: Keys
 --- !u!114 &11496524
 MonoBehaviour:
   m_ObjectHideFlags: 1

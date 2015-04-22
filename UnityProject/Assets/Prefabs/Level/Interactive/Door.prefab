@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11413204}
   - 61: {fileID: 6191274}
   - 212: {fileID: 21262016}
+  - 114: {fileID: 11442502}
   m_Layer: 8
   m_Name: Door
   m_TagString: Platform
@@ -25,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6500001, y: 5.32999992, z: 0}
-  m_LocalScale: {x: 4.98999977, y: 40.4000015, z: 1}
+  m_LocalPosition: {x: 2.8900001, y: -14.25, z: 0}
+  m_LocalScale: {x: 8.14332867, y: 30.1784534, z: 1.63192952}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,7 +53,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites: []
+  requisites:
+  - {fileID: 0}
+--- !u!114 &11442502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5067dacd0f28094c9bba632f39c4e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daddy: Doors
 --- !u!212 &21262016
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -72,7 +86,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: .375, g: .271551728, b: 0, a: 1}
 --- !u!1001 &100100000

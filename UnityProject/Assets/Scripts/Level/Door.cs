@@ -18,6 +18,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        OpenDoor();
         if (open)
         {
             if (sprite != null)
@@ -34,16 +35,22 @@ public class Door : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" /*|| collision.gameObject.GetComponent<Arrow>.getOwner().gameobject.tag == "Player"*/)
         {
-            if (requisites.Count == 0)
-            {
-                startTime = Time.time;
-                open = true;
-            }
+            OpenDoor();
+            startTime = Time.time;
         }
     }
 
     public void RemoveFromKeyList(GameObject thisGuy)
     {
+        startTime = Time.time;
         requisites.Remove(thisGuy);
+    }
+
+    private void OpenDoor()
+    {
+        if (requisites.Count == 0)
+        {
+            open = true;
+        }
     }
 }
