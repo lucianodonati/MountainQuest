@@ -75,7 +75,9 @@
     <Compile Include="Assets\Scripts\Entities\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Boost.cs" />
+    <Compile Include="Assets\Scripts\Entities\Player\Spheres\BoostSphere.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Redirect.cs" />
+    <Compile Include="Assets\Scripts\Entities\Player\Spheres\RedirectSphere.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Sphere.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyFlyweight.cs" />

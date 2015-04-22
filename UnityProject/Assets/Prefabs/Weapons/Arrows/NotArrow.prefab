@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 429850}
   - 50: {fileID: 5012442}
-  - 50: {fileID: 5027456}
   - 198: {fileID: 19815332}
   - 199: {fileID: 19915332}
+  - 61: {fileID: 6116650}
   m_Layer: 0
   m_Name: NotArrow
   m_TagString: Untagged
@@ -104,21 +104,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!50 &5027456
-Rigidbody2D:
+--- !u!61 &6116650
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129850}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!198 &19815332
 ParticleSystem:
   m_ObjectHideFlags: 1
