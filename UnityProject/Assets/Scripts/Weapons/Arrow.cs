@@ -1,19 +1,23 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Arrow : MonoBehaviour {
-	public float speed;
+public class Arrow : MonoBehaviour
+{
+    public float speed;
     public float stuckTimer = 5;
     private bool stuck = false;
     public int numCollisions = 0;
 
-	// Use this for initialization
-	void Start () {
-        rigidbody2D.velocity = new Vector2(1, 0) * speed;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    private void Start()
+    {
+        Physics2D.IgnoreLayerCollision(9, 14, true);
+        rigidbody2D.velocity = transform.up * speed;
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
         if (stuck)
         {
             stuckTimer -= Time.deltaTime;
@@ -23,20 +27,27 @@ public class Arrow : MonoBehaviour {
         }
 
         rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
-	}
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag != "Sphere" && coll.gameObject.tag != "RangedWeapon")
-        {
-            rigidbody2D.velocity = new Vector2(0, 0);
-            stuck = true;
-        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionExit2D()
     {
-        if (other.gameObject.tag != "Sphere" && other.gameObject.tag != "RangedWeapon")
+        Physics2D.IgnoreLayerCollision(9, 14, false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        Debug.Log("HIT ");
+        CheckCollision(coll.gameObject.tag);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        CheckCollision(other.tag);
+    }
+
+    private void CheckCollision(string tag)
+    {
+        if (tag != "Sphere")
         {
             rigidbody2D.velocity = new Vector2(0, 0);
             stuck = true;
