@@ -54,6 +54,7 @@ public class KeyBehavior : MonoBehaviour {
 						            finalparticles[i].velocity.y + to.y,
 						            psys.transform.position.z);
 					}else{
+						finalparticles[i].position = attachedDoor.transform.position;
 						finalparticles[i].velocity = Vector3.zero;
 					}
 				}
