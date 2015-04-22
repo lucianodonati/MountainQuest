@@ -25,7 +25,10 @@ public class KeyBehavior : MonoBehaviour {
 		if (touched) {
 			dieTimer -= Time.deltaTime;
 			SpriteRenderer sprndr = gameObject.GetComponent<SpriteRenderer>();
-			sprndr.color = new Color(sprndr.color.r,sprndr.color.g,sprndr.color.b,(dieTimer/dieTimerMax));
+			sprndr.color = new Color(sprndr.color.r,
+			                         sprndr.color.g,
+			                         sprndr.color.b,
+			                         Mathf.SmoothStep(sprndr.color.a,0,1));
 
 			if(dieTimer <= 0.0f)
 				Destroy(gameObject);
@@ -39,12 +42,20 @@ public class KeyBehavior : MonoBehaviour {
 			if(dieTimer <= 2* dieTimerMax/3){
 				for(int i = 0; i < numparticles; ++i){
 					Vector3 to =
-						(attachedDoor.transform.position - finalparticles[i].position).normalized * (dieTimerMax/dieTimer);
+						(attachedDoor.transform.position - finalparticles[i].position);
+
+					to.z = 0;
+
+					if(to.magnitude > 1){
+					to = to.normalized * (dieTimerMax/dieTimer); 
 
 					finalparticles[i].velocity =
 						new Vector3(finalparticles[i].velocity.x + to.x,
 						            finalparticles[i].velocity.y + to.y,
 						            psys.transform.position.z);
+					}else{
+						finalparticles[i].velocity = Vector3.zero;
+					}
 				}
 			}else{
 				for (int i = 0; i < numparticles; ++i) {
