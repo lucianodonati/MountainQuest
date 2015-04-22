@@ -15,9 +15,9 @@ GameObject:
   - 198: {fileID: 19896524}
   - 199: {fileID: 19996524}
   - 114: {fileID: 11403936}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.37, y: 14.21, z: 0}
+  m_LocalPosition: {x: 15.1800003, y: 2.18000007, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedDoor: {fileID: 0}
-  dieTimerMax: 5
+  dieTimerMax: 4
 --- !u!198 &19896524
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1154,7 +1154,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1194,7 +1194,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2fdedf85f3b77144093c4b62f4d7b503, type: 3}
   m_Color: {r: .893496454, g: .904411793, b: .113051474, a: 1}
 --- !u!1001 &100100000
 Prefab:
