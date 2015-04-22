@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3329082}
   - 23: {fileID: 2329082}
   - 61: {fileID: 6139676}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Left
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,9 +29,9 @@ GameObject:
   - 33: {fileID: 3329084}
   - 23: {fileID: 2329084}
   - 61: {fileID: 6139678}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Right
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - 33: {fileID: 3329086}
   - 23: {fileID: 2329086}
   - 61: {fileID: 6185334}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Middle
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429088}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Platform30
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.3157701, y: 11.5054626, z: 0}
+  m_LocalPosition: {x: -14.25, y: -8.51000023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429082}

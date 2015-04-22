@@ -34,6 +34,14 @@ public class PlayerController : MonoBehaviour {
 	private float arrowCooldownTimer;
 	public float arrowCooldownTimerMax = 0.5f;
 
+
+	//SWORD VARS
+	public GameObject Sword = null;
+	bool swinging = false;
+
+	//SWITCH BOOL
+	bool usingSword = false;
+
 	// Use this for initialization
 	void Start () {
 		preserveUp = this.transform.up;
@@ -77,22 +85,56 @@ public class PlayerController : MonoBehaviour {
 
 		this.transform.up = preserveUp;
 
+		if(Input.GetKeyDown(KeyCode.Space)){
+			usingSword = !usingSword;
 
-		//FIRING ARROWS
-		if (arrowCooldownTimer > 0.0f)
-			arrowCooldownTimer -= Time.deltaTime;
+			if(usingSword){
+				GameObject sord = (GameObject)Instantiate(Sword,transform.position,Quaternion.Euler(0,0,-45));
+				sord.transform.parent = transform;
+				sord.transform.position = sord.transform.parent.position + new Vector3(0.5f,0.5f,0);
+			}else{
+				Destroy(transform.GetChild(0).gameObject);
+			}
+		}
 
-		if (Input.GetMouseButton (0) && arrowCooldownTimer <= 0.0f) {
+		if (!usingSword) {
+			//FIRING ARROWS
+			if (arrowCooldownTimer > 0.0f)
+				arrowCooldownTimer -= Time.deltaTime;
 
-			Vector3 mousepos = GameObject.FindGameObjectWithTag("MainCamera").camera.ScreenToWorldPoint(Input.mousePosition);
-			mousepos -= transform.position;
-			mousepos.z = 0;
+			if (Input.GetMouseButton (0) && arrowCooldownTimer <= 0.0f) {
 
-			GameObject currArrow = (GameObject)Instantiate(Arrow,gameObject.transform.position,Quaternion.FromToRotation(preserveUp,mousepos));
+				Vector3 mousepos = GameObject.FindGameObjectWithTag ("MainCamera").camera.ScreenToWorldPoint (Input.mousePosition);
+				mousepos -= transform.position;
+				mousepos.z = 0;
 
-			currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
+				GameObject currArrow = (GameObject)Instantiate (Arrow, gameObject.transform.position, Quaternion.FromToRotation (preserveUp, mousepos));
 
-			arrowCooldownTimer = arrowCooldownTimerMax;
+				currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
+
+				arrowCooldownTimer = arrowCooldownTimerMax;
+			}
+		} else {
+			//SWORD CODE
+
+			if(!facingRight && transform.GetChild(0).rotation != Quaternion.Euler(0,0,45)){
+				transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation,
+				                                                  Quaternion.Euler(0,0,45),
+				                                                  Time.deltaTime);
+				transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position,
+				                                              transform.GetChild(0).parent.position + new Vector3(-0.5f,0.5f,0),
+				                                              Time.deltaTime);
+			}else if(facingRight && transform.GetChild(0).rotation != Quaternion.Euler(0,0,-45)){
+				transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation,
+				                                                  Quaternion.Euler(0,0,-45),
+				                                                  Time.deltaTime);
+				transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position,
+				                                              transform.GetChild(0).parent.position + new Vector3(0.5f,0.5f,0),
+				                                              Time.deltaTime);
+			}
+
+			if(Input.GetMouseButton(0) && !swinging){
+			}
 		}
 	}
 
