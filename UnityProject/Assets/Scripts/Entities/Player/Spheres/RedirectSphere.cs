@@ -47,7 +47,6 @@ public class RedirectSphere : MonoBehaviour
 			
 			proj.Damage += DamageModifier;
 			
-			proj.particleSystem.Play();
 			
 
 		}

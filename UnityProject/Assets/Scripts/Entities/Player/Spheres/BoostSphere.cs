@@ -21,10 +21,9 @@ public class BoostSphere : MonoBehaviour {
 
 		AliveTimer -= Time.deltaTime;
 		if (AliveTimer <= 0) {
-			Destroy (this.gameObject); 		
 			if(Owner!=null && Owner.GetComponent<Player>() != null)
 				Owner.GetComponent<Player>().RemoveBSphere();
-			
+			Destroy (this.gameObject); 		
 		}
 		
 		if (AliveTimer<=2) {

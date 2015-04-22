@@ -1,11 +1,38 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Player\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\Enemy\Movement\Seek_Movement.cs">
     <Files>
-      <File FileName="Assets\Scripts\Entities\Player\Player.cs" Line="20" Column="34" />
-      <File FileName="Assets\Scripts\Entities\Player\Spheres\RedirectSphere.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Entities\Player\Spheres\BoostSphere.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\Player\Player.cs" Line="92" Column="62" />
+      <File FileName="Assets\Scripts\Entities\Player\Spheres\BoostSphere.cs" Line="29" Column="23" />
+      <File FileName="Assets\Scripts\Entities\Player\Spheres\RedirectSphere.cs" Line="70" Column="1" />
+      <File FileName="Assets\Scripts\Weapons\Arrow.cs" Line="17" Column="2" />
+      <File FileName="Assets\Scripts\Level\KeyBehavior.cs" Line="116" Column="6" />
+      <File FileName="Assets\Scripts\Entities\Enemy\Movement\Seek_Movement.cs" Line="11" Column="27" />
+      <File FileName="Assets\Scripts\Entities\Enemy\Movement\Patrol_Movement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\Enemy\Movement\Idle_Movement.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="Entities" expanded="True">
+                <Node name="Enemy" expanded="True">
+                  <Node name="Movement" expanded="True">
+                    <Node name="Seek_Movement.cs" selected="True" />
+                  </Node>
+                </Node>
+                <Node name="Player" expanded="True">
+                  <Node name="Spheres" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Level" expanded="True" />
+              <Node name="Weapons" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

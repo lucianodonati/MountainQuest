@@ -66,7 +66,7 @@ public class Player : Entity
 			}
 						
 			if (goCreate) {
-				CreateBoostSphere = (GameObject)Instantiate (ClickObjBoost, mPos, Quaternion.identity);
+				CreateBoostSphere = (GameObject)Instantiate (ClickObjBoost, CreateBasicSphere.transform.position, Quaternion.identity);
 				BSphereTotal += 1;
 				CreateBoostSphere.GetComponent<BoostSphere> ().SetOwner (this);
 			}	
