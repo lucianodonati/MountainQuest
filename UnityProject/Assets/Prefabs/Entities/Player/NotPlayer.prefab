@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11453492}
   - 50: {fileID: 5053492}
   - 61: {fileID: 6153492}
+  - 114: {fileID: 11408038}
   m_Layer: 0
   m_Name: NotPlayer
   m_TagString: Player
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.7846899, y: 6.77163744, z: 0}
+  m_LocalPosition: {x: -2.9000001, y: 8.39999962, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,7 +41,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -57,6 +58,23 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .133871019, y: .133870989}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11408038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb90537699653c4479ca44cf09b71ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  affectedBy: []
+  Spheres: []
+  Arrows: []
+  Swords: []
+  lives: 3
 --- !u!114 &11453492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,14 +86,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309091226dadda74989d022fb9b6abdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 7.5
+  movementSpeed: 10
   jumpSpeed: 1
-  jumpTimerMax: .200000003
-  firstJumpModifier: 10
+  jumpTimerMax: .100000001
+  firstJumpModifier: 20
   grounded: 0
   facingRight: 1
   jumpCooldownTimerMax: .100000001
-  Arrow: {fileID: 129850, guid: c364f89ee99183044b468650ec0c2bf5, type: 2}
+  Arrow: {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
   arrowCooldownTimerMax: .5
 --- !u!212 &21253492
 SpriteRenderer:

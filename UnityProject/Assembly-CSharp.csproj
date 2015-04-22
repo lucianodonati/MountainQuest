@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Components\Health\Health.cs" />
      <Compile Include="Assets\Scripts\Components\Health\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
+     <Compile Include="Assets\Scripts\Components\Timer.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\AttackAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\MeleeAI.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy\Combat\RangedAI.cs" />
@@ -72,11 +73,18 @@
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\RedirectSphere.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\Sphere.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
+     <Compile Include="Assets\Scripts\Level\CrumblingPlatformBehavior.cs" />
+     <Compile Include="Assets\Scripts\Level\Door.cs" />
+     <Compile Include="Assets\Scripts\Level\Interactive\Target.cs" />
+     <Compile Include="Assets\Scripts\Level\KeyBehavior.cs" />
+     <Compile Include="Assets\Scripts\Level\OrganizeMe.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyFlyweight.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
      <Compile Include="Assets\Scripts\Managers\StatsManager.cs" />
-     <Compile Include="Assets\Scripts\UI_Scripts\Button.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\DisplayVolumeLevelText.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\LoadMainMenu.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\ScrollingText.cs" />
      <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
      <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
  <Reference Include="UnityEngine.UI">

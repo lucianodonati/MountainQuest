@@ -4,12 +4,18 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	// MOVEMENT VARS
-	public float movementSpeed = 2;
+	//calculated for rigidbody2d
+	// mass 5
+	// linear drag 0
+	// angular drag 0.05
+	// gravity scale 4
 
-	public float jumpSpeed = 0.2f;
+	public float movementSpeed = 10;
+
+	public float jumpSpeed = 1f;
 	private float jumpTimer;
 	public float jumpTimerMax = 0.1f;
-	public float firstJumpModifier = 10.0f;
+	public float firstJumpModifier = 20.0f;
 	bool jumplock = false;
 
 	public bool grounded = false;
@@ -55,15 +61,17 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetAxisRaw ("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock) {
-			if(jumpTimer == jumpTimerMax && grounded)
+			if(jumpTimer == jumpTimerMax && grounded){
 				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x,jumpSpeed * firstJumpModifier);
-			else
-				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed);
+			}else if(jumpTimer < jumpTimerMax/5){
+				rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed * firstJumpModifier/3);
+				jumplock = true;
+			}
 
 			jumpTimer-=Time.deltaTime;
 		}
 
-		if(Input.GetAxisRaw("Vertical") == 0 && !grounded){
+		if(Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock){
 			jumplock = true;
 		}
 
@@ -86,7 +94,6 @@ public class PlayerController : MonoBehaviour {
 
 			arrowCooldownTimer = arrowCooldownTimerMax;
 		}
-
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){

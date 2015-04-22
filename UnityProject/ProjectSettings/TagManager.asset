@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - GameManager
+  - Wall
   - Platform
+  - Arrow
+  - Sword
+  - Enemy
+  - Boss
+  - Sphere
+  - Key
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -13,12 +21,12 @@ TagManager:
   Builtin Layer 5: UI
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: 
-  User Layer 9: 
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
+  User Layer 8: Platform
+  User Layer 9: Player
+  User Layer 10: Entity
+  User Layer 11: Weapons
+  User Layer 12: Sphere
+  User Layer 13: Key
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 
