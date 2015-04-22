@@ -1012,7 +1012,7 @@ MonoBehaviour:
   isAiming: 0
   instructionsUI: {fileID: 0}
   ClickObj: {fileID: 172034, guid: 95495a8f0e97f764dbc30ad218841fc4, type: 2}
-  ClickObjBoost: {fileID: 162028, guid: 7d6d96921669926409b850bcb8abf9a6, type: 2}
+  ClickObjBoost: {fileID: 108880, guid: 2c8877bd2ec39ef438768fe1d0513467, type: 2}
   basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
   SphereDistance: 7
   PlayerAliveTimer: 8
