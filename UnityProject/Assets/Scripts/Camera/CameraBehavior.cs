@@ -36,15 +36,21 @@ public class CameraBehavior : MonoBehaviour {
 			newpos.y = Mathf.SmoothStep(transform.position.y, player.transform.position.y + deadHalfHeight,8*Time.deltaTime);
 		}
 
-		if (newpos.x - halfWidth < MinBound.transform.position.x)
-			newpos.x = MinBound.transform.position.x + halfWidth;
-		else if(newpos.x + halfWidth > MaxBound.transform.position.x)
-			newpos.x = MaxBound.transform.position.x - halfWidth;
+		if (MinBound != null) {
+			if (newpos.x - halfWidth < MinBound.transform.position.x)
+				newpos.x = MinBound.transform.position.x + halfWidth;
 
-		if (newpos.y - halfHeight < MinBound.transform.position.y)
-			newpos.y = MinBound.transform.position.y + halfHeight;
-		else if(newpos.y + halfHeight > MaxBound.transform.position.y)
-			newpos.y = MaxBound.transform.position.y - halfHeight;
+			if (newpos.y - halfHeight < MinBound.transform.position.y)
+				newpos.y = MinBound.transform.position.y + halfHeight;
+		}
+
+		if (MaxBound != null) {
+			if (newpos.x + halfWidth > MaxBound.transform.position.x)
+				newpos.x = MaxBound.transform.position.x - halfWidth;
+
+			if (newpos.y + halfHeight > MaxBound.transform.position.y)
+				newpos.y = MaxBound.transform.position.y - halfHeight;
+		}
 
 		transform.position = newpos;
 	}
