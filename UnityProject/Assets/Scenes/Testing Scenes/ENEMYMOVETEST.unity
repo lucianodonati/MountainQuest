@@ -4940,6 +4940,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1280
+  ignoreEdges: 0
 --- !u!212 &2143776396
 SpriteRenderer:
   m_ObjectHideFlags: 0

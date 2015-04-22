@@ -17,6 +17,8 @@ public class Seek_Movement : MonoBehaviour {
 
 	public LayerMask layerMask;
 
+	public bool ignoreEdges = false;
+
 	// Use this for initialization
 	void Start () {
 		preserveUp = this.transform.up;
@@ -49,9 +51,11 @@ public class Seek_Movement : MonoBehaviour {
 					rigidbody2D.velocity = velocityHold.normalized * moveSpeed;
 				}
 
+				if(!ignoreEdges){
 				if(collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
 				   collider2D.bounds.max.x + (rigidbody2D.velocity.x * Time.deltaTime) > ground.collider2D.bounds.max.x)
 					rigidbody2D.velocity = Vector2.zero;
+				}
 			}
 
 		} else if (target != null) {
