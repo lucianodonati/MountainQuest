@@ -3300,6 +3300,16 @@ MonoBehaviour:
   Spheres: []
   Arrows: []
   Swords: []
+  arrow: {fileID: 0}
+  isAiming: 0
+  instructionsUI: {fileID: 0}
+  ClickObj: {fileID: 172034, guid: 95495a8f0e97f764dbc30ad218841fc4, type: 2}
+  ClickObjBoost: {fileID: 108880, guid: 2c8877bd2ec39ef438768fe1d0513467, type: 2}
+  basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
+  SphereDistance: 7
+  PlayerAliveTimer: 8
+  RSphereCap: 3
+  BSphereCap: 3
   lives: 3
 --- !u!61 &399855266
 BoxCollider2D:
@@ -3380,7 +3390,7 @@ Transform:
   m_PrefabInternal: {fileID: 1488407830}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9000001, y: 8.39999962, z: 0}
+  m_LocalPosition: {x: -1.82000005, y: 7.51999998, z: 0}
   m_LocalScale: {x: 10, y: 25.3750114, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14164,11 +14174,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.9000001
+      value: -1.82000005
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.39999962
+      value: 7.51999998
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14202,6 +14212,18 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 25.3750114
       objectReference: {fileID: 0}
+    - target: {fileID: 11408038, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: ClickObjBoost
+      value: 
+      objectReference: {fileID: 108880, guid: 2c8877bd2ec39ef438768fe1d0513467, type: 2}
+    - target: {fileID: 11408038, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: basicClickObj
+      value: 
+      objectReference: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
+    - target: {fileID: 11408038, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: ClickObj
+      value: 
+      objectReference: {fileID: 172034, guid: 95495a8f0e97f764dbc30ad218841fc4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
   m_RootGameObject: {fileID: 399855264}

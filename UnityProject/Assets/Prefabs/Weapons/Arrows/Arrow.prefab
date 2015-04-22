@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11455430}
   - 61: {fileID: 6155430}
   - 50: {fileID: 5055430}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.09000015, y: 2.66000009, z: 0}
-  m_LocalScale: {x: 6.18907166, y: .939674497, z: 0}
+  m_LocalPosition: {x: -1.17333639, y: 6.31146002, z: 0}
+  m_LocalScale: {x: 1, y: 6, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  stuckTimer: 5
+  stuckTimer: 30
   numCollisions: 0
 --- !u!212 &21255430
 SpriteRenderer:
