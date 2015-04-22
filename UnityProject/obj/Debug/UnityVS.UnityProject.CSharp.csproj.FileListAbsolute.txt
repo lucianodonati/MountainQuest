@@ -9,3 +9,14 @@ C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feis
 C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
 C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.dll
 C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\obj\Debug\UnityVS.UnityProject.CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.dll
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+C:\Users\Luciano\Google Drive\FullSail\Current\Structure of Game Production\Feisty Raccoon Studios\Mountain Quest\Project\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.pdb

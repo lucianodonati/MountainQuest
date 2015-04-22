@@ -1,4 +1,14 @@
 *.ini
 UnityProject/Library
-/UnityProject/UnityProject-csharp.sln
 /UnityProject/UnityProject.sln
+/UnityProject/UnityProject-csharp.sln
+
+/UnityProject/UnityVS.UnityProject.CSharp.csproj
+/UnityProject/UnityVS.UnityProject.CSharp.Editor.csproj
+/UnityProject/UnityVS.UnityProject.sln
+/UnityProject/UnityVS.UnityProject.v12.suo
+/UnityProject/Assembly-CSharp.csproj
+/UnityProject/Assembly-CSharp-Editor.csproj
+/UnityProject/Assembly-CSharp-Editor-vs.csproj
+/UnityProject/Assembly-CSharp-vs.csproj
+/UnityProject/UnityProject.userprefs
