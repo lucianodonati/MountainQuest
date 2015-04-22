@@ -57,6 +57,8 @@ public class Seek_Movement : MonoBehaviour {
 		} else if (target != null) {
 			target = null;
 		}
+
+		this.transform.up = preserveUp;
 	}
 
 	void OnTriggerStay2D(Collider2D coll){

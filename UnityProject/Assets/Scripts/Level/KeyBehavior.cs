@@ -1,119 +1,102 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class KeyBehavior : MonoBehaviour
-{
-    public GameObject attachedDoor;
+public class KeyBehavior : MonoBehaviour {
 
-    private ParticleSystem psys;
-    private ParticleSystem.Particle[] finalparticles;
-    private int numparticles;
+	public GameObject attachedDoor;
 
-    private bool touched = false;
+	ParticleSystem psys;
+	ParticleSystem.Particle[] finalparticles;
+	int numparticles;
 
-    private float dieTimer;
-    public float dieTimerMax = 5f;
+	bool touched = false;
 
-    // Use this for initialization
-    private void Start()
-    {
-        psys = gameObject.GetComponent<ParticleSystem>();
-    }
+	float dieTimer;
+	public float dieTimerMax = 5f;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (touched)
-        {
-            dieTimer -= Time.deltaTime;
-            SpriteRenderer sprndr = gameObject.GetComponent<SpriteRenderer>();
-            sprndr.color = new Color(sprndr.color.r,
-                                     sprndr.color.g,
-                                     sprndr.color.b,
-                                     Mathf.SmoothStep(sprndr.color.a, 0, 1));
+	// Use this for initialization
+	void Start () {
+		psys = gameObject.GetComponent<ParticleSystem>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
 
-            if (dieTimer <= 0.0f)
-                Destroy(gameObject);
-        }
-    }
+		if (touched) {
+			dieTimer -= Time.deltaTime;
+			SpriteRenderer sprndr = gameObject.GetComponent<SpriteRenderer>();
+			sprndr.color = new Color(sprndr.color.r,
+			                         sprndr.color.g,
+			                         sprndr.color.b,
+			                         Mathf.SmoothStep(sprndr.color.a,0,1));
 
-    private void LateUpdate()
-    {
-        if (touched)
-        {
-            numparticles = psys.GetParticles(finalparticles);
+			if(dieTimer <= 0.0f)
+				Destroy(gameObject);
+		}
+	}
 
-            if (dieTimer <= 2 * dieTimerMax / 3)
-            {
-                for (int i = 0; i < numparticles; ++i)
-                {
-                    Vector3 to =
-                        (attachedDoor.transform.position - finalparticles[i].position);
+	void LateUpdate(){
+		if (touched) {
+			numparticles = psys.GetParticles(finalparticles);
+			
+			if(dieTimer <= 2* dieTimerMax/3){
+				for(int i = 0; i < numparticles; ++i){
+					Vector3 to =
+						(attachedDoor.transform.position - finalparticles[i].position);
 
-                    to.z = 0;
+					to.z = 0;
 
-                    if (to.magnitude > 1)
-                    {
-                        to = to.normalized * (dieTimerMax / dieTimer);
+					if(to.magnitude > 1){
+					to = to.normalized * (dieTimerMax/dieTimer); 
 
-                        finalparticles[i].velocity =
-                            new Vector3(finalparticles[i].velocity.x + to.x,
-                                        finalparticles[i].velocity.y + to.y,
-                                        psys.transform.position.z);
-                    }
-                    else
-                    {
-                        finalparticles[i].velocity = Vector3.zero;
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < numparticles; ++i)
-                {
-                    finalparticles[i].velocity =
-                        new Vector3(Mathf.SmoothStep(finalparticles[i].velocity.x, 0, Time.deltaTime),
-                                    Mathf.SmoothStep(finalparticles[i].velocity.y, 0, Time.deltaTime),
-                                    psys.transform.position.z);
-                }
-            }
+					finalparticles[i].velocity =
+						new Vector3(finalparticles[i].velocity.x + to.x,
+						            finalparticles[i].velocity.y + to.y,
+						            psys.transform.position.z);
+					}else{
+						finalparticles[i].position = attachedDoor.transform.position;
+						finalparticles[i].velocity = Vector3.zero;
+					}
+				}
+			}else{
+				for (int i = 0; i < numparticles; ++i) {
+					finalparticles [i].velocity =
+						new Vector3(Mathf.SmoothStep(finalparticles[i].velocity.x,0,Time.deltaTime),
+						            Mathf.SmoothStep(finalparticles[i].velocity.y,0,Time.deltaTime),
+						            psys.transform.position.z);
+				}
+			}
 
-            psys.SetParticles(finalparticles, numparticles);
-        }
-    }
+			psys.SetParticles(finalparticles,numparticles);
+			
+		}
+	}
 
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Player" && !touched)
-        {
-            Destroy(gameObject.collider2D);
-            Destroy(gameObject.rigidbody2D);
+	void OnCollisionEnter2D(Collision2D coll){
+		if (coll.gameObject.tag == "Player" && !touched) {
 
-            psys.startSpeed = 10;
-            psys.Emit(100);
-            psys.simulationSpace = ParticleSystemSimulationSpace.World;
+			Destroy (gameObject.collider2D);
+			Destroy (gameObject.rigidbody2D);
 
-            dieTimer = dieTimerMax;
-            touched = true;
+			psys.startSpeed = 10;
+			psys.Emit (100);
+			psys.simulationSpace = ParticleSystemSimulationSpace.World;
 
-            finalparticles = new ParticleSystem.Particle[psys.maxParticles];
+			dieTimer = dieTimerMax;
+			touched = true;
 
-            numparticles = psys.GetParticles(finalparticles);
+			finalparticles = new ParticleSystem.Particle[psys.maxParticles];
 
-            for (int i = 0; i < numparticles; ++i)
-            {
-                int modif = Random.Range(10, 20);
+			numparticles = psys.GetParticles (finalparticles);
 
-                finalparticles[i].velocity =
-                        new Vector3(finalparticles[i].velocity.x * modif, finalparticles[i].velocity.y * modif, finalparticles[i].velocity.z);
-            }
-            psys.SetParticles(finalparticles, numparticles);
-        }
-    }
+			for (int i = 0; i < numparticles; ++i) {
 
-    private void OnDestroy()
-    {
-        Door theDoor = attachedDoor.GetComponent<Door>();
-        theDoor.RemoveFromKeyList(gameObject);
-    }
+				int modif = Random.Range (10, 20);
+
+				finalparticles [i].velocity = 
+						new Vector3 (finalparticles [i].velocity.x * modif, finalparticles [i].velocity.y * modif, finalparticles [i].velocity.z);
+			}
+			psys.SetParticles (finalparticles, numparticles);
+		}
+	}
 }
