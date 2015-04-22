@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c6b54da3cc26d4d8aa77fe8ed34d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitToScrollTime: 0
-  scrollSpeed: 1000
+  waitToScrollTime: 2
+  scrollSpeed: 100
   endScrollYPos: 1700
   returnButton: {fileID: 11493812}
 --- !u!114 &11493818
@@ -226,15 +226,15 @@ MonoBehaviour:
 
 
 
-    Programmers:
+    Executive Producer:
 
-    Luciano Donati
+    John OLeske
 
-    Brian Martens
 
-    Devin Aldrich
 
-    Garrett Davis
+    Associate Producer:
+
+    Shawn Paris
 
 
 
@@ -246,15 +246,15 @@ MonoBehaviour:
 
 
 
-    Associate Producer:
+    Programmers:
 
-    Shawn Paris
+    Luciano Donati
 
+    Brian Martens
 
+    Devin Aldrich
 
-    Executive Producer:
-
-    John OLeske'
+    Garrett Davis'
 --- !u!114 &11493820
 MonoBehaviour:
   m_ObjectHideFlags: 1
