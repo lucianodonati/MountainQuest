@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menu: 1
-  _scene: 2
+  _scene: 1
 --- !u!114 &11409274
 MonoBehaviour:
   m_ObjectHideFlags: 1

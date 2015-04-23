@@ -115,7 +115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11417112, guid: edba3b4b238f79d43a0b28f9c037fac4, type: 2}
       propertyPath: _Debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edba3b4b238f79d43a0b28f9c037fac4, type: 2}
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652c2b2f26a64274d81517be76f29245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Debug: 1
+  _Debug: 0
   MenuPrefabsDONOTTOUCH:
   - {fileID: 140592, guid: 27920e7adacc6ec48a194aebda67cf66, type: 2}
   - {fileID: 104390, guid: 584598989d570d94fbc5a3643120f011, type: 2}

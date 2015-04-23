@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        transform.parent = Camera.main.transform;
         for (int i = 0; i < 6; i++)
             MenuInstances.Add(null);
         activeMenu = Menus.Title;
@@ -137,7 +139,8 @@ public class GameManager : MonoBehaviour
 
     private void disableCurrentMenu()
     {
-        MenuInstances[(int)activeMenu].gameObject.SetActive(false);
+        if (MenuInstances[(int)activeMenu] != null)
+            MenuInstances[(int)activeMenu].gameObject.SetActive(false);
     }
 
     private void OnLevelWasLoaded(int level)
