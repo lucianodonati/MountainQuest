@@ -45,7 +45,7 @@ GameObject:
   - 222: {fileID: 22240572}
   - 114: {fileID: 11440574}
   - 114: {fileID: 11440572}
-  - 114: {fileID: 11440576}
+  - 114: {fileID: 11409276}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -81,6 +81,7 @@ GameObject:
   - 222: {fileID: 22240576}
   - 114: {fileID: 11440582}
   - 114: {fileID: 11440580}
+  - 114: {fileID: 11409274}
   m_Layer: 5
   m_Name: StoryButton
   m_TagString: Untagged
@@ -133,6 +134,7 @@ GameObject:
   - 222: {fileID: 22240582}
   - 114: {fileID: 11440592}
   - 114: {fileID: 11440590}
+  - 114: {fileID: 11409272}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -168,7 +170,7 @@ GameObject:
   - 222: {fileID: 22240586}
   - 114: {fileID: 11440600}
   - 114: {fileID: 11440598}
-  - 114: {fileID: 11440602}
+  - 114: {fileID: 11409278}
   m_Layer: 5
   m_Name: TutorialButton
   m_TagString: Untagged
@@ -228,7 +230,59 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!114 &11409272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menu: 1
+  _scene: 2
+--- !u!114 &11409274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menu: 1
+  _scene: 0
+--- !u!114 &11409276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menu: 3
+  _scene: 0
+--- !u!114 &11409278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menu: 0
+  _scene: 1
 --- !u!114 &11440568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,9 +369,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11409276}
+        m_MethodName: SwitchMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -326,18 +380,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 140592}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -362,17 +404,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11440576
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168729194e8ba645be8f1713b6e3697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11440578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,8 +469,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadNewScene
+      - m_Target: {fileID: 11409274}
+        m_MethodName: SwitchMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -564,8 +595,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadNextLevel
+      - m_Target: {fileID: 11409272}
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -664,8 +695,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11440602}
-        m_MethodName: LoadNewScene
+      - m_Target: {fileID: 11409278}
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -699,17 +730,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11440602
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a168729194e8ba645be8f1713b6e3697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11440604
 MonoBehaviour:
   m_ObjectHideFlags: 1

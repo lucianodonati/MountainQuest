@@ -80,11 +80,12 @@
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
      <Compile Include="Assets\Scripts\Managers\StatsManager.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\DisplayVolumeLevelText.cs" />
-     <Compile Include="Assets\Scripts\UI_Scripts\LoadMainMenu.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\ScrollingText.cs" />
      <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
      <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
+     <None Include="Assets\KEY3DTEST\archibase.net.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
