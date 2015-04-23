@@ -123,7 +123,8 @@ public class GameManager : MonoBehaviour
                 log += "previous (" + previous.ToString() + ").";
             disableCurrentMenu();
             activeMenu = previous;
-            MenuInstances[(int)activeMenu].SetActive(true);
+            if (activeMenu != null)
+                MenuInstances[(int)activeMenu].SetActive(true);
         }
         else
         {
@@ -145,7 +146,12 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        pause = false;
+        music.pitch = 1.0f;
+        Time.timeScale = 1.0f;
         transform.parent = Camera.main.transform;
+        music.Stop();
+        music.Play();
         if (currentLevel != Scenes.MainMenu)
         {
             if (playerController == null)
