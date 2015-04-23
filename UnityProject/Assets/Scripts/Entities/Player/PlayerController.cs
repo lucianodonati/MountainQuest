@@ -66,17 +66,17 @@ public class PlayerController : MonoBehaviour {
 		if (usingSword) {
 			if (facingRight) {
 				transform.GetChild (0).position = Vector3.Lerp (transform.GetChild (0).position,
-			                                              transform.GetChild (0).parent.position + new Vector3 (0.25f, 0, 0),
+			                                              transform.GetChild (0).parent.position + new Vector3 (0.25f, 0, -0.5f),
 			                                              (8 * Time.deltaTime));
 			} else {
 				transform.GetChild (0).position = Vector3.Lerp (transform.GetChild (0).position,
-			                                              transform.GetChild (0).parent.position + new Vector3 (-0.25f, 0, 0),
+			                                              transform.GetChild (0).parent.position + new Vector3 (-0.25f, 0, -0.5f),
 			                                              (8 * Time.deltaTime));
 			}
 		} else {
 			Vector3 mousepos = GameObject.FindGameObjectWithTag ("MainCamera").camera.ScreenToWorldPoint (Input.mousePosition);
 			mousepos -= transform.position;
-			mousepos.z = 0;
+			mousepos.z = -0.5f;
 
 			transform.GetChild(0).position =
 				Vector3.Lerp(transform.GetChild(0).position,
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour {
 			if(usingSword){
 				GameObject sord = (GameObject)Instantiate(Sword,transform.position,Quaternion.Euler(0,0,-45));
 				sord.transform.parent = transform;
-				sord.transform.position = sord.transform.parent.position + new Vector3(0.5f,0.5f,0);
+				sord.transform.position = sord.transform.parent.position + new Vector3(0.5f,0.5f,-1f);
 			}else{
 				Destroy(transform.GetChild(1).gameObject);
 			}
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour {
 				mousepos.z = 0;
 
 				GameObject currArrow = (GameObject)Instantiate (Arrow,
-				                                                gameObject.transform.position,
+				                                                gameObject.transform.position + Vector3.back,
 				                                                Quaternion.FromToRotation (preserveUp, mousepos));
 
 				currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
@@ -149,14 +149,14 @@ public class PlayerController : MonoBehaviour {
 					                                                  Quaternion.Euler(0,0,45),
 					                                                  (8*Time.deltaTime));
 					transform.GetChild(1).position = Vector3.Lerp(transform.GetChild(1).position,
-					                                              transform.GetChild(1).parent.position + new Vector3(-0.5f,0.5f,0),
+					                                              transform.GetChild(1).parent.position + new Vector3(-0.5f,0.5f,-1f),
 					                                              (8*Time.deltaTime));
 				}else if(facingRight && transform.GetChild(1).rotation != Quaternion.Euler(0,0,-45)){
 					transform.GetChild(1).rotation = Quaternion.Slerp(transform.GetChild(1).rotation,
 					                                                  Quaternion.Euler(0,0,-45),
 					                                                  (8*Time.deltaTime));
 					transform.GetChild(1).position = Vector3.Lerp(transform.GetChild(1).position,
-					                                              transform.GetChild(1).parent.position + new Vector3(0.5f,0.5f,0),
+					                                              transform.GetChild(1).parent.position + new Vector3(0.5f,0.5f,-1f),
 					                                              (8*Time.deltaTime));
 				}
 				
@@ -169,20 +169,20 @@ public class PlayerController : MonoBehaviour {
 				if(!halfswung){
 					if(facingRight){
 						toRot = Quaternion.Euler(0,0,-90);
-						toPos = new Vector3(1f,-0.3f,0);
+						toPos = new Vector3(1f,-0.3f,-1f);
 					}else{
 						toRot = Quaternion.Euler(0,0,90);
-						toPos = new Vector3(-1f,-0.3f,0);
+						toPos = new Vector3(-1f,-0.3f,-1f);
 						
 					}
 				}else{
 					if(facingRight){
 						toRot = Quaternion.Euler(0,0,0);
-						toPos = new Vector3(0.5f,0.5f,0);
+						toPos = new Vector3(0.5f,0.5f,-1f);
 						
 					}else{
 						toRot = Quaternion.Euler(0,0,0);
-						toPos = new Vector3(-0.5f,0.5f,0);
+						toPos = new Vector3(-0.5f,0.5f,-1f);
 						
 					}
 				}
