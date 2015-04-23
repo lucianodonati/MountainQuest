@@ -60,6 +60,7 @@ public class Arrow : MonoBehaviour
             if (dummyChildTransform == null)
             {
                 GameObject dummyChild = new GameObject();
+                dummyChild.transform.localScale = new Vector3(0, 0, 0);
                 dummyChild.name = "PreserveScale";
                 dummyChild.transform.parent = coll.transform;
                 dummyChildTransform = dummyChild.transform;
