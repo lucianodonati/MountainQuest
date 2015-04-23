@@ -69,6 +69,7 @@ public class Player : Entity
 				CreateBoostSphere = (GameObject)Instantiate (ClickObjBoost, CreateBasicSphere.transform.position, Quaternion.identity);
 				BSphereTotal += 1;
 				CreateBoostSphere.GetComponent<BoostSphere> ().SetOwner (this);
+				//CreateBoostSphere.GetComponent<Animator> ().Play();
 			}	
 		} else if (Input.GetMouseButtonDown (1) && RSphereTotal <= RSphereCap) 
 			isAiming = true;
