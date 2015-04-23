@@ -677,6 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 53391725}
 --- !u!212 &54342615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3267,6 +3268,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 2028642013}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 1952150145}
@@ -3764,6 +3769,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 1032354759}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 1054822933}
@@ -4350,6 +4359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 241171704}
 --- !u!212 &456804727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4601,6 +4611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 1392126233}
 --- !u!212 &477321782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5186,6 +5197,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 1392126233}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 477321779}
@@ -6748,6 +6763,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 722268449}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 738916753}
@@ -7156,6 +7175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 722268449}
 --- !u!212 &738916757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7309,6 +7329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 1392126233}
 --- !u!212 &770133319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7505,6 +7526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 1392126233}
 --- !u!212 &783010732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8099,6 +8121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 1392126233}
 --- !u!212 &856855584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8288,6 +8311,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 241171704}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 456804723}
@@ -9749,6 +9776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 1032354759}
 --- !u!212 &1054822936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13267,6 +13295,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 1392126233}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 770133315}
@@ -14653,7 +14685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8fda1b68f33774b94115899e942fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 722268449}
+  attachedDoor: {fileID: 1909940027}
   dieTimerMax: 4
 --- !u!58 &1457375578
 CircleCollider2D:
@@ -15028,6 +15060,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 1392126233}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 783010728}
@@ -15221,6 +15257,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 1392126233}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 856855580}
@@ -17524,7 +17564,7 @@ Prefab:
     - target: {fileID: 11496524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
       propertyPath: attachedDoor
       value: 
-      objectReference: {fileID: 722268449}
+      objectReference: {fileID: 1909940027}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 727b833586c0e014299e00c72228c59f, type: 2}
   m_RootGameObject: {fileID: 1457375572}
@@ -18142,6 +18182,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: attachedDoor
+      value: 
+      objectReference: {fileID: 53391725}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 54342611}
@@ -19209,6 +19253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aabdad32265374f80a95baaf29c9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedDoor: {fileID: 2028642013}
 --- !u!212 &1952150149
 SpriteRenderer:
   m_ObjectHideFlags: 0
