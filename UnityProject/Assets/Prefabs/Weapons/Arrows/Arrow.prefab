@@ -14,7 +14,7 @@ GameObject:
   - 50: {fileID: 5055430}
   m_Layer: 14
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
