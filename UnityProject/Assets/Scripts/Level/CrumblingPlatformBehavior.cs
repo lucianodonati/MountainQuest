@@ -51,7 +51,8 @@ public class CrumblingPlatformBehavior : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		if (rigidbody2D.isKinematic == false) {
+		if (rigidbody2D.isKinematic == false && 
+		    !(coll.gameObject.tag == "Player" && coll.gameObject.transform.position.y > transform.position.y)) {
 			Destroy (this.gameObject);
 		} else if (coll.gameObject.tag == "Player" && coll.gameObject.transform.position.y > transform.position.y) {
 			deathrow = true;
