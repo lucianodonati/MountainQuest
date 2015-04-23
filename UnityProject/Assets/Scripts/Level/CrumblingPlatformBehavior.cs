@@ -55,7 +55,11 @@ public class CrumblingPlatformBehavior : MonoBehaviour {
 		    !(coll.gameObject.tag == "Player" && coll.gameObject.transform.position.y > transform.position.y)) {
 			Destroy (this.gameObject);
 		} else if (coll.gameObject.tag == "Player" && coll.gameObject.transform.position.y > transform.position.y) {
-			deathrow = true;
+			Crumble ();
 		}
-	}	
+	}
+
+	void Crumble(){
+		deathrow = true;
+	}
 }
