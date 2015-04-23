@@ -59,7 +59,7 @@ public class CrumblingPlatformBehavior : MonoBehaviour {
 		}
 	}
 
-	public void Crumble(){
+	void Crumble(){
 		deathrow = true;
 	}
 }

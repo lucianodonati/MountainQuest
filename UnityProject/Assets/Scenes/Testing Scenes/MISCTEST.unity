@@ -735,15 +735,15 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: .338935554
+        - time: .336134434
           value: 1
           inSlope: 4.1723257e-07
           outSlope: 4.1723257e-07
           tangentMode: 0
         - time: 1
           value: 0
-          inSlope: -.499996454
-          outSlope: -.499996454
+          inSlope: .481135994
+          outSlope: .481135994
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -3496,6 +3496,30 @@ Prefab:
       propertyPath: attachedDoor
       value: 
       objectReference: {fileID: 2128735571}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: .336134434
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inSlope
+      value: .481135994
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outSlope
+      value: .481135994
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].inSlope
+      value: .481135994
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].outSlope
+      value: .481135994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 727b833586c0e014299e00c72228c59f, type: 2}
   m_RootGameObject: {fileID: 29769496}
