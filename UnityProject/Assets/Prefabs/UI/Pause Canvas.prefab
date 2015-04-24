@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: 0
-  _scene: 0
+  MenuToSwitch: 0
+  SceneToLoad: 0
 --- !u!114 &11467034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: 3
-  _scene: 0
+  MenuToSwitch: 3
+  SceneToLoad: 0
 --- !u!114 &11472384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,7 +316,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11414722}
-        m_MethodName: LoadMMenu
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
