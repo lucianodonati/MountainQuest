@@ -5,12 +5,13 @@ public class Health : MonoBehaviour
 {
     public float currentHP = 100.0f, maxHP = 100.0f;
     public bool showHealthBar = true;
-    public HealthBar hBar;
+    public HealthBar healthBar;
 
     // Use this for initialization
     private void Start()
     {
-        hBar = new HealthBar();
+		gameObject.AddComponent<HealthBar> ();
+		healthBar = gameObject.GetComponent<HealthBar> ();
     }
 
     public void TakeDamage(float _damage)
@@ -35,10 +36,5 @@ public class Health : MonoBehaviour
         }
         else
             Debug.LogWarning(gameObject.name + ": Trying to heal negative hp (Use TakeDamage function).");
-    }
-
-    private void LateUpdate()
-    {
-        hBar.gameObject.SetActive(showHealthBar);
     }
 }

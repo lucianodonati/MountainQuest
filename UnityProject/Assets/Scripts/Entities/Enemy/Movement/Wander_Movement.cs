@@ -8,12 +8,10 @@ public class Wander_Movement : MonoBehaviour {
 
 	private Vector3 preserveUp;
 
-	public GameObject ground;
+    private GameObject ground;
 
 	// Use this for initialization
 	void Start () {
-
-		RandomizeDirection ();
 
 		preserveUp = this.transform.up;
 	}
@@ -28,35 +26,27 @@ public class Wander_Movement : MonoBehaviour {
 				movevec *= -1;
 
 			rigidbody2D.velocity = movevec;
-		}
+
+            if(collider2D.bounds.max.x < ground.collider2D.bounds.min.x ||
+                collider2D.bounds.min.x > ground.collider2D.bounds.max.x) {
+                    ground = null;
+                }
+        }else{
+            rigidbody2D.velocity = new Vector2(0,rigidbody2D.velocity.y);
+        }
 
 		this.transform.up = preserveUp;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "Platform" && ground == null) {
-			ground = coll.gameObject;
-			RandomizeDirection();
-		}
+
+        if (ground == null)
+            direction = !direction;
+
+        ground = coll.gameObject;
 	}
 
-	void OnCollisionStay2D(Collision2D coll){
-		if (coll.gameObject.tag == "Platform") {
-			ground = coll.gameObject;
-		}
-	}
-
-	void OnCollisionExit2D(Collision2D coll){
-		if (coll.gameObject.tag == "Platform") {
-			ground = null;
-				rigidbody2D.velocity = Vector2.zero;
-		}
-	}
-
-	void RandomizeDirection(){
-		if (Random.Range (1, 6) > 3)
-			direction = true; //right
-		else
-			direction = false; //left
-	}
+    void OnCollisionStay2D(Collision2D coll){
+        ground = coll.gameObject;
+    }
 }
