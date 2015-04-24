@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11455430}
   - 61: {fileID: 6155430}
   - 50: {fileID: 5055430}
+  - 114: {fileID: 11421938}
   m_Layer: 14
   m_Name: Arrow
   m_TagString: Arrow
@@ -57,6 +58,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11421938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5067dacd0f28094c9bba632f39c4e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daddy: Arrows
 --- !u!114 &11455430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,6 +84,7 @@ MonoBehaviour:
   speed: 10
   stuckTimer: 30
   numCollisions: 0
+  Damage: 10
 --- !u!212 &21255430
 SpriteRenderer:
   m_ObjectHideFlags: 1
