@@ -8,12 +8,13 @@ public class Arrow : MonoBehaviour
     private bool stuck = false;
     public int numCollisions = 0;
     private bool justFired = true;
-	public float Damage = 10;
+    public float Damage = 10;
+
     // Use this for initialization
     private void Start()
     {
         rigidbody2D.velocity = transform.up * speed;
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        GetComponent<BoxCollider2D>().isTrigger = false;
     }
 
     // Update is called once per frame
@@ -41,16 +42,16 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (justFired)
-        {
-            justFired = false;
-            GetComponent<BoxCollider2D>().isTrigger = false;
-        }
+        //if (justFired)
+        //{
+        //    justFired = false;
+        //    GetComponent<BoxCollider2D>().isTrigger = false;
+        //}
     }
 
     private void CheckCollision(Collider2D coll)
     {
-        if (coll.tag != "Sphere" && !justFired && transform.parent == null)
+        if (coll.tag != "Sphere" /*&& !justFired*/ && transform.parent == null)
         {
             rigidbody2D.velocity = new Vector2(0, 0);
             GetComponent<BoxCollider2D>().isTrigger = true;

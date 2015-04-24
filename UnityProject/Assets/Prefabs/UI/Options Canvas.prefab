@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22410482}
   - 114: {fileID: 11410482}
+  - 114: {fileID: 11485366}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -111,6 +112,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22410484}
   - 114: {fileID: 11410490}
+  - 114: {fileID: 11485368}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -570,8 +572,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: UpdateMusic
+      - m_Target: {fileID: 11485366}
+        m_MethodName: ChangeMusicVol
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -693,8 +695,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: UpdateSFx
+      - m_Target: {fileID: 11485368}
+        m_MethodName: ChangeSFxVol
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1065,6 +1067,32 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuToSwitch: 0
+  SceneToLoad: 0
+--- !u!114 &11485366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuToSwitch: 0
+  SceneToLoad: 0
+--- !u!114 &11485368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110484}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}

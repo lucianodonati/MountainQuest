@@ -25,4 +25,14 @@ public class ButtonScript : MonoBehaviour
     {
         GameManager.instance.ToggleFullScreen();
     }
+
+    public void ChangeMusicVol(float _vol)
+    {
+        GameManager.instance.UpdateMusic(_vol);
+    }
+
+    public void ChangeSFxVol(float _vol)
+    {
+        GameManager.instance.UpdateSFx(_vol);
+    }
 }

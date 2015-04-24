@@ -2299,7 +2299,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 268584312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 153.602264, y: 45.0286407, z: -.0299999993}
+  m_LocalPosition: {x: 152.5, y: 45, z: 0}
   m_LocalScale: {x: 5.62123251, y: 5.6212306, z: 5.6212306}
   m_Children:
   - {fileID: 289946469}
@@ -13862,7 +13862,6 @@ GameObject:
   - 212: {fileID: 1457375579}
   - 58: {fileID: 1457375578}
   - 114: {fileID: 1457375577}
-  - 50: {fileID: 1457375576}
   - 198: {fileID: 1457375575}
   - 199: {fileID: 1457375574}
   - 114: {fileID: 1457375573}
@@ -13927,7 +13926,7 @@ ParticleSystem:
     type: 2}
   m_PrefabInternal: {fileID: 1766957242}
   m_GameObject: {fileID: 1457375572}
-  lengthInSec: 5
+  lengthInSec: 2.5999999
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -13938,7 +13937,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 5
+      scalar: 1.72000003
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -13971,7 +13970,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 5
+      scalar: .730000019
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14169,8 +14168,8 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 4
-    radius: .107804067
+    type: 0
+    radius: .0976405665
     angle: .809497237
     length: 5
     boxX: 1
@@ -14183,7 +14182,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1
+      scalar: 8.31999969
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14978,22 +14977,6 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!50 &1457375576
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5096524, guid: 727b833586c0e014299e00c72228c59f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1766957242}
-  m_GameObject: {fileID: 1457375572}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!114 &1457375577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18005,8 +17988,41 @@ Prefab:
       propertyPath: door
       value: 
       objectReference: {fileID: 1909940030}
+    - target: {fileID: 19996524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: m_NormalDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 8.31999969
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: .730000019
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: ShapeModule.radius
+      value: .0976405665
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: lengthInSec
+      value: 2.5999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.72000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: ColorBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 5096524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 727b833586c0e014299e00c72228c59f, type: 2}
   m_RootGameObject: {fileID: 1457375572}
   m_IsPrefabParent: 0
