@@ -189,6 +189,7 @@ GameObject:
   - 222: {fileID: 22240588}
   - 114: {fileID: 11440606}
   - 114: {fileID: 11440604}
+  - 114: {fileID: 11453268}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -242,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: 1
-  _scene: 2
+  MenuToSwitch: 0
+  SceneToLoad: 0
 --- !u!114 &11409274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,8 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: 1
-  _scene: 0
+  MenuToSwitch: 1
+  SceneToLoad: 0
 --- !u!114 &11409276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -268,8 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: 3
-  _scene: 0
+  MenuToSwitch: 3
+  SceneToLoad: 0
 --- !u!114 &11409278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,8 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: 0
-  _scene: 1
+  MenuToSwitch: 0
+  SceneToLoad: 1
 --- !u!114 &11440568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,8 +770,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadNewScene
+      - m_Target: {fileID: 11453268}
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -867,6 +868,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11453268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuToSwitch: 0
+  SceneToLoad: 0
 --- !u!222 &22240568
 CanvasRenderer:
   m_ObjectHideFlags: 1

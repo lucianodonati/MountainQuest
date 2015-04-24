@@ -546,8 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 54342611}
 --- !u!114 &53391730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,9 +568,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 54342612}
   - 212: {fileID: 54342615}
+  - 114: {fileID: 54342616}
   - 58: {fileID: 54342613}
   - 114: {fileID: 54342614}
-  - 114: {fileID: 54342616}
   m_Layer: 15
   m_Name: IntroduceRedirectSphereTarget
   m_TagString: Enemy
@@ -607,16 +605,16 @@ CircleCollider2D:
 --- !u!114 &54342614
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1857444512}
   m_GameObject: {fileID: 54342611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 53391725}
+  door: {fileID: 0}
 --- !u!212 &54342615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -643,7 +641,7 @@ SpriteRenderer:
 --- !u!114 &54342616
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1857444512}
   m_GameObject: {fileID: 54342611}
@@ -1918,8 +1916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 456804723}
 --- !u!114 &241171709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,9 +2193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 1921416033}
-  - {fileID: 1173875119}
 --- !u!114 &255694696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4249,9 +4242,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 456804724}
   - 212: {fileID: 456804727}
+  - 114: {fileID: 456804728}
   - 58: {fileID: 456804725}
   - 114: {fileID: 456804726}
-  - 114: {fileID: 456804728}
   m_Layer: 15
   m_Name: LearnToPlaceSpheresTarget
   m_TagString: Enemy
@@ -4286,16 +4279,16 @@ CircleCollider2D:
 --- !u!114 &456804726
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 862201756}
   m_GameObject: {fileID: 456804723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 241171704}
+  door: {fileID: 0}
 --- !u!212 &456804727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4322,7 +4315,7 @@ SpriteRenderer:
 --- !u!114 &456804728
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 862201756}
   m_GameObject: {fileID: 456804723}
@@ -4601,9 +4594,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 477321783}
   - 212: {fileID: 477321782}
+  - 114: {fileID: 477321784}
   - 58: {fileID: 477321780}
   - 114: {fileID: 477321781}
-  - 114: {fileID: 477321784}
   m_Layer: 15
   m_Name: ShootRightTarget
   m_TagString: Enemy
@@ -4626,16 +4619,16 @@ CircleCollider2D:
 --- !u!114 &477321781
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 536613130}
   m_GameObject: {fileID: 477321779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 1392126233}
+  door: {fileID: 0}
 --- !u!212 &477321782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4674,7 +4667,7 @@ Transform:
 --- !u!114 &477321784
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 536613130}
   m_GameObject: {fileID: 477321779}
@@ -6902,6 +6895,10 @@ Prefab:
       propertyPath: m_Name
       value: LearnToShootTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 722268453}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
@@ -7109,8 +7106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 738916753}
 --- !u!114 &722268454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7317,8 +7312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 373908399}
 --- !u!114 &731554852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7341,9 +7334,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 738916754}
   - 212: {fileID: 738916757}
+  - 114: {fileID: 738916758}
   - 58: {fileID: 738916755}
   - 114: {fileID: 738916756}
-  - 114: {fileID: 738916758}
   m_Layer: 15
   m_Name: LearnToShootTarget
   m_TagString: Enemy
@@ -7378,16 +7371,16 @@ CircleCollider2D:
 --- !u!114 &738916756
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 700067606}
   m_GameObject: {fileID: 738916753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 722268449}
+  door: {fileID: 722268453}
 --- !u!212 &738916757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7414,7 +7407,7 @@ SpriteRenderer:
 --- !u!114 &738916758
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 700067606}
   m_GameObject: {fileID: 738916753}
@@ -7508,9 +7501,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 770133316}
   - 212: {fileID: 770133319}
+  - 114: {fileID: 770133320}
   - 58: {fileID: 770133317}
   - 114: {fileID: 770133318}
-  - 114: {fileID: 770133320}
   m_Layer: 15
   m_Name: ShootLeftTarget
   m_TagString: Enemy
@@ -7545,16 +7538,16 @@ CircleCollider2D:
 --- !u!114 &770133318
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1430003926}
   m_GameObject: {fileID: 770133315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 1392126233}
+  door: {fileID: 0}
 --- !u!212 &770133319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7581,7 +7574,7 @@ SpriteRenderer:
 --- !u!114 &770133320
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1430003926}
   m_GameObject: {fileID: 770133315}
@@ -7718,9 +7711,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 783010729}
   - 212: {fileID: 783010732}
+  - 114: {fileID: 783010733}
   - 58: {fileID: 783010730}
   - 114: {fileID: 783010731}
-  - 114: {fileID: 783010733}
   m_Layer: 15
   m_Name: ShootDiagonalTarget
   m_TagString: Enemy
@@ -7755,16 +7748,16 @@ CircleCollider2D:
 --- !u!114 &783010731
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1481659883}
   m_GameObject: {fileID: 783010728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 1392126233}
+  door: {fileID: 0}
 --- !u!212 &783010732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7791,7 +7784,7 @@ SpriteRenderer:
 --- !u!114 &783010733
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1481659883}
   m_GameObject: {fileID: 783010728}
@@ -8152,14 +8145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 322959721}
-  - {fileID: 1984411375}
-  - {fileID: 662436347}
-  - {fileID: 1689120415}
-  - {fileID: 708522475}
-  - {fileID: 547747801}
-  - {fileID: 470167247}
 --- !u!114 &845597474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8326,9 +8311,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 856855581}
   - 212: {fileID: 856855584}
+  - 114: {fileID: 856855585}
   - 58: {fileID: 856855582}
   - 114: {fileID: 856855583}
-  - 114: {fileID: 856855585}
   m_Layer: 15
   m_Name: ShootUpTarget
   m_TagString: Enemy
@@ -8363,16 +8348,16 @@ CircleCollider2D:
 --- !u!114 &856855583
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1521201956}
   m_GameObject: {fileID: 856855580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 1392126233}
+  door: {fileID: 0}
 --- !u!212 &856855584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8399,7 +8384,7 @@ SpriteRenderer:
 --- !u!114 &856855585
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 1521201956}
   m_GameObject: {fileID: 856855580}
@@ -9763,8 +9748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 1054822933}
 --- !u!114 &1032354764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10014,9 +9997,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1054822937}
   - 212: {fileID: 1054822936}
+  - 114: {fileID: 1054822938}
   - 58: {fileID: 1054822934}
   - 114: {fileID: 1054822935}
-  - 114: {fileID: 1054822938}
   m_Layer: 15
   m_Name: IntroduceBoostSphereTarget
   m_TagString: Enemy
@@ -10039,16 +10022,16 @@ CircleCollider2D:
 --- !u!114 &1054822935
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 404414535}
   m_GameObject: {fileID: 1054822933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 1032354759}
+  door: {fileID: 0}
 --- !u!212 &1054822936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10087,7 +10070,7 @@ Transform:
 --- !u!114 &1054822938
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 404414535}
   m_GameObject: {fileID: 1054822933}
@@ -13377,11 +13360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 856855580}
-  - {fileID: 477321779}
-  - {fileID: 783010728}
-  - {fileID: 770133315}
 --- !u!114 &1392126238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18175,8 +18153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 1867798572}
 --- !u!114 &1785009907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19412,8 +19388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 1457375572}
 --- !u!114 &1909940031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19665,9 +19639,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1952150146}
   - 212: {fileID: 1952150149}
+  - 114: {fileID: 1952150150}
   - 58: {fileID: 1952150147}
   - 114: {fileID: 1952150148}
-  - 114: {fileID: 1952150150}
   m_Layer: 15
   m_Name: JumpThroughSpheresTarget
   m_TagString: Enemy
@@ -19702,16 +19676,16 @@ CircleCollider2D:
 --- !u!114 &1952150148
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450772, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 354296303}
   m_GameObject: {fileID: 1952150145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 2028642013}
+  door: {fileID: 0}
 --- !u!212 &1952150149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19738,7 +19712,7 @@ SpriteRenderer:
 --- !u!114 &1952150150
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11486270, guid: 321b06b25c5222d42be53dddc097efea,
+  m_PrefabParentObject: {fileID: 11475792, guid: 321b06b25c5222d42be53dddc097efea,
     type: 2}
   m_PrefabInternal: {fileID: 354296303}
   m_GameObject: {fileID: 1952150145}
@@ -20502,8 +20476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb102c5fa9cfa42ac55f55ca39e4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisites:
-  - {fileID: 1952150145}
 --- !u!114 &2028642018
 MonoBehaviour:
   m_ObjectHideFlags: 0

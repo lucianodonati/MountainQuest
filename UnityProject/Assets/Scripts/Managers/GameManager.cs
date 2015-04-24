@@ -249,7 +249,7 @@ public class GameManager : MonoBehaviour
 
     public void ToggleFullScreen()
     {
-
+        Screen.fullScreen = !Screen.fullScreen;
     }
 
     public void Exit()

@@ -21,11 +21,6 @@ public class KeyBehavior : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //if (!touched)
-        //   transform.Rotate(new Vector3(0, 70 * Time.deltaTime, 0));
-        //else
-        //    transform.rotation = Quaternion.identity;
-
         if (touched)
         {
             dieTimer -= Time.deltaTime;
