@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11442502}
   m_Layer: 8
   m_Name: Door
-  m_TagString: Platform
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8900001, y: -14.25, z: 0}
-  m_LocalScale: {x: 8.14332867, y: 30.1784534, z: 1.63192952}
+  m_LocalPosition: {x: 4.19000006, y: -14.4099998, z: .5}
+  m_LocalScale: {x: 7, y: 26, z: 1.63192952}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
