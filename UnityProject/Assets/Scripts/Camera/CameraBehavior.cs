@@ -40,7 +40,7 @@ public class CameraBehavior : MonoBehaviour {
 
 		if (looktarget == null) {
 
-			newpos = SnapTo(new Vector3(player.transform.position.x,player.transform.position.y + deadHalfHeight,0),targSnapSpeed);
+			newpos = SnapTo(new Vector3(player.transform.position.x,player.transform.position.y + deadHalfHeight,0),16);
 			if ((player.transform.position.y > transform.position.y - deadHalfHeight)) {
 				newpos.y = transform.position.y;
 			}

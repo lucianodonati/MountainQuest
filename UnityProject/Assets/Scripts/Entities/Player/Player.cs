@@ -34,6 +34,7 @@ public class Player : Entity
     // Use this for initialization
     private void Start()
     {
+        base.Start();
         spawnpos = transform.position;
     }
 
