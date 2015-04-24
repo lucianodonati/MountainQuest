@@ -7,7 +7,6 @@ public class Arrow : MonoBehaviour
     public float stuckTimer = 5;
     private bool stuck = false;
     public int numCollisions = 0;
-    private bool justFired = true;
     public float Damage = 10;
 
     // Use this for initialization
