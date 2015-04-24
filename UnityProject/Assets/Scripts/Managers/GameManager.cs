@@ -123,8 +123,7 @@ public class GameManager : MonoBehaviour
                 log += "previous (" + previous.ToString() + ").";
             disableCurrentMenu();
             activeMenu = previous;
-            if (activeMenu != null)
-                MenuInstances[(int)activeMenu].SetActive(true);
+            MenuInstances[(int)activeMenu].SetActive(true);
         }
         else
         {

@@ -3,16 +3,21 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
-    public GameManager.Menus _menu = 0;
-    public GameManager.Scenes _scene = 0;
+    public GameManager.Menus MenuToSwitch;
+    public GameManager.Scenes SceneToLoad;
 
     public void SwitchMenu()
     {
-        GameManager.instance.switchToMenu(_menu);
+        GameManager.instance.switchToMenu(MenuToSwitch);
     }
 
     public void LoadScene()
     {
-        GameManager.instance.Load(_scene);
+        GameManager.instance.Load(SceneToLoad);
+    }
+
+    public void Exit()
+    {
+        GameManager.instance.Exit();
     }
 }

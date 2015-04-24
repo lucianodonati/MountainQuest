@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Debug: 0
   MenuPrefabsDONOTTOUCH:
-  - {fileID: 140592, guid: 27920e7adacc6ec48a194aebda67cf66, type: 2}
+  - {fileID: 123616, guid: 27920e7adacc6ec48a194aebda67cf66, type: 2}
   - {fileID: 104390, guid: 584598989d570d94fbc5a3643120f011, type: 2}
   - {fileID: 172396, guid: d3cd148dcb844f347b56126af2c8b531, type: 2}
   - {fileID: 110472, guid: 11c53587818f8e94fba93c2b9a5bb85f, type: 2}

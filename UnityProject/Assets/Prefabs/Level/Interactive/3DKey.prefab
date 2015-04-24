@@ -14,6 +14,7 @@ GameObject:
   - 198: {fileID: 19885090}
   - 199: {fileID: 19985090}
   - 114: {fileID: 11485092}
+  - 114: {fileID: 11422758}
   m_Layer: 13
   m_Name: 3DKey
   m_TagString: Key
@@ -181,8 +182,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.1800003, y: 2.18000007, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: -66.2200012, y: -39.7000008, z: -500.98999}
+  m_LocalScale: {x: .548471391, y: .548471034, z: .109694198}
   m_Children:
   - {fileID: 485108}
   - {fileID: 485106}
@@ -572,6 +573,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .0903174654
   m_Center: {x: 0, y: 0}
+--- !u!114 &11422758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 0}
 --- !u!114 &11485090
 MonoBehaviour:
   m_ObjectHideFlags: 1
