@@ -2177,6 +2177,10 @@ MonoBehaviour:
   MinBound: {fileID: 336484523}
   MaxBound: {fileID: 1568168439}
   deadHalfHeight: 4
+  looktarget: {fileID: 0}
+  targSnapSpeed: 4
+  toSize: 0
+  cameraResizeSpeed: 8
 --- !u!1 &322314640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,6 +3779,7 @@ MonoBehaviour:
   Arrow: {fileID: 129850, guid: f2c19624534295447a542d161db63cb7, type: 2}
   arrowCooldownTimerMax: .5
   Sword: {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
+  looktarget: {x: 0, y: 0, z: 0}
 --- !u!212 &619700181
 SpriteRenderer:
   m_ObjectHideFlags: 0
