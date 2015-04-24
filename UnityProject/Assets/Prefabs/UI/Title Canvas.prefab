@@ -136,7 +136,7 @@ GameObject:
   - 114: {fileID: 11440590}
   - 114: {fileID: 11409272}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: LoadButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ GameObject:
   - 114: {fileID: 11440598}
   - 114: {fileID: 11409278}
   m_Layer: 5
-  m_Name: TutorialButton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tutorial
+  m_Text: Play
 --- !u!114 &11440590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -655,7 +655,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Load Game
 --- !u!114 &11440598
 MonoBehaviour:
   m_ObjectHideFlags: 1
