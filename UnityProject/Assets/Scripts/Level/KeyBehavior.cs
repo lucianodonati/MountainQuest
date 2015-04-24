@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class KeyBehavior : MonoBehaviour
 {
-    public GameObject attachedDoor;
-
     private ParticleSystem psys;
     private ParticleSystem.Particle[] finalparticles;
     private int numparticles;
@@ -47,7 +45,7 @@ public class KeyBehavior : MonoBehaviour
                 for (int i = 0; i < numparticles; ++i)
                 {
                     Vector3 to =
-                        (attachedDoor.transform.position - finalparticles[i].position);
+                        (GetComponent<NotifyDoor>().attachedDoor.transform.position - finalparticles[i].position);
 
                     to.z = 0;
 
@@ -61,7 +59,7 @@ public class KeyBehavior : MonoBehaviour
                     }
                     else
                     {
-                        finalparticles[i].position = attachedDoor.transform.position;
+                        finalparticles[i].position = GetComponent<NotifyDoor>().attachedDoor.transform.position;
                         finalparticles[i].velocity = Vector3.zero;
                     }
                 }

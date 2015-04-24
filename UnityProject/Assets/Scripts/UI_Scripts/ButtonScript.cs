@@ -20,4 +20,9 @@ public class ButtonScript : MonoBehaviour
     {
         GameManager.instance.Exit();
     }
+
+    public void ToggleFullScreen()
+    {
+        GameManager.instance.ToggleFullScreen();
+    }
 }

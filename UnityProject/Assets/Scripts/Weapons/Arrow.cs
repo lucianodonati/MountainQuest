@@ -22,7 +22,6 @@ public class Arrow : MonoBehaviour
         if (stuck)
         {
             stuckTimer -= Time.deltaTime;
-
             if (stuckTimer <= 0)
                 Destroy(this.gameObject);
         }
@@ -60,9 +59,12 @@ public class Arrow : MonoBehaviour
             if (dummyChildTransform == null)
             {
                 GameObject dummyChild = new GameObject();
-                dummyChild.transform.localScale = new Vector3(0, 0, 0);
+                dummyChild.transform.localScale = new Vector3(1, 1, 1);
                 dummyChild.name = "PreserveScale";
-                dummyChild.transform.parent = coll.transform;
+                if (coll.tag == "Platform")
+                    dummyChild.transform.parent = coll.transform.parent;
+                else
+                    dummyChild.transform.parent = coll.transform;
                 dummyChildTransform = dummyChild.transform;
             }
             transform.parent = dummyChildTransform;

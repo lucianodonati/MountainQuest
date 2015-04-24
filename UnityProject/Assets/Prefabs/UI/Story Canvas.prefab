@@ -28,7 +28,7 @@ GameObject:
   - 222: {fileID: 22204384}
   - 114: {fileID: 11404388}
   - 114: {fileID: 11404386}
-  - 114: {fileID: 11452156}
+  - 114: {fileID: 11494500}
   m_Layer: 5
   m_Name: ReturnToTitleButton
   m_TagString: Untagged
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11452156}
+      - m_Target: {fileID: 11494500}
         m_MethodName: SwitchMenu
         m_Mode: 1
         m_Arguments:
@@ -163,7 +163,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11452156
+--- !u!114 &11494500
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -428,7 +428,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 321.073578, y: 149.852539}
+  m_AnchoredPosition: {x: 357.882385, y: 197.524643}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1001 &100100000
