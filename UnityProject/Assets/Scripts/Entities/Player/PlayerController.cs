@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour {
 	//target for looking
 	public Vector3 looktarget;
 
+	//REFERENCES TO CHILDREN
+	private GameObject looker;
+	private GameObject swordchild;
+
 	// Use this for initialization
 	void Start () {
 		preserveUp = this.transform.up;
@@ -53,6 +57,8 @@ public class PlayerController : MonoBehaviour {
 		jumpTimer = jumpTimerMax;
 		jumpCooldownTimer = jumpCooldownTimerMax;
 		arrowCooldownTimer = arrowCooldownTimerMax;
+
+		looker = transform.GetChild (0).gameObject;
 	}
 	
 	// Update is called once per frame
@@ -122,21 +128,21 @@ public class PlayerController : MonoBehaviour {
 
 		if (usingSword) {
 			if (facingRight) {
-				transform.GetChild (0).position = Vector3.Lerp (transform.GetChild (0).position,
-				                                                transform.GetChild (0).parent.position + new Vector3 (0.25f, 0, -0.5f),
-				                                                (8 * Time.deltaTime));
+				looker.transform.position = Vector3.Lerp (looker.transform.position,
+				                                          looker.transform.parent.position + new Vector3 (0.25f, 0, -0.5f),
+				                                          (8 * Time.deltaTime));
 			} else {
-				transform.GetChild (0).position = Vector3.Lerp (transform.GetChild (0).position,
-				                                                transform.GetChild (0).parent.position + new Vector3 (-0.25f, 0, -0.5f),
-				                                                (8 * Time.deltaTime));
+				looker.transform.position = Vector3.Lerp (looker.transform.position,
+				                                          looker.transform.parent.position + new Vector3 (-0.25f, 0, -0.5f),
+				                                          (8 * Time.deltaTime));
 			}
 		} else {
 			targpos -= transform.position;
 			targpos.z = -0.5f;
 
-			transform.GetChild (0).position =
-				Vector3.Lerp (transform.GetChild (0).position,
-				              transform.GetChild (0).parent.position + (targpos.normalized * 0.25f),
+			looker.transform.position =
+				Vector3.Lerp (looker.transform.position,
+				              looker.transform.parent.position + (targpos.normalized * 0.25f),
 				             (8 * Time.deltaTime));
 		}
 		
@@ -159,11 +165,11 @@ public class PlayerController : MonoBehaviour {
 
 	void SwitchWeapon(){
 		if(usingSword){
-			GameObject sord = (GameObject)Instantiate(Sword,transform.position,Quaternion.Euler(0,0,-45));
-			sord.transform.parent = transform;
-			sord.transform.position = sord.transform.parent.position + new Vector3(0.5f,0.5f,-1f);
+			swordchild = (GameObject)Instantiate(Sword,transform.position,Quaternion.Euler(0,0,-45));
+			swordchild.transform.parent = transform;
+			swordchild.transform.position = swordchild.transform.parent.position + new Vector3(0.5f,0.5f,-1f);
 		}else{
-			Destroy(transform.GetChild(1).gameObject);
+			Destroy(swordchild);
 		}
 	}
 
@@ -192,19 +198,19 @@ public class PlayerController : MonoBehaviour {
 
 			//SWORD CODE
 			if(!swinging){
-				if(!facingRight && transform.GetChild(1).rotation != Quaternion.Euler(0,0,45)){
-					transform.GetChild(1).rotation = Quaternion.Slerp(transform.GetChild(1).rotation,
+				if(!facingRight && swordchild.transform.rotation != Quaternion.Euler(0,0,45)){
+					swordchild.transform.rotation = Quaternion.Slerp(swordchild.transform.rotation,
 					                                                  Quaternion.Euler(0,0,45),
 					                                                  (8*Time.deltaTime));
-					transform.GetChild(1).position = Vector3.Lerp(transform.GetChild(1).position,
-					                                              transform.GetChild(1).parent.position + new Vector3(-0.5f,0.5f,-1f),
+					swordchild.transform.position = Vector3.Lerp(swordchild.transform.position,
+					                                              swordchild.transform.parent.position + new Vector3(-0.5f,0.5f,-1f),
 					                                              (8*Time.deltaTime));
-				}else if(facingRight && transform.GetChild(1).rotation != Quaternion.Euler(0,0,-45)){
-					transform.GetChild(1).rotation = Quaternion.Slerp(transform.GetChild(1).rotation,
+				}else if(facingRight && swordchild.transform.rotation != Quaternion.Euler(0,0,-45)){
+					swordchild.transform.rotation = Quaternion.Slerp(swordchild.transform.rotation,
 					                                                  Quaternion.Euler(0,0,-45),
 					                                                  (8*Time.deltaTime));
-					transform.GetChild(1).position = Vector3.Lerp(transform.GetChild(1).position,
-					                                              transform.GetChild(1).parent.position + new Vector3(0.5f,0.5f,-1f),
+					swordchild.transform.position = Vector3.Lerp(swordchild.transform.position,
+					                                              swordchild.transform.parent.position + new Vector3(0.5f,0.5f,-1f),
 					                                              (8*Time.deltaTime));
 				}
 				
@@ -235,16 +241,16 @@ public class PlayerController : MonoBehaviour {
 					}
 				}
 				
-				transform.GetChild(1).rotation = Quaternion.Slerp(transform.GetChild(1).rotation,
+				swordchild.transform.rotation = Quaternion.Slerp(swordchild.transform.rotation,
 				                                                  toRot,
 				                                                  (16*Time.deltaTime));
-				transform.GetChild(1).position = Vector3.Lerp(transform.GetChild(1).position,
-				                                              transform.GetChild(1).parent.position + toPos,
+				swordchild.transform.position = Vector3.Lerp(swordchild.transform.position,
+				                                              swordchild.transform.parent.position + toPos,
 				                                              (16*Time.deltaTime));
 				
-				if(Quaternion.Angle(transform.GetChild(1).rotation,toRot) < 0.1f && !halfswung){
+				if(Quaternion.Angle(swordchild.transform.rotation,toRot) < 0.1f && !halfswung){
 					halfswung = true;
-				}else if (Quaternion.Angle(transform.GetChild(1).rotation,toRot) < 0.1f && halfswung){
+				}else if (Quaternion.Angle(swordchild.transform.rotation,toRot) < 0.1f && halfswung){
 					halfswung = false;
 					swinging = false;
 				}

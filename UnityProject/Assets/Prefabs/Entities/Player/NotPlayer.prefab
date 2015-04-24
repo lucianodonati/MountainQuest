@@ -31,7 +31,8 @@ GameObject:
   - 114: {fileID: 11408038}
   - 198: {fileID: 19817492}
   - 199: {fileID: 19917492}
-  m_Layer: 0
+  - 114: {fileID: 11498024}
+  m_Layer: 8
   m_Name: NotPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -57,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.7846899, y: 6.77163744, z: 0}
+  m_LocalPosition: {x: 4.85411739, y: -4.68685913, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 417492}
@@ -127,6 +128,22 @@ MonoBehaviour:
   Arrow: {fileID: 129850, guid: f2c19624534295447a542d161db63cb7, type: 2}
   arrowCooldownTimerMax: .5
   Sword: {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
+  looktarget: {x: 0, y: 0, z: 0}
+--- !u!114 &11498024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c14396f1c830c840bbd47e2e50e16bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 100
+  maxHP: 100
+  showHealthBar: 1
+  healthBar: {fileID: 0}
 --- !u!198 &19817492
 ParticleSystem:
   m_ObjectHideFlags: 1

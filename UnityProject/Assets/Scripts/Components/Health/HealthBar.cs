@@ -3,40 +3,49 @@ using System.Collections;
 
 public class HealthBar : MonoBehaviour {
 
-	public Health health;
+	private Health health;
 
-	private Rect healthRemainingRect;
-	private Rect healthMaxRect;
+	private GameObject remainingHealthBar;
+	private GameObject maxHealthBar;
 
-	public float leftwardOffset;
-	public float upwardOffset;
+	public float scaler = 10;
 
-	public Texture2D currHealthTexture;
-	public Texture2D maxHealthTexture;
-
-	private GUIStyle currHealthStyle;
-	private GUIStyle maxHealthStyle;
-	
 	// Use this for initialization
 	void Start () {
-		currHealthStyle = new GUIStyle ();
-		currHealthStyle.normal.background = currHealthTexture;
+		health = gameObject.GetComponent<Health> ();
 
-		maxHealthStyle = new GUIStyle ();
-		maxHealthStyle.normal.background = maxHealthTexture;
+		maxHealthBar = GameObject.CreatePrimitive (PrimitiveType.Cube);
+		remainingHealthBar = GameObject.CreatePrimitive (PrimitiveType.Cube);
+
+		maxHealthBar.renderer.material.color = Color.black;
+		remainingHealthBar.renderer.material.color = Color.red;		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.parent.position - new Vector3(0.25f,-0.75f,0));
-		screenPosition.y = Screen.height - screenPosition.y;
-		
-		healthMaxRect = new Rect (screenPosition.x - leftwardOffset, screenPosition.y - upwardOffset, health.maxHP, 20);
-		healthRemainingRect = new Rect (screenPosition.x - leftwardOffset, screenPosition.y - upwardOffset, health.currentHP, 20);
-	}
+	void LateUpdate () {
+		if (maxHealthBar != null && remainingHealthBar != null) {
 
-	void OnGUI(){
-		GUI.Label (healthMaxRect, GUIContent.none, maxHealthStyle);
-		GUI.Label (healthRemainingRect, GUIContent.none, currHealthStyle);
+			maxHealthBar.transform.position = new Vector3(transform.position.x,
+			                                              transform.position.y + 1,
+			                                              1.0f);
+
+			maxHealthBar.transform.localScale = new Vector3 ((transform.lossyScale.x/3),
+			                                                 0.5f,
+			                                                 1);
+			remainingHealthBar.transform.localScale = new Vector3 ((transform.lossyScale.x/3) * (health.currentHP/health.maxHP),
+			                                                       0.5f,
+			                                                       1);
+
+			remainingHealthBar.transform.position = new Vector3(maxHealthBar.renderer.bounds.min.x
+			                                                    	- ((maxHealthBar.renderer.bounds.min - maxHealthBar.transform.position)
+			   															* (health.currentHP/health.maxHP)).x,
+			                                                    maxHealthBar.transform.position.y,
+			                                                    0.5f);
+
+			if(health.currentHP <= 0.0f){
+				Destroy(maxHealthBar);
+				Destroy(remainingHealthBar);
+			}
+		}
 	}
 }
