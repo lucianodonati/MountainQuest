@@ -1,0 +1,12 @@
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.pdb

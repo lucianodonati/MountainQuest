@@ -26,7 +26,7 @@ public class HealthBar : MonoBehaviour {
 		if (maxHealthBar != null && remainingHealthBar != null) {
 
 			maxHealthBar.transform.position = new Vector3(transform.position.x,
-			                                              transform.position.y + 1,
+			                                              renderer.bounds.max.y + 1f,
 			                                              1.0f);
 
 			maxHealthBar.transform.localScale = new Vector3 ((transform.lossyScale.x/3),
