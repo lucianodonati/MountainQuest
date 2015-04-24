@@ -15,7 +15,7 @@ GameObject:
   - 198: {fileID: 19896524}
   - 199: {fileID: 19996524}
   - 114: {fileID: 11403936}
-  - 114: {fileID: 11441026}
+  - 114: {fileID: 11425522}
   m_Layer: 13
   m_Name: Key
   m_TagString: Key
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daddy: Keys
---- !u!114 &11441026
+--- !u!114 &11425522
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -81,10 +81,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 196524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 0}
+  door: {fileID: 0}
 --- !u!114 &11496524
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 53391729}
 --- !u!212 &54342615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2801,10 +2801,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 322959721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 845597469}
+  door: {fileID: 845597473}
 --- !u!1 &325041357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,6 +3179,10 @@ Prefab:
       propertyPath: m_Name
       value: JumpThroughSpheresTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 2028642017}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 1952150145}
@@ -3370,10 +3374,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 373908399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 731554847}
+  door: {fileID: 731554851}
 --- !u!1 &389160130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,6 +3705,10 @@ Prefab:
       propertyPath: m_Name
       value: IntroduceBoostSphereTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1032354763}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 1054822933}
@@ -4288,7 +4296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 241171708}
 --- !u!212 &456804727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4406,10 +4414,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 470167247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 845597469}
+  door: {fileID: 845597473}
 --- !u!114 &470167250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4628,7 +4636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 1392126237}
 --- !u!212 &477321782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5238,6 +5246,10 @@ Prefab:
       propertyPath: m_Name
       value: ShootRightTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1392126237}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 477321779}
@@ -5325,10 +5337,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 547747801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 845597469}
+  door: {fileID: 845597473}
 --- !u!114 &547747804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6361,6 +6373,7 @@ GameObject:
   - 4: {fileID: 662436348}
   - 212: {fileID: 662436350}
   - 114: {fileID: 662436349}
+  - 114: {fileID: 662436351}
   m_Layer: 0
   m_Name: PainInTheAssEnemy
   m_TagString: Enemy
@@ -6413,6 +6426,18 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &662436351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 662436347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 845597473}
 --- !u!1 &676264913
 GameObject:
   m_ObjectHideFlags: 0
@@ -6943,10 +6968,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 708522475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 845597469}
+  door: {fileID: 845597473}
 --- !u!114 &708522478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7547,7 +7572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 1392126237}
 --- !u!212 &770133319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7757,7 +7782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 1392126237}
 --- !u!212 &783010732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8357,7 +8382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 1392126237}
 --- !u!212 &856855584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8571,6 +8596,10 @@ Prefab:
       propertyPath: m_Name
       value: LearnToPlaceSpheresTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 241171708}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 456804723}
@@ -10031,7 +10060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 1032354763}
 --- !u!212 &1054822936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11021,10 +11050,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173875119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 255694691}
+  door: {fileID: 255694695}
 --- !u!1001 &1174332879
 Prefab:
   m_ObjectHideFlags: 0
@@ -13532,6 +13561,10 @@ Prefab:
       propertyPath: m_Name
       value: ShootLeftTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1392126237}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 770133315}
@@ -13779,7 +13812,7 @@ GameObject:
   - 198: {fileID: 1457375575}
   - 199: {fileID: 1457375574}
   - 114: {fileID: 1457375573}
-  - 114: {fileID: 1457375581}
+  - 114: {fileID: 1457375582}
   m_Layer: 13
   m_Name: Key
   m_TagString: Key
@@ -14967,19 +15000,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &1457375581
+--- !u!114 &1457375582
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11441026, guid: 727b833586c0e014299e00c72228c59f,
+  m_PrefabParentObject: {fileID: 11425522, guid: 727b833586c0e014299e00c72228c59f,
     type: 2}
   m_PrefabInternal: {fileID: 1766957242}
   m_GameObject: {fileID: 1457375572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 1909940027}
+  door: {fileID: 1909940030}
 --- !u!1 &1463063452
 GameObject:
   m_ObjectHideFlags: 0
@@ -15318,6 +15351,10 @@ Prefab:
       propertyPath: m_Name
       value: ShootDiagonalTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1392126237}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 783010728}
@@ -15523,6 +15560,10 @@ Prefab:
       propertyPath: m_Name
       value: ShootUpTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1392126237}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 856855580}
@@ -17209,10 +17250,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1689120415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 845597469}
+  door: {fileID: 845597473}
 --- !u!114 &1689120418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17954,11 +17995,16 @@ Prefab:
       propertyPath: attachedDoor
       value: 
       objectReference: {fileID: 1909940027}
-    - target: {fileID: 11441026, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+    - target: {fileID: 0}
       propertyPath: attachedDoor
       value: 
       objectReference: {fileID: 1909940027}
-    m_RemovedComponents: []
+    - target: {fileID: 11425522, guid: 727b833586c0e014299e00c72228c59f, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1909940030}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 727b833586c0e014299e00c72228c59f, type: 2}
   m_RootGameObject: {fileID: 1457375572}
   m_IsPrefabParent: 0
@@ -18589,6 +18635,10 @@ Prefab:
       propertyPath: m_Name
       value: IntroduceRedirectSphereTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 53391729}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321b06b25c5222d42be53dddc097efea, type: 2}
   m_RootGameObject: {fileID: 54342611}
@@ -18784,10 +18834,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1867798572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 1785009902}
+  door: {fileID: 1785009906}
 --- !u!1 &1868064035
 GameObject:
   m_ObjectHideFlags: 0
@@ -19484,10 +19534,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1921416033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf2d23a2981a4b42b635061e2bbbc7d, type: 3}
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedDoor: {fileID: 255694691}
+  door: {fileID: 255694695}
 --- !u!1 &1926070874
 GameObject:
   m_ObjectHideFlags: 0
@@ -19685,7 +19735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 2028642017}
 --- !u!212 &1952150149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20133,6 +20183,7 @@ GameObject:
   - 4: {fileID: 1984411376}
   - 212: {fileID: 1984411378}
   - 114: {fileID: 1984411377}
+  - 114: {fileID: 1984411379}
   m_Layer: 0
   m_Name: SneakyEnemy
   m_TagString: Enemy
@@ -20185,6 +20236,18 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1984411379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1984411375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 845597473}
 --- !u!1 &1987972849
 GameObject:
   m_ObjectHideFlags: 0

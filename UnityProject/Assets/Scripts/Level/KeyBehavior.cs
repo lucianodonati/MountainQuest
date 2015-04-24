@@ -40,7 +40,7 @@ public class KeyBehavior : MonoBehaviour
                 for (int i = 0; i < numparticles; ++i)
                 {
                     Vector3 to =
-                        (GetComponent<NotifyDoor>().attachedDoor.transform.position - finalparticles[i].position);
+                        (GetComponent<DoorRequirement>().door.transform.position - finalparticles[i].position);
 
                     to.z = 0;
 
@@ -54,7 +54,7 @@ public class KeyBehavior : MonoBehaviour
                     }
                     else
                     {
-                        finalparticles[i].position = GetComponent<NotifyDoor>().attachedDoor.transform.position;
+                        finalparticles[i].position = GetComponent<DoorRequirement>().door.transform.position;
                         finalparticles[i].velocity = Vector3.zero;
                     }
                 }
