@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
      <Compile Include="Assets\Scripts\Level\CrumblingPlatformBehavior.cs" />
      <Compile Include="Assets\Scripts\Level\Door.cs" />
+     <Compile Include="Assets\Scripts\Level\DoorRequirement.cs" />
      <Compile Include="Assets\Scripts\Level\Interactive\Target.cs" />
      <Compile Include="Assets\Scripts\Level\KeyBehavior.cs" />
      <Compile Include="Assets\Scripts\Level\OrganizeMe.cs" />
@@ -85,7 +86,6 @@
      <Compile Include="Assets\Scripts\UI_Scripts\ScrollingText.cs" />
      <Compile Include="Assets\Scripts\Weapons\Arrow.cs" />
      <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
-     <None Include="Assets\KEY3DTEST\archibase.net.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>

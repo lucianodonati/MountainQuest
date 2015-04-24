@@ -109,14 +109,4 @@ public class KeyBehavior : MonoBehaviour
             psys.SetParticles(finalparticles, numparticles);
         }
     }
-
-    private void OnDestroy()
-    {
-        if (attachedDoor != null)
-        {
-            Door theDoor = attachedDoor.GetComponent<Door>();
-            if (theDoor != null)
-                theDoor.RemoveFromKeyList(gameObject);
-        }
-    }
 }

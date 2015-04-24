@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> MenuPrefabsDONOTTOUCH = new List<GameObject>();
 
     // Active
-    private Menus activeMenu = Menus.Title, previous;
+    private Menus activeMenu = Menus.Title, previous = Menus.Title;
 
     #endregion Menus
 
