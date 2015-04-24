@@ -239,6 +239,11 @@ public class GameManager : MonoBehaviour
         AudioListener.volume = sfxVol / 100;
     }
 
+    public void ToggleFullScreen()
+    {
+
+    }
+
     public void Exit()
     {
         Application.Quit();
