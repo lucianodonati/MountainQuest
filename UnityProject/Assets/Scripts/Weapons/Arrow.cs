@@ -30,10 +30,6 @@ public class Arrow : MonoBehaviour
         rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
     }
 
-    private void OnCollisionExit2D()
-    {
-    }
-
     private void OnCollisionEnter2D(Collision2D coll)
     {
         CheckCollision(coll.collider);
@@ -46,13 +42,16 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        justFired = false;
-        GetComponent<BoxCollider2D>().isTrigger = false;
+        if (justFired)
+        {
+            justFired = false;
+            GetComponent<BoxCollider2D>().isTrigger = false;
+        }
     }
 
     private void CheckCollision(Collider2D coll)
     {
-        if (coll.tag != "Sphere" && !justFired)
+        if (coll.tag != "Sphere" && !justFired && transform.parent == null)
         {
             rigidbody2D.velocity = new Vector2(0, 0);
             GetComponent<BoxCollider2D>().isTrigger = true;

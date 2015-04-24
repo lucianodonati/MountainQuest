@@ -3,22 +3,14 @@ using System.Collections;
 
 public class Target : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public GameObject attachedDoor;
 
-    void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Arrow")
         {
             // TODO:  Call function to open door or whatever
-
+            attachedDoor.GetComponent<Door>().RemoveFromKeyList(gameObject);
             Destroy(this.gameObject);
         }
     }
