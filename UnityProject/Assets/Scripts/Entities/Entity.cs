@@ -8,9 +8,10 @@ public class Entity : MonoBehaviour
 	public List<Affliction> affectedBy;
 	
 	// Use this for initialization
-	private void Start()
+	protected void Start()
 	{
-		health = gameObject.AddComponent<Health>();
+		gameObject.AddComponent<Health>();
+        health = GetComponent<Health>();
 		affectedBy = new List<Affliction>();
 	}
 	
