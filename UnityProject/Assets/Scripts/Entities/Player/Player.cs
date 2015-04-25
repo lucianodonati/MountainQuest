@@ -32,7 +32,7 @@ public class Player : Entity
     public int lives = 3;
 
     // Use this for initialization
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         spawnpos = transform.position;
