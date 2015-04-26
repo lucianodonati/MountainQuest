@@ -1,5 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
@@ -35,4 +39,27 @@ public class ButtonScript : MonoBehaviour
     {
         GameManager.instance.UpdateSFx(_vol);
     }
+
+    public void Save()
+    {
+        BinaryFormatter binForm = new BinaryFormatter();
+        string fileName = "/" + gameObject.transform.FindChild("Text").GetComponent<Text>().text + ".dat";
+        FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
+
+        SaveInfo info = new SaveInfo();
+
+        binForm.Serialize(file, info);
+        file.Close();
+    }
+
+    public void Delete()
+    {
+
+    }
+}
+
+[Serializable]
+class SaveInfo
+{
+
 }

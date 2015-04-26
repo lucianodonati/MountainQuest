@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public enum Menus
     {
-        Title, Story, Pause, Options, Credits, GameOver, Previous
+        Title, Story, Pause, Options, Credits, GameOver, Save, Previous
     }
 
     // References
