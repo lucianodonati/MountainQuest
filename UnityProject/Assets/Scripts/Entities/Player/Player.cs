@@ -150,7 +150,7 @@ public class Player : Entity
 
     public override void die()
     {
-        if (lives >= 0)
+        if (lives > 1)
         {
             health.currentHP = health.maxHP;
             transform.position = spawnpos;
@@ -158,8 +158,12 @@ public class Player : Entity
         }
         else
         {
-            //Recode when proper game over has been made
-            GameManager.instance.switchToMenu(GameManager.Menus.GameOver);
+            if (health.currentHP <= 0)
+            {
+                //Recode when proper game over has been made
+                GameManager.instance.switchToMenu(GameManager.Menus.GameOver);
+                gameObject.GetComponent<PlayerController>().enabled = false;
+            }
         }
     }
 }

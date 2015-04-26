@@ -22,7 +22,7 @@ public class StatsManager : MonoBehaviour
 
     public int accuracy
     {
-        get { return (shotsHit * 100) / shotsFired; }
+        get { return (shotsHit * 100) / (shotsFired > 0 ? shotsFired : 1); }
     }
 
     public int arrowsRedirected { get; set; }

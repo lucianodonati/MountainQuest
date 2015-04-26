@@ -16,7 +16,7 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (health.currentHP == 0.0f)
+        if (health.currentHP <= 0.0f)
             die();
     }
 
