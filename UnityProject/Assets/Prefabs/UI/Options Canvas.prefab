@@ -1047,7 +1047,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Return to Title Menu
+  m_Text: Return
 --- !u!114 &11411472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuToSwitch: 0
+  MenuToSwitch: 7
   SceneToLoad: 0
 --- !u!114 &11449802
 MonoBehaviour:

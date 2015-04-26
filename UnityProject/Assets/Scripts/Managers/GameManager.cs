@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public enum Menus
     {
-        Title, Story, Pause, Options, Credits, GameOver, Previous
+        Title, Story, Pause, Options, Credits, GameOver, Save, Previous
     }
 
     // References
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         transform.parent = Camera.main.transform;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
             MenuInstances.Add(null);
         activeMenu = Menus.Title;
     }
