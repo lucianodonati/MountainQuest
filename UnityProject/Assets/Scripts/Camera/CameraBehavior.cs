@@ -18,7 +18,7 @@ public class CameraBehavior : MonoBehaviour {
 	public GameObject looktarget;
 	public float targSnapSpeed = 4;
 
-	private const float originalSize = 10;
+	private float originalSize;
 	public float toSize;
 	public float cameraResizeSpeed = 8;
 
@@ -26,6 +26,9 @@ public class CameraBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
+
+        originalSize = Camera.main.orthographicSize;
+
 		toSize = originalSize;
 	}
 	
@@ -36,28 +39,29 @@ public class CameraBehavior : MonoBehaviour {
 		halfWidth = halfHeight * Screen.width / Screen.height;
 
 		Vector3 newpos;
-		float camSize;
 
 		if (looktarget == null) {
 
-			newpos = SnapTo(new Vector3(player.transform.position.x,player.transform.position.y + deadHalfHeight,0),16);
+            if (camera.orthographicSize < originalSize)
+                camera.orthographicSize = originalSize;
+
+			newpos = new Vector3(player.transform.position.x,player.transform.position.y + deadHalfHeight,transform.position.z);
+
 			if ((player.transform.position.y > transform.position.y - deadHalfHeight)) {
 				newpos.y = transform.position.y;
-			}
-			
+            }
+
 			if(player.GetComponent<PlayerController>().grounded && transform.position.y - deadHalfHeight < player.transform.position.y){
 				newpos.y = Mathf.SmoothStep(transform.position.y, player.transform.position.y + deadHalfHeight,8*Time.deltaTime);
-			}
+			}else if (transform.position.y + (3 * halfHeight / 4) < player.transform.position.y){
+                newpos.y = player.transform.position.y - (3 * halfHeight / 4);
+            }
 
 			newpos = AdjustForBounds(newpos);
-
-			camSize = originalSize;
 		} else {
 			newpos = SnapTo(looktarget.transform.position,targSnapSpeed);
-			camSize = toSize;
+            Resize(toSize, cameraResizeSpeed);
 		}
-
-		Resize (camSize, cameraResizeSpeed);
 
 		transform.position = newpos;
 	}

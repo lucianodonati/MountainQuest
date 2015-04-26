@@ -2559,7 +2559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c8ecf2350d8b543ad6b4a9ca466f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadHalfHeight: 8.5
+  deadHalfHeight: 11.3000002
   MinBound: {fileID: 2111464335}
   MaxBound: {fileID: 1205972021}
   looktarget: {fileID: 0}
