@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   slow: 0
-  ticEvery: 2
+  ticEvery: 1
   duration: 10
   timer: 0
 --- !u!212 &21255430
