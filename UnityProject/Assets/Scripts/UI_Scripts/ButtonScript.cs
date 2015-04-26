@@ -43,9 +43,8 @@ public class ButtonScript : MonoBehaviour
     public void Save()
     {
         BinaryFormatter binForm = new BinaryFormatter();
-        string fileName = "/" + gameObject.transform.FindChild("Text").GetComponent<Text>().text + ".dat";
-        FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
-
+        string fileName = "/" + GameObject.Find("Save Menu").GetComponent<SelectedHandler>().selected.gameObject.transform.FindChild("Text").GetComponent<Text>().text + ".dat";
+        FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.OpenOrCreate);
         SaveInfo info = new SaveInfo();
 
         binForm.Serialize(file, info);
