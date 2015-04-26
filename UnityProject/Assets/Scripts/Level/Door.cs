@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public List<GameObject> requisites;
+    private List<GameObject> requisites;
     private float duration = 1.0f, startTime;
     private bool open = false;
     private SpriteRenderer sprite;
+
+    private void Awake()
+    {
+        requisites = new List<GameObject>();
+    }
 
     // Use this for initialization
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    public void AddRequirement(GameObject _req)
+    {
+        requisites.Add(_req);
     }
 
     // Update is called once per frame

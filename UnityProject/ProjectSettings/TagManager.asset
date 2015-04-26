@@ -12,6 +12,7 @@ TagManager:
   - Boss
   - Sphere
   - Key
+  - Door
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Platform
-  User Layer 9: Player
+  User Layer 9: Door
   User Layer 10: Entity
   User Layer 11: Weapons
   User Layer 12: Sphere

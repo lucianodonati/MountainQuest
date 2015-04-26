@@ -1,32 +1,163 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool _Debug = false;
+    private string log;
+    private static GameManager _instance;
+    public StatsManager stats;
+
+    static public bool isActive
+    {
+        get
+        {
+            return _instance != null;
+        }
+    }
+
+    static public GameManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Object.FindObjectOfType(typeof(GameManager)) as GameManager;
+
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("GameManager");
+                    DontDestroyOnLoad(go);
+                    _instance = go.AddComponent<GameManager>();
+                    if (_instance._Debug)
+                        Debug.Log("GameManager: Instance created.");
+                }
+            }
+            return _instance;
+        }
+    }
+
+    #region Menus
+
+    public enum Menus
+    {
+        Title, Story, Pause, Options, Credits, GameOver, Save, Previous
+    }
+
+    // References
+    private List<GameObject> MenuInstances = new List<GameObject>();
+
+    // Prefabs
+    public List<GameObject> MenuPrefabsDONOTTOUCH = new List<GameObject>();
+
+    // Active
+    private Menus activeMenu = Menus.Title, previous = Menus.Title;
+
+    #endregion Menus
+
+    #region Scenes
+
     public enum Scenes
     {
         MainMenu, Tutorial, Level1, Level2, Level3, Level4, Level5
     };
 
     private Scenes currentLevel = Scenes.MainMenu;
-    private float musicVol = 20.0f, sfxVol = 100.0f, timer;
-    public AudioSource music, slowmoSfx, speedupSfx;
-    public GameObject TitleScreen, pauseMenuPrefab;
-    private Canvas pauseMenu;
+
+    #endregion Scenes
+
+    #region Pause
+
+    private float timer;
     private float duration = 0.3f, startTime;
-    private bool poop = false, pause = false;
+    private bool keyPressed = false, pause = false;
+
+    #endregion Pause
+
+    #region Sound
+
+    public AudioSource music, slowmoSfx, speedupSfx, menuSelectionChange, menuSelect;
+    private float musicVol = 50.0f, sfxVol = 50.0f;
+
+    #endregion Sound
+
+    private PlayerController playerController = null;
+
+    private void Awake()
+    {
+        stats = gameObject.AddComponent<StatsManager>();
+        DontDestroyOnLoad(gameObject);
+        transform.parent = Camera.main.transform;
+        for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
+            MenuInstances.Add(null);
+        activeMenu = Menus.Title;
+    }
 
     private void Start()
     {
-        if (TitleScreen != null)
-            TitleScreen.SetActive(true);
-        GameObject.DontDestroyOnLoad(gameObject);
+        MenuInstances[0] = newCanvas(Menus.Title);
         UpdateMusic(musicVol);
+    }
+
+    private GameObject newCanvas(Menus _newCanvas)
+    {
+        GameObject theCanvas = MenuInstances[(int)_newCanvas];
+        if (theCanvas == null)
+        {
+            if (_Debug)
+                Debug.Log("GameManager: " + _newCanvas.ToString() + " not present, creating object.");
+            theCanvas = ((GameObject)Instantiate(MenuPrefabsDONOTTOUCH[(int)_newCanvas]));
+            theCanvas.name = _newCanvas.ToString() + " Menu";
+            MenuInstances[(int)_newCanvas] = theCanvas;
+        }
+        return theCanvas;
+    }
+
+    public void switchToMenu(Menus _newMenu)
+    {
+        if (_Debug)
+            log = "GameManager: Switching from " + activeMenu.ToString() + " to ";
+
+        if (_newMenu == Menus.Previous)
+        {
+            if (_Debug)
+                log += "previous (" + previous.ToString() + ").";
+            disableCurrentMenu();
+            activeMenu = previous;
+            MenuInstances[(int)activeMenu].SetActive(true);
+        }
+        else
+        {
+            log += _newMenu.ToString() + ".";
+            previous = activeMenu;
+            disableCurrentMenu();
+            newCanvas(_newMenu).SetActive(true);
+            activeMenu = _newMenu;
+        }
+        if (_Debug)
+            Debug.Log(log);
+    }
+
+    private void disableCurrentMenu()
+    {
+        if (MenuInstances[(int)activeMenu] != null)
+            MenuInstances[(int)activeMenu].gameObject.SetActive(false);
     }
 
     private void OnLevelWasLoaded(int level)
     {
+        pause = false;
+        music.pitch = 1.0f;
+        Time.timeScale = 1.0f;
         transform.parent = Camera.main.transform;
+        music.Stop();
+        music.Play();
+        if (currentLevel != Scenes.MainMenu)
+        {
+            if (playerController == null)
+                playerController = (GameObject.FindGameObjectWithTag("Player")).GetComponent<PlayerController>();
+        }
     }
 
     private void Update()
@@ -39,22 +170,22 @@ public class GameManager : MonoBehaviour
                 pause = !pause;
                 if (pause)
                 {
-                    if (pauseMenu == null)
-                        pauseMenu = ((GameObject)Instantiate(pauseMenuPrefab)).GetComponent<Canvas>();
-                    pauseMenu.gameObject.SetActive(true);
+                    playerController.enabled = false;
+                    switchToMenu(Menus.Pause);
                     slowmoSfx.Play();
                 }
                 else
                 {
-                    pauseMenu.gameObject.SetActive(false);
+                    playerController.enabled = true;
+                    disableCurrentMenu();
                     speedupSfx.Play();
                     music.Play();
                 }
 
-                poop = true;
+                keyPressed = true;
             }
 
-            if (poop)
+            if (keyPressed)
             {
                 timer = (Time.time - startTime) / duration;
                 if (pause)
@@ -62,9 +193,11 @@ public class GameManager : MonoBehaviour
                 else
                     UnPause();
                 if (Time.timeScale == 1 || Time.timeScale == 0)
-                    poop = false;
+                    keyPressed = false;
             }
         }
+        //Stats
+        stats.timePlayed += Time.deltaTime;
     }
 
     private void Pause()
@@ -107,7 +240,10 @@ public class GameManager : MonoBehaviour
     {
         musicVol = newMusicVol;
         if (music != null)
+        {
             music.volume = musicVol / 100;
+            music.ignoreListenerVolume = true;
+        }
         else
             Debug.LogWarning("Trying to adjust music volume with no AudioSource attached.");
     }
@@ -116,6 +252,11 @@ public class GameManager : MonoBehaviour
     {
         sfxVol = newSfxVol;
         AudioListener.volume = sfxVol / 100;
+    }
+
+    public void ToggleFullScreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
     }
 
     public void Exit()
