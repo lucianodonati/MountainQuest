@@ -76,8 +76,8 @@ public class GameManager : MonoBehaviour
 
     #region Sound
 
-    public AudioSource music, slowmoSfx, speedupSfx;
-    private float musicVol = 20.0f, sfxVol = 100.0f;
+    public AudioSource music, slowmoSfx, speedupSfx, menuSelectionChange, menuSelect;
+    private float musicVol = 50.0f, sfxVol = 50.0f;
 
     #endregion Sound
 
@@ -236,7 +236,10 @@ public class GameManager : MonoBehaviour
     {
         musicVol = newMusicVol;
         if (music != null)
+        {
             music.volume = musicVol / 100;
+            music.ignoreListenerVolume = true;
+        }
         else
             Debug.LogWarning("Trying to adjust music volume with no AudioSource attached.");
     }

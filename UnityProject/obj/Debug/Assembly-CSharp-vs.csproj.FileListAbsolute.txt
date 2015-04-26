@@ -10,3 +10,15 @@ C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Te
 C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Unity.DataContract.dll
 C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\ICSharpCode.NRefactory.dll
 C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.pdb
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\Assembly-CSharp.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\Assembly-CSharp.pdb
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\UnityEditor.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\UnityEngine.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\UnityEngine.UI.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\Mono.Cecil.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\nunit.framework.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\Unity.DataContract.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+F:\classes\structure of game production\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.dll
+F:\classes\structure of game production\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp.pdb
