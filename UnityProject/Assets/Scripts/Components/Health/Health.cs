@@ -14,16 +14,20 @@ public class Health : MonoBehaviour
 		healthBar = gameObject.GetComponent<HealthBar> ();
     }
 
-    public void TakeDamage(float _damage)
+    public void TakeDamage(float _damage, bool isCrit)
     {
         if (_damage >= 0)
         {
             currentHP -= _damage;
             if (currentHP < 0)
                 currentHP = 0;
+
+            healthBar.CreateDamageLabel(_damage, false, isCrit);
         }
         else
             Debug.LogWarning(gameObject.name + ": Trying to deal negative damage (Use heal function).");
+
+
     }
 
     public void Heal(float _hp)
@@ -33,6 +37,8 @@ public class Health : MonoBehaviour
             currentHP += _hp;
             if (currentHP > maxHP)
                 currentHP = maxHP;
+
+            healthBar.CreateDamageLabel(_hp, true, false);
         }
         else
             Debug.LogWarning(gameObject.name + ": Trying to heal negative hp (Use TakeDamage function).");
