@@ -7,12 +7,10 @@ public class Player : Entity
 {
 	
 
-	public List<Sphere> Spheres;
 	public List<Arrow> Arrows;
 	public List<Sword> Swords;
-	Sword ActiveSword;
-	Arrow ActiveArrow;
-	Sphere ActiveSphere;
+    //Sword ActiveSword;
+    //Arrow ActiveArrow;
 	public Arrow arrow;
 	public bool isAiming = false;
 	public GameObject instructionsUI;
@@ -35,7 +33,6 @@ public class Player : Entity
 	// Use this for initialization
 	void Start ()
 	{
-				
 		spawnpos = transform.position;
 	}
 		

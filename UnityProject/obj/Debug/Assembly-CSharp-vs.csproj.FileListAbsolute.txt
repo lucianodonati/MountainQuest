@@ -1,0 +1,12 @@
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEditor.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEngine.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\nunit.framework.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp.pdb

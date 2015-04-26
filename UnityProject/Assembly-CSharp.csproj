@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Boss1Behavior.cs" />
+     <Compile Include="Assets\Boss1Movement.cs" />
      <Compile Include="Assets\Scripts\AfflictionStates\Affliction.cs" />
      <Compile Include="Assets\Scripts\AfflictionStates\Damage\DPS.cs" />
      <Compile Include="Assets\Scripts\AfflictionStates\Damage\DamageType.cs" />
@@ -68,11 +69,8 @@
      <Compile Include="Assets\Scripts\Entities\Entity.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Boost.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\BoostSphere.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Redirect.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\RedirectSphere.cs" />
-     <Compile Include="Assets\Scripts\Entities\Player\Spheres\Sphere.cs" />
      <Compile Include="Assets\Scripts\Entities\Player\Spheres\SphereManager.cs" />
      <Compile Include="Assets\Scripts\Level\CrumblingPlatformBehavior.cs" />
      <Compile Include="Assets\Scripts\Level\Door.cs" />

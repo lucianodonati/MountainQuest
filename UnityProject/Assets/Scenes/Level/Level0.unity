@@ -3297,7 +3297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   affectedBy: []
-  Spheres: []
   Arrows: []
   Swords: []
   arrow: {fileID: 0}
@@ -3390,7 +3389,7 @@ Transform:
   m_PrefabInternal: {fileID: 1488407830}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.82000005, y: 7.51999998, z: 0}
+  m_LocalPosition: {x: 66.0299988, y: 11.4399996, z: 0}
   m_LocalScale: {x: 10, y: 25.3750114, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14174,11 +14173,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.82000005
+      value: 66.0299988
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.51999998
+      value: 11.4399996
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -15438,8 +15437,8 @@ GameObject:
   - 23: {fileID: 1619034877}
   - 50: {fileID: 1619034882}
   - 61: {fileID: 1619034881}
-  - 114: {fileID: 1619034878}
   - 58: {fileID: 1619034883}
+  - 114: {fileID: 1619034885}
   m_Layer: 0
   m_Name: Boss 1
   m_TagString: Untagged
@@ -15467,26 +15466,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!114 &1619034878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1619034876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0061e08d885590c4194c72f3153d0088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 0
-  moveSpeed: 4
-  ground: {fileID: 0}
-  target: {fileID: 0}
-  aggroTimer: 0
-  aggroTimerMax: 3
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1792
 --- !u!33 &1619034879
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15501,7 +15480,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619034876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.6699982, y: 3.53999996, z: -4.11000013}
+  m_LocalPosition: {x: 38.5099983, y: 3.8599999, z: -4.11000013}
   m_LocalScale: {x: 2.3339653, y: 2.33396482, z: 2.33396482}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15541,8 +15520,36 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 8.1460495
+  m_Radius: 9.13311768
   m_Center: {x: 5.96046448e-08, y: 0}
+--- !u!114 &1619034885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1619034876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17360214862bed948a7ba63e9ab51392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runTimer: 3
+  attacking: 0
+  running: 0
+  charging: 0
+  stomping: 0
+  attackDelay: .899999976
+  player: {fileID: 399855265}
+  tiredTimer: 0
+  direction: 0
+  moveSpeed: 4
+  ground: {fileID: 0}
+  target: {fileID: 0}
+  aggroTimer: 0
+  aggroTimerMax: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1792
 --- !u!1001 &1626095754
 Prefab:
   m_ObjectHideFlags: 0
