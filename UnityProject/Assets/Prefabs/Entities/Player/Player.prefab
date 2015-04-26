@@ -26,10 +26,9 @@ GameObject:
   - 4: {fileID: 453492}
   - 212: {fileID: 21253492}
   - 114: {fileID: 11453492}
+  - 114: {fileID: 11408038}
   - 50: {fileID: 5053492}
   - 61: {fileID: 6153492}
-  - 114: {fileID: 11408038}
-  - 114: {fileID: 11425198}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -56,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.10000038, y: 3, z: 0}
+  m_LocalPosition: {x: -10, y: 2.70000005, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 425198}
@@ -114,18 +113,6 @@ MonoBehaviour:
   RSphereCap: 3
   BSphereCap: 3
   lives: 3
---- !u!114 &11425198
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf863d6e20474ac49938a411f05dc1e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaler: 10
 --- !u!114 &11453492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +131,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   jumpCooldownTimerMax: .100000001
-  Arrow: {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
+  Arrow: {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
   arrowCooldownTimerMax: .5
   Sword: {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
   looktarget: {x: 0, y: 0, z: 0}

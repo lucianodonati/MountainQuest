@@ -19,6 +19,11 @@ public class Health : MonoBehaviour
         //Debug.Log("Health: Damage received (" + _damage + ", " + (crit ? "crit" : "no crit") + ")");
         if (_damage >= 0)
         {
+            if (tag == "Player")
+                GameManager.instance.stats.damageTaken += _damage;
+            else if (tag == "Enemy")
+                GameManager.instance.stats.damageDealt += _damage;
+
             currentHP -= _damage;
             if (currentHP < 0.0f)
                 currentHP = 0.0f;

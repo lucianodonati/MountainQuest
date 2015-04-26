@@ -41,6 +41,8 @@ public class Player : Entity
     // Update is called once per frame
     protected override void Update()
     {
+        base.Update();
+
         Vector3 mouse = Input.mousePosition;
         mouse.z = 10;
         Vector3 mPos = Camera.main.ScreenToWorldPoint(mouse);
@@ -148,7 +150,7 @@ public class Player : Entity
 
     public override void die()
     {
-        if (lives <= 0)
+        if (lives >= 0)
         {
             health.currentHP = health.maxHP;
             transform.position = spawnpos;
@@ -157,7 +159,7 @@ public class Player : Entity
         else
         {
             //Recode when proper game over has been made
-            Application.LoadLevel("MainMenu");
+            GameManager.instance.switchToMenu(GameManager.Menus.GameOver);
         }
     }
 }

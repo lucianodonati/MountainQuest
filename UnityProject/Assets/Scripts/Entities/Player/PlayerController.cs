@@ -219,6 +219,8 @@ public class PlayerController : MonoBehaviour
                 currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
 
                 arrowCooldownTimer = arrowCooldownTimerMax;
+
+                GameManager.instance.stats.shotsFired++;
             }
         }
         else

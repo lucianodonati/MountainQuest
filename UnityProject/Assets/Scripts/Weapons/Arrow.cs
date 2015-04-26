@@ -33,6 +33,7 @@ public class Arrow : MonoBehaviour
     {
         if (coll.gameObject.layer == LayerMask.NameToLayer("Entity"))
         {
+            GameManager.instance.stats.shotsHit++;
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
             if (isEntity != null)
                 damageType.attachToEnemy(isEntity);

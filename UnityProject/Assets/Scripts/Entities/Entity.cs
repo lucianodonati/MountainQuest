@@ -41,6 +41,9 @@ public class Entity : MonoBehaviour
 
     public virtual void die()
     {
+        if (tag == "Enemy" || tag == "Boss")
+            GameManager.instance.stats.enemiesKilledTotal++;
+
         Destroy(gameObject);
     }
 }

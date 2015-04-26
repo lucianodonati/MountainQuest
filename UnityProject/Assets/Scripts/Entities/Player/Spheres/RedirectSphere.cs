@@ -42,6 +42,7 @@ public class RedirectSphere : MonoBehaviour
 
         if (proj != null)
         {
+            GameManager.instance.stats.arrowsRedirected++;
             other.rigidbody2D.position = this.transform.position;
             Direction.Normalize();
             Direction *= other.rigidbody2D.velocity.magnitude;

@@ -41,6 +41,7 @@ public class BoostSphere : MonoBehaviour
         Arrow proj = other.GetComponent<Arrow>();
         if (proj != null)
         {
+            GameManager.instance.stats.arrowsBoosted++;
             proj.damageType.damage += DamageModifier;
         }
         if (other.rigidbody2D != null)

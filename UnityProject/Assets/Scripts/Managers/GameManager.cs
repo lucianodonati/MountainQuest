@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public bool _Debug = false;
     private string log;
     private static GameManager _instance;
+    public StatsManager stats;
 
     static public bool isActive
     {
@@ -85,9 +86,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        stats = gameObject.AddComponent<StatsManager>();
         DontDestroyOnLoad(gameObject);
         transform.parent = Camera.main.transform;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
             MenuInstances.Add(null);
         activeMenu = Menus.Title;
     }
@@ -194,6 +196,8 @@ public class GameManager : MonoBehaviour
                     keyPressed = false;
             }
         }
+        //Stats
+        stats.timePlayed += Time.deltaTime;
     }
 
     private void Pause()
