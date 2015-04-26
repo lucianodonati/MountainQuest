@@ -17,14 +17,18 @@ public class RedirectSphere : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, RotationDirection));
-
-        AliveTimer -= Time.deltaTime;
-        if (AliveTimer <= 0)
+        if (AliveTimer != -1)
         {
-            Destroy(this.gameObject);
-            if (Owner.GetComponent<Player>())
-                Owner.GetComponent<Player>().RemoveRSphere();
+            AliveTimer -= Time.deltaTime;
+            if (AliveTimer <= 0)
+            {
+                if (Owner != null)
+                    if (Owner.GetComponent<Player>())
+                        Owner.GetComponent<Player>().RemoveRSphere();
+                Destroy(this.gameObject);
+            }
         }
+
         if (AliveTimer <= 2)
         {
             SpriteRenderer mySR = GetComponent<SpriteRenderer>();

@@ -17,12 +17,15 @@ public class BoostSphere : MonoBehaviour
 
     private void Update()
     {
-        AliveTimer -= Time.deltaTime;
-        if (AliveTimer <= 0)
+        if (AliveTimer != -1)
         {
-            if (Owner != null && Owner.GetComponent<Player>() != null)
-                Owner.GetComponent<Player>().RemoveBSphere();
-            Destroy(this.gameObject);
+            AliveTimer -= Time.deltaTime;
+            if (AliveTimer <= 0)
+            {
+                if (Owner != null && Owner.GetComponent<Player>() != null)
+                    Owner.GetComponent<Player>().RemoveBSphere();
+                Destroy(this.gameObject);
+            }
         }
 
         if (AliveTimer <= 2)

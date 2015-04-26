@@ -11,6 +11,7 @@ public class Enemy : Entity
 
     protected override void Update()
     {
+        transform.up = Vector2.up;
         base.Update();
     }
 }
