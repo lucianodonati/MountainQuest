@@ -12,9 +12,9 @@ GameObject:
   - 114: {fileID: 11455430}
   - 61: {fileID: 6155430}
   - 50: {fileID: 5055430}
-  - 114: {fileID: 11418698}
+  - 114: {fileID: 11464714}
   m_Layer: 14
-  m_Name: Arrow
+  m_Name: FireArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,20 +58,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
---- !u!114 &11418698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155430}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a1cd497e2e64b44b2dcf60bb2a83c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 15
-  critChance: .5
-  critMult: 3
 --- !u!114 &11455430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +72,23 @@ MonoBehaviour:
   speed: 10
   stuckTimer: 10
   numCollisions: 0
-  damageType: {fileID: 11418698}
+  damageType: {fileID: 11464714}
+--- !u!114 &11464714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155430}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe4e8149e7ead04d8f18def677db096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
+  slow: 0
+  ticEvery: 2
+  duration: 10
+  timer: 0
 --- !u!212 &21255430
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -108,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

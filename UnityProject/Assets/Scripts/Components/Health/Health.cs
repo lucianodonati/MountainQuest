@@ -10,17 +10,22 @@ public class Health : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-		gameObject.AddComponent<HealthBar> ();
-		healthBar = gameObject.GetComponent<HealthBar> ();
+        gameObject.AddComponent<HealthBar>();
+        healthBar = gameObject.GetComponent<HealthBar>();
     }
 
-    public void TakeDamage(float _damage)
+    private void Update()
     {
+    }
+
+    public void TakeDamage(float _damage, bool crit)
+    {
+        //Debug.Log("Health: Damage received (" + _damage + ", " + (crit ? "crit" : "no crit") + ")");
         if (_damage >= 0)
         {
             currentHP -= _damage;
-            if (currentHP < 0)
-                currentHP = 0;
+            if (currentHP < 0.0f)
+                currentHP = 0.0f;
         }
         else
             Debug.LogWarning(gameObject.name + ": Trying to deal negative damage (Use heal function).");

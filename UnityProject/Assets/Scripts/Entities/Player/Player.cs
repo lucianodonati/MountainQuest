@@ -39,7 +39,7 @@ public class Player : Entity
     }
 
     // Update is called once per frame
-    private void Update()
+    protected override void Update()
     {
         Vector3 mouse = Input.mousePosition;
         mouse.z = 10;

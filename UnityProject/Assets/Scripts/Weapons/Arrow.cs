@@ -5,15 +5,15 @@ public class Arrow : MonoBehaviour
 {
     public float speed;
     public float stuckTimer = 5;
-    private bool stuck = false;
+    private bool stuck = false, justFired = true;
     public int numCollisions = 0;
-    public float Damage = 10;
+    public DamageType damageType;
 
     // Use this for initialization
     private void Start()
     {
         rigidbody2D.velocity = transform.up * speed;
-        GetComponent<BoxCollider2D>().isTrigger = false;
+        //GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     // Update is called once per frame
@@ -31,24 +31,30 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        CheckCollision(coll.collider);
+        if (coll.gameObject.layer == LayerMask.NameToLayer("Entity"))
+        {
+            Entity isEntity = coll.gameObject.GetComponent<Entity>();
+            if (isEntity != null)
+                damageType.attachToEnemy(isEntity);
+        }
+
+        GetStuck(coll.collider);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        CheckCollision(other);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        //if (justFired)
-        //{
-        //    justFired = false;
-        //    GetComponent<BoxCollider2D>().isTrigger = false;
-        //}
+        if (justFired)
+        {
+            GetComponent<BoxCollider2D>().isTrigger = false;
+            justFired = false;
+        }
     }
 
-    private void CheckCollision(Collider2D coll)
+    private void GetStuck(Collider2D coll)
     {
         if (coll.tag != "Sphere" /*&& !justFired*/ && transform.parent == null)
         {

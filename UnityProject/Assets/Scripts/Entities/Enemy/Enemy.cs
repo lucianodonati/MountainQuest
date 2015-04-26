@@ -1,15 +1,16 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Entity
+{
+    // Use this for initialization
+    protected override void Start()
+    {
+        base.Start();
+    }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    protected override void Update()
+    {
+        base.Update();
+    }
 }
