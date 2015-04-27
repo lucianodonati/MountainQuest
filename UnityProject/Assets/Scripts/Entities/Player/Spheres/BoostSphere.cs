@@ -46,7 +46,7 @@ public class BoostSphere : MonoBehaviour
         }
         if (other.rigidbody2D != null)
         {
-            GetComponent<SoundFX>().Play("Poop");
+           // GetComponent<SoundFX>().Play("Poop");
             if (other.rigidbody2D.velocity.magnitude < 32)
             {
                 other.rigidbody2D.velocity *= VelocityModifier;
