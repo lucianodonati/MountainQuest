@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Seek_Movement : MonoBehaviour {
+public class Seek_Movement : Enemy_Movement {
 
-	public bool direction;
+	//public bool direction;
 	public float moveSpeed = 4;
 	
-	private Vector3 preserveUp;
+	//private Vector3 preserveUp;
 	
 	public GameObject ground;
 
@@ -20,12 +20,13 @@ public class Seek_Movement : MonoBehaviour {
 	public bool ignoreEdges = false;
 
 	// Use this for initialization
-	void Start () {
-		preserveUp = this.transform.up;
+	protected override void Start () {
+		//preserveUp = this.transform.up;
+        base.Start();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected override void Update () {
 
 		if (aggroTimer > 0.0f) {
 			aggroTimer -= Time.deltaTime;
@@ -92,7 +93,7 @@ public class Seek_Movement : MonoBehaviour {
 		}
 	}
 
-	bool InFOV(GameObject targ){
+	public bool InFOV(GameObject targ){
 
 		bool val = false;
 

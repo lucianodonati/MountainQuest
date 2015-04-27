@@ -115,13 +115,6 @@ public class HealthBar : MonoBehaviour
 
             if (maxHealthBar != null)
                 hpbounds = maxHealthBar.renderer.bounds;
-
-            if (Input.GetKeyDown(KeyCode.P))
-                health.TakeDamage(Random.Range(1.0f, 2.0f), false);
-            else if (Input.GetKeyDown(KeyCode.O))
-                health.TakeDamage(Random.Range(3.0f, 4.0f), true);
-            else if (Input.GetKeyDown(KeyCode.I))
-                health.Heal(Random.Range(1.0f, 10.0f));
         }
     }
 
