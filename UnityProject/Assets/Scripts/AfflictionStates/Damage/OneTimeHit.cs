@@ -7,7 +7,7 @@ public class OneTimeHit : DamageType
 
     private void Update()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("Entity"))
+        if (gameObject.GetComponent<Entity>())
         {
             Attack();
             Destroy(this);

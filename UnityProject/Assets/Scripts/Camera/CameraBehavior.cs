@@ -49,12 +49,10 @@ public class CameraBehavior : MonoBehaviour
             if (player != null)
                 newpos = new Vector3(player.transform.position.x, player.transform.position.y + deadHalfHeight, transform.position.z);
 
-            if ((player.transform.position.y > transform.position.y - deadHalfHeight))
-            {
-                newpos.y = transform.position.y;
-            }
             if (player != null)
             {
+                if ((player.transform.position.y > transform.position.y - deadHalfHeight))
+                    newpos.y = transform.position.y;
                 if (player.GetComponent<PlayerController>() != null)
                 {
                     if (player.GetComponent<PlayerController>().grounded && transform.position.y - deadHalfHeight < player.transform.position.y)

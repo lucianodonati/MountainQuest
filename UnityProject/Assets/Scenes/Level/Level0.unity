@@ -1820,7 +1820,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &207666968
 Transform:
@@ -3572,7 +3572,7 @@ GameObject:
   - 50: {fileID: 399855267}
   - 61: {fileID: 399855266}
   - 114: {fileID: 399855271}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3593,8 +3593,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   Spheres: []
-  Arrows: []
-  Swords: []
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -3654,8 +3652,12 @@ MonoBehaviour:
   facingRight: 1
   jumpCooldownTimerMax: .100000001
   arrowCooldownTimerMax: .5
-  Arrows: []
-  Swords: []
+  Arrows:
+  - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
+  - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
+  Swords:
+  - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
+  - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
   looktarget: {x: 0, y: 0, z: 0}
 --- !u!212 &399855269
 SpriteRenderer:
@@ -13674,7 +13676,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1327513603
 Transform:
@@ -18953,7 +18955,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1769840755}
   - 212: {fileID: 1769840756}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}

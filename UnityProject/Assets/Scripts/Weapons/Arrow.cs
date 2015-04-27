@@ -32,9 +32,11 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.layer == LayerMask.NameToLayer("Entity"))
+        if (coll.gameObject.GetComponent<Entity>())
         {
-            GameManager.instance.stats.shotsHit++;
+            if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Boss")
+                GameManager.instance.stats.shotsHit++;
+
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
             if (isEntity != null)
                 damageType.attachToEnemy(isEntity);

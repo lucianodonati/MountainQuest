@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Sword : MonoBehaviour {
-
+public class Sword : MonoBehaviour
+{
     public bool swinging = false;
     public bool halfswung = false;
 
@@ -17,15 +17,15 @@ public class Sword : MonoBehaviour {
 
     public DamageType damageType;
 
-    bool hit = false;
+    private bool hit = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-    void Update()
+    // Use this for initialization
+    private void Start()
+    {
+    }
+
+    // Update is called once per frame
+    private void Update()
     {
         if (swinging)
         {
@@ -60,10 +60,10 @@ public class Sword : MonoBehaviour {
 
             transform.rotation = Quaternion.Slerp(transform.rotation,
                                                               toRot,
-                                                              ((swordspeed*2) * Time.deltaTime));
+                                                              ((swordspeed * 2) * Time.deltaTime));
             transform.position = Vector3.Lerp(transform.position,
                                                           transform.parent.position + toPos,
-                                                          ((swordspeed*2) * Time.deltaTime));
+                                                          ((swordspeed * 2) * Time.deltaTime));
 
             if (Quaternion.Angle(transform.rotation, toRot) < 0.1f && !halfswung)
             {
@@ -105,21 +105,20 @@ public class Sword : MonoBehaviour {
         swinging = true;
     }
 
-    void OnTriggerStay2D(Collider2D coll)
+    private void OnTriggerStay2D(Collider2D coll)
     {
-        if(coll.gameObject.tag != gameObject.tag && coll.isTrigger == false && !hit)
+        if (coll.gameObject.tag != gameObject.tag && coll.isTrigger == false && !hit)
         {
             if (coll.gameObject.tag == "Enemy")
             {
                 damageType.attachToEnemy(coll.gameObject.GetComponent<Entity>());
             }
-            else if(coll.gameObject.tag == "Player")
+            else if (coll.gameObject.tag == "Player")
             {
-
+                damageType.attachToEnemy(coll.gameObject.GetComponent<Entity>());
             }
 
             hit = true;
-
         }
     }
 }
