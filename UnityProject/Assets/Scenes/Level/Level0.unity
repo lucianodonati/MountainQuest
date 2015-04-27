@@ -1192,6 +1192,7 @@ MonoBehaviour:
   attackDelay: .899999976
   player: {fileID: 399855265}
   tiredTimer: 0
+  facingRight: 0
   ignoreEdges: 1
   direction: 0
   moveSpeed: 4
@@ -3161,7 +3162,7 @@ GameObject:
   - 58: {fileID: 212444323}
   - 114: {fileID: 212444322}
   - 114: {fileID: 212444321}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: IntroduceRedirectSphere2
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -3360,7 +3361,7 @@ GameObject:
   - 58: {fileID: 235329819}
   - 114: {fileID: 235329818}
   - 114: {fileID: 235329817}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: JumpThroughRedirectSphere2
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -4855,7 +4856,9 @@ MonoBehaviour:
   basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
   SphereDistance: 7
   PlayerAliveTimer: 8
+  RSphereTotal: 0
   RSphereCap: 3
+  BSphereTotal: 0
   BSphereCap: 3
   lives: 3
 --- !u!61 &399855266
@@ -7779,7 +7782,7 @@ GameObject:
   - 58: {fileID: 698812859}
   - 114: {fileID: 698812858}
   - 114: {fileID: 698812857}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: JumpThroughRedirectSphere1
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -11595,7 +11598,7 @@ GameObject:
   - 58: {fileID: 953230822}
   - 50: {fileID: 953230821}
   - 114: {fileID: 953230820}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: JumpThroughBoostSphere
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -11674,10 +11677,7 @@ MonoBehaviour:
   DamageModifier: 10
   VelocityModifier: 1.5
   AliveTimer: -1
-  isAiming: 0
-  Sphere: {fileID: 0}
   Owner: {fileID: 0}
-  boostSound: {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
 --- !u!95 &953230824
 Animator:
   serializedVersion: 3
@@ -18188,7 +18188,7 @@ GameObject:
   - 58: {fileID: 1364307749}
   - 114: {fileID: 1364307748}
   - 114: {fileID: 1364307747}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: IntroduceRedirectSphere1
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -30036,7 +30036,7 @@ GameObject:
   - 58: {fileID: 2134426526}
   - 50: {fileID: 2134426525}
   - 114: {fileID: 2134426530}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: IntroduceBoostSphere
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -30098,10 +30098,7 @@ MonoBehaviour:
   DamageModifier: 10
   VelocityModifier: 1.5
   AliveTimer: -1
-  isAiming: 0
-  Sphere: {fileID: 0}
   Owner: {fileID: 0}
-  boostSound: {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
 --- !u!95 &2134426528
 Animator:
   serializedVersion: 3
