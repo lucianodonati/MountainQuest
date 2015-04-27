@@ -135,6 +135,7 @@ public class Boss1Movement : Enemy
                     }
                     else if (charging == false && stomping == false && attacking == false)
                     {
+                        GetComponent<Animator>().SetBool("isRunning", true);
                         running = true;
 
                     }
@@ -145,6 +146,7 @@ public class Boss1Movement : Enemy
                         runTimer -= Time.deltaTime;
                         if (runTimer <= 0)
                         {
+                            GetComponent<Animator>().SetBool("isRunning", false);
                             running = false;
                             runTimer = 2.0f;
                         }

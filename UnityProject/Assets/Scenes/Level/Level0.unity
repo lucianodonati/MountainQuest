@@ -8833,9 +8833,9 @@ GameObject:
   - 58: {fileID: 913771149}
   - 50: {fileID: 913771148}
   - 61: {fileID: 913771147}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Baws
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8875,7 +8875,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 10.1241703
+  m_Radius: 3.26588011
   m_Center: {x: 5.96046448e-08, y: 0}
 --- !u!114 &913771150
 MonoBehaviour:

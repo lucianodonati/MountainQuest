@@ -1,0 +1,773 @@
+fileFormatVersion: 2
+guid: d763aa16f90eae84d920d04e5c9839d9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FullBlueBoss_0
+    21300002: FullBlueBoss_1
+    21300004: FullBlueBoss_2
+    21300006: FullBlueBoss_3
+    21300008: FullBlueBoss_4
+    21300010: FullBlueBoss_5
+    21300012: FullBlueBoss_6
+    21300014: FullBlueBoss_7
+    21300016: FullBlueBoss_8
+    21300018: FullBlueBoss_9
+    21300020: FullBlueBoss_10
+    21300022: FullBlueBoss_11
+    21300024: FullBlueBoss_12
+    21300026: FullBlueBoss_13
+    21300028: FullBlueBoss_14
+    21300030: FullBlueBoss_15
+    21300032: FullBlueBoss_16
+    21300034: FullBlueBoss_17
+    21300036: FullBlueBoss_18
+    21300038: FullBlueBoss_19
+    21300040: FullBlueBoss_20
+    21300042: FullBlueBoss_21
+    21300044: FullBlueBoss_22
+    21300046: FullBlueBoss_23
+    21300048: FullBlueBoss_24
+    21300050: FullBlueBoss_25
+    21300052: FullBlueBoss_26
+    21300054: FullBlueBoss_27
+    21300056: FullBlueBoss_28
+    21300058: FullBlueBoss_29
+    21300060: FullBlueBoss_30
+    21300062: FullBlueBoss_31
+    21300064: FullBlueBoss_32
+    21300066: FullBlueBoss_33
+    21300068: FullBlueBoss_34
+    21300070: FullBlueBoss_35
+    21300072: FullBlueBoss_36
+    21300074: FullBlueBoss_37
+    21300076: FullBlueBoss_38
+    21300078: FullBlueBoss_39
+    21300080: FullBlueBoss_40
+    21300082: FullBlueBoss_41
+    21300084: FullBlueBoss_42
+    21300086: FullBlueBoss_43
+    21300088: FullBlueBoss_44
+    21300090: FullBlueBoss_45
+    21300092: FullBlueBoss_46
+    21300094: FullBlueBoss_47
+    21300096: FullBlueBoss_48
+    21300098: FullBlueBoss_49
+    21300100: FullBlueBoss_50
+    21300102: FullBlueBoss_51
+    21300104: FullBlueBoss_52
+    21300106: FullBlueBoss_53
+    21300108: FullBlueBoss_54
+    21300110: FullBlueBoss_55
+    21300112: FullBlueBoss_56
+    21300114: FullBlueBoss_57
+    21300116: FullBlueBoss_58
+    21300118: FullBlueBoss_59
+    21300120: FullBlueBoss_60
+    21300122: FullBlueBoss_61
+    21300124: FullBlueBoss_62
+    21300126: FullBlueBoss_63
+    21300128: FullBlueBoss_64
+    21300130: FullBlueBoss_65
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: FullBlueBoss_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 907
+        width: 134
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 907
+        width: 133
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 907
+        width: 133
+        height: 113
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_3
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 907
+        width: 134
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_4
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 907
+        width: 133
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_5
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 907
+        width: 134
+        height: 117
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 778
+        width: 134
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_7
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 778
+        width: 130
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_8
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 776
+        width: 127
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_9
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 773
+        width: 127
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_10
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 776
+        width: 128
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_11
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 776
+        width: 132
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_12
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 714
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_13
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 682
+        width: 36
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_14
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 663
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_15
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 663
+        width: 44
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_16
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 670
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_17
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 642
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_18
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 428
+        width: 162
+        height: 148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_19
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 428
+        width: 170
+        height: 150
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_20
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 428
+        width: 178
+        height: 174
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_21
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 427
+        width: 173
+        height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_22
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 428
+        width: 185
+        height: 169
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_23
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 428
+        width: 176
+        height: 156
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_24
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 428
+        width: 171
+        height: 148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_25
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 487
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_26
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 428
+        width: 162
+        height: 148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_27
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 472
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_28
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 268
+        width: 142
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_29
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 268
+        width: 138
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_30
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 269
+        width: 142
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_31
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 268
+        width: 142
+        height: 130
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_32
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 389
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_33
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 393
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_34
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 392
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_35
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 387
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_36
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 268
+        width: 136
+        height: 117
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_37
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 268
+        width: 138
+        height: 117
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_38
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 375
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_39
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 375
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_40
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 375
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_41
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 374
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_42
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 268
+        width: 134
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_43
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 368
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_44
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 362
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_45
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 298
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_46
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 321
+        width: 45
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_47
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 279
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_48
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 158
+        width: 80
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_49
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 158
+        width: 89
+        height: 85
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_50
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 207
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_51
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 201
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_52
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 183
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_53
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 14
+        width: 144
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_54
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 14
+        width: 145
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_55
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 14
+        width: 140
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_56
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 14
+        width: 144
+        height: 121
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_57
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 14
+        width: 151
+        height: 121
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_58
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 14
+        width: 161
+        height: 119
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_59
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 14
+        width: 170
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_60
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 16
+        width: 162
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_61
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 60
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_62
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 22
+        width: 96
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_63
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 41
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_64
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 15
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FullBlueBoss_65
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 16
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
