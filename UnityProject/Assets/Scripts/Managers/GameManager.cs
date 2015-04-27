@@ -92,12 +92,14 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
             MenuInstances.Add(null);
         activeMenu = Menus.Title;
+
+        UpdateMusic(musicVol);
+        AudioListener.volume = sfxVol;
     }
 
     private void Start()
     {
         MenuInstances[0] = newCanvas(Menus.Title);
-        UpdateMusic(musicVol);
     }
 
     private GameObject newCanvas(Menus _newCanvas)

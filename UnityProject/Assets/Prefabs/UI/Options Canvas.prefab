@@ -11,6 +11,7 @@ GameObject:
   - 223: {fileID: 22310512}
   - 114: {fileID: 11410470}
   - 114: {fileID: 11410472}
+  - 114: {fileID: 11466174}
   m_Layer: 5
   m_Name: Options Canvas
   m_TagString: Untagged
@@ -113,6 +114,7 @@ GameObject:
   - 224: {fileID: 22410484}
   - 114: {fileID: 11410490}
   - 114: {fileID: 11485368}
+  - 82: {fileID: 8213188}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -390,6 +392,64 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &8213188
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110484}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11410470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -698,6 +758,18 @@ MonoBehaviour:
       - m_Target: {fileID: 11485368}
         m_MethodName: ChangeSFxVol
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8213188}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -1074,6 +1146,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuToSwitch: 0
   SceneToLoad: 0
+--- !u!114 &11466174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f0869c1949bd64f95546bd1bac3b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11485366
 MonoBehaviour:
   m_ObjectHideFlags: 1
