@@ -1,48 +1,50 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class RangedAI : AttackAI {
-
-
+public class RangedAI : AttackAI
+{
     public LayerMask layerMask;
 
-    GameObject target;
+    private GameObject target;
 
-	// Use this for initialization
-	protected override void Start () {
+    // Use this for initialization
+    protected override void Start()
+    {
         base.Start();
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
-        if(target != null)
+    }
+
+    // Update is called once per frame
+    protected override void Update()
+    {
+        if (target != null)
         {
-            if(InFOV(target))
+            if (InFOV(target))
             {
                 Attack();
             }
         }
-	}
+    }
 
     public bool InFOV(GameObject targ)
     {
-
         bool val = false;
 
         RaycastHit2D checkFOV =
             Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
 
-        if (checkFOV.collider.transform == targ.transform)
+        if (checkFOV != null)
         {
-            val = true;
-        }
+            if (checkFOV.collider != null)
+                if (checkFOV.collider.transform == targ.transform)
+                    val = true;
 
-        Debug.DrawLine(transform.position, checkFOV.point);
+            Debug.DrawLine(transform.position, checkFOV.point);
+        }
 
         return val;
     }
 
-    void Attack()
+    private void Attack()
     {
         if (reloadTimer > 0.0f)
             reloadTimer -= Time.deltaTime;
@@ -59,7 +61,7 @@ public class RangedAI : AttackAI {
         }
     }
 
-    void OnTriggerStay2D(Collider2D coll)
+    private void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
         {
