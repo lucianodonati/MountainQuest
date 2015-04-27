@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Arrow")
             Destroy(this.gameObject);
