@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    //public List<Sphere> Spheres;
-    //private Sword ActiveSword;
-    //private Arrow ActiveArrow;
-    //private Sphere ActiveSphere;
+  
     public Arrow arrow;
     public bool isAiming = false;
     public GameObject instructionsUI;
@@ -22,9 +19,9 @@ public class Player : Entity
     private bool RedirectMade = false;
     public float SphereDistance = 7;
     public float PlayerAliveTimer = 8.0f;
-    private int RSphereTotal = 0;
+    public int RSphereTotal = 0;
     public int RSphereCap = 3;
-    private int BSphereTotal = 0;
+    public int BSphereTotal = 0;
     public int BSphereCap = 3;
     private Vector3 spawnpos;
     public int lives = 3;
@@ -52,11 +49,13 @@ public class Player : Entity
 
         if (Input.GetMouseButtonUp(1) && BSphereTotal <= BSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7))
         {
+
             bool goCreate = true;
             foreach (BoostSphere ball in GameObject.FindObjectsOfType<BoostSphere>())
             {
-                if (Vector3.Distance(mPos, ball.transform.position) < SphereDistance && goCreate)
+                if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
                 {
+                    goCreate = true;
                     Destroy(ball.gameObject);
                     BSphereTotal--;
                 }
@@ -64,15 +63,16 @@ public class Player : Entity
                 {
                     goCreate = false;
                 }
+
             }
 
             if (goCreate)
             {
-                CreateBoostSphere = (GameObject)Instantiate(ClickObjBoost, CreateBasicSphere.transform.position, Quaternion.identity);
+                CreateBoostSphere = (GameObject)Instantiate(ClickObjBoost, mPos, Quaternion.identity);
                 BSphereTotal += 1;
                 CreateBoostSphere.GetComponent<BoostSphere>().SetOwner(this);
-                //CreateBoostSphere.GetComponent<Animator> ().Play();
             }
+
         }
         else if (Input.GetMouseButtonDown(1) && RSphereTotal <= RSphereCap)
             isAiming = true;
@@ -84,11 +84,11 @@ public class Player : Entity
                 bool goCreate = true;
                 foreach (RedirectSphere ball in GameObject.FindObjectsOfType<RedirectSphere>())
                 {
-                    if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance && goCreate)
+                    if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
                     {
                         Destroy(ball.gameObject);
                         RSphereTotal--;
-                        goCreate = false;
+                        goCreate = true;
                     }
                     if (RSphereCap == RSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
                     {
