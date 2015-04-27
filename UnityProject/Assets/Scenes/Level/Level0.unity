@@ -2929,6 +2929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &322959724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3453,6 +3454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &373908402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3572,7 +3574,7 @@ GameObject:
   - 50: {fileID: 399855267}
   - 61: {fileID: 399855266}
   - 114: {fileID: 399855271}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3592,9 +3594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
-  Spheres: []
-  Arrows: []
-  Swords: []
+  isSlowed: 0
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -3654,8 +3654,12 @@ MonoBehaviour:
   facingRight: 1
   jumpCooldownTimerMax: .100000001
   arrowCooldownTimerMax: .5
-  Arrows: []
-  Swords: []
+  Arrows:
+  - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
+  - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
+  Swords:
+  - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
+  - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
   looktarget: {x: 0, y: 0, z: 0}
 --- !u!212 &399855269
 SpriteRenderer:
@@ -4580,6 +4584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &470167251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5454,6 +5459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &547747805
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6556,6 +6562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &662436350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7086,6 +7093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &708522479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10090,6 +10098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!114 &1011545881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11010,6 +11019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!58 &1109061896
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11712,6 +11722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1173875122
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18209,6 +18220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1689120419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18953,7 +18965,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1769840755}
   - 212: {fileID: 1769840756}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19285,6 +19297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1795672915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19958,6 +19971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1867798575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20659,6 +20673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1921416036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21394,6 +21409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1984411378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22730,6 +22746,14 @@ Prefab:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 153492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 125198, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}

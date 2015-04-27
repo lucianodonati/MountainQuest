@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public List<Sphere> Spheres;
-    private Sword ActiveSword;
-    private Arrow ActiveArrow;
-    private Sphere ActiveSphere;
+    //public List<Sphere> Spheres;
+    //private Sword ActiveSword;
+    //private Arrow ActiveArrow;
+    //private Sphere ActiveSphere;
     public Arrow arrow;
     public bool isAiming = false;
     public GameObject instructionsUI;
