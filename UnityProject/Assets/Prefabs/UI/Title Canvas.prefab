@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuToSwitch: 0
+  MenuToSwitch: 7
   SceneToLoad: 0
 --- !u!114 &11409274
 MonoBehaviour:
@@ -597,7 +597,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11409272}
-        m_MethodName: LoadScene
+        m_MethodName: SwitchMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

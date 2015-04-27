@@ -3,13 +3,19 @@ using System.Collections;
 
 public class AttackAI : MonoBehaviour {
 
+    protected float reloadTimer;
+    public float reloadTimerMax;
+
+    public GameObject weapon;
+
+    protected Movement_Coordinator coordinator;
+
 	// Use this for initialization
-	void Start () {
-	
+	protected virtual void Start () {
+        coordinator = gameObject.GetComponent<Movement_Coordinator>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	protected virtual void Update () {
 	}
 }

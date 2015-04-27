@@ -1,18 +1,18 @@
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Assembly-CSharp-Editor.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Bridge.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEditor.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEditor.Graphs.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEditor.UI.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEngine.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityEngine.UI.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\UnityVS.VersionSpecific.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Mono.Cecil.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\nunit.framework.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Unity.DataContract.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\ICSharpCode.NRefactory.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\bin\Debug\Assembly-CSharp.pdb
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp-Editor-vs.csprojResolveAssemblyReference.cache
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp-Editor.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Assembly-CSharp-Editor.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Bridge.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEditor.Graphs.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEditor.UI.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\UnityVS.VersionSpecific.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp-Editor-vs.csprojResolveAssemblyReference.cache
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp-Editor.dll
+C:\Users\Aldrich\Downloads\SGP MOUNTAINQUEST CLONE\MountainQuest\UnityProject\obj\Debug\Assembly-CSharp-Editor.pdb

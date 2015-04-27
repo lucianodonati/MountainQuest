@@ -25,7 +25,7 @@ public class SoundFX : MonoBehaviour
         if (playMe.name != null && playMe.name.Length > 0)
         {
             AudioSource source = SoundManager.instance.createSource();
-            source.name = playMe.name + " Sound";
+            //source.name = playMe.name + " Sound";
             source.transform.parent = SoundManager.instance.transform;
             source.clip = playMe.getRandom();
             source.volume = playMe.volume;

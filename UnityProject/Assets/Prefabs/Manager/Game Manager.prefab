@@ -216,7 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652c2b2f26a64274d81517be76f29245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Debug: 1
+  _Debug: 0
+  stats: {fileID: 0}
   MenuPrefabsDONOTTOUCH:
   - {fileID: 140592, guid: 27920e7adacc6ec48a194aebda67cf66, type: 2}
   - {fileID: 104390, guid: 584598989d570d94fbc5a3643120f011, type: 2}
@@ -225,9 +226,12 @@ MonoBehaviour:
   - {fileID: 193818, guid: c1a61eaf91f370b4f83bbc1b7148e05b, type: 2}
   - {fileID: 133620, guid: b09ea30c1a45e484dbba880ed52b4bd1, type: 2}
   - {fileID: 105658, guid: 492642c7e7ec6da4a8a85421c06b03c8, type: 2}
+  - {fileID: 111796, guid: 70b40c3324b4135438c4d773e4c63c4a, type: 2}
   music: {fileID: 8217112}
   slowmoSfx: {fileID: 8255178}
   speedupSfx: {fileID: 8294400}
+  menuSelectionChange: {fileID: 0}
+  menuSelect: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
