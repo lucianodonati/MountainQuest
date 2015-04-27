@@ -42,7 +42,7 @@ public class Boss1Behavior : MonoBehaviour
             // attack animation
             if (startAtkDir == GetComponent<Seek_Movement>().direction && Vector3.Distance(transform.position, player.GetComponent<Player>().transform.position) <= 6.5)
             {
-                player.GetComponent<Player>().health.TakeDamage(20);
+                player.GetComponent<Player>().health.TakeDamage(20, false);
             }
  
         }
