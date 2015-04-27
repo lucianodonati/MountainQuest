@@ -12,6 +12,7 @@ public class Arrow : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        GetComponent<SoundFX>().Play("Fire");
         rigidbody2D.velocity = transform.up * speed;
         //GetComponent<BoxCollider2D>().isTrigger = true;
     }

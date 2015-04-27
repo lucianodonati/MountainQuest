@@ -28,6 +28,7 @@ GameObject:
   - 95: {fileID: 9535402}
   - 58: {fileID: 5835402}
   - 114: {fileID: 11435402}
+  - 114: {fileID: 11409652}
   m_Layer: 0
   m_Name: Redirect Sphere
   m_TagString: Sphere
@@ -86,6 +87,22 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11409652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Poop
+    sounds:
+    - {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
+    volume: .5
 --- !u!114 &11435402
 MonoBehaviour:
   m_ObjectHideFlags: 1

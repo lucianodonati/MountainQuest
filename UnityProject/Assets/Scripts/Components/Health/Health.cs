@@ -19,9 +19,10 @@ public class Health : MonoBehaviour
         //Debug.Log("Health: Damage received (" + _damage + ", " + (crit ? "crit" : "no crit") + ")");
         if (_damage >= 0)
         {
+            GetComponent<SoundFX>().Play("Hit");
             if (tag == "Player")
                 GameManager.instance.stats.damageTaken += _damage;
-            else if (tag == "Enemy")
+            else if (tag == "Enemy" || tag == "Boss")
                 GameManager.instance.stats.damageDealt += _damage;
 
             currentHP -= _damage;

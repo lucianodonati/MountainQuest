@@ -13,6 +13,7 @@ GameObject:
   - 61: {fileID: 6155430}
   - 50: {fileID: 5055430}
   - 114: {fileID: 11464714}
+  - 114: {fileID: 11459890}
   m_Layer: 14
   m_Name: FireArrow
   m_TagString: Arrow
@@ -73,6 +74,22 @@ MonoBehaviour:
   stuckTimer: 10
   numCollisions: 0
   damageType: {fileID: 11464714}
+--- !u!114 &11459890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Fire
+    sounds:
+    - {fileID: 8300000, guid: 2bec0f80be8e8ce4f9065300aeed6d5b, type: 3}
+    volume: 1
 --- !u!114 &11464714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe4e8149e7ead04d8f18def677db096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   slow: 0
   ticEvery: 1
   duration: 10

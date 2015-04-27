@@ -14,4 +14,9 @@ public class Enemy : Entity
         transform.up = Vector2.up;
         base.Update();
     }
+
+    public override void die()
+    {
+        base.die();
+    }
 }

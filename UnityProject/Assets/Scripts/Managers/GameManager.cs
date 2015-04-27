@@ -160,6 +160,9 @@ public class GameManager : MonoBehaviour
             if (playerController == null)
                 playerController = (GameObject.FindGameObjectWithTag("Player")).GetComponent<PlayerController>();
         }
+
+        GameObject soundManager = new GameObject();
+        soundManager.name = "Sound Manager";
     }
 
     private void Update()
