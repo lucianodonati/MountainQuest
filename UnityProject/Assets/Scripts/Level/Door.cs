@@ -7,6 +7,8 @@ public class Door : MonoBehaviour
     private List<GameObject> requisites;
     private float duration = 1.0f, startTime;
     private bool open = false;
+    public bool callSomeone = false;
+
     private SpriteRenderer sprite;
 
     private void Awake()
@@ -37,13 +39,17 @@ public class Door : MonoBehaviour
                 sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, Mathf.SmoothStep(1.0f, 0.0f, t));
             }
             if (sprite.color.a <= 0.0f)
+            {
+                if (callSomeone)
+                    GetComponent<ButtonScript>().SwitchMenu();
                 Destroy(gameObject);
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" /*|| collision.gameObject.GetComponent<Arrow>.getOwner().gameobject.tag == "Player"*/)
+        if (!open && collision.gameObject.tag == "Player" /*|| collision.gameObject.GetComponent<Arrow>.getOwner().gameobject.tag == "Player"*/)
         {
             OpenDoor();
             startTime = Time.time;

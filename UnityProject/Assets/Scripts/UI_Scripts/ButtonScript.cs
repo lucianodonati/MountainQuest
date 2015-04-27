@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
-using System;
+﻿using System;
+using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
@@ -90,7 +90,7 @@ public class ButtonScript : MonoBehaviour
 }
 
 [Serializable]
-class SaveInfo
+internal class SaveInfo
 {
     public string info;
 }

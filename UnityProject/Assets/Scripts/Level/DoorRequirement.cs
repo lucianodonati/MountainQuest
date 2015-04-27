@@ -18,9 +18,7 @@ public class DoorRequirement : MonoBehaviour
 
     private void OnDestroy()
     {
-        {
-            if (door != null)
-                door.RemoveFromKeyList(gameObject);
-        }
+        if (door != null)
+            door.RemoveFromKeyList(gameObject);
     }
 }
