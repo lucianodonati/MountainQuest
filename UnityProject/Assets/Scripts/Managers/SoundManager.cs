@@ -49,6 +49,12 @@ public class SoundManager : MonoBehaviour
         return source;
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        //sources.Clear();
+        //sources = new List<AudioSource>();
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -57,13 +63,17 @@ public class SoundManager : MonoBehaviour
         if (audioSourceTimer <= 0.0f)
         {
             audioSourceTimer = 1.0f;
-            foreach (AudioSource source in sources)
+            if (sources != null)
             {
-                if (!(source.isPlaying))
+                for (int i = 0; i < sources.Count; i++)
                 {
-                    AudioSource reference = source;
-                    //sources.Remove(source);
-                    Destroy(reference.gameObject);
+                    if (!(sources[i].isPlaying))
+                    {
+                        AudioSource reference = sources[i];
+                        sources.Remove(sources[i]);
+                        Destroy(reference);
+                        i--;
+                    }
                 }
             }
         }
