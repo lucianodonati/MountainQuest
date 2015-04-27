@@ -6,7 +6,8 @@ public class Affliction : DamageType
     public bool slow = false;
     public float ticEvery = 2.0f, duration = 5.0f, timer = 0.0f;
     private float damageDealt = 0.0f;
-    public bool particle = false;
+    public bool particle = false, color = false;
+    public Color changeColor;
 
     // Update is called once per frame
     private void Update()
@@ -49,6 +50,9 @@ public class Affliction : DamageType
         ParticleSystem pSys = GetComponent<ParticleSystem>();
         if (pSys != null)
             pSys.enableEmission = false;
+
+        if (gameObject.GetComponent<Entity>() != null)
+            gameObject.GetComponent<SpriteRenderer>().color = GetComponent<Entity>().myColor;
         //Debug.Log("Damage dealt (DPS Total): " + damageDealt);
     }
 }

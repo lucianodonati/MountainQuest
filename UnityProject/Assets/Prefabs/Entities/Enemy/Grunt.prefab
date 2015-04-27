@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11452624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -653,7 +654,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       maxGradient:
         key0:

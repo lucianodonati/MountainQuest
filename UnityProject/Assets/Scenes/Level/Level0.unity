@@ -3610,6 +3610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -3710,7 +3711,7 @@ Transform:
   m_PrefabInternal: {fileID: 2111913079}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5999999, y: 55.7000008, z: 0}
+  m_LocalPosition: {x: -8.5, y: 2.20000005, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1769840755}
@@ -7519,6 +7520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &774159315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8043,7 +8045,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       maxGradient:
         key0:
@@ -11200,6 +11202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1011545881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11602,7 +11605,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       maxGradient:
         key0:
@@ -17736,7 +17739,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       maxGradient:
         key0:
@@ -18461,6 +18464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1413739439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26855,6 +26859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
   stompTimer: .00897426158
   chargeTimer: 1
   runTimer: 2
@@ -28637,7 +28642,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       maxGradient:
         key0:
@@ -29362,6 +29367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2096791324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29956,11 +29962,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.5999999
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 55.7000008
+      value: 2.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z

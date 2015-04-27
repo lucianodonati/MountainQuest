@@ -6,12 +6,14 @@ public class Entity : MonoBehaviour
 {
     public Health health;
     public bool isSlowed = false;
+    public Color myColor;
 
     // Use this for initialization
     protected virtual void Start()
     {
         gameObject.AddComponent<Health>();
         health = GetComponent<Health>();
+        myColor = gameObject.GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -49,7 +51,15 @@ public class Entity : MonoBehaviour
         {
             ParticleSystem pSys = GetComponent<ParticleSystem>();
             if (pSys != null)
+            {
                 pSys.enableEmission = true;
+                pSys.startColor = type.gameObject.GetComponent<ParticleSystem>().startColor;
+            }
+        }
+        if (type.color)
+        {
+            myColor = gameObject.GetComponent<SpriteRenderer>().color;
+            gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
         }
     }
 

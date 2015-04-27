@@ -105,10 +105,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   slow: 0
-  ticEvery: 1
+  ticEvery: 2
   duration: 5
   timer: 0
   particle: 1
+  color: 1
+  changeColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!198 &19865964
 ParticleSystem:
   m_ObjectHideFlags: 1
