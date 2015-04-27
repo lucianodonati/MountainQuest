@@ -28,19 +28,25 @@ public class PlayerController : MonoBehaviour
     private Vector2 preserveUp;
 
     //ARROW VARS
-    public GameObject Arrow = null;
+    private GameObject Arrow = null;
 
     private float arrowCooldownTimer;
     public float arrowCooldownTimerMax = 0.5f;
 
     //SWORD VARS
-    public GameObject Sword = null;
+    private GameObject Sword = null;
 
     private bool swinging = false;
     private bool halfswung = false;
 
-    //SWITCH BOOL
+    //SWITCH VARS
     private bool usingSword = false;
+
+    public GameObject[] Arrows;
+    public GameObject[] Swords;
+
+    private int arrowiter;
+    private int sworditer;
 
     //target for looking
     public Vector3 looktarget;
@@ -60,6 +66,12 @@ public class PlayerController : MonoBehaviour
         arrowCooldownTimer = arrowCooldownTimerMax;
 
         looker = transform.GetChild(0).gameObject;
+
+        arrowiter = 0;
+        sworditer = 0;
+
+        Arrow = Arrows[arrowiter];
+        Sword = Swords[sworditer];
     }
 
     // Update is called once per frame
@@ -71,29 +83,19 @@ public class PlayerController : MonoBehaviour
         Walk();
 
         if (grounded)
-        {
             jumpCooldownTimer -= Time.deltaTime;
-        }
 
         if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock)
-        {
             Jump();
-        }
 
         if (Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock)
-        {
             jumplock = true;
-        }
 
         this.transform.up = Vector2.up;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            usingSword = !usingSword;
-            SwitchWeapon();
-        }
+        SwitchWeaponCheck();
 
-        Attack();
+        AttackCheck();
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
@@ -184,21 +186,79 @@ public class PlayerController : MonoBehaviour
         jumpTimer -= Time.deltaTime;
     }
 
-    private void SwitchWeapon()
+    private void SwitchWeaponCheck()
     {
-        if (usingSword)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            swordchild = (GameObject)Instantiate(Sword, transform.position, Quaternion.Euler(0, 0, -45));
-            swordchild.transform.parent = transform;
-            swordchild.transform.position = swordchild.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
+            usingSword = !usingSword;
+
+            if (usingSword)
+            {
+                swordchild = (GameObject)Instantiate(Sword, transform.position, Quaternion.Euler(0, 0, -45));
+                swordchild.transform.parent = transform;
+                swordchild.transform.position = swordchild.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
+            }
+            else
+            {
+                Destroy(swordchild);
+            }
         }
-        else
+
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
         {
-            Destroy(swordchild);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (usingSword)
+                {
+                    --sworditer;
+
+                    if (sworditer < 0)
+                        sworditer = Swords.Length - 1;
+
+                }
+                else
+                {
+                    --arrowiter;
+
+                    if (arrowiter < 0)
+                        arrowiter = Arrows.Length - 1;
+
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (usingSword)
+                {
+                    ++sworditer;
+
+                    if (sworditer >= Swords.Length)
+                        sworditer = 0;
+
+                }
+                else
+                {
+                    ++arrowiter;
+
+                    if (arrowiter >= Arrows.Length)
+                        arrowiter = 0;
+
+                }
+            }
+
+            Sword = Swords[sworditer];
+            Arrow = Arrows[arrowiter];
+
+            if (usingSword)
+            {
+                Destroy(swordchild);
+                swordchild = (GameObject)Instantiate(Sword, transform.position, Quaternion.Euler(0, 0, -45));
+                swordchild.transform.parent = transform;
+                swordchild.transform.position = swordchild.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
+            }
         }
     }
 
-    private void Attack()
+    private void AttackCheck()
     {
         if (!usingSword)
         {
