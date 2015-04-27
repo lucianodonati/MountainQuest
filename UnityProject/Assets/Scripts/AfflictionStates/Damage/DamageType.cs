@@ -25,6 +25,6 @@ public abstract class DamageType : MonoBehaviour
 
         return attackedHealth;
     }
-
+    
     public abstract void attachToEnemy(Entity theOtherGuy);
 }

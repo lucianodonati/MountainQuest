@@ -2929,6 +2929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &322959724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3453,6 +3454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &373908402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3592,7 +3594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
-  Spheres: []
+  isSlowed: 0
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -4322,6 +4324,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1521829034}
   m_GameObject: {fileID: 436312375}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &441187537
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 636885174}
+    m_Modifications:
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -113.671768
+      objectReference: {fileID: 0}
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.87175751
+      objectReference: {fileID: 0}
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.61000013
+      objectReference: {fileID: 0}
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 151538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+      propertyPath: m_Name
+      value: IntroduceBoostSphere
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+  m_RootGameObject: {fileID: 2134426523}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &452124965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4582,6 +4632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &470167251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5456,6 +5507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &547747805
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6558,6 +6610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &662436350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7088,6 +7141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &708522479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10092,6 +10146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!114 &1011545881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11012,6 +11067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!58 &1109061896
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11714,6 +11770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1173875122
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18211,6 +18268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1689120419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19287,6 +19345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1795672915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19960,6 +20019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1867798575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20661,6 +20721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1921416036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21396,6 +21457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!212 &1984411378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22733,6 +22795,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 153492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 125198, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
   m_RootGameObject: {fileID: 399855264}
@@ -22813,7 +22883,7 @@ MeshFilter:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 151538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInternal: {fileID: 441187537}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2134426524}
@@ -22833,7 +22903,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 451538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInternal: {fileID: 441187537}
   m_GameObject: {fileID: 2134426523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -113.671768, y: -1.87175751, z: -3.61000013}
@@ -22846,7 +22916,7 @@ Rigidbody2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5051540, guid: a2498950c13bcad4f8599e77bdb169b3,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInternal: {fileID: 441187537}
   m_GameObject: {fileID: 2134426523}
   m_Mass: 1
   m_LinearDrag: 0
@@ -22862,7 +22932,7 @@ CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5851540, guid: a2498950c13bcad4f8599e77bdb169b3,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInternal: {fileID: 441187537}
   m_GameObject: {fileID: 2134426523}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -22874,7 +22944,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11451540, guid: a2498950c13bcad4f8599e77bdb169b3,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInternal: {fileID: 441187537}
   m_GameObject: {fileID: 2134426523}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -22887,14 +22957,14 @@ MonoBehaviour:
   isAiming: 0
   Sphere: {fileID: 0}
   Owner: {fileID: 0}
-  boostSound: {fileID: 0}
+  boostSound: {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
 --- !u!95 &2134426528
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9551540, guid: a2498950c13bcad4f8599e77bdb169b3,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInternal: {fileID: 441187537}
   m_GameObject: {fileID: 2134426523}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
@@ -22909,7 +22979,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21251538, guid: a2498950c13bcad4f8599e77bdb169b3,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInternal: {fileID: 441187537}
   m_GameObject: {fileID: 2134426523}
   m_Enabled: 1
   m_CastShadows: 0

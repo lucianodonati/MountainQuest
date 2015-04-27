@@ -58,7 +58,7 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    private void GetStuck(Collider2D coll)
+    protected void GetStuck(Collider2D coll)
     {
         if (coll.tag != "Sphere" /*&& !justFired*/ && transform.parent == null)
         {
