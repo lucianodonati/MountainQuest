@@ -368,6 +368,7 @@ GameObject:
   - 114: {fileID: 11411466}
   - 114: {fileID: 11411468}
   - 114: {fileID: 11411472}
+  - 114: {fileID: 11410840}
   m_Layer: 5
   m_Name: ReturnToTitleButton
   m_TagString: Untagged
@@ -1020,6 +1021,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &11410840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
 --- !u!114 &11411466
 MonoBehaviour:
   m_ObjectHideFlags: 1

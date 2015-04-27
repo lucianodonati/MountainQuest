@@ -46,6 +46,7 @@ GameObject:
   - 114: {fileID: 11472390}
   - 114: {fileID: 11472388}
   - 114: {fileID: 11467034}
+  - 114: {fileID: 11410844}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -65,6 +66,7 @@ GameObject:
   - 114: {fileID: 11472398}
   - 114: {fileID: 11472396}
   - 114: {fileID: 11414722}
+  - 114: {fileID: 11410840}
   m_Layer: 5
   m_Name: ReturnToTitleButton
   m_TagString: Untagged
@@ -153,6 +155,7 @@ GameObject:
   - 114: {fileID: 11499394}
   - 114: {fileID: 11499392}
   - 114: {fileID: 11499388}
+  - 114: {fileID: 11410842}
   m_Layer: 5
   m_Name: SaveButton
   m_TagString: Untagged
@@ -160,6 +163,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11410840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
+--- !u!114 &11410842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
+--- !u!114 &11410844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
 --- !u!114 &11414722
 MonoBehaviour:
   m_ObjectHideFlags: 1

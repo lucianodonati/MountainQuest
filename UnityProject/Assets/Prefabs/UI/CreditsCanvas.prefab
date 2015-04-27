@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11493814}
   - 114: {fileID: 11493812}
   - 114: {fileID: 11455026}
+  - 114: {fileID: 11410840}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -89,6 +90,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11410840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
 --- !u!114 &11455026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: 6
-  _scene: 0
+  MenuToSwitch: 0
+  SceneToLoad: 0
 --- !u!114 &11493810
 MonoBehaviour:
   m_ObjectHideFlags: 1
