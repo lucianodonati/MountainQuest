@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11408038}
   - 50: {fileID: 5053492}
   - 61: {fileID: 6153492}
+  - 114: {fileID: 11402852}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -87,6 +88,33 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .133871019, y: .133870989}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11402852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Die
+    sounds:
+    - {fileID: 8300000, guid: b7968579426bd5b4ca5442c4b91e6c7c, type: 3}
+    volume: 1
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: 0231fa71fdbd49547b98ce9be520fdf1, type: 3}
+    - {fileID: 8300000, guid: 0ef1c22cdb131cc4e95c844a207b1aae, type: 3}
+    - {fileID: 8300000, guid: 1f6ec028852e79c42a0eb64413caed42, type: 3}
+    - {fileID: 8300000, guid: 288d6eb2f6ff8e04eb5c65ae3abbb0fb, type: 3}
+    - {fileID: 8300000, guid: 307efc6f45b7c3c458a44b307c9209e0, type: 3}
+    - {fileID: 8300000, guid: 90b194b41a663584b87e213dc336ecf0, type: 3}
+    - {fileID: 8300000, guid: e3e2a526863e0134783ebfffd725a294, type: 3}
+    - {fileID: 8300000, guid: f4d0ee01f90aa244084243efa4fc474a, type: 3}
+    volume: .5
 --- !u!114 &11408038
 MonoBehaviour:
   m_ObjectHideFlags: 1

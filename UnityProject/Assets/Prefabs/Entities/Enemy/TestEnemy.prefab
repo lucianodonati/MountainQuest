@@ -1,39 +1,126 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &175286
+--- !u!1 &107942
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 475286}
-  - 212: {fileID: 21275286}
-  m_Layer: 0
+  - 4: {fileID: 407942}
+  - 212: {fileID: 21207942}
+  - 114: {fileID: 11407940}
+  - 114: {fileID: 11407942}
+  - 50: {fileID: 5007942}
+  - 61: {fileID: 6107942}
+  - 114: {fileID: 11494338}
+  m_Layer: 10
   m_Name: TestEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &475286
+--- !u!4 &407942
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175286}
+  m_GameObject: {fileID: 107942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.74009657, y: 12.5717402, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.00775909, y: 10.3616943, z: 0}
+  m_LocalScale: {x: 7.69957972, y: 23.8704987, z: 4.53687859}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!212 &21275286
+--- !u!50 &5007942
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107942}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!61 &6107942
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107942}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .159999982, y: .159999996}
+  m_Center: {x: 2.98023224e-07, y: -2.98023224e-08}
+--- !u!114 &11407940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+--- !u!114 &11407942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 0}
+--- !u!114 &11494338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Die
+    sounds:
+    - {fileID: 8300000, guid: e55f6cf1143ca2e40894d4cb6c3e9054, type: 3}
+    - {fileID: 8300000, guid: aec910848670c0f498913b8f266884f4, type: 3}
+    - {fileID: 8300000, guid: 3c44fbc6e1967e2408dbeb9e72061f69, type: 3}
+    - {fileID: 8300000, guid: 29052cb72cb05194884515eeff7d544c, type: 3}
+    - {fileID: 8300000, guid: 1f5394d7d98d8574383a62813571144f, type: 3}
+    - {fileID: 8300000, guid: cbe8de1852a68cb44b8ae5e57f746e8a, type: 3}
+    - {fileID: 8300000, guid: f42ab9999de3d7f40b88e8e577205bf4, type: 3}
+    - {fileID: 8300000, guid: 99e3b3d923e7c4148a7245985d672fe6, type: 3}
+    - {fileID: 8300000, guid: 9b26f31dccfe1324eb409c1f90542b6c, type: 3}
+    - {fileID: 8300000, guid: 9306fe9d17596a14eab264a044566eae, type: 3}
+    volume: .5
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: 0d2407d0d1a0fb84abb27a555bde47a7, type: 3}
+    - {fileID: 8300000, guid: 33d022a38892c8c4eb4e6ff4b6e9fc36, type: 3}
+    - {fileID: 8300000, guid: d4db5fb9f08c5404db2ea30782f9e866, type: 3}
+    - {fileID: 8300000, guid: 45aa429d0907ae4448a200e8b427e5ab, type: 3}
+    volume: .5
+--- !u!212 &21207942
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175286}
+  m_GameObject: {fileID: 107942}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -49,7 +136,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: .625, g: 0, b: 0, a: 1}
+  m_Color: {r: .669117689, g: .45684585, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -59,6 +146,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 175286}
+  m_RootGameObject: {fileID: 107942}
   m_IsPrefabParent: 1
   m_IsExploded: 1

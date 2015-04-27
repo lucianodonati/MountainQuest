@@ -165,5 +165,6 @@ public class Player : Entity
                 gameObject.GetComponent<PlayerController>().enabled = false;
             }
         }
+        GetComponent<SoundFX>().Play("Die");
     }
 }
