@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Wander_Movement : MonoBehaviour {
+public class Wander_Movement : Enemy_Movement {
 
-	public bool direction;
+	//public bool direction;
 	public float moveSpeed = 4;
 
-	private Vector3 preserveUp;
+	//private Vector3 preserveUp;
 
     private GameObject ground;
 
 	// Use this for initialization
-	void Start () {
-
-		preserveUp = this.transform.up;
+	protected override void Start () {
+        base.Start();
+		//preserveUp = this.transform.up;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected override void Update () {
 
 		if (ground != null) {
 			Vector2 movevec = new Vector2(moveSpeed,0);

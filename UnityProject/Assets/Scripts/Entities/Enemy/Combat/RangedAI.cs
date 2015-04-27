@@ -1,15 +1,70 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RangedAI : MonoBehaviour {
+public class RangedAI : AttackAI {
+
+
+    public LayerMask layerMask;
+
+    GameObject target;
 
 	// Use this for initialization
-	void Start () {
-	
+	protected override void Start () {
+        base.Start();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	protected override void Update () {
+        if(target != null)
+        {
+            if(InFOV(target))
+            {
+                Attack();
+            }
+        }
 	}
+
+    public bool InFOV(GameObject targ)
+    {
+
+        bool val = false;
+
+        RaycastHit2D checkFOV =
+            Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
+
+        if (checkFOV.collider.transform == targ.transform)
+        {
+            val = true;
+        }
+
+        Debug.DrawLine(transform.position, checkFOV.point);
+
+        return val;
+    }
+
+    void Attack()
+    {
+        if (reloadTimer > 0.0f)
+            reloadTimer -= Time.deltaTime;
+
+        if (reloadTimer <= 0.0f)
+        {
+            GameObject currArrow = (GameObject)Instantiate(weapon,
+                                                            gameObject.transform.position + Vector3.back,
+                                                            Quaternion.FromToRotation(transform.up, (target.transform.position - transform.position)));
+
+            currArrow.rigidbody2D.velocity = (target.transform.position - transform.position).normalized * 7.5f;
+
+            reloadTimer = reloadTimerMax;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            if (InFOV(coll.gameObject))
+                target = coll.gameObject;
+        }
+    }
 }
