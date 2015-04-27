@@ -40,6 +40,8 @@ public class CameraBehavior : MonoBehaviour
         halfWidth = halfHeight * Screen.width / Screen.height;
 
         Vector3 newpos = new Vector3();
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
 
         if (looktarget == null)
         {

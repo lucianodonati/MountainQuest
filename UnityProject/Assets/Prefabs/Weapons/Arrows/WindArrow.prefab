@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a1cd497e2e64b44b2dcf60bb2a83c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 2
   critChance: .200000003
   critMult: 2
 --- !u!114 &11432966
@@ -83,10 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad52f7c288244444a2ab9be6c80f7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  stuckTimer: 10
+  speed: 20
+  stuckTimer: 5
   numCollisions: 2
-  damageType: {fileID: 0}
+  damageType: {fileID: 11432964}
 --- !u!212 &21232966
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  isSlowed: 0
 --- !u!114 &11452624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  moveSpeed: 4
+  moveSpeed: 8
   ground: {fileID: 0}
   LimitToPlatform: 0
   leftBound: {fileID: 0}
@@ -246,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  moveSpeed: 4
+  moveSpeed: 10
   ground: {fileID: 0}
   target: {fileID: 0}
   aggroTimer: 0

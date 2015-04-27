@@ -3657,6 +3657,8 @@ MonoBehaviour:
   Arrows:
   - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
   - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
+  - {fileID: 104710, guid: a1c5b306c14ebea4ab5c5dfef8a7429e, type: 2}
+  - {fileID: 132966, guid: f1f15e846f34b0d46be717ca92023b28, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
   - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
@@ -3691,7 +3693,7 @@ Transform:
   m_PrefabInternal: {fileID: 2111913079}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 2.70000005, z: 0}
+  m_LocalPosition: {x: 35.4000015, y: 2.70000005, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1769840755}
@@ -8187,6 +8189,10 @@ Prefab:
       propertyPath: rightBound
       value: 
       objectReference: {fileID: 1327513601}
+    - target: {fileID: 11452628, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
   m_RootGameObject: {fileID: 1011545870}
@@ -10070,7 +10076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  moveSpeed: 4
+  moveSpeed: 5
   ground: {fileID: 0}
   LimitToPlatform: 0
   leftBound: {fileID: 207666966}
@@ -22765,7 +22771,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: 35.4000015
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y

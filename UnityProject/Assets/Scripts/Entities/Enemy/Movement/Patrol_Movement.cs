@@ -1,73 +1,84 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Patrol_Movement : Enemy_Movement {
+public class Patrol_Movement : Enemy_Movement
+{
+    //public bool direction;
+    public float moveSpeed = 4;
 
-	//public bool direction;
-	public float moveSpeed = 4;
-	
-	//private Vector3 preserveUp;
-	
-	public GameObject ground;
+    //private Vector3 preserveUp;
 
-	//if true, does old patrol
-	//if false, requires two points to move between
-	public bool LimitToPlatform = true;
+    public GameObject ground;
 
-	public GameObject leftBound, rightBound;
+    //if true, does old patrol
+    //if false, requires two points to move between
+    public bool LimitToPlatform = true;
 
-	// Use this for initialization
-	protected override void Start () {
+    public GameObject leftBound, rightBound;
 
-		if (Random.Range (1, 6) > 3)
-			direction = true; //right
-		else
-			direction = false; //left
+    // Use this for initialization
+    protected override void Start()
+    {
+        if (Random.Range(1, 6) > 3)
+            direction = true; //right
+        else
+            direction = false; //left
 
-		//preserveUp = this.transform.up;
+        //preserveUp = this.transform.up;
         base.Start();
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
+    }
 
-		Vector2 movevec = new Vector2 (moveSpeed, 0);
-			
-		if (!direction)
-			movevec *= -1;
-			
-		rigidbody2D.velocity = new Vector2(movevec.x,rigidbody2D.velocity.y);
+    // Update is called once per frame
+    protected override void Update()
+    {
+        if (GetComponent<Entity>().isSlowed)
+            moveSpeed = 3;
 
-		if (LimitToPlatform && ground != null) {
-			if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * (2 * Time.deltaTime)) < ground.collider2D.bounds.min.x ||
-				collider2D.bounds.max.x + (rigidbody2D.velocity.x * (2 * Time.deltaTime)) > ground.collider2D.bounds.max.x)
-				direction = !direction;
-		} else if (!LimitToPlatform) {
+        Vector2 movevec = new Vector2(moveSpeed, 0);
+
+        if (!direction)
+            movevec *= -1;
+
+        rigidbody2D.velocity = new Vector2(movevec.x, rigidbody2D.velocity.y);
+
+        if (LimitToPlatform && ground != null)
+        {
+            if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * (2 * Time.deltaTime)) < ground.collider2D.bounds.min.x ||
+                collider2D.bounds.max.x + (rigidbody2D.velocity.x * (2 * Time.deltaTime)) > ground.collider2D.bounds.max.x)
+                direction = !direction;
+        }
+        else if (!LimitToPlatform)
+        {
             if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * (2 * Time.deltaTime)) < leftBound.transform.position.x)
                 direction = true;
             else if (collider2D.bounds.max.x + (rigidbody2D.velocity.x * (2 * Time.deltaTime)) > rightBound.transform.position.x)
                 direction = false;
-		}
-		
-		
-		this.transform.up = preserveUp;
-	}
+        }
 
-	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "Platform" && ground == null) {
-			ground = coll.gameObject;
-		}
-	}
+        this.transform.up = preserveUp;
+    }
 
-	void OnCollisionStay2D(Collision2D coll){
-		if (coll.gameObject.tag == "Platform" && ground == null) {
-			ground = coll.gameObject;
-		}
-	}
-	
-	void OnCollisionExit2D(Collision2D coll){
-		if (coll.gameObject.tag == "Platform") {
-			ground = null;
-		}
-	}
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Platform" && ground == null)
+        {
+            ground = coll.gameObject;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Platform" && ground == null)
+        {
+            ground = coll.gameObject;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Platform")
+        {
+            ground = null;
+        }
+    }
 }

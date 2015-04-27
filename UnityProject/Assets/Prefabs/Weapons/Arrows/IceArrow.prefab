@@ -69,8 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e553f34bce74afd4abbf56240d378c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  stuckTimer: 10
+  speed: 20
+  stuckTimer: 5
   numCollisions: 0
   damageType: {fileID: 11404710}
 --- !u!114 &11404710
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe4e8149e7ead04d8f18def677db096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 3
   slow: 1
   ticEvery: 1
   duration: 1

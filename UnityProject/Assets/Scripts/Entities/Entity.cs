@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour
 {
     public Health health;
     public bool isSlowed = false;
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -18,6 +19,9 @@ public class Entity : MonoBehaviour
     {
         if (health.currentHP <= 0.0f)
             die();
+
+        if (isSlowed)
+            rigidbody2D.velocity /= 5;
     }
 
     public void TakeTamage(OneTimeHit type)

@@ -12,7 +12,9 @@ public class Arrow : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        GetComponent<SoundFX>().Play("Fire");
+        SoundFX sfx = GetComponent<SoundFX>();
+        if (sfx != null)
+            sfx.Play("Fire");
         rigidbody2D.velocity = transform.up * speed;
         //GetComponent<BoxCollider2D>().isTrigger = true;
     }
@@ -27,7 +29,7 @@ public class Arrow : MonoBehaviour
                 Destroy(this.gameObject);
         }
 
-        rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
+        //rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
@@ -70,6 +72,7 @@ public class Arrow : MonoBehaviour
             {
                 GameObject dummyChild = new GameObject();
                 dummyChild.transform.localScale = new Vector3(1, 1, 1);
+                dummyChild.transform.position = coll.transform.position;
                 dummyChild.name = "PreserveScale";
                 if (coll.tag == "Platform")
                     dummyChild.transform.parent = coll.transform.parent;
@@ -78,6 +81,7 @@ public class Arrow : MonoBehaviour
                 dummyChildTransform = dummyChild.transform;
             }
             transform.parent = dummyChildTransform;
+            rigidbody2D.isKinematic = true;
         }
     }
 }
