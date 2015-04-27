@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     // angular drag 0.05
     // gravity scale 4
 
+    public float stunTimer = 1.0f;
+    public bool isStunned = false;
     // MOVEMENT VARS
     public float movementSpeed = 10;
 
@@ -72,6 +74,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (isStunned == false)
+	{
+		 
+	
         //MOVEMENT
         Look(looktarget);
 
@@ -91,6 +97,16 @@ public class PlayerController : MonoBehaviour
         SwitchWeaponCheck();
 
         AttackCheck();
+         }
+        else if (isStunned == true)
+        {
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                isStunned = false;
+                stunTimer = 1.0f;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D coll)

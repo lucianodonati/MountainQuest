@@ -127,7 +127,7 @@ public class Boss1Movement : Enemy
                     else if (charging == false && stomping == false && attacking == false)
                     {
                         running = true;
-                        GetComponent<Animator>().SetBool("isWalking", false);
+                        GetComponent<Animator>().SetBool("isWalking", true);
                     }
 
                     if (running == true)
@@ -137,7 +137,7 @@ public class Boss1Movement : Enemy
                         if (runTimer <= 0)
                         {
                             running = false;
-                            GetComponent<Animator>().SetBool("isWalking", true);
+                            GetComponent<Animator>().SetBool("isWalking", false);
                             runTimer = 2.0f;
                         }
                         if (isSlowed == true)
@@ -215,6 +215,9 @@ public class Boss1Movement : Enemy
             stompTimer = 1.0f;
             stomping = false;
             player.GetComponent<Player>().health.TakeDamage(30, false);
+            player.GetComponent<Player>().isStunned = true;
+            player.GetComponent<PlayerController>().isStunned = true;
+
         }
 
         if (coll.gameObject.tag == "Platform" && ground == null)

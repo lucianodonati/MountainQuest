@@ -43,15 +43,10 @@ C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\Assembly-
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\Assembly-CSharp-Editor.pdb
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\SyntaxTree.VisualStudio.Unity.Bridge.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityVS.VersionSpecific.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.Graphs.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.UI.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityVS.VersionSpecific.dll
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.UI.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.Graphs.xml

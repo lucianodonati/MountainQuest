@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public float stunTimer = 1.0f;
+    public bool isStunned = false;
     public Arrow arrow;
     public bool isAiming = false;
     public GameObject instructionsUI;
@@ -32,104 +34,116 @@ public class Player : Entity
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
-
-        if (deathTimer >= 0)
+        if (isStunned == false)
         {
-            deathTimer -= Time.deltaTime;
-            renderer.enabled = false;
-            GetComponent<HealthBar>().maxHealthBar.renderer.enabled = false;
-            GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = false;
-        }
-        else
-        {
-            GetComponent<HealthBar>().maxHealthBar.renderer.enabled = true;
-            GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = true;
-            renderer.enabled = true;
-        }
+            base.Update();
 
-        Vector3 mouse = Input.mousePosition;
-        mouse.z = 10;
-        Vector3 mPos = Camera.main.ScreenToWorldPoint(mouse);
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            CreateBasicSphere = (GameObject)GameObject.Instantiate(basicClickObj, mPos, Quaternion.identity);
-        }
-
-        if (Input.GetMouseButtonUp(1) && BSphereTotal <= BSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7))
-        {
-            bool goCreate = true;
-            foreach (BoostSphere ball in GameObject.FindObjectsOfType<BoostSphere>())
+            if (deathTimer >= 0)
             {
-                if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
-                {
-                    goCreate = true;
-                    Destroy(ball.gameObject);
-                    BSphereTotal--;
-                }
-                if (BSphereCap == BSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
-                {
-                    goCreate = false;
-                }
+                deathTimer -= Time.deltaTime;
+                renderer.enabled = false;
+                GetComponent<HealthBar>().maxHealthBar.renderer.enabled = false;
+                GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = false;
+            }
+            else
+            {
+                GetComponent<HealthBar>().maxHealthBar.renderer.enabled = true;
+                GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = true;
+                renderer.enabled = true;
             }
 
-            if (goCreate)
-            {
-                CreateBoostSphere = (GameObject)Instantiate(ClickObjBoost, mPos, Quaternion.identity);
-                BSphereTotal += 1;
-                CreateBoostSphere.GetComponent<BoostSphere>().SetOwner(this);
-            }
-        }
-        else if (Input.GetMouseButtonDown(1) && RSphereTotal <= RSphereCap)
-            isAiming = true;
+            Vector3 mouse = Input.mousePosition;
+            mouse.z = 10;
+            Vector3 mPos = Camera.main.ScreenToWorldPoint(mouse);
 
-        if (isAiming && Vector3.Distance(mPos, CreateBasicSphere.transform.position) > 0.7f)
-        {
-            if (RedirectMade == false)
+            if (Input.GetMouseButtonDown(1))
+            {
+                CreateBasicSphere = (GameObject)GameObject.Instantiate(basicClickObj, mPos, Quaternion.identity);
+            }
+
+            if (Input.GetMouseButtonUp(1) && BSphereTotal <= BSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7))
             {
                 bool goCreate = true;
-                foreach (RedirectSphere ball in GameObject.FindObjectsOfType<RedirectSphere>())
+                foreach (BoostSphere ball in GameObject.FindObjectsOfType<BoostSphere>())
                 {
                     if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
                     {
-                        Destroy(ball.gameObject);
-                        RSphereTotal--;
                         goCreate = true;
+                        Destroy(ball.gameObject);
+                        BSphereTotal--;
                     }
-                    if (RSphereCap == RSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
+                    if (BSphereCap == BSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
                     {
                         goCreate = false;
                     }
                 }
+
                 if (goCreate)
                 {
-                    CreateRedirectSphere = (GameObject)Instantiate(ClickObj, CreateBasicSphere.transform.position, Quaternion.identity);
-                    RSphereTotal += 1;
-                    CreateRedirectSphere.GetComponent<RedirectSphere>().SetOwner(this);
-                    RedirectMade = true;
+                    CreateBoostSphere = (GameObject)Instantiate(ClickObjBoost, mPos, Quaternion.identity);
+                    BSphereTotal += 1;
+                    CreateBoostSphere.GetComponent<BoostSphere>().SetOwner(this);
                 }
             }
-            if (CreateRedirectSphere != null)
-            {
-                Vector3 aimDirection = mPos - CreateRedirectSphere.transform.position;
-                aimDirection.Normalize();
-                float angle = Vector3.Angle(aimDirection, new Vector3(0, 1, 0));
-                Vector3 cross = Vector3.Cross(aimDirection, new Vector3(0, 1, 0));
-                if (cross.z > 0)
-                    angle = 360 - angle;
+            else if (Input.GetMouseButtonDown(1) && RSphereTotal <= RSphereCap)
+                isAiming = true;
 
-                CreateRedirectSphere.GetComponent<RedirectSphere>().ChangeDirection(angle, aimDirection, PlayerAliveTimer);
+            if (isAiming && Vector3.Distance(mPos, CreateBasicSphere.transform.position) > 0.7f)
+            {
+                if (RedirectMade == false)
+                {
+                    bool goCreate = true;
+                    foreach (RedirectSphere ball in GameObject.FindObjectsOfType<RedirectSphere>())
+                    {
+                        if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
+                        {
+                            Destroy(ball.gameObject);
+                            RSphereTotal--;
+                            goCreate = true;
+                        }
+                        if (RSphereCap == RSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
+                        {
+                            goCreate = false;
+                        }
+                    }
+                    if (goCreate)
+                    {
+                        CreateRedirectSphere = (GameObject)Instantiate(ClickObj, CreateBasicSphere.transform.position, Quaternion.identity);
+                        RSphereTotal += 1;
+                        CreateRedirectSphere.GetComponent<RedirectSphere>().SetOwner(this);
+                        RedirectMade = true;
+                    }
+                }
+                if (CreateRedirectSphere != null)
+                {
+                    Vector3 aimDirection = mPos - CreateRedirectSphere.transform.position;
+                    aimDirection.Normalize();
+                    float angle = Vector3.Angle(aimDirection, new Vector3(0, 1, 0));
+                    Vector3 cross = Vector3.Cross(aimDirection, new Vector3(0, 1, 0));
+                    if (cross.z > 0)
+                        angle = 360 - angle;
+
+                    CreateRedirectSphere.GetComponent<RedirectSphere>().ChangeDirection(angle, aimDirection, PlayerAliveTimer);
+                }
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                isAiming = false;
+                CreateRedirectSphere = null;
+                CreateBoostSphere = null;
+                RedirectMade = false;
+                Destroy(CreateBasicSphere);
             }
         }
-
-        if (Input.GetMouseButtonUp(1))
+        else if (isStunned == true)
         {
-            isAiming = false;
-            CreateRedirectSphere = null;
-            CreateBoostSphere = null;
-            RedirectMade = false;
-            Destroy(CreateBasicSphere);
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                isStunned = false;
+                stunTimer = 1.0f;
+            }
         }
     }
 
