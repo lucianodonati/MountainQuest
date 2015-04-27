@@ -166,7 +166,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: .270553112
+      scalar: .128093407
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -365,7 +365,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .109999999
+    radius: .129999995
     angle: 20
     length: 5
     boxX: .129999995

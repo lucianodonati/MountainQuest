@@ -46,6 +46,9 @@ public class Affliction : DamageType
 
     private void OnDestroy()
     {
+        ParticleSystem pSys = GetComponent<ParticleSystem>();
+        if (pSys != null)
+            pSys.enableEmission = false;
         //Debug.Log("Damage dealt (DPS Total): " + damageDealt);
     }
 }
