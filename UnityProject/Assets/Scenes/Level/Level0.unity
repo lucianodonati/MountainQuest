@@ -671,7 +671,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 54342611}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &54342614
@@ -1235,7 +1235,7 @@ Transform:
   m_LocalScale: {x: 2.3931303, y: 2.39313054, z: 2.39313054}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!114 &93551987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3734,12 +3734,12 @@ Transform:
   m_PrefabInternal: {fileID: 2111913079}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.10000038, y: 2.9000001, z: 0}
+  m_LocalPosition: {x: 54.7999992, y: 54.2999992, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1769840755}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!114 &399855271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4434,7 +4434,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 456804723}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &456804726
@@ -4605,7 +4605,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 477321779}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &477321781
@@ -7189,7 +7189,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 738916753}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &738916756
@@ -7315,7 +7315,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &770133315
 GameObject:
   m_ObjectHideFlags: 0
@@ -7356,7 +7356,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 770133315}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &770133318
@@ -7783,7 +7783,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 783010728}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &783010731
@@ -8148,6 +8148,8 @@ GameObject:
   - 61: {fileID: 845597472}
   - 212: {fileID: 845597471}
   - 114: {fileID: 845597474}
+  - 114: {fileID: 845597476}
+  - 114: {fileID: 845597475}
   m_Layer: 9
   m_Name: Exit Door
   m_TagString: Door
@@ -8227,6 +8229,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daddy: Doors
+--- !u!114 &845597475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845597469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd99d0a893b39dc4d91f02c33804fecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &845597476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845597469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuToSwitch: 5
+  SceneToLoad: 0
 --- !u!1001 &847315855
 Prefab:
   m_ObjectHideFlags: 0
@@ -8411,7 +8437,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 856855580}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &856855583
@@ -10521,7 +10547,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1054822933}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &1054822935
@@ -17277,7 +17303,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &1457375582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22020,7 +22046,7 @@ Transform:
   m_LocalScale: {x: 45.5918198, y: 6.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1869706728
 GameObject:
   m_ObjectHideFlags: 0
@@ -22483,7 +22509,7 @@ Transform:
   - {fileID: 1369632943}
   - {fileID: 698812862}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &1909940027
 GameObject:
   m_ObjectHideFlags: 0
@@ -22757,7 +22783,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1952150145}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!114 &1952150148
@@ -24480,11 +24506,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.10000038
+      value: 54.7999992
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.9000001
+      value: 54.2999992
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z
