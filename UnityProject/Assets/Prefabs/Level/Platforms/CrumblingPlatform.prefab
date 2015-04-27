@@ -15,7 +15,7 @@ GameObject:
   - 198: {fileID: 19858352}
   - 199: {fileID: 19958352}
   m_Layer: 0
-  m_Name: NotCrumblingPlatform
+  m_Name: CrumblingPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

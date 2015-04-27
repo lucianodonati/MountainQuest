@@ -4,14 +4,13 @@ using UnityEngine;
 public class RedirectSphere : MonoBehaviour
 {
     public float RotationDirection;
-    public Vector3 Direction;
+    public Vector3 Direction = new Vector3(0, 1, 0);
     public float DamageModifier = 5;
     public float AliveTimer = 7;
     public Player Owner;
 
     private void Start()
     {
-        Direction = new Vector3(0, 1, 0);
     }
 
     private void Update()
