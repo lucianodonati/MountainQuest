@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boss1Movement : MonoBehaviour
+public class Boss1Movement : Enemy
 {
+    public float stompTimer = 1.0f;
+    public float chargeTimer = 1.0f;
     public float runTimer = 3.0f;
     public bool attacking = false;
     public bool running = false;
@@ -12,11 +14,12 @@ public class Boss1Movement : MonoBehaviour
     public Player player;
     public float tiredTimer = 0;
     /// ///////////////////////////////////////////
-    
+
+    public bool ignoreEdges = false;
+
     public bool direction;
     public float moveSpeed = 4;
 
-    private Vector3 preserveUp;
 
     public GameObject ground;
 
@@ -24,18 +27,14 @@ public class Boss1Movement : MonoBehaviour
 
     public float aggroTimer;
     public float aggroTimerMax = 3.0f;
-    
+
     public LayerMask layerMask;
 
-    // Use this for initialization
-    void Start()
-    {
-        preserveUp = this.transform.up;
-    }
 
-    // Update is called once per frame
-    void Update()
+
+    protected override void Update()
     {
+        base.Update();
 
         if (aggroTimer > 0.0f)
         {
@@ -49,6 +48,7 @@ public class Boss1Movement : MonoBehaviour
                 {
                     Vector3 toPlayer = target.transform.position - transform.position;
                     toPlayer.y = toPlayer.z = 0;
+
 
 
                     if (toPlayer.x < 0)
@@ -80,11 +80,13 @@ public class Boss1Movement : MonoBehaviour
 
                         if (stomping == true)
                         {
-                            Stomp();                            
+                            stompTimer -= Time.deltaTime;
+                            Stomp();
                         }
                         if (charging == true)
                         {
-                            Charge();                            
+                            chargeTimer -= Time.deltaTime;
+                            Charge();
                         }
                     }
 
@@ -104,10 +106,12 @@ public class Boss1Movement : MonoBehaviour
 
                         if (charging == true)
                         {
-                            Charge();                            
+                            chargeTimer -= Time.deltaTime;
+                            Charge();
                         }
                         if (stomping == true)
                         {
+                            stompTimer -= Time.deltaTime;
                             Stomp();
                         }
 
@@ -115,10 +119,10 @@ public class Boss1Movement : MonoBehaviour
                     else if (charging == false && stomping == false && attacking == false)
                     {
                         running = true;
-                        
+
                     }
 
-                    if (running == true )
+                    if (running == true)
                     {
                         ///////////////////////////////////////////
                         runTimer -= Time.deltaTime;
@@ -127,13 +131,20 @@ public class Boss1Movement : MonoBehaviour
                             running = false;
                             runTimer = 3.0f;
                         }
-
-                        if (Mathf.Abs(toPlayer.x) > moveSpeed)
-                            toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
+                        if (isSlowed == true)
+                        {
+                            if (Mathf.Abs(toPlayer.x) > moveSpeed)
+                                toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed / 2;
+                        }
+                        else if (isSlowed == false)
+                        {
+                            if (Mathf.Abs(toPlayer.x) > moveSpeed)
+                                toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
+                        }
 
                         rigidbody2D.velocity = toPlayer;
                     }
-                 
+
 
                 }
                 else
@@ -141,9 +152,12 @@ public class Boss1Movement : MonoBehaviour
                     rigidbody2D.velocity = velocityHold.normalized * moveSpeed;
                 }
 
-                if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
-                   collider2D.bounds.max.x + (rigidbody2D.velocity.x * Time.deltaTime) > ground.collider2D.bounds.max.x)
-                    rigidbody2D.velocity = Vector2.zero;
+                if (!ignoreEdges)
+                {
+                    if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
+                       collider2D.bounds.max.x + (rigidbody2D.velocity.x * Time.deltaTime) > ground.collider2D.bounds.max.x)
+                        rigidbody2D.velocity = Vector2.zero;
+                }
             }
 
         }
@@ -152,7 +166,6 @@ public class Boss1Movement : MonoBehaviour
             target = null;
         }
 
-        this.transform.up = preserveUp;
     }
 
     void OnTriggerStay2D(Collider2D coll)
@@ -171,27 +184,42 @@ public class Boss1Movement : MonoBehaviour
     {
         if (coll.gameObject.tag == "Wall" && charging == true)
         {
+            chargeTimer = 1.0f;
             charging = false;
         }
 
         if (coll.gameObject.tag == "Player" && charging == true)
         {
+            chargeTimer = 1.0f;
             charging = false;
-          //  player.GetComponent<Player>().health.TakeDamage(30);
-            // knockback 
+            player.GetComponent<Player>().health.TakeDamage(20, false);
             if (direction == false)
             {
-                player.GetComponent<Player>().rigidbody2D.AddForce(Vector3.left * 10);                
+                // player.GetComponent<Player>().rigidbody2D.isKinematic = true;
+                player.GetComponent<Player>().rigidbody2D.AddForce(Vector3.left * 1000);
             }
             if (direction == true)
             {
-                player.GetComponent<Player>().rigidbody2D.AddForce(Vector3.right * 10);
+                // player.GetComponent<Player>().rigidbody2D.isKinematic = true;
+                player.GetComponent<Player>().rigidbody2D.AddForce(Vector3.right * 1000);
             }
-        } 
-       
+
+        }
+
+        if (coll.gameObject.tag == "Player" && stomping == true)
+        {
+            stompTimer = 1.0f;
+            stomping = false;
+            player.GetComponent<Player>().health.TakeDamage(30, false);
+
+
+        }
+
+
         if (coll.gameObject.tag == "Platform" && ground == null)
         {
             ground = coll.gameObject;
+            stomping = false;
         }
     }
 
@@ -236,37 +264,57 @@ public class Boss1Movement : MonoBehaviour
         attackDelay -= Time.deltaTime;
         if (attackDelay <= 0)
         {
-            print("Danger Will Robinson");
             attacking = false;
             attackDelay = 0.9f;
-            // attack animation
+            // animation.Play();
             if (startAtkDir == direction && Vector3.Distance(transform.position, player.GetComponent<Player>().transform.position) <= 6.5)
             {
-              //  player.GetComponent<Player>().health.TakeDamage(20);
+                player.GetComponent<Player>().health.TakeDamage(15, false);
             }
-            print("U WOT M8!?");
 
             tiredTimer = 2.0f;
         }
 
-    } 
+    }
 
     void Stomp()
     {
-        stomping = false;
+        if (stompTimer <= 0)
+        {
+            stompTimer = 1.0f;
+            stomping = false;
+        }
+        if (direction == true)
+        {
+            stompTimer -= Time.deltaTime;
+            rigidbody2D.velocity = new Vector2(7, 12);
+
+        }
+        else if (direction == false)
+        {
+            stompTimer -= Time.deltaTime;
+            rigidbody2D.velocity = new Vector2(-7, 12);
+
+        }
     }
 
 
 
     void Charge()
     {
-        
+        if (chargeTimer <= 0)
+        {
+            chargeTimer = 1.0f;
+            charging = false;
+        }
         if (direction == true)
         {
-            rigidbody2D.velocity = new Vector3(25, 0, 0);            
+            chargeTimer -= Time.deltaTime;
+            rigidbody2D.velocity = new Vector3(25, 0, 0);
         }
         else if (direction == false)
         {
+            chargeTimer -= Time.deltaTime;
             rigidbody2D.velocity = new Vector3(-25, 0, 0);
         }
     }

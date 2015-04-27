@@ -50,8 +50,3 @@ C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngi
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityVS.VersionSpecific.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.UI.xml
-C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.Graphs.xml

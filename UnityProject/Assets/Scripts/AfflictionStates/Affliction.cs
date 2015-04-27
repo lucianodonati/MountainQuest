@@ -3,13 +3,22 @@ using UnityEngine;
 
 public class Affliction : DamageType
 {
-    public float slow = 0.0f;
+    public bool slow = false;
     public float ticEvery = 2.0f, duration = 5.0f, timer = 0.0f;
     private float damageDealt = 0.0f;
 
     // Update is called once per frame
     private void Update()
     {
+        if (slow == true)
+        {
+            Entity Slowed = GetComponent<Entity>();
+            //  IsSlowed move = null; 
+            if (Slowed != null)
+            {
+                Slowed.isSlowed = true;
+            }
+        }
         if (duration >= 0.0f)
         {
             if (timer <= 0.0f)
