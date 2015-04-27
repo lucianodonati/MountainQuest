@@ -36,9 +36,6 @@ public class PlayerController : MonoBehaviour
     //SWORD VARS
     private GameObject Sword = null;
 
-    private bool swinging = false;
-    private bool halfswung = false;
-
     //SWITCH VARS
     private bool usingSword = false;
 
@@ -53,8 +50,6 @@ public class PlayerController : MonoBehaviour
 
     //REFERENCES TO CHILDREN
     private GameObject looker;
-
-    private GameObject swordchild;
 
     // Use this for initialization
     private void Start()
@@ -131,12 +126,15 @@ public class PlayerController : MonoBehaviour
         else
             targpos = lookat;
 
-        if (!swinging)
+        if (Sword == null || !Sword.GetComponent<Sword>().swinging)
         {
             if (targpos.x > transform.position.x)
                 facingRight = true;
             else if (targpos.x < transform.position.x)
                 facingRight = false;
+
+            if (Sword != null)
+                Sword.GetComponent<Sword>().ownerDirection = facingRight;
         }
 
         if (usingSword)
@@ -194,13 +192,14 @@ public class PlayerController : MonoBehaviour
 
             if (usingSword)
             {
-                swordchild = (GameObject)Instantiate(Sword, transform.position, Quaternion.Euler(0, 0, -45));
-                swordchild.transform.parent = transform;
-                swordchild.transform.position = swordchild.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
+                Sword = (GameObject)Instantiate(Swords[sworditer], transform.position, Quaternion.Euler(0, 0, -45));
+                Sword.transform.parent = transform;
+                Sword.transform.position = Sword.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
             }
             else
             {
-                Destroy(swordchild);
+                Destroy(Sword);
+                Sword = Swords[sworditer];
             }
         }
 
@@ -244,16 +243,14 @@ public class PlayerController : MonoBehaviour
 
                 }
             }
-
-            Sword = Swords[sworditer];
             Arrow = Arrows[arrowiter];
 
             if (usingSword)
             {
-                Destroy(swordchild);
-                swordchild = (GameObject)Instantiate(Sword, transform.position, Quaternion.Euler(0, 0, -45));
-                swordchild.transform.parent = transform;
-                swordchild.transform.position = swordchild.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
+                Destroy(Sword);
+                Sword = (GameObject)Instantiate(Swords[sworditer], transform.position, Quaternion.Euler(0, 0, -45));
+                Sword.transform.parent = transform;
+                Sword.transform.position = Sword.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
             }
         }
     }
@@ -284,78 +281,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             //SWORD CODE
-            if (!swinging)
+            if (!Sword.GetComponent<Sword>().swinging)
             {
-                if (!facingRight && swordchild.transform.rotation != Quaternion.Euler(0, 0, 45))
-                {
-                    swordchild.transform.rotation = Quaternion.Slerp(swordchild.transform.rotation,
-                                                                      Quaternion.Euler(0, 0, 45),
-                                                                      (8 * Time.deltaTime));
-                    swordchild.transform.position = Vector3.Lerp(swordchild.transform.position,
-                                                                  swordchild.transform.parent.position + new Vector3(-0.5f, 0.5f, -1f),
-                                                                  (8 * Time.deltaTime));
-                }
-                else if (facingRight && swordchild.transform.rotation != Quaternion.Euler(0, 0, -45))
-                {
-                    swordchild.transform.rotation = Quaternion.Slerp(swordchild.transform.rotation,
-                                                                      Quaternion.Euler(0, 0, -45),
-                                                                      (8 * Time.deltaTime));
-                    swordchild.transform.position = Vector3.Lerp(swordchild.transform.position,
-                                                                  swordchild.transform.parent.position + new Vector3(0.5f, 0.5f, -1f),
-                                                                  (8 * Time.deltaTime));
-                }
 
-                if (Input.GetMouseButton(0) && !swinging)
-                {
-                    swinging = true;
-                }
-            }
-            else
-            {
-                Quaternion toRot;
-                Vector3 toPos;
-                if (!halfswung)
-                {
-                    if (facingRight)
-                    {
-                        toRot = Quaternion.Euler(0, 0, -90);
-                        toPos = new Vector3(1f, -0.3f, -1f);
-                    }
-                    else
-                    {
-                        toRot = Quaternion.Euler(0, 0, 90);
-                        toPos = new Vector3(-1f, -0.3f, -1f);
-                    }
-                }
-                else
-                {
-                    if (facingRight)
-                    {
-                        toRot = Quaternion.Euler(0, 0, 0);
-                        toPos = new Vector3(0.5f, 0.5f, -1f);
-                    }
-                    else
-                    {
-                        toRot = Quaternion.Euler(0, 0, 0);
-                        toPos = new Vector3(-0.5f, 0.5f, -1f);
-                    }
-                }
+                Sword.GetComponent<Sword>().Follow();
 
-                swordchild.transform.rotation = Quaternion.Slerp(swordchild.transform.rotation,
-                                                                  toRot,
-                                                                  (16 * Time.deltaTime));
-                swordchild.transform.position = Vector3.Lerp(swordchild.transform.position,
-                                                              swordchild.transform.parent.position + toPos,
-                                                              (16 * Time.deltaTime));
-
-                if (Quaternion.Angle(swordchild.transform.rotation, toRot) < 0.1f && !halfswung)
+                if (Input.GetMouseButton(0))
                 {
-                    halfswung = true;
-                }
-                else if (Quaternion.Angle(swordchild.transform.rotation, toRot) < 0.1f && halfswung)
-                {
-                    halfswung = false;
-                    swinging = false;
+                    Sword.GetComponent<Sword>().Swing();
                 }
             }
         }
