@@ -480,7 +480,7 @@ GameObject:
   - 61: {fileID: 53391728}
   - 212: {fileID: 53391727}
   - 114: {fileID: 53391730}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: IntroduceRedirectSphereDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -1538,7 +1538,7 @@ Transform:
   m_LocalScale: {x: 11.6532011, y: 11.6532068, z: 11.6532068}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!1001 &187753692
 Prefab:
   m_ObjectHideFlags: 0
@@ -1833,7 +1833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1001 &216120557
 Prefab:
   m_ObjectHideFlags: 0
@@ -1990,7 +1990,7 @@ Transform:
   - {fileID: 547747802}
   - {fileID: 470167248}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &241171704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,7 +2003,7 @@ GameObject:
   - 61: {fileID: 241171707}
   - 212: {fileID: 241171706}
   - 114: {fileID: 241171709}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: LearnToPlaceSpheresDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -2280,7 +2280,7 @@ GameObject:
   - 61: {fileID: 255694694}
   - 212: {fileID: 255694693}
   - 114: {fileID: 255694696}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: KillEnemiesDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -2459,7 +2459,7 @@ Transform:
   - {fileID: 2111464336}
   - {fileID: 1205972022}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &277684944
 Prefab:
   m_ObjectHideFlags: 0
@@ -3693,12 +3693,12 @@ Transform:
   m_PrefabInternal: {fileID: 2111913079}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.4000015, y: 2.70000005, z: 0}
+  m_LocalPosition: {x: -8.19999981, y: 3.20000005, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1769840755}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &399855271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3932,7 +3932,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &416437449
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,7 +4877,7 @@ Transform:
   - {fileID: 1785009903}
   - {fileID: 845597470}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &491927391
 Prefab:
   m_ObjectHideFlags: 0
@@ -6341,7 +6341,7 @@ Transform:
   - {fileID: 2134426524}
   - {fileID: 1435515192}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 13
 --- !u!1 &640124081
 GameObject:
   m_ObjectHideFlags: 0
@@ -7305,6 +7305,142 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daddy: Doors
+--- !u!1 &723462144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 196448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 723462151}
+  - 33: {fileID: 723462150}
+  - 23: {fileID: 723462149}
+  - 114: {fileID: 723462148}
+  - 58: {fileID: 723462147}
+  - 50: {fileID: 723462146}
+  - 61: {fileID: 723462145}
+  m_Layer: 10
+  m_Name: Boss1
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &723462145
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6196448, guid: 5bcee8474499f3d47b744cdc6196925a,
+    type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  m_GameObject: {fileID: 723462144}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.00000012, y: 2}
+  m_Center: {x: 5.96046448e-08, y: 0}
+--- !u!50 &723462146
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5096448, guid: 5bcee8474499f3d47b744cdc6196925a,
+    type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  m_GameObject: {fileID: 723462144}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!58 &723462147
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5896448, guid: 5bcee8474499f3d47b744cdc6196925a,
+    type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  m_GameObject: {fileID: 723462144}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Radius: 10.1241703
+  m_Center: {x: 5.96046448e-08, y: 0}
+--- !u!114 &723462148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11496448, guid: 5bcee8474499f3d47b744cdc6196925a,
+    type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  m_GameObject: {fileID: 723462144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17360214862bed948a7ba63e9ab51392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  isSlowed: 0
+  stompTimer: 1
+  chargeTimer: 1
+  runTimer: 3
+  attacking: 0
+  running: 0
+  charging: 0
+  stomping: 0
+  attackDelay: .899999976
+  player: {fileID: 0}
+  tiredTimer: 0
+  ignoreEdges: 1
+  direction: 0
+  moveSpeed: 4
+  ground: {fileID: 0}
+  target: {fileID: 0}
+  aggroTimer: 0
+  aggroTimerMax: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 33536
+--- !u!23 &723462149
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2396448, guid: 5bcee8474499f3d47b744cdc6196925a,
+    type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  m_GameObject: {fileID: 723462144}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &723462150
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3396448, guid: 5bcee8474499f3d47b744cdc6196925a,
+    type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  m_GameObject: {fileID: 723462144}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &723462151
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+  m_PrefabInternal: {fileID: 948290710}
+  m_GameObject: {fileID: 723462144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5, y: 29.6000004, z: 0}
+  m_LocalScale: {x: 2.3931303, y: 2.39313054, z: 2.39313054}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1001 &727910507
 Prefab:
   m_ObjectHideFlags: 0
@@ -7480,7 +7616,7 @@ GameObject:
   - 61: {fileID: 731554850}
   - 212: {fileID: 731554849}
   - 114: {fileID: 731554852}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: BoostAttackDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -8369,7 +8505,7 @@ GameObject:
   - 61: {fileID: 845597472}
   - 212: {fileID: 845597471}
   - 114: {fileID: 845597474}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: Exit Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -9267,6 +9403,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 475757177}
   m_GameObject: {fileID: 927539735}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &948290710
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 29.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496448, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+      propertyPath: layerMask.m_Bits
+      value: 33536
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5bcee8474499f3d47b744cdc6196925a, type: 2}
+  m_RootGameObject: {fileID: 723462144}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &950177907
 GameObject:
   m_ObjectHideFlags: 0
@@ -9878,7 +10062,7 @@ Transform:
   - {fileID: 587594771}
   - {fileID: 1825738916}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1007078579
 GameObject:
   m_ObjectHideFlags: 0
@@ -10002,7 +10186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  moveSpeed: 4
+  moveSpeed: 10
   ground: {fileID: 0}
   target: {fileID: 0}
   aggroTimer: 0
@@ -10180,7 +10364,7 @@ GameObject:
   - 61: {fileID: 1032354762}
   - 212: {fileID: 1032354761}
   - 114: {fileID: 1032354764}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: IntroduceBoostSphereDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -11027,7 +11211,7 @@ Transform:
   m_LocalScale: {x: 10, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!114 &1109061893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13752,7 +13936,7 @@ Transform:
   m_LocalScale: {x: 1, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1 &1331535797
 GameObject:
   m_ObjectHideFlags: 0
@@ -14233,7 +14417,7 @@ GameObject:
   - 61: {fileID: 1392126236}
   - 212: {fileID: 1392126235}
   - 114: {fileID: 1392126238}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: ShootAllDirectionsDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -16010,7 +16194,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1457375582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18502,7 +18686,7 @@ Transform:
   - {fileID: 1113865934}
   - {fileID: 813354522}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1707433612
 GameObject:
   m_ObjectHideFlags: 0
@@ -19185,7 +19369,7 @@ GameObject:
   - 61: {fileID: 1785009905}
   - 212: {fileID: 1785009904}
   - 114: {fileID: 1785009907}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: RedirectAttackDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -20593,7 +20777,7 @@ Transform:
   - {fileID: 641057835}
   - {fileID: 1156947061}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1909940027
 GameObject:
   m_ObjectHideFlags: 0
@@ -21376,7 +21560,7 @@ Transform:
   - {fileID: 456804724}
   - {fileID: 738916754}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1001 &1981763725
 Prefab:
   m_ObjectHideFlags: 0
@@ -21723,7 +21907,7 @@ GameObject:
   - 61: {fileID: 2028642016}
   - 212: {fileID: 2028642015}
   - 114: {fileID: 2028642018}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: JumpThroughSpheresDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -22771,11 +22955,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 35.4000015
+      value: -8.19999981
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.70000005
+      value: 3.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -22799,7 +22983,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 153492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_Layer

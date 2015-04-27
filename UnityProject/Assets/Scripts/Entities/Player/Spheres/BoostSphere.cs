@@ -11,10 +11,6 @@ public class BoostSphere : MonoBehaviour
     public Player Owner;
     public AudioClip boostSound;
 
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         if (AliveTimer != -1)
@@ -46,7 +42,10 @@ public class BoostSphere : MonoBehaviour
         }
         if (other.rigidbody2D != null)
         {
-           // GetComponent<SoundFX>().Play("Poop");
+            SoundFX sfx = GetComponent<SoundFX>();
+            if (sfx != null)
+                sfx.Play("Poop");
+
             if (other.rigidbody2D.velocity.magnitude < 32)
             {
                 other.rigidbody2D.velocity *= VelocityModifier;

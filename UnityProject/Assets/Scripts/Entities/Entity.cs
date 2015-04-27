@@ -41,6 +41,13 @@ public class Entity : MonoBehaviour
         aff.duration = type.duration;
         aff.ticEvery = type.ticEvery;
         aff.slow = type.slow;
+        aff.particle = type.particle;
+        if (aff.particle)
+        {
+            ParticleSystem pSys = GetComponent<ParticleSystem>();
+            if (pSys != null)
+                pSys.enableEmission = true;
+        }
     }
 
     public virtual void die()

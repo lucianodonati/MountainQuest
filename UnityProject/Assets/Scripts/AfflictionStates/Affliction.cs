@@ -6,6 +6,7 @@ public class Affliction : DamageType
     public bool slow = false;
     public float ticEvery = 2.0f, duration = 5.0f, timer = 0.0f;
     private float damageDealt = 0.0f;
+    public bool particle = false;
 
     // Update is called once per frame
     private void Update()
@@ -13,7 +14,7 @@ public class Affliction : DamageType
         if (slow == true)
         {
             Entity Slowed = GetComponent<Entity>();
-            //  IsSlowed move = null; 
+            //  IsSlowed move = null;
             if (Slowed != null)
             {
                 Slowed.isSlowed = true;

@@ -42,7 +42,9 @@ public class RedirectSphere : MonoBehaviour
 
         if (proj != null)
         {
-            GetComponent<SoundFX>().Play("Poop");
+            SoundFX sfx = GetComponent<SoundFX>();
+            if (sfx != null)
+                sfx.Play("Poop");
 
             GameManager.instance.stats.arrowsRedirected++;
             other.rigidbody2D.position = this.transform.position;

@@ -1,15 +1,9 @@
-﻿		﻿
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Entity
 {
-    //public List<Sphere> Spheres;
-    //private Sword ActiveSword;
-    //private Arrow ActiveArrow;
-    //private Sphere ActiveSphere;
     public Arrow arrow;
     public bool isAiming = false;
     public GameObject instructionsUI;
@@ -163,6 +157,8 @@ public class Player : Entity
                 gameObject.GetComponent<PlayerController>().enabled = false;
             }
         }
-        GetComponent<SoundFX>().Play("Die");
+        SoundFX sfx = GetComponent<SoundFX>();
+        if (sfx != null)
+            sfx.Play("Die");
     }
 }
