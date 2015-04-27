@@ -4945,7 +4945,7 @@ Transform:
   m_PrefabInternal: {fileID: 2111913079}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.7999992, y: 69.0999985, z: 0}
+  m_LocalPosition: {x: -8.39999962, y: 3, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1769840755}
@@ -19707,7 +19707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e8efb752befdb48ac67ad35b6089e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTimerMax: .200000003
+  reloadTimerMax: .0500000007
   weapon: {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
   layerMask:
     serializedVersion: 2
@@ -23710,7 +23710,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411514, guid: 74c90f69bd0a62345a47fa54a2024ce3, type: 2}
       propertyPath: reloadTimerMax
-      value: .200000003
+      value: .0500000007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74c90f69bd0a62345a47fa54a2024ce3, type: 2}
@@ -29908,11 +29908,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 50.7999992
+      value: -8.39999962
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 69.0999985
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z

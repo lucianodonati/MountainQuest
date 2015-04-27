@@ -22,3 +22,4 @@ sysinfo.txt
 
 *.ini
 /UnityProject/Builds
+/UnityProject/findBrokenMeta.rb
