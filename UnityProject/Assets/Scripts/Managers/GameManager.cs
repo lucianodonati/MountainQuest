@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public enum Menus
     {
-        Title, Story, Pause, Options, Credits, GameOver, Save, Previous
+        Title, Story, Pause, Options, Credits, GameOver, Save, Load, Previous
     }
 
     // References
@@ -84,22 +84,20 @@ public class GameManager : MonoBehaviour
 
     private PlayerController playerController = null;
 
-    private void Awake()
+    private void Start()
     {
         stats = gameObject.AddComponent<StatsManager>();
         DontDestroyOnLoad(gameObject);
         transform.parent = Camera.main.transform;
         for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
             MenuInstances.Add(null);
+        MenuInstances[0] = newCanvas(Menus.Title);
         activeMenu = Menus.Title;
 
         UpdateMusic(musicVol);
         AudioListener.volume = sfxVol;
     }
 
-    private void Start()
-    {
-        MenuInstances[0] = newCanvas(Menus.Title);
     }
 
     private GameObject newCanvas(Menus _newCanvas)
@@ -149,6 +147,11 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        MenuInstances.Clear();
+        for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
+            MenuInstances.Add(null);
+        activeMenu = previous = Menus.Title;
+    
         pause = false;
         music.pitch = 1.0f;
         Time.timeScale = 1.0f;
