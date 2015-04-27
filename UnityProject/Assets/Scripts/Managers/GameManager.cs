@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     #region Sound
 
     public AudioSource music, slowmoSfx, speedupSfx, menuSelectionChange, menuSelect;
-    private float musicVol = 50.0f, sfxVol = 50.0f;
+    private float musicVol = 20.0f, sfxVol = 50.0f;
 
     #endregion Sound
 

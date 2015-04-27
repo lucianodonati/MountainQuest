@@ -41,7 +41,9 @@ public class Entity : MonoBehaviour
 
     public virtual void die()
     {
-        GetComponent<SoundFX>().Play("Die");
+        SoundFX sfx = GetComponent<SoundFX>();
+        if (sfx != null)
+            sfx.Play("Die");
         if (tag == "Enemy" || tag == "Boss")
             GameManager.instance.stats.enemiesKilledTotal++;
 
