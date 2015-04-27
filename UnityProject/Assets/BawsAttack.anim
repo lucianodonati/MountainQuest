@@ -5,67 +5,61 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BlueBoss1Attack
+  m_Name: BawsAttack
   serializedVersion: 4
-  m_AnimationType: 1
+  m_AnimationType: 2
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
   m_CompressedRotationCurves: []
   m_PositionCurves: []
   m_ScaleCurves: []
-  m_FloatCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      - time: 4.80000019
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_PlayAutomatically
-    path: 
-    classID: 111
-    script: {fileID: 0}
+  m_FloatCurves: []
   m_PPtrCurves:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: a82548b7705950042bd28c941bce38d7, type: 3}
-    - time: .839999974
+    - time: .258823544
       value: {fileID: 21300002, guid: a82548b7705950042bd28c941bce38d7, type: 3}
-    - time: 1.63999999
+    - time: .529411793
       value: {fileID: 21300004, guid: a82548b7705950042bd28c941bce38d7, type: 3}
-    - time: 2.44000006
+    - time: .800000012
       value: {fileID: 21300006, guid: a82548b7705950042bd28c941bce38d7, type: 3}
-    - time: 3.24000001
+    - time: 1.10588241
       value: {fileID: 21300008, guid: a82548b7705950042bd28c941bce38d7, type: 3}
-    - time: 4.03999996
+    - time: 1.39999998
       value: {fileID: 21300010, guid: a82548b7705950042bd28c941bce38d7, type: 3}
-    - time: 4.88000011
+    - time: 1.62352943
       value: {fileID: 21300012, guid: a82548b7705950042bd28c941bce38d7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 25
-  m_WrapMode: 1
+  m_SampleRate: 85
+  m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - path: 0
+      attribute: 0
+      script: {fileID: 0}
+      classID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: a82548b7705950042bd28c941bce38d7, type: 3}
+    - {fileID: 21300002, guid: a82548b7705950042bd28c941bce38d7, type: 3}
+    - {fileID: 21300004, guid: a82548b7705950042bd28c941bce38d7, type: 3}
+    - {fileID: 21300006, guid: a82548b7705950042bd28c941bce38d7, type: 3}
+    - {fileID: 21300008, guid: a82548b7705950042bd28c941bce38d7, type: 3}
+    - {fileID: 21300010, guid: a82548b7705950042bd28c941bce38d7, type: 3}
+    - {fileID: 21300012, guid: a82548b7705950042bd28c941bce38d7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 4.92000008
+    m_StopTime: 1.6352942
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,25 +73,6 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
-  m_EditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      - time: 4.80000019
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_PlayAutomatically
-    path: 
-    classID: 111
-    script: {fileID: 0}
+  m_EditorCurves: []
   m_EulerEditorCurves: []
   m_Events: []

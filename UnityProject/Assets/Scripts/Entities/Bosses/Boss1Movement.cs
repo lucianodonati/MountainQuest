@@ -5,14 +5,15 @@ public class Boss1Movement : Enemy
 {
     public float stompTimer = 1.0f;
     public float chargeTimer = 1.0f;
-    public float runTimer = 3.0f;
+    public float runTimer = 2.0f;
     public bool attacking = false;
     public bool running = false;
     public bool charging = false;
     public bool stomping = false;
-    public float attackDelay = 0.9f;
+    public float attackDelay = 0.7f;
     public Player player;
     public float tiredTimer = 0;
+    public bool facingRight = false;
     /// ///////////////////////////////////////////
 
     public bool ignoreEdges = false;
@@ -34,6 +35,18 @@ public class Boss1Movement : Enemy
 
     protected override void Update()
     {
+        if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+       
+        if (rigidbody2D.velocity.x > 0)
+            facingRight = true;
+        else if (rigidbody2D.velocity.x < 0)
+            facingRight = false;
+
+
+
         base.Update();
 
         if (aggroTimer > 0.0f)
@@ -58,7 +71,11 @@ public class Boss1Movement : Enemy
 
                     ///////////////////////////////////////////
                     if (Mathf.Abs(toPlayer.x) <= 6.5 && running == false && charging == false && stomping == false)
+                    {
                         attacking = true;
+                        GetComponent<Animator>().SetBool("isAttacking", true);
+                    }
+
                     tiredTimer -= Time.deltaTime;
                     if (attacking == true && tiredTimer <= 0)
                     {
@@ -129,7 +146,7 @@ public class Boss1Movement : Enemy
                         if (runTimer <= 0)
                         {
                             running = false;
-                            runTimer = 3.0f;
+                            runTimer = 2.0f;
                         }
                         if (isSlowed == true)
                         {
@@ -264,15 +281,16 @@ public class Boss1Movement : Enemy
         attackDelay -= Time.deltaTime;
         if (attackDelay <= 0)
         {
+            GetComponent<Animator>().SetBool("isAttacking", false);
             attacking = false;
-            attackDelay = 0.9f;
+            attackDelay = 0.7f;
             // animation.Play();
             if (startAtkDir == direction && Vector3.Distance(transform.position, player.GetComponent<Player>().transform.position) <= 6.5)
             {
                 player.GetComponent<Player>().health.TakeDamage(15, false);
             }
 
-            tiredTimer = 2.0f;
+            tiredTimer = 1.3f;
         }
 
     }

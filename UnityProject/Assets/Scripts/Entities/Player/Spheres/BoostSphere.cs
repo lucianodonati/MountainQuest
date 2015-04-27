@@ -6,8 +6,6 @@ public class BoostSphere : MonoBehaviour
     public float DamageModifier = 10;
     public float VelocityModifier = 1.5f;
     public float AliveTimer = 7;
-    public bool isAiming = false;
-    public GameObject Sphere;
     public Player Owner;
     public AudioClip boostSound;
 
