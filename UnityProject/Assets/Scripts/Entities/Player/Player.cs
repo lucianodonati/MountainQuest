@@ -20,20 +20,33 @@ public class Player : Entity
     public int RSphereCap = 3;
     public int BSphereTotal = 0;
     public int BSphereCap = 3;
-    private Vector3 spawnpos;
     public int lives = 3;
+    private float deathTimer = 0.0f;
 
     // Use this for initialization
     protected override void Start()
     {
         base.Start();
-        spawnpos = transform.position;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
+
+        if (deathTimer >= 0)
+        {
+            deathTimer -= Time.deltaTime;
+            renderer.enabled = false;
+            GetComponent<HealthBar>().maxHealthBar.renderer.enabled = false;
+            GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = false;
+        }
+        else
+        {
+            GetComponent<HealthBar>().maxHealthBar.renderer.enabled = true;
+            GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = true;
+            renderer.enabled = true;
+        }
 
         Vector3 mouse = Input.mousePosition;
         mouse.z = 10;
@@ -46,7 +59,6 @@ public class Player : Entity
 
         if (Input.GetMouseButtonUp(1) && BSphereTotal <= BSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7))
         {
-
             bool goCreate = true;
             foreach (BoostSphere ball in GameObject.FindObjectsOfType<BoostSphere>())
             {
@@ -60,7 +72,6 @@ public class Player : Entity
                 {
                     goCreate = false;
                 }
-
             }
 
             if (goCreate)
@@ -69,7 +80,6 @@ public class Player : Entity
                 BSphereTotal += 1;
                 CreateBoostSphere.GetComponent<BoostSphere>().SetOwner(this);
             }
-
         }
         else if (Input.GetMouseButtonDown(1) && RSphereTotal <= RSphereCap)
             isAiming = true;
@@ -148,7 +158,12 @@ public class Player : Entity
         if (lives > 1)
         {
             health.currentHP = health.maxHP;
-            transform.position = spawnpos;
+            transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+            Affliction[] possibleAffliction = GetComponents<Affliction>();
+            for (int i = possibleAffliction.Length - 1; i >= 0; i--)
+                Destroy(possibleAffliction[i]);
+
+            deathTimer = 2.0f;
             lives--;
         }
         else

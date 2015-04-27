@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Boss1Movement : Enemy
 {
@@ -21,7 +21,6 @@ public class Boss1Movement : Enemy
     public bool direction;
     public float moveSpeed = 4;
 
-
     public GameObject ground;
 
     public GameObject target;
@@ -31,21 +30,17 @@ public class Boss1Movement : Enemy
 
     public LayerMask layerMask;
 
-
-
     protected override void Update()
     {
         if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
-       
+
         if (rigidbody2D.velocity.x > 0)
             facingRight = true;
         else if (rigidbody2D.velocity.x < 0)
             facingRight = false;
-
-
 
         base.Update();
 
@@ -61,8 +56,6 @@ public class Boss1Movement : Enemy
                 {
                     Vector3 toPlayer = target.transform.position - transform.position;
                     toPlayer.y = toPlayer.z = 0;
-
-
 
                     if (toPlayer.x < 0)
                         direction = false; //left
@@ -107,7 +100,6 @@ public class Boss1Movement : Enemy
                         }
                     }
 
-
                     if (Mathf.Abs(toPlayer.x) <= 22.5 && Mathf.Abs(toPlayer.x) >= 13.5)
                     {
                         float rand = Random.value;
@@ -131,12 +123,10 @@ public class Boss1Movement : Enemy
                             stompTimer -= Time.deltaTime;
                             Stomp();
                         }
-
                     }
                     else if (charging == false && stomping == false && attacking == false)
                     {
                         running = true;
-
                     }
 
                     if (running == true)
@@ -161,8 +151,6 @@ public class Boss1Movement : Enemy
 
                         rigidbody2D.velocity = toPlayer;
                     }
-
-
                 }
                 else
                 {
@@ -176,16 +164,14 @@ public class Boss1Movement : Enemy
                         rigidbody2D.velocity = Vector2.zero;
                 }
             }
-
         }
         else if (target != null)
         {
             target = null;
         }
-
     }
 
-    void OnTriggerStay2D(Collider2D coll)
+    private void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
         {
@@ -197,7 +183,7 @@ public class Boss1Movement : Enemy
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Wall" && charging == true)
         {
@@ -220,7 +206,6 @@ public class Boss1Movement : Enemy
                 // player.GetComponent<Player>().rigidbody2D.isKinematic = true;
                 player.GetComponent<Player>().rigidbody2D.AddForce(Vector3.right * 1000);
             }
-
         }
 
         if (coll.gameObject.tag == "Player" && stomping == true)
@@ -228,10 +213,7 @@ public class Boss1Movement : Enemy
             stompTimer = 1.0f;
             stomping = false;
             player.GetComponent<Player>().health.TakeDamage(30, false);
-
-
         }
-
 
         if (coll.gameObject.tag == "Platform" && ground == null)
         {
@@ -240,7 +222,7 @@ public class Boss1Movement : Enemy
         }
     }
 
-    void OnCollisionStay2D(Collision2D coll)
+    private void OnCollisionStay2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Platform" && ground == null)
         {
@@ -248,7 +230,7 @@ public class Boss1Movement : Enemy
         }
     }
 
-    void OnCollisionExit2D(Collision2D coll)
+    private void OnCollisionExit2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Platform")
         {
@@ -256,10 +238,11 @@ public class Boss1Movement : Enemy
         }
     }
 
-    bool InFOV(GameObject targ)
+    private bool InFOV(GameObject targ)
     {
-
         bool val = false;
+        if (targ == null)
+            targ = GameObject.Find("Player");
 
         RaycastHit2D checkFOV =
             Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
@@ -274,7 +257,7 @@ public class Boss1Movement : Enemy
         return val;
     }
 
-    void AttackPlayer()
+    private void AttackPlayer()
     {
         bool startAtkDir = direction;
 
@@ -292,10 +275,9 @@ public class Boss1Movement : Enemy
 
             tiredTimer = 1.3f;
         }
-
     }
 
-    void Stomp()
+    private void Stomp()
     {
         if (stompTimer <= 0)
         {
@@ -306,19 +288,15 @@ public class Boss1Movement : Enemy
         {
             stompTimer -= Time.deltaTime;
             rigidbody2D.velocity = new Vector2(7, 12);
-
         }
         else if (direction == false)
         {
             stompTimer -= Time.deltaTime;
             rigidbody2D.velocity = new Vector2(-7, 12);
-
         }
     }
 
-
-
-    void Charge()
+    private void Charge()
     {
         if (chargeTimer <= 0)
         {
@@ -336,5 +314,4 @@ public class Boss1Movement : Enemy
             rigidbody2D.velocity = new Vector3(-25, 0, 0);
         }
     }
-
 }

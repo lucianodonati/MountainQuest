@@ -34,8 +34,8 @@ public class HealthBar : MonoBehaviour
     }
 
     private Health health;
-    private GameObject remainingHealthBar = null;
-    private GameObject maxHealthBar = null;
+    public GameObject remainingHealthBar = null;
+    public GameObject maxHealthBar = null;
     public float scaler = 10;
     private Bounds hpbounds;
 

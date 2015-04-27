@@ -21,7 +21,10 @@ public class Entity : MonoBehaviour
             die();
 
         if (isSlowed)
-            rigidbody2D.velocity /= 5;
+        {
+            rigidbody2D.velocity /= 2;
+            isSlowed = false;
+        }
     }
 
     public void TakeTamage(OneTimeHit type)

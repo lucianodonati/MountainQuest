@@ -41,10 +41,7 @@ public class BoostSphere : MonoBehaviour
         {
             SoundFX sfx = GetComponent<SoundFX>();
             if (sfx != null)
-            {
                 sfx.Play("Poop");
-                Debug.Log("This is my name: " + name + " collided with: " + other.name);
-            }
 
             if (other.rigidbody2D.velocity.magnitude < 32)
             {
