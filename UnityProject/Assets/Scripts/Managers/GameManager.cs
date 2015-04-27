@@ -9,34 +9,40 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public StatsManager stats;
 
-    static public bool isActive
-    {
-        get
-        {
-            return _instance != null;
-        }
-    }
-
-    static public GameManager instance
+    public static GameManager instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = Object.FindObjectOfType(typeof(GameManager)) as GameManager;
-
-                if (_instance == null)
-                {
-                    GameObject go = new GameObject("GameManager");
-                    DontDestroyOnLoad(go);
-                    _instance = go.AddComponent<GameManager>();
-                    if (_instance._Debug)
-                        Debug.Log("GameManager: Instance created.");
-                }
+                _instance = GameObject.FindObjectOfType<GameManager>();
+                DontDestroyOnLoad(_instance.gameObject);
             }
+
             return _instance;
         }
     }
+
+    //static public GameManager instance
+    //{
+    //    get
+    //    {
+    //        if (_instance == null)
+    //        {
+    //            _instance = Object.FindObjectOfType(typeof(GameManager)) as GameManager;
+
+    //            if (_instance == null)
+    //            {
+    //                GameObject go = new GameObject("GameManager");
+    //                DontDestroyOnLoad(go);
+    //                _instance = go.AddComponent<GameManager>();
+    //                if (_instance._Debug)
+    //                    Debug.Log("GameManager: Instance created.");
+    //            }
+    //        }
+    //        return _instance;
+    //    }
+    //}
 
     #region Menus
 
@@ -84,20 +90,30 @@ public class GameManager : MonoBehaviour
 
     private PlayerController playerController = null;
 
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            //If I am the first instance, make me the Singleton
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            //If a Singleton already exists and you find
+            //another reference in scene, destroy it!
+            if (this != _instance)
+                Destroy(this.gameObject);
+        }
+    }
+
     private void Start()
     {
         stats = gameObject.AddComponent<StatsManager>();
-        DontDestroyOnLoad(gameObject);
-        transform.parent = Camera.main.transform;
-        for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
-            MenuInstances.Add(null);
-        MenuInstances[0] = newCanvas(Menus.Title);
-        activeMenu = Menus.Title;
+        OnLevelWasLoaded(0);
 
         UpdateMusic(musicVol);
         AudioListener.volume = sfxVol;
-    }
-
     }
 
     private GameObject newCanvas(Menus _newCanvas)
@@ -150,22 +166,21 @@ public class GameManager : MonoBehaviour
         MenuInstances.Clear();
         for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
             MenuInstances.Add(null);
-        activeMenu = previous = Menus.Title;
-    
+        transform.parent = Camera.main.transform;
+
         pause = false;
         music.pitch = 1.0f;
         Time.timeScale = 1.0f;
-        transform.parent = Camera.main.transform;
-        music.Stop();
-        music.Play();
         if (currentLevel != Scenes.MainMenu)
         {
             if (playerController == null)
                 playerController = (GameObject.FindGameObjectWithTag("Player")).GetComponent<PlayerController>();
         }
-
-        GameObject soundManager = new GameObject();
-        soundManager.name = "Sound Manager";
+        else if (currentLevel == Scenes.MainMenu)
+        {
+            MenuInstances[0] = newCanvas(Menus.Title);
+            activeMenu = Menus.Title;
+        }
     }
 
     private void Update()
