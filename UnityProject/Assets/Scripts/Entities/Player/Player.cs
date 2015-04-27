@@ -7,8 +7,6 @@ using UnityEngine;
 public class Player : Entity
 {
     public List<Sphere> Spheres;
-    public List<Arrow> Arrows;
-    public List<Sword> Swords;
     private Sword ActiveSword;
     private Arrow ActiveArrow;
     private Sphere ActiveSphere;

@@ -1990,7 +1990,7 @@ Transform:
   - {fileID: 547747802}
   - {fileID: 470167248}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &241171704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,7 +2459,7 @@ Transform:
   - {fileID: 2111464336}
   - {fileID: 1205972022}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1001 &277684944
 Prefab:
   m_ObjectHideFlags: 0
@@ -3572,7 +3572,7 @@ GameObject:
   - 50: {fileID: 399855267}
   - 61: {fileID: 399855266}
   - 114: {fileID: 399855271}
-  m_Layer: 15
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3593,11 +3593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   Spheres: []
-  Arrows:
-  - {fileID: 0}
-  - {fileID: 0}
-  Swords:
-  - {fileID: 0}
+  Arrows: []
+  Swords: []
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -3657,12 +3654,8 @@ MonoBehaviour:
   facingRight: 1
   jumpCooldownTimerMax: .100000001
   arrowCooldownTimerMax: .5
-  Arrows:
-  - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
-  - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
-  Swords:
-  - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
-  - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
+  Arrows: []
+  Swords: []
   looktarget: {x: 0, y: 0, z: 0}
 --- !u!212 &399855269
 SpriteRenderer:
@@ -3713,26 +3706,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX:
-  - name: Death
+  - name: Die
     sounds:
-    - {fileID: 8300000, guid: 0d2407d0d1a0fb84abb27a555bde47a7, type: 3}
-    - {fileID: 8300000, guid: 1f5394d7d98d8574383a62813571144f, type: 3}
-    - {fileID: 8300000, guid: 29052cb72cb05194884515eeff7d544c, type: 3}
-    - {fileID: 8300000, guid: 33d022a38892c8c4eb4e6ff4b6e9fc36, type: 3}
-    - {fileID: 8300000, guid: 3c44fbc6e1967e2408dbeb9e72061f69, type: 3}
-    - {fileID: 8300000, guid: 45aa429d0907ae4448a200e8b427e5ab, type: 3}
-    - {fileID: 8300000, guid: 9306fe9d17596a14eab264a044566eae, type: 3}
-    - {fileID: 8300000, guid: 99e3b3d923e7c4148a7245985d672fe6, type: 3}
-    - {fileID: 8300000, guid: 9b26f31dccfe1324eb409c1f90542b6c, type: 3}
-    - {fileID: 8300000, guid: aec910848670c0f498913b8f266884f4, type: 3}
-    - {fileID: 8300000, guid: cbe8de1852a68cb44b8ae5e57f746e8a, type: 3}
-    - {fileID: 8300000, guid: d4db5fb9f08c5404db2ea30782f9e866, type: 3}
-    - {fileID: 8300000, guid: e55f6cf1143ca2e40894d4cb6c3e9054, type: 3}
-    - {fileID: 8300000, guid: f42ab9999de3d7f40b88e8e577205bf4, type: 3}
+    - {fileID: 8300000, guid: b7968579426bd5b4ca5442c4b91e6c7c, type: 3}
     volume: 1
-  - name: 
-    sounds: []
-    volume: 0
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: 0231fa71fdbd49547b98ce9be520fdf1, type: 3}
+    - {fileID: 8300000, guid: 0ef1c22cdb131cc4e95c844a207b1aae, type: 3}
+    - {fileID: 8300000, guid: 1f6ec028852e79c42a0eb64413caed42, type: 3}
+    - {fileID: 8300000, guid: 288d6eb2f6ff8e04eb5c65ae3abbb0fb, type: 3}
+    - {fileID: 8300000, guid: 307efc6f45b7c3c458a44b307c9209e0, type: 3}
+    - {fileID: 8300000, guid: 90b194b41a663584b87e213dc336ecf0, type: 3}
+    - {fileID: 8300000, guid: e3e2a526863e0134783ebfffd725a294, type: 3}
+    - {fileID: 8300000, guid: f4d0ee01f90aa244084243efa4fc474a, type: 3}
+    volume: .5
 --- !u!1 &400875994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3938,7 +3926,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &416437449
 GameObject:
   m_ObjectHideFlags: 0
@@ -13243,123 +13231,6 @@ Prefab:
   m_RootGameObject: {fileID: 1296587183}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1001 &1294040022
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 11408038, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Arrows.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11408038, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Swords.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Arrows.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Swords.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.70000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Sword
-      value: 
-      objectReference: {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
-    - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: movementSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_AngularDrag
-      value: .0500000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 425198, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Arrow
-      value: 
-      objectReference: {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
-    - target: {fileID: 153492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 125198, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Swords.Array.data[0]
-      value: 
-      objectReference: {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Arrows.Array.data[0]
-      value: 
-      objectReference: {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Arrows.Array.data[1]
-      value: 
-      objectReference: {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
-    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-      propertyPath: Swords.Array.data[1]
-      value: 
-      objectReference: {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
-    m_RemovedComponents:
-    - {fileID: 11425198, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
-  m_RootGameObject: {fileID: 399855264}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1296587183
 GameObject:
   m_ObjectHideFlags: 0
@@ -16074,7 +15945,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!114 &1457375582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18565,7 +18436,7 @@ Transform:
   - {fileID: 1113865934}
   - {fileID: 813354522}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1707433612
 GameObject:
   m_ObjectHideFlags: 0
@@ -19082,7 +18953,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1769840755}
   - 212: {fileID: 1769840756}
-  m_Layer: 15
+  m_Layer: 10
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19450,26 +19321,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX:
-  - name: Death
+  - name: Die
     sounds:
-    - {fileID: 8300000, guid: 0d2407d0d1a0fb84abb27a555bde47a7, type: 3}
-    - {fileID: 8300000, guid: 1f5394d7d98d8574383a62813571144f, type: 3}
-    - {fileID: 8300000, guid: 29052cb72cb05194884515eeff7d544c, type: 3}
-    - {fileID: 8300000, guid: 33d022a38892c8c4eb4e6ff4b6e9fc36, type: 3}
+    - {fileID: 8300000, guid: e55f6cf1143ca2e40894d4cb6c3e9054, type: 3}
+    - {fileID: 8300000, guid: aec910848670c0f498913b8f266884f4, type: 3}
     - {fileID: 8300000, guid: 3c44fbc6e1967e2408dbeb9e72061f69, type: 3}
-    - {fileID: 8300000, guid: 45aa429d0907ae4448a200e8b427e5ab, type: 3}
-    - {fileID: 8300000, guid: 9306fe9d17596a14eab264a044566eae, type: 3}
+    - {fileID: 8300000, guid: 29052cb72cb05194884515eeff7d544c, type: 3}
+    - {fileID: 8300000, guid: 1f5394d7d98d8574383a62813571144f, type: 3}
+    - {fileID: 8300000, guid: cbe8de1852a68cb44b8ae5e57f746e8a, type: 3}
+    - {fileID: 8300000, guid: f42ab9999de3d7f40b88e8e577205bf4, type: 3}
     - {fileID: 8300000, guid: 99e3b3d923e7c4148a7245985d672fe6, type: 3}
     - {fileID: 8300000, guid: 9b26f31dccfe1324eb409c1f90542b6c, type: 3}
-    - {fileID: 8300000, guid: aec910848670c0f498913b8f266884f4, type: 3}
-    - {fileID: 8300000, guid: cbe8de1852a68cb44b8ae5e57f746e8a, type: 3}
+    - {fileID: 8300000, guid: 9306fe9d17596a14eab264a044566eae, type: 3}
+    volume: .5
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: 0d2407d0d1a0fb84abb27a555bde47a7, type: 3}
+    - {fileID: 8300000, guid: 33d022a38892c8c4eb4e6ff4b6e9fc36, type: 3}
     - {fileID: 8300000, guid: d4db5fb9f08c5404db2ea30782f9e866, type: 3}
-    - {fileID: 8300000, guid: e55f6cf1143ca2e40894d4cb6c3e9054, type: 3}
-    - {fileID: 8300000, guid: f42ab9999de3d7f40b88e8e577205bf4, type: 3}
-    volume: 1
-  - name: Shoot
-    sounds: []
-    volume: 1
+    - {fileID: 8300000, guid: 45aa429d0907ae4448a200e8b427e5ab, type: 3}
+    volume: .5
 --- !u!1 &1819985389
 GameObject:
   m_ObjectHideFlags: 0
@@ -21436,7 +21307,7 @@ Transform:
   - {fileID: 456804724}
   - {fileID: 738916754}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1001 &1981763725
 Prefab:
   m_ObjectHideFlags: 0

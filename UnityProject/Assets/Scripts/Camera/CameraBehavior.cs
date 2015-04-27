@@ -39,14 +39,15 @@ public class CameraBehavior : MonoBehaviour
         halfHeight = camera.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
 
-        Vector3 newpos;
+        Vector3 newpos = new Vector3();
 
         if (looktarget == null)
         {
             if (camera.orthographicSize < originalSize)
                 camera.orthographicSize = originalSize;
 
-            newpos = new Vector3(player.transform.position.x, player.transform.position.y + deadHalfHeight, transform.position.z);
+            if (player != null)
+                newpos = new Vector3(player.transform.position.x, player.transform.position.y + deadHalfHeight, transform.position.z);
 
             if ((player.transform.position.y > transform.position.y - deadHalfHeight))
             {
