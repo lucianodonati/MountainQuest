@@ -14,7 +14,12 @@ public class MeleeAI : AttackAI {
 	protected override void Update () {
         if (!weapon.GetComponent<Sword>().swinging)
             weapon.GetComponent<Sword>().ownerDirection = GetComponent<Movement_Coordinator>().currentMovement.direction;
-        AttackCheck();
+
+        if (reloadTimer > 0.0f)
+            reloadTimer -= Time.deltaTime;
+
+        if (reloadTimer <= 0.0f)
+            AttackCheck();
 	}
 
     private void AttackCheck()
@@ -27,10 +32,10 @@ public class MeleeAI : AttackAI {
 
             if (((transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).magnitude < range) &&
                 Random.Range(1, 3) < 2 &&
-                coordinator.currentMovement.GetType() == System.Type.GetType("Seek_Movement") &&
                 !weapon.GetComponent<Sword>().swinging)
             {
                 weapon.GetComponent<Sword>().Swing();
+                reloadTimer = reloadTimerMax;
             }
         }
     }

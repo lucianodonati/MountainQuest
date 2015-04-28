@@ -7,6 +7,9 @@ public class RangedAI : AttackAI
 
     private GameObject target;
 
+    public float maximumRange;
+    public float minimumRange;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -22,6 +25,9 @@ public class RangedAI : AttackAI
             {
                 Attack();
             }
+
+            if ((target.transform.position - transform.position).magnitude > maximumRange)
+                target = null;
         }
     }
 
@@ -35,7 +41,7 @@ public class RangedAI : AttackAI
         if (checkFOV != null)
         {
             if (checkFOV.collider != null)
-                if (checkFOV.collider.transform == targ.transform)
+                if (checkFOV.collider.transform == targ.transform && checkFOV.distance > minimumRange && checkFOV.distance <= maximumRange)
                     val = true;
 
             Debug.DrawLine(transform.position, checkFOV.point);

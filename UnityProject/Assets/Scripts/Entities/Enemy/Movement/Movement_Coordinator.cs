@@ -15,10 +15,17 @@ public class Movement_Coordinator : MonoBehaviour {
     public string[] cycleOfMovement;
     private int currHOMindex;
 
+    // the movement the enemy does on seeing the player
+    public string OnSightMovement;
+
     private float changeTimer;
     public float changeTimerMax = 5.0f;
     // adds randomness into the timer mix;
     public float changeTimerError = 0.5f;
+
+    private float nonseekAggroTimer;
+    public float nonseekAggroTimerMax = 3;
+    private bool draining = false;
 
 	// Use this for initialization
 	void Start () {
@@ -39,7 +46,12 @@ public class Movement_Coordinator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(currentMovement.GetType() != System.Type.GetType("Seek_Movement"))
+
+        if (draining && nonseekAggroTimer > 0.0f)
+            nonseekAggroTimer -= Time.deltaTime;
+
+
+        if(currentMovement.GetType() != System.Type.GetType(OnSightMovement) || (nonseekAggroTimer <= 0.0f && !draining))
         {
             changeTimer -= Time.deltaTime;
 
@@ -66,38 +78,83 @@ public class Movement_Coordinator : MonoBehaviour {
         }
         else
         {
-            if(((Seek_Movement)currentMovement).aggroTimer <= 0.0f)
+            if (currentMovement.GetType() == System.Type.GetType("Seek_Movement"))
             {
-                currHOMindex = 0;
-
-                for(int i = 0; i < movements.Length; ++i)
+                if (((Seek_Movement)currentMovement).aggroTimer <= 0.0f)
                 {
-                    if(movements[i].GetType() == System.Type.GetType(cycleOfMovement[currHOMindex]))
+                    currHOMindex = 0;
+
+                    for (int i = 0; i < movements.Length; ++i)
                     {
-                        currentMovement.enabled = false;
-                        currentMovement = movements[i];
-                        currentMovement.enabled = true;
-                        break;
+                        if (movements[i].GetType() == System.Type.GetType(cycleOfMovement[currHOMindex]))
+                        {
+                            currentMovement.enabled = false;
+                            currentMovement = movements[i];
+                            currentMovement.enabled = true;
+                            break;
+                        }
                     }
+                }
+            }
+            else
+            {
+                if (nonseekAggroTimer <= 0.0f)
+                {
+                    currHOMindex = 0;
+
+                    for (int i = 0; i < movements.Length; ++i)
+                    {
+                        if (movements[i].GetType() == System.Type.GetType(cycleOfMovement[currHOMindex]))
+                        {
+                            currentMovement.enabled = false;
+                            currentMovement = movements[i];
+                            currentMovement.enabled = true;
+                            break;
+                        }
+                    }
+                    draining = false;
                 }
             }
         }
 	}
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerStay2D(Collider2D coll)
     {
-        for(int i = 0; i < movements.Length; ++i)
+        if (coll.gameObject.tag == "Player")
         {
-            if(movements[i].GetType() == System.Type.GetType("Seek_Movement"))
+            for (int i = 0; i < movements.Length; ++i)
             {
-                if (((Seek_Movement)movements[i]).InFOV(GameObject.FindGameObjectWithTag("Player")))
+                if (movements[i].GetType() == System.Type.GetType(OnSightMovement))
                 {
-                    currentMovement.enabled = false;
-                    currentMovement = movements[i];
-                    currentMovement.enabled = true;
-                    break;
+                    if (OnSightMovement == "Seek_Movement")
+                    {
+                        if (((Seek_Movement)movements[i]).InFOV(coll.gameObject))
+                        {
+                            currentMovement.enabled = false;
+                            currentMovement = movements[i];
+                            currentMovement.enabled = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        currentMovement.enabled = false;
+                        currentMovement = movements[i];
+                        currentMovement.enabled = true;
+                        nonseekAggroTimer = nonseekAggroTimerMax;
+                        draining = false;
+                        break;
+                    }
                 }
             }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            draining = true;
         }
     }
 }
