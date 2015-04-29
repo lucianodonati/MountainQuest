@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public float stunTimer = 1.0f;
-    public bool isStunned = false;
+    
     public Arrow arrow;
     public bool isAiming = false;
     public GameObject instructionsUI;

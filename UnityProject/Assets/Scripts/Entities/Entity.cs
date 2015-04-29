@@ -6,7 +6,8 @@ public class Entity : MonoBehaviour
 {
     public Health health;
     public bool isSlowed = false;
-
+    public float stunTimer = 1.0f;
+    public bool isStunned = false;
     // Use this for initialization
     protected virtual void Start()
     {

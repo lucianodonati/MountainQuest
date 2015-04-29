@@ -40,3 +40,5 @@ C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngi
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
