@@ -201,11 +201,13 @@ public class Boss1Movement : Enemy
             if (direction == false)
             {
                 // player.GetComponent<Player>().rigidbody2D.isKinematic = true;
+                rigidbody2D.isKinematic = false;
                 player.GetComponent<Player>().rigidbody2D.AddForce(Vector3.left * 1000);
             }
             if (direction == true)
             {
                 // player.GetComponent<Player>().rigidbody2D.isKinematic = true;
+                rigidbody2D.isKinematic = false;
                 player.GetComponent<Player>().rigidbody2D.AddForce(Vector3.right * 1000);
             }
         }

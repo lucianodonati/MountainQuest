@@ -182,7 +182,10 @@ public class PlayerController : MonoBehaviour
 
     private void Walk()
     {
-        rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+        if (rigidbody2D.isKinematic)
+        {
+            rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+        }
     }
 
     private void Jump()
