@@ -15,8 +15,10 @@ GameObject:
   - 114: {fileID: 11404710}
   - 199: {fileID: 19983814}
   - 198: {fileID: 19883814}
+  - 114: {fileID: 11482760}
+  - 58: {fileID: 5880262}
   m_Layer: 14
-  m_Name: IceArrow
+  m_Name: ShatteringArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,6 +51,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!58 &5880262
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104710}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Radius: .5
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6104710
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -74,7 +87,7 @@ MonoBehaviour:
   speed: 20
   stuckTimer: 5
   numCollisions: 0
-  damageType: {fileID: 11404710}
+  damageType: {fileID: 11404710, guid: a1c5b306c14ebea4ab5c5dfef8a7429e, type: 2}
 --- !u!114 &11404710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,6 +107,19 @@ MonoBehaviour:
   particle: 1
   color: 1
   changeColor: {r: .117647052, g: .525355041, b: 1, a: 1}
+--- !u!114 &11482760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb0e6f78e0b13948adf4ebe5b640f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: .400000006
+  maxRadius: 1.5
 --- !u!198 &19883814
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1199,7 +1225,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: .469979614, g: .426470578, b: 1, a: 1}
+  m_Color: {r: .0758619308, g: 0, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

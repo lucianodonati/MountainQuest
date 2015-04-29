@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -136,7 +137,9 @@ MonoBehaviour:
   basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
   SphereDistance: 7
   PlayerAliveTimer: 8
+  RSphereTotal: 0
   RSphereCap: 3
+  BSphereTotal: 0
   BSphereCap: 3
   lives: 3
 --- !u!114 &11453492
@@ -163,6 +166,8 @@ MonoBehaviour:
   - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
   - {fileID: 104710, guid: a1c5b306c14ebea4ab5c5dfef8a7429e, type: 2}
   - {fileID: 132966, guid: f1f15e846f34b0d46be717ca92023b28, type: 2}
+  - {fileID: 155430, guid: 5173c76e1a72a9f49ba192c2412a0420, type: 2}
+  - {fileID: 104710, guid: 6dc67c4fe39b1054db44b855436137dc, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
   - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
