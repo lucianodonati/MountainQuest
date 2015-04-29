@@ -8,7 +8,10 @@ public class DoorRequirement : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        door.AddRequirement(gameObject);
+        if (door != null)
+            door.AddRequirement(gameObject);
+        else
+            Debug.LogError("Door requirement invalid (" + gameObject.name + ") <-- Go here and fix.");
     }
 
     // Update is called once per frame

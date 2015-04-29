@@ -8,6 +8,7 @@ public class Affliction : DamageType
     private float damageDealt = 0.0f;
     public bool particle = false, color = false;
     public Color changeColor;
+    public OverrideEffect effect;
 
     // Update is called once per frame
     private void Update()

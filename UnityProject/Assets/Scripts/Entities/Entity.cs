@@ -56,10 +56,26 @@ public class Entity : MonoBehaviour
                 pSys.startColor = type.gameObject.GetComponent<ParticleSystem>().startColor;
             }
         }
-        if (type.color)
+        if (type.effect != null)
         {
-            myColor = gameObject.GetComponent<SpriteRenderer>().color;
-            gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
+            if (type.effect is Panic)
+            {
+                aff.effect = type.effect;
+                Panic effect = gameObject.AddComponent<Panic>(), other = type.effect as Panic;
+                effect.duration = aff.duration;
+                effect.faceOtherSideEvery_Max = other.faceOtherSideEvery_Max;
+                effect.faceOtherSideEvery_Min = other.faceOtherSideEvery_Min;
+                effect.speed_Max = other.speed_Max;
+                effect.speed_Min = other.speed_Min;
+            }
+        }
+        else
+        {
+            if (type.color)
+            {
+                myColor = gameObject.GetComponent<SpriteRenderer>().color;
+                gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
+            }
         }
     }
 
