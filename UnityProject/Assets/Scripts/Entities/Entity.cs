@@ -27,6 +27,7 @@ public class Entity : MonoBehaviour
             rigidbody2D.velocity /= 2;
             isSlowed = false;
         }
+    
     }
 
     public void TakeTamage(OneTimeHit type)

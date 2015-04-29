@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour
 
     //REFERENCES TO CHILDREN
     private GameObject looker;
-
+    public bool knockedBack = false;
+    public float KBTimer = 0.4f;
     // Use this for initialization
     private void Start()
     {
@@ -73,6 +74,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (KBTimer > 0.0f)
+        {
+            KBTimer -= Time.deltaTime;
+        }
+        if (KBTimer <= 0.0f)
+        {
+            knockedBack = false;
+        }
         if (redirectedTimer > 0)
         {
             redirectedTimer -= Time.deltaTime;
@@ -83,10 +92,10 @@ public class PlayerController : MonoBehaviour
         //MOVEMENT
         Look(looktarget);
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
+        //if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        //{
             Walk(); 
-        }
+      //  }
 
         if (grounded)
             jumpCooldownTimer -= Time.deltaTime;
@@ -174,15 +183,21 @@ public class PlayerController : MonoBehaviour
                              (8 * Time.deltaTime));
         }
     }
-
+    
     private void Walk()
     {
-        if (Input.GetKey(KeyCode.A))
-        { rigidbody2D.velocity = new Vector2(-1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y); }
-        else
+        if (!knockedBack)
         {
-            rigidbody2D.velocity = new Vector2(1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+            //if (Input.GetKey(KeyCode.A))
+            //{ rigidbody2D.velocity = new Vector2(-1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y); }
+            //else
+            //{
+            //    rigidbody2D.velocity = new Vector2(1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+            //}  
+            rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, rigidbody2D.velocity.y);
+
         }
+        
     }
 
     private void Jump()
