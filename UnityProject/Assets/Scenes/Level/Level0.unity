@@ -3610,6 +3610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  stunTimer: 1
+  isStunned: 0
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -3663,6 +3665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309091226dadda74989d022fb9b6abdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunTimer: 1
+  isStunned: 0
   movementSpeed: 10
   jumpSpeed: 1
   jumpTimerMax: .100000001
@@ -3676,6 +3680,7 @@ MonoBehaviour:
   - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
   - {fileID: 104710, guid: a1c5b306c14ebea4ab5c5dfef8a7429e, type: 2}
   - {fileID: 132966, guid: f1f15e846f34b0d46be717ca92023b28, type: 2}
+  - {fileID: 157456, guid: 26b4513f4002b4b4e99dc4b779a56a57, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
   - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
@@ -3710,7 +3715,7 @@ Transform:
   m_PrefabInternal: {fileID: 2111913079}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5999999, y: 55.7000008, z: 0}
+  m_LocalPosition: {x: 62.6500015, y: 66.2099991, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1769840755}
@@ -29954,13 +29959,17 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: Arrows.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.5999999
+      value: 62.6500015
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 55.7000008
+      value: 66.2099991
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -29994,6 +30003,10 @@ Prefab:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
+      propertyPath: Arrows.Array.data[4]
+      value: 
+      objectReference: {fileID: 157456, guid: 26b4513f4002b4b4e99dc4b779a56a57, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
   m_RootGameObject: {fileID: 399855264}
