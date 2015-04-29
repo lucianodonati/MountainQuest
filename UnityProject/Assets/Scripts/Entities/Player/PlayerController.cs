@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-            Walk(); 
+            Walk();
         }
 
         if (grounded)
@@ -110,6 +110,18 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
             jumpCooldownTimer = jumpCooldownTimerMax;
+        }
+        Entity entity = coll.gameObject.GetComponent<Entity>();
+        if (entity != null)
+        {
+            if (redirectedTimer > 0 && usingSword)
+            {
+                OneTimeHit playerHit = gameObject.GetComponent<OneTimeHit>(), hit = entity.gameObject.AddComponent<OneTimeHit>();
+                hit.damage = playerHit.damage;
+                hit.critChance = playerHit.critChance;
+                hit.critMult = playerHit.critMult;
+                hit.enabled = true;
+            }
         }
     }
 
@@ -229,7 +241,6 @@ public class PlayerController : MonoBehaviour
 
                     if (sworditer < 0)
                         sworditer = Swords.Length - 1;
-
                 }
                 else
                 {
@@ -237,7 +248,6 @@ public class PlayerController : MonoBehaviour
 
                     if (arrowiter < 0)
                         arrowiter = Arrows.Length - 1;
-
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E))
@@ -248,7 +258,6 @@ public class PlayerController : MonoBehaviour
 
                     if (sworditer >= Swords.Length)
                         sworditer = 0;
-
                 }
                 else
                 {
@@ -256,7 +265,6 @@ public class PlayerController : MonoBehaviour
 
                     if (arrowiter >= Arrows.Length)
                         arrowiter = 0;
-
                 }
             }
             Arrow = Arrows[arrowiter];
@@ -301,7 +309,6 @@ public class PlayerController : MonoBehaviour
             //SWORD CODE
             if (!Sword.GetComponent<Sword>().swinging)
             {
-
                 Sword.GetComponent<Sword>().Follow();
 
                 if (Input.GetMouseButton(0))

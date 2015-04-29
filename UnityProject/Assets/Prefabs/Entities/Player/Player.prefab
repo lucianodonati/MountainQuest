@@ -30,6 +30,7 @@ GameObject:
   - 50: {fileID: 5053492}
   - 61: {fileID: 6153492}
   - 114: {fileID: 11402852}
+  - 114: {fileID: 11440728}
   m_Layer: 15
   m_Name: Player
   m_TagString: Player
@@ -142,6 +143,20 @@ MonoBehaviour:
   BSphereTotal: 0
   BSphereCap: 3
   lives: 3
+--- !u!114 &11440728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153492}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a1cd497e2e64b44b2dcf60bb2a83c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  critChance: .100000001
+  critMult: 2
 --- !u!114 &11453492
 MonoBehaviour:
   m_ObjectHideFlags: 1
