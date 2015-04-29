@@ -111,8 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17360214862bed948a7ba63e9ab51392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 100
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
   stompTimer: .00897426158
   chargeTimer: 1
   runTimer: 2
