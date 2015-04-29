@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 2.70000005, z: 0}
+  m_LocalPosition: {x: -8.5, y: 2.20000005, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 425198}
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -136,7 +137,9 @@ MonoBehaviour:
   basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
   SphereDistance: 7
   PlayerAliveTimer: 8
+  RSphereTotal: 0
   RSphereCap: 3
+  BSphereTotal: 0
   BSphereCap: 3
   lives: 3
 --- !u!114 &11453492
@@ -157,6 +160,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   jumpCooldownTimerMax: .100000001
+  redirectedTimer: 0
   arrowCooldownTimerMax: .5
   Arrows:
   - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
