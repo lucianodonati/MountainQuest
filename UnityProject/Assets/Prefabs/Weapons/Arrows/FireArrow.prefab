@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11459890}
   - 198: {fileID: 19865964}
   - 199: {fileID: 19965964}
+  - 114: {fileID: 11455232}
   m_Layer: 14
   m_Name: FireArrow
   m_TagString: Arrow
@@ -61,6 +62,24 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11455232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155430}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338ad4d599dd85e4584558b5e57fb383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: .580882311, g: 0, b: 0, a: 1}
+  changeColor: 1
+  duration: 3
+  faceOtherSideEvery_Min: .300000012
+  faceOtherSideEvery_Max: 1
+  speed_Min: 10
+  speed_Max: 15
 --- !u!114 &11455430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe4e8149e7ead04d8f18def677db096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 1
   slow: 0
   ticEvery: 2
   duration: 5
@@ -111,6 +130,7 @@ MonoBehaviour:
   particle: 1
   color: 1
   changeColor: {r: 1, g: 0, b: 0, a: 1}
+  effect: {fileID: 11455232}
 --- !u!198 &19865964
 ParticleSystem:
   m_ObjectHideFlags: 1
