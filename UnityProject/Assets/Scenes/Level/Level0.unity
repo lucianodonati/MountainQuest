@@ -3614,9 +3614,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb90537699653c4479ca44cf09b71ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 0
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  skillPoints: 0
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -7583,6 +7585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 35
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
@@ -11265,6 +11268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 35
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
@@ -18529,6 +18533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 20
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
@@ -26938,6 +26943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17360214862bed948a7ba63e9ab51392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 100
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
@@ -29446,6 +29452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 20
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}

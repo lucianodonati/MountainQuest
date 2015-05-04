@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public int experience;
     public Health health;
     public bool isSlowed = false;
     public Color myColor;
@@ -69,7 +70,12 @@ public class Entity : MonoBehaviour
         if (sfx != null)
             sfx.Play("Die");
         if (tag == "Enemy" || tag == "Boss")
+        {
+            Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            player.experience += experience;
+            player.CheckForUpgrade();
             GameManager.instance.stats.enemiesKilledTotal++;
+        }
 
         Destroy(gameObject);
     }

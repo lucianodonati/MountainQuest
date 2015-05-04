@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public int level = 1;
+    public int skillPoints = 0;
     public Arrow arrow;
     public bool isAiming = false;
     public GameObject instructionsUI;
@@ -178,5 +180,14 @@ public class Player : Entity
         SoundFX sfx = GetComponent<SoundFX>();
         if (sfx != null)
             sfx.Play("Die");
+    }
+
+    public void CheckForUpgrade()
+    {
+        if (experience / 100 > level - 1)
+        {
+            level++;
+            skillPoints++;
+        }
     }
 }
