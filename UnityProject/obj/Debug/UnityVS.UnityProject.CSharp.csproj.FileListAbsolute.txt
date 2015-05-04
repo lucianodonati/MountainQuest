@@ -39,3 +39,6 @@ C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp.pdb
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.xml
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.xml
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.xml
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.xml
+F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
