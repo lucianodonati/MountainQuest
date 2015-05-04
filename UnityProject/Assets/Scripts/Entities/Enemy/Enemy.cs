@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : Entity
 {
     private bool disableSeek = true;
+    public GameObject lastPlatform;
 
     // Use this for initialization
     protected override void Start()
@@ -42,5 +43,11 @@ public class Enemy : Entity
             attack.enabled = set;
         }
         disableSeek = set;
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Platform")
+            lastPlatform = coll.transform.parent.gameObject;
     }
 }
