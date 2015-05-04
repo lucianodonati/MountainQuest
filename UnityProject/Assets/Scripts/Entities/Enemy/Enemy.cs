@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public GameObject lastPlatform;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -18,5 +20,11 @@ public class Enemy : Entity
     public override void die()
     {
         base.die();
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Platform")
+            lastPlatform = coll.transform.parent.gameObject;
     }
 }
