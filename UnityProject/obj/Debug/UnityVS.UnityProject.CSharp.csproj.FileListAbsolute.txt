@@ -28,9 +28,6 @@ F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_
 F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.dll
 F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.dll
 F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
-F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.xml
-F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEditor.xml
-F:\classes\structure of game production\MountainQuest\UnityProject\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\UnityVS.UnityProject.CSharp.csprojResolveAssemblyReference.cache
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\obj\Debug\Assembly-CSharp.dll
 C:\Users\fullsail\Documents\SGP\MQ\UnityProject\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll

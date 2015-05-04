@@ -30,6 +30,7 @@ GameObject:
   - 50: {fileID: 5053492}
   - 61: {fileID: 6153492}
   - 114: {fileID: 11402852}
+  - 114: {fileID: 11440728}
   m_Layer: 15
   m_Name: Player
   m_TagString: Player
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 2.70000005, z: 0}
+  m_LocalPosition: {x: -8.5, y: 2.20000005, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 425198}
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isSlowed: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -136,9 +138,25 @@ MonoBehaviour:
   basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
   SphereDistance: 7
   PlayerAliveTimer: 8
+  RSphereTotal: 0
   RSphereCap: 3
+  BSphereTotal: 0
   BSphereCap: 3
   lives: 3
+--- !u!114 &11440728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153492}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a1cd497e2e64b44b2dcf60bb2a83c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  critChance: .100000001
+  critMult: 2
 --- !u!114 &11453492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,6 +175,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   jumpCooldownTimerMax: .100000001
+  redirectedTimer: 0
   arrowCooldownTimerMax: .5
   Arrows:
   - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}

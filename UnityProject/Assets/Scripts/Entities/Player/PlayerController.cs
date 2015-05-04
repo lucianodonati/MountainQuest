@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private float jumpCooldownTimer;
     public float jumpCooldownTimerMax = 0.1f;
+    public float redirectedTimer = 0;
 
     private Vector2 preserveUp;
 
@@ -72,10 +73,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (redirectedTimer > 0)
+        {
+            redirectedTimer -= Time.deltaTime;
+            if (redirectedTimer <= 0)
+                rigidbody2D.gravityScale = 4;
+        }
+
         //MOVEMENT
         Look(looktarget);
 
-        Walk();
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            Walk();
+        }
 
         if (grounded)
             jumpCooldownTimer -= Time.deltaTime;
@@ -99,6 +110,18 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
             jumpCooldownTimer = jumpCooldownTimerMax;
+        }
+        Entity entity = coll.gameObject.GetComponent<Entity>();
+        if (entity != null)
+        {
+            if (redirectedTimer > 0 && usingSword)
+            {
+                OneTimeHit playerHit = gameObject.GetComponent<OneTimeHit>(), hit = entity.gameObject.AddComponent<OneTimeHit>();
+                hit.damage = playerHit.damage;
+                hit.critChance = playerHit.critChance;
+                hit.critMult = playerHit.critMult;
+                hit.enabled = true;
+            }
         }
     }
 
@@ -166,7 +189,12 @@ public class PlayerController : MonoBehaviour
 
     private void Walk()
     {
-        rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+        if (Input.GetKey(KeyCode.A))
+        { rigidbody2D.velocity = new Vector2(-1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y); }
+        else
+        {
+            rigidbody2D.velocity = new Vector2(1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+        }
     }
 
     private void Jump()
@@ -213,7 +241,6 @@ public class PlayerController : MonoBehaviour
 
                     if (sworditer < 0)
                         sworditer = Swords.Length - 1;
-
                 }
                 else
                 {
@@ -221,7 +248,6 @@ public class PlayerController : MonoBehaviour
 
                     if (arrowiter < 0)
                         arrowiter = Arrows.Length - 1;
-
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E))
@@ -232,7 +258,6 @@ public class PlayerController : MonoBehaviour
 
                     if (sworditer >= Swords.Length)
                         sworditer = 0;
-
                 }
                 else
                 {
@@ -240,7 +265,6 @@ public class PlayerController : MonoBehaviour
 
                     if (arrowiter >= Arrows.Length)
                         arrowiter = 0;
-
                 }
             }
             Arrow = Arrows[arrowiter];
@@ -285,7 +309,6 @@ public class PlayerController : MonoBehaviour
             //SWORD CODE
             if (!Sword.GetComponent<Sword>().swinging)
             {
-
                 Sword.GetComponent<Sword>().Follow();
 
                 if (Input.GetMouseButton(0))

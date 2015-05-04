@@ -5,8 +5,10 @@ public class RedirectSphere : MonoBehaviour
 {
     public float RotationDirection;
     public Vector3 Direction = new Vector3(0, 1, 0);
-    public float DamageModifier = 5;
-    public float AliveTimer = 7;
+    public float DamageModifier = 5f;
+    public float AliveTimer = 7f;
+    public float PlayerRedirectMagnitude = 30f;
+    public float antigravityTime = 0.2f;
     public Player Owner;
 
     private void Start()
@@ -37,9 +39,7 @@ public class RedirectSphere : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Arrow proj = other.GetComponent<Arrow>();
-
-        if (proj != null)
+        if (other.GetComponent<Arrow>() != null)
         {
             SoundFX sfx = GetComponent<SoundFX>();
             if (sfx != null)
@@ -52,7 +52,20 @@ public class RedirectSphere : MonoBehaviour
             other.rigidbody2D.velocity = Direction;
             other.rigidbody2D.rotation = RotationDirection + 0;
 
-            proj.damageType.damage += DamageModifier;
+            other.GetComponent<Arrow>().damageType.damage += DamageModifier;
+        }
+        else if (other.tag == "Player")
+        {
+            SoundFX sfx = GetComponent<SoundFX>();
+            if (sfx != null)
+                sfx.Play("Poop");
+
+            other.rigidbody2D.position = this.transform.position;
+            Direction.Normalize();
+            Direction *= PlayerRedirectMagnitude;
+            other.rigidbody2D.velocity = Direction;
+            other.GetComponent<PlayerController>().redirectedTimer = antigravityTime;
+            other.rigidbody2D.gravityScale = 0;
         }
     }
 
@@ -66,5 +79,11 @@ public class RedirectSphere : MonoBehaviour
     public void SetOwner(Player owner)
     {
         Owner = owner;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (name == "JumpThroughRedirectSphere1" || name == "JumpThroughRedirectSphere2")
+            Destroy(gameObject);
     }
 }
