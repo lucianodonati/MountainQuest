@@ -1,45 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &104710
+--- !u!1 &155430
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 404710}
-  - 212: {fileID: 21204710}
-  - 114: {fileID: 11404708}
-  - 61: {fileID: 6104710}
-  - 50: {fileID: 5004710}
-  - 114: {fileID: 11404710}
-  - 199: {fileID: 19983814}
-  - 198: {fileID: 19883814}
+  - 4: {fileID: 455430}
+  - 212: {fileID: 21255430}
+  - 114: {fileID: 11455430}
+  - 61: {fileID: 6155430}
+  - 50: {fileID: 5055430}
+  - 114: {fileID: 11464714}
+  - 114: {fileID: 11459890}
+  - 198: {fileID: 19865964}
+  - 199: {fileID: 19965964}
+  - 114: {fileID: 11453126}
+  - 58: {fileID: 5843720}
   m_Layer: 14
-  m_Name: IceArrow
+  m_Name: ExplodingArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &404710
+--- !u!4 &455430
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.8100014, y: 2.71000004, z: 0}
+  m_LocalPosition: {x: 7.25907469, y: 11.6474848, z: 0}
   m_LocalScale: {x: 1, y: 6, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5004710
+--- !u!50 &5055430
 Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
@@ -49,23 +52,47 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6104710
+--- !u!58 &5843720
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155430}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Radius: .5
+  m_Center: {x: 0, y: 0}
+--- !u!61 &6155430
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
---- !u!114 &11404708
+--- !u!114 &11453126
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ecb160037350c45b7be3e2efa70621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: .400000006
+  maxRadius: 1.5
+--- !u!114 &11455430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155430}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e553f34bce74afd4abbf56240d378c7f, type: 3}
@@ -74,32 +101,48 @@ MonoBehaviour:
   speed: 20
   stuckTimer: 5
   numCollisions: 0
-  damageType: {fileID: 11404710}
---- !u!114 &11404710
+  damageType: {fileID: 11464714, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
+--- !u!114 &11459890
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Fire
+    sounds:
+    - {fileID: 8300000, guid: 2bec0f80be8e8ce4f9065300aeed6d5b, type: 3}
+    volume: 1
+--- !u!114 &11464714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155430}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fe4e8149e7ead04d8f18def677db096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  slow: 1
-  ticEvery: 1
-  duration: 1
+  damage: 5
+  slow: 0
+  ticEvery: 2
+  duration: 5
   timer: 0
   particle: 1
   color: 1
-  changeColor: {r: .117647052, g: .525355041, b: 1, a: 1}
---- !u!198 &19883814
+  changeColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!198 &19865964
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
   lengthInSec: 2.3900001
   startDelay: 0
   speed: 1
@@ -268,7 +311,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4294942283
+        rgba: 4278190268
       minMaxState: 0
     startSize:
       scalar: .170000002
@@ -468,7 +511,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       maxGradient:
         key0:
@@ -1146,12 +1189,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19983814
+--- !u!199 &19965964
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1178,12 +1221,12 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!212 &21204710
+--- !u!212 &21255430
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104710}
+  m_GameObject: {fileID: 155430}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1199,7 +1242,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: .469979614, g: .426470578, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -1209,6 +1252,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 104710}
+  m_RootGameObject: {fileID: 155430}
   m_IsPrefabParent: 1
   m_IsExploded: 1

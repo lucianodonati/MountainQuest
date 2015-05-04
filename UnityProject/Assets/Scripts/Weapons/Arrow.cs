@@ -34,21 +34,52 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.GetComponent<Entity>())
+        if ((name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow")))
         {
-            if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Boss")
-                GameManager.instance.stats.shotsHit++;
+            if (!GetComponent<AOE>().enabled)
+            {
+                GetComponent<AOE>().enabled = true;
+                GetComponent<CircleCollider2D>().enabled = true;
+            }
+        }
+        else if (coll.gameObject.GetComponent<Entity>())
+        {
+            if (name.Contains("WindArrow") && numCollisions >= 0)
+            {
+                numCollisions--;
+                justFired = true;
+                GetComponent<BoxCollider2D>().isTrigger = true;
+
+                if (numCollisions == -1)
+                    GetStuck(coll.collider);
+            }
 
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
             if (isEntity != null)
                 damageType.attachToEnemy(isEntity);
         }
 
-        GetStuck(coll.collider);
+        if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Boss")
+            GameManager.instance.stats.shotsHit++;
+
+        if (!name.Contains("WindArrow") || (coll.gameObject.tag != "Enemy" && coll.gameObject.tag != "Boss"))
+            GetStuck(coll.collider);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow"))
+        {
+            CircleCollider2D circle = GetComponent<CircleCollider2D>();
+            if (circle.enabled &&
+                (other.tag == "Enemy" || other.tag == "Boss") &&
+                other.Equals((Collider2D)other.gameObject.GetComponent<BoxCollider2D>()))
+            {
+                Entity isEntity = other.gameObject.GetComponent<Entity>();
+                if (isEntity != null)
+                    damageType.attachToEnemy(isEntity);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

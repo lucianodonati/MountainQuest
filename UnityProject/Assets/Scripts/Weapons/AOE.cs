@@ -2,13 +2,12 @@
 using System.Collections;
 
 public class AOE : MonoBehaviour {
-    public float duration = 1f;
-    public float maxRadius = 1f;
+    public float duration;
+    public float maxRadius;
 
 	// Use this for initialization
 	void Start () {
-        CircleCollider2D circle = GetComponent<CircleCollider2D>();
-        circle.radius = 0f;
+        GetComponent<CircleCollider2D>().radius = 0;
 	}
 	
 	// Update is called once per frame

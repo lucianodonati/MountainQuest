@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6132966}
   - 50: {fileID: 5032966}
   - 114: {fileID: 11432964}
-  - 114: {fileID: 11432966}
+  - 114: {fileID: 11491092}
   m_Layer: 14
   m_Name: WindArrow
   m_TagString: Arrow
@@ -72,7 +72,7 @@ MonoBehaviour:
   damage: 2
   critChance: .200000003
   critMult: 2
---- !u!114 &11432966
+--- !u!114 &11491092
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -80,13 +80,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 132966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad52f7c288244444a2ab9be6c80f7b5, type: 3}
+  m_Script: {fileID: 11500000, guid: e553f34bce74afd4abbf56240d378c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
   stuckTimer: 5
-  numCollisions: 2
-  damageType: {fileID: 11432964}
+  numCollisions: 1
+  damageType: {fileID: 11418698, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
 --- !u!212 &21232966
 SpriteRenderer:
   m_ObjectHideFlags: 1
