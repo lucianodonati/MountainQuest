@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -153,6 +154,12 @@ public class GameManager : MonoBehaviour
         }
         if (_Debug)
             Debug.Log(log);
+
+        if (_newMenu == Menus.Options)
+        {
+            MenuInstances[(int)activeMenu].GetComponentsInChildren<Slider>()[0].value = musicVol;
+            MenuInstances[(int)activeMenu].GetComponentsInChildren<Slider>()[1].value = sfxVol;
+        }
     }
 
     private void disableCurrentMenu()

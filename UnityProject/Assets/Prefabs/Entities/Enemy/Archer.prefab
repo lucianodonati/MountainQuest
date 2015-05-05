@@ -17,6 +17,7 @@ GameObject:
   - 114: {fileID: 11411512}
   - 199: {fileID: 19962716}
   - 198: {fileID: 19862716}
+  - 114: {fileID: 11494740}
   m_Layer: 10
   m_Name: Archer
   m_TagString: Enemy
@@ -124,6 +125,38 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
+--- !u!114 &11494740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Die
+    sounds:
+    - {fileID: 8300000, guid: e55f6cf1143ca2e40894d4cb6c3e9054, type: 3}
+    - {fileID: 8300000, guid: aec910848670c0f498913b8f266884f4, type: 3}
+    - {fileID: 8300000, guid: 3c44fbc6e1967e2408dbeb9e72061f69, type: 3}
+    - {fileID: 8300000, guid: 29052cb72cb05194884515eeff7d544c, type: 3}
+    - {fileID: 8300000, guid: 1f5394d7d98d8574383a62813571144f, type: 3}
+    - {fileID: 8300000, guid: cbe8de1852a68cb44b8ae5e57f746e8a, type: 3}
+    - {fileID: 8300000, guid: f42ab9999de3d7f40b88e8e577205bf4, type: 3}
+    - {fileID: 8300000, guid: 99e3b3d923e7c4148a7245985d672fe6, type: 3}
+    - {fileID: 8300000, guid: 9b26f31dccfe1324eb409c1f90542b6c, type: 3}
+    - {fileID: 8300000, guid: 9306fe9d17596a14eab264a044566eae, type: 3}
+    volume: .5
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: 0d2407d0d1a0fb84abb27a555bde47a7, type: 3}
+    - {fileID: 8300000, guid: 33d022a38892c8c4eb4e6ff4b6e9fc36, type: 3}
+    - {fileID: 8300000, guid: d4db5fb9f08c5404db2ea30782f9e866, type: 3}
+    - {fileID: 8300000, guid: 45aa429d0907ae4448a200e8b427e5ab, type: 3}
+    volume: .5
 --- !u!198 &19862716
 ParticleSystem:
   m_ObjectHideFlags: 1

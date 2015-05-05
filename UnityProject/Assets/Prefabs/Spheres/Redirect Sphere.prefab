@@ -102,7 +102,7 @@ MonoBehaviour:
   - name: Poop
     sounds:
     - {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
-    volume: .5
+    volume: .00999999978
 --- !u!114 &11435402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +118,8 @@ MonoBehaviour:
   Direction: {x: 0, y: 0, z: 0}
   DamageModifier: 5
   AliveTimer: 7
+  PlayerRedirectMagnitude: 30
+  antigravityTime: .200000003
   Owner: {fileID: 0}
 --- !u!212 &21235402
 SpriteRenderer:

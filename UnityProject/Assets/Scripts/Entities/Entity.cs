@@ -70,13 +70,10 @@ public class Entity : MonoBehaviour
                 effect.speed_Min = other.speed_Min;
             }
         }
-        else
+        if (type.color)
         {
-            if (type.color)
-            {
-                myColor = gameObject.GetComponent<SpriteRenderer>().color;
-                gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
-            }
+            myColor = gameObject.GetComponent<SpriteRenderer>().color;
+            gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
         }
     }
 

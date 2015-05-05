@@ -225,8 +225,6 @@ GameObject:
   - 223: {fileID: 22340568}
   - 114: {fileID: 11440614}
   - 114: {fileID: 11440612}
-  - 114: {fileID: 11410882}
-  - 114: {fileID: 11410884}
   m_Layer: 5
   m_Name: Title Canvas
   m_TagString: Untagged
@@ -286,37 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuToSwitch: 0
   SceneToLoad: 1
---- !u!114 &11410882
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 140586}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
---- !u!114 &11410884
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &11440568
 MonoBehaviour:
   m_ObjectHideFlags: 1

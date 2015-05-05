@@ -73,8 +73,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338ad4d599dd85e4584558b5e57fb383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: .580882311, g: 0, b: 0, a: 1}
-  changeColor: 1
   duration: 3
   faceOtherSideEvery_Min: .300000012
   faceOtherSideEvery_Max: 1

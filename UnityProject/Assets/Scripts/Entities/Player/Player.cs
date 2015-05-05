@@ -40,8 +40,14 @@ public class Player : Entity
         {
             deathTimer -= Time.deltaTime;
             renderer.enabled = false;
-            GetComponent<HealthBar>().maxHealthBar.renderer.enabled = false;
-            GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = false;
+            if (GetComponent<HealthBar>() != null)
+            {
+                if (GetComponent<HealthBar>().maxHealthBar != null)
+                {
+                    GetComponent<HealthBar>().maxHealthBar.renderer.enabled = false;
+                    GetComponent<HealthBar>().remainingHealthBar.renderer.enabled = false;
+                }
+            }
         }
         else
         {
