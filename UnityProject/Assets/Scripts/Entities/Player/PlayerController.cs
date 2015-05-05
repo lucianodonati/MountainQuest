@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     // MOVEMENT VARS
     public float movementSpeed = 10;
+    public float dragCoef = 0.2f;
 
     public float jumpSpeed = 1f;
     private float jumpTimer;
@@ -188,16 +189,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
             rigidbody2D.velocity = new Vector2(-1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
-        else if(Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
             rigidbody2D.velocity = new Vector2(1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+        else
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x * dragCoef, rigidbody2D.velocity.y);
     }
 
     private void Jump()
     {
         if (jumpTimer == jumpTimerMax && grounded)
-        {
             rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, jumpSpeed * firstJumpModifier);
-        }
         else if (jumpTimer < jumpTimerMax / 5)
         {
             rigidbody2D.velocity = new Vector2(this.gameObject.rigidbody2D.velocity.x, rigidbody2D.velocity.y + jumpSpeed * firstJumpModifier / 3);

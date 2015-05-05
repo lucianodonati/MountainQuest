@@ -127,9 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb90537699653c4479ca44cf09b71ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 0
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  level: 1
+  skillPoints: 0
   arrow: {fileID: 0}
   isAiming: 0
   instructionsUI: {fileID: 0}
@@ -169,12 +172,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  dragCoef: .949999988
   jumpSpeed: 1
   jumpTimerMax: .100000001
   firstJumpModifier: 20
   grounded: 0
   facingRight: 1
   jumpCooldownTimerMax: .100000001
+  redirectedTimer: 0
   arrowCooldownTimerMax: .5
   Arrows:
   - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
