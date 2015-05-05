@@ -23,6 +23,12 @@ public class CameraBehavior : MonoBehaviour
     public float toSize;
     public float cameraResizeSpeed = 8;
 
+    //SHAKE VARS
+    public bool shaking;
+    private float currentShakeMagnitude;
+    public float initialShakeMagnitude;
+    public float shakeDampening;
+
     // Use this for initialization
     private void Start()
     {
@@ -76,6 +82,11 @@ public class CameraBehavior : MonoBehaviour
             Resize(toSize, cameraResizeSpeed);
         }
 
+        if (shaking)
+        {
+            ShakeScreen();
+        }
+
         transform.position = newpos;
     }
 
@@ -112,5 +123,20 @@ public class CameraBehavior : MonoBehaviour
     private void Resize(float newSize, float speed)
     {
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, newSize, speed * Time.deltaTime);
+    }
+
+    void ShakeScreen()
+    {
+        if (currentShakeMagnitude > 0.0f)
+        {
+            Vector2 shakeOffs = Random.insideUnitCircle * currentShakeMagnitude;
+            transform.position += new Vector3(shakeOffs.x, shakeOffs.y, 0);
+
+            currentShakeMagnitude -= Time.deltaTime * shakeDampening;
+        }
+        else
+        {
+            shaking = false;
+        }
     }
 }
