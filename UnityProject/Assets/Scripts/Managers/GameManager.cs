@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if (_instance == null)
+            if (_instance != null)
             {
                 _instance = GameObject.FindObjectOfType<GameManager>();
                 DontDestroyOnLoad(_instance.gameObject);
@@ -111,7 +111,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         stats = gameObject.AddComponent<StatsManager>();
-        OnLevelWasLoaded(0);
+
+        if (Application.loadedLevelName == "MainMenu")
+            OnLevelWasLoaded(0);
 
         UpdateMusic(musicVol);
         AudioListener.volume = sfxVol;

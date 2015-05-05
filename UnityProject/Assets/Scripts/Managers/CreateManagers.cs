@@ -8,9 +8,12 @@ public class CreateManagers : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        Instantiate(gameManagerPrefab);
-        GameObject go = new GameObject();
-        go.name = "SoundManager";
-        go.AddComponent<SoundManager>();
+        if (GameManager.instance == null)
+        {
+            Instantiate(gameManagerPrefab);
+            GameObject go = new GameObject();
+            go.name = "SoundManager";
+            go.AddComponent<SoundManager>();
+        }
     }
 }
