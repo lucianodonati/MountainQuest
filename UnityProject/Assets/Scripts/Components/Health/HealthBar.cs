@@ -98,7 +98,7 @@ public class HealthBar : MonoBehaviour
         {
             maxHealthBar.transform.position = new Vector3(transform.position.x,
                                                           renderer.bounds.max.y + 1f,
-                                                          1.0f);
+                                                          -7.0f);
 
             maxHealthBar.transform.localScale = new Vector3((transform.lossyScale.x / 3),
                                                              0.5f,
@@ -111,7 +111,7 @@ public class HealthBar : MonoBehaviour
                                                                     - ((maxHealthBar.renderer.bounds.min - maxHealthBar.transform.position)
                                                                         * (health.currentHP / health.maxHP)).x,
                                                                 maxHealthBar.transform.position.y,
-                                                                0.5f);
+                                                                -7.5f);
 
             if (maxHealthBar != null)
                 hpbounds = maxHealthBar.renderer.bounds;
