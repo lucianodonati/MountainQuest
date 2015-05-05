@@ -140,16 +140,15 @@ public class Boss1Movement : Enemy
                             GetComponent<Animator>().SetBool("isWalking", true);
                             runTimer = 2.0f;
                         }
-                        if (isSlowed == true)
-                        {
-                            if (Mathf.Abs(toPlayer.x) > moveSpeed)
-                                toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed / 2;
-                        }
-                        else if (isSlowed == false)
-                        {
+                        //if (isSlowed == true)
+                        //{
+                        //    if (Mathf.Abs(toPlayer.x) > moveSpeed)
+                        //        toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed / 2;
+                        //}
+                       
                             if (Mathf.Abs(toPlayer.x) > moveSpeed)
                                 toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
-                        }
+                        
 
                         rigidbody2D.velocity = toPlayer;
                     }
@@ -248,12 +247,13 @@ public class Boss1Movement : Enemy
 
         RaycastHit2D checkFOV =
             Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
-
-        if (checkFOV.collider.transform == targ.transform)
+        if (checkFOV.collider != null)
         {
-            val = true;
+            if (checkFOV.collider.transform == targ.transform)
+            {
+                val = true;
+            }
         }
-
         Debug.DrawLine(transform.position, checkFOV.point);
 
         return val;

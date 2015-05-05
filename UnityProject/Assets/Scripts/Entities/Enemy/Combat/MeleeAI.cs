@@ -12,14 +12,17 @@ public class MeleeAI : AttackAI {
 	
 	// Update is called once per frame
 	protected override void Update () {
-        if (!weapon.GetComponent<Sword>().swinging)
-            weapon.GetComponent<Sword>().ownerDirection = GetComponent<Movement_Coordinator>().currentMovement.direction;
+        if (GetComponent<Entity>().isStunned == false)
+        {
+            if (!weapon.GetComponent<Sword>().swinging)
+                weapon.GetComponent<Sword>().ownerDirection = GetComponent<Movement_Coordinator>().currentMovement.direction;
 
-        if (reloadTimer > 0.0f)
-            reloadTimer -= Time.deltaTime;
+            if (reloadTimer > 0.0f)
+                reloadTimer -= Time.deltaTime;
 
-        if (reloadTimer <= 0.0f)
-            AttackCheck();
+            if (reloadTimer <= 0.0f)
+                AttackCheck();
+        }
 	}
 
     private void AttackCheck()

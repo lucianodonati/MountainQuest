@@ -45,7 +45,7 @@ public class Idle_Movement : Enemy_Movement {
         RaycastHit2D checkFOV =
             Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
 
-        if (checkFOV != null)
+        if (checkFOV.collider != null)
         {
             if (checkFOV.collider != null)
                 if (checkFOV.collider.transform == targ.transform)
