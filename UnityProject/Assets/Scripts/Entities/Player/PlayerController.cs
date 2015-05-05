@@ -83,10 +83,7 @@ public class PlayerController : MonoBehaviour
         //MOVEMENT
         Look(looktarget);
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            Walk();
-        }
+        Walk();
 
         if (grounded)
             jumpCooldownTimer -= Time.deltaTime;
@@ -190,11 +187,9 @@ public class PlayerController : MonoBehaviour
     private void Walk()
     {
         if (Input.GetKey(KeyCode.A))
-        { rigidbody2D.velocity = new Vector2(-1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y); }
-        else
-        {
+            rigidbody2D.velocity = new Vector2(-1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
+        else if(Input.GetKey(KeyCode.D))
             rigidbody2D.velocity = new Vector2(1 * movementSpeed, this.gameObject.rigidbody2D.velocity.y);
-        }
     }
 
     private void Jump()
