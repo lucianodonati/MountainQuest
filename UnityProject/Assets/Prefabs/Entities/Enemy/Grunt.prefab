@@ -35,7 +35,6 @@ GameObject:
   - 114: {fileID: 11452620}
   - 199: {fileID: 19999796}
   - 198: {fileID: 19899796}
-  - 114: {fileID: 11499618}
   m_Layer: 10
   m_Name: Grunt
   m_TagString: Enemy
@@ -191,6 +190,7 @@ MonoBehaviour:
   health: {fileID: 0}
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  lastPlatform: {fileID: 0}
 --- !u!114 &11452624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,18 +282,6 @@ MonoBehaviour:
   swingMaxY: 1.79999995
   swingMinY: -1.60000002
   damageType: {fileID: 11406330}
---- !u!114 &11499618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
 --- !u!198 &19899796
 ParticleSystem:
   m_ObjectHideFlags: 1

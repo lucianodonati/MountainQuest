@@ -137,6 +137,7 @@ MonoBehaviour:
   particle: 1
   color: 1
   changeColor: {r: 1, g: 0, b: 0, a: 1}
+  effect: {fileID: 11455232, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
 --- !u!198 &19865964
 ParticleSystem:
   m_ObjectHideFlags: 1
