@@ -177,6 +177,18 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .39570722
       objectReference: {fileID: 0}
+    - target: {fileID: 11411514, guid: 00370ee57c98a424d9f7316db7fd783e, type: 2}
+      propertyPath: layerMask.m_Bits
+      value: 33024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411514, guid: 00370ee57c98a424d9f7316db7fd783e, type: 2}
+      propertyPath: maximumRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411514, guid: 00370ee57c98a424d9f7316db7fd783e, type: 2}
+      propertyPath: reloadTimerMax
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00370ee57c98a424d9f7316db7fd783e, type: 2}
   m_RootGameObject: {fileID: 1406499185}
@@ -452,6 +464,10 @@ Prefab:
     - target: {fileID: 152630, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
       propertyPath: m_Name
       value: ArmoredGrunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452626, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
+      propertyPath: layerMask.m_Bits
+      value: 33536
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
@@ -2267,7 +2283,7 @@ Transform:
   - {fileID: 1406499186}
   - {fileID: 1944674391}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &235329816
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +3900,7 @@ Transform:
   m_Children:
   - {fileID: 1769840755}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &399855271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6001,7 +6017,7 @@ Transform:
   - {fileID: 2134426524}
   - {fileID: 953230819}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &640124081
 GameObject:
   m_ObjectHideFlags: 0
@@ -7303,7 +7319,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
 --- !u!1 &770133315
 GameObject:
   m_ObjectHideFlags: 0
@@ -7523,6 +7539,9 @@ MonoBehaviour:
   direction: 0
   turnTimerMax: 2
   turnTimerError: .5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 33536
 --- !u!114 &774159318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7540,8 +7559,10 @@ MonoBehaviour:
   cycleOfMovement:
   - Idle_Movement
   - Patrol_Movement
+  OnSightMovement: Seek_Movement
   changeTimerMax: 5
   changeTimerError: 1
+  nonseekAggroTimerMax: 3
 --- !u!58 &774159319
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9050,6 +9071,10 @@ Prefab:
     - target: {fileID: 152630, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
       propertyPath: m_Name
       value: IntroduceGrunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452626, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
+      propertyPath: layerMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 052649b14e226fd459438c24d3b893c5, type: 2}
@@ -11031,6 +11056,9 @@ MonoBehaviour:
   direction: 0
   turnTimerMax: 2
   turnTimerError: .5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1011545877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11048,8 +11076,10 @@ MonoBehaviour:
   cycleOfMovement:
   - Idle_Movement
   - Patrol_Movement
+  OnSightMovement: Seek_Movement
   changeTimerMax: 5
   changeTimerError: 1
+  nonseekAggroTimerMax: 3
 --- !u!58 &1011545878
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14010,7 +14040,7 @@ GameObject:
   - 50: {fileID: 1208290981}
   - 198: {fileID: 1208290980}
   - 199: {fileID: 1208290979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrumblingPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -18376,11 +18406,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e8efb752befdb48ac67ad35b6089e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTimerMax: .5
+  reloadTimerMax: 0
   weapon: {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
   layerMask:
     serializedVersion: 2
-    m_Bits: 33536
+    m_Bits: 33024
+  maximumRange: 10
+  minimumRange: 0
 --- !u!114 &1406499192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18396,6 +18428,9 @@ MonoBehaviour:
   direction: 0
   turnTimerMax: 2
   turnTimerError: .5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 33536
 --- !u!58 &1406499193
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20122,7 +20157,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1457375582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20537,6 +20572,10 @@ Prefab:
     - target: {fileID: 411512, guid: 00370ee57c98a424d9f7316db7fd783e, type: 2}
       propertyPath: m_LocalScale.z
       value: .39570722
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411514, guid: 00370ee57c98a424d9f7316db7fd783e, type: 2}
+      propertyPath: maximumRange
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00370ee57c98a424d9f7316db7fd783e, type: 2}
@@ -22206,6 +22245,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
+  maximumRange: 25
+  minimumRange: 0
 --- !u!114 &1564936156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22221,6 +22262,9 @@ MonoBehaviour:
   direction: 0
   turnTimerMax: 2
   turnTimerError: .5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 33536
 --- !u!58 &1564936157
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25108,7 +25152,7 @@ GameObject:
   - 50: {fileID: 1868137799}
   - 198: {fileID: 1868137798}
   - 199: {fileID: 1868137797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrumblingPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -26789,7 +26833,7 @@ Transform:
   - {fileID: 235329822}
   - {fileID: 698812862}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &1909940027
 GameObject:
   m_ObjectHideFlags: 0

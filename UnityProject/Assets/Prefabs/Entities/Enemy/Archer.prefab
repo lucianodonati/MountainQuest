@@ -105,7 +105,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
-  maximumRange: 0
+  maximumRange: 10
   minimumRange: 0
 --- !u!114 &11411516
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
   turnTimerError: .5
   layerMask:
     serializedVersion: 2
-    m_Bits: 34560
+    m_Bits: 33536
 --- !u!198 &19862716
 ParticleSystem:
   m_ObjectHideFlags: 1

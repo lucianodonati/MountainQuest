@@ -207,8 +207,10 @@ MonoBehaviour:
   cycleOfMovement:
   - Idle_Movement
   - Patrol_Movement
+  OnSightMovement: Seek_Movement
   changeTimerMax: 5
   changeTimerError: 1
+  nonseekAggroTimerMax: 3
 --- !u!114 &11452626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,6 +225,9 @@ MonoBehaviour:
   direction: 0
   turnTimerMax: 2
   turnTimerError: .5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1792
 --- !u!114 &11452628
 MonoBehaviour:
   m_ObjectHideFlags: 1
