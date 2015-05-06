@@ -226,6 +226,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441552}
+  - 61: {fileID: 6189236}
   m_Layer: 0
   m_Name: Wall8
   m_TagString: Untagged
@@ -427,6 +428,17 @@ Transform:
   - {fileID: 441538}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6189236
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141552}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .22642976, y: 4.80339193}
+  m_Center: {x: .0617851615, y: 2.10169291}
 --- !u!212 &21241538
 SpriteRenderer:
   m_ObjectHideFlags: 1
