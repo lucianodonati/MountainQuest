@@ -55,9 +55,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404726}
+  - 61: {fileID: 6183710}
   m_Layer: 0
   m_Name: Flat2
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .767529607, y: -3.73776746, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 404732}
@@ -199,6 +200,17 @@ Transform:
   - {fileID: 404730}
   m_Father: {fileID: 404726}
   m_RootOrder: 0
+--- !u!61 &6183710
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104726}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.86586356, y: .626782596}
+  m_Center: {x: .4329319, y: -.186608315}
 --- !u!212 &21204720
 SpriteRenderer:
   m_ObjectHideFlags: 1

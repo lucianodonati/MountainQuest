@@ -489,9 +489,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 448998}
+  - 60: {fileID: 6073702}
   m_Layer: 0
   m_Name: Angle8Start
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,6 +998,22 @@ Transform:
   - {fileID: 449002}
   m_Father: {fileID: 448998}
   m_RootOrder: 0
+--- !u!60 &6073702
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148998}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: 7.66193914, y: 5.23946047}
+      - {x: 7.66260052, y: 4.02093029}
+      - {x: .510885239, y: -.704372406}
+      - {x: -.458356857, y: -.71263361}
+      - {x: -.456370354, y: -.127933979}
 --- !u!212 &21248970
 SpriteRenderer:
   m_ObjectHideFlags: 1
