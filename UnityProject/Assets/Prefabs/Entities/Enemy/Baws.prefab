@@ -59,7 +59,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 10.1241703
+  m_Radius: 3.5
   m_Center: {x: 5.96046448e-08, y: 0}
 --- !u!61 &6190296
 BoxCollider2D:
@@ -98,9 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17360214862bed948a7ba63e9ab51392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTimer: 3
+  stunTimer: 2
   experience: 100
   health: {fileID: 0}
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
   stompTimer: .00897426158

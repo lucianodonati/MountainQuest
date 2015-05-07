@@ -81,9 +81,21 @@ public class Arrow : MonoBehaviour
                     damageType.attachToEnemy(isEntity);
             }
         }
+        if ((name.Contains("WindArrow") && (LayerMask.LayerToName(other.gameObject.layer) == "Platform" || other.name.Contains("Platforms"))))
+        {
+            GetComponent<BoxCollider2D>().isTrigger = false;
+            GetStuck(other);
+        }
         else if (name.Contains("WindArrow") && other.gameObject.GetComponent<Enemy>())
         {
-            numCollisions--;
+            if (other.gameObject.GetComponent<CircleCollider2D>() != null)
+            {
+                if (other.isTrigger == false)
+                {
+                    numCollisions--;                
+                    
+                }
+            }
         }
     }
 
