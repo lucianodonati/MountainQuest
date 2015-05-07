@@ -44,14 +44,15 @@ public class Arrow : MonoBehaviour
         }
         else if (coll.gameObject.GetComponent<Entity>())
         {
-            if (name.Contains("WindArrow") && numCollisions >= 0)
+            if (name.Contains("WindArrow") && numCollisions > 0)
             {
                 numCollisions--;
-                justFired = true;
-                GetComponent<BoxCollider2D>().isTrigger = true;
+                Physics2D.IgnoreCollision(coll.collider, this.collider2D);
+                //justFired = true;
+                //GetComponent<BoxCollider2D>().isTrigger = true;
 
-                if (numCollisions == -1)
-                    GetStuck(coll.collider);
+                //if (numCollisions == -1)
+                //    GetStuck(coll.collider);
             }
 
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
@@ -80,15 +81,22 @@ public class Arrow : MonoBehaviour
                     damageType.attachToEnemy(isEntity);
             }
         }
+        else if (name.Contains("WindArrow") && other.gameObject.GetComponent<Enemy>())
+        {
+            numCollisions--;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (justFired)
-        {
+        
+        //if (justFired)
+        //{
+            if (name.Contains("WindArrow") == false || numCollisions <= 0)
             GetComponent<BoxCollider2D>().isTrigger = false;
-            justFired = false;
-        }
+           
+        //    justFired = false;
+        //}
     }
 
     protected void GetStuck(Collider2D coll)
