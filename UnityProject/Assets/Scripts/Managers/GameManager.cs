@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     #region Sound
 
     public AudioSource music, slowmoSfx, speedupSfx, menuSelectionChange, menuSelect;
-    public int musicVol = 100, sfxVol = 100;
+    public int musicVol = 30, sfxVol = 100;
 
     #endregion Sound
 

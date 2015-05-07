@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 417112}
   - 114: {fileID: 11417112}
+  - 114: {fileID: 11487100}
   m_Layer: 0
   m_Name: Sound Manager
   m_TagString: GameManager
@@ -40,6 +41,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sources: []
+--- !u!114 &11487100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: OnFire
+    sounds:
+    - {fileID: 8300000, guid: e3bf18ab8be00dd44b35b97eb8277179, type: 3}
+    volume: 1
+  - name: Frozen
+    sounds:
+    - {fileID: 8300000, guid: 89552851d732fea448d2dca0411ce758, type: 3}
+    - {fileID: 8300000, guid: d96b3dd564c064a4e8b22c59c1f02742, type: 3}
+    - {fileID: 8300000, guid: ec7b7a2746b527b4b9dc338bf00eab3a, type: 3}
+    volume: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

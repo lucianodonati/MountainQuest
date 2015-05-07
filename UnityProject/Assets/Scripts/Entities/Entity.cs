@@ -19,6 +19,7 @@ public class Entity : MonoBehaviour
     protected virtual void Start()
     {
         gameObject.AddComponent<Health>();
+
         health = GetComponent<Health>();
         health.currentHP = health.maxHP = maxHealth;
 
@@ -41,7 +42,7 @@ public class Entity : MonoBehaviour
         if (isSlowed)
         {
             slowTimer -= Time.deltaTime;
-           // rigidbody2D.velocity /= 2;
+            // rigidbody2D.velocity /= 2;
         }
         ///////////////////////////////// Slow code }
 
@@ -57,7 +58,6 @@ public class Entity : MonoBehaviour
             stunTimer -= Time.deltaTime;
         }
         ///////////////////////////////// Stun code }
-
     }
 
     public void TakeTamage(OneTimeHit type)
@@ -79,6 +79,9 @@ public class Entity : MonoBehaviour
         aff.slow = type.slow;
         aff.stun = type.stun;
 
+        if (aff.slow)
+            SoundManager.instance.GetComponent<SoundFX>().Play("Frozen");
+
         aff.particle = type.particle;
         if (aff.particle)
         {
@@ -93,6 +96,7 @@ public class Entity : MonoBehaviour
         {
             if (type.effect is Panic)
             {
+                SoundManager.instance.GetComponent<SoundFX>().Play("OnFire");
                 aff.effect = type.effect;
                 Panic effect = gameObject.AddComponent<Panic>(), other = type.effect as Panic;
                 effect.duration = aff.duration;
