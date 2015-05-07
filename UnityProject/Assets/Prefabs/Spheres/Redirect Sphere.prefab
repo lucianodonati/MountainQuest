@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &122932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 422932}
+  - 212: {fileID: 21222932}
+  m_Layer: 12
+  m_Name: Deadzone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &135402
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +52,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &422932
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.54521477}
+  m_LocalScale: {x: 4.7760334, y: 4.77603149, z: 4.77603149}
+  m_Children: []
+  m_Father: {fileID: 435404}
+  m_RootOrder: 0
 --- !u!4 &435402
 Transform:
   m_ObjectHideFlags: 1
@@ -47,7 +75,7 @@ Transform:
   m_LocalScale: {x: 4.73057699, y: 4.73057795, z: 4.73057747}
   m_Children: []
   m_Father: {fileID: 435404}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &435404
 Transform:
   m_ObjectHideFlags: 1
@@ -55,9 +83,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.52000046, y: 19.2199993, z: -4.11000013}
+  m_LocalPosition: {x: 0, y: 0, z: -4.11000013}
   m_LocalScale: {x: 2.65982509, y: 2.65982461, z: 2.65982461}
   m_Children:
+  - {fileID: 422932}
   - {fileID: 435402}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX:
-  - name: Poop
+  - name: EnterSphere
     sounds:
     - {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
     volume: .00999999978
@@ -121,6 +150,28 @@ MonoBehaviour:
   PlayerRedirectMagnitude: 30
   antigravityTime: .200000003
   Owner: {fileID: 0}
+--- !u!212 &21222932
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122932}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: a483427eb29eef9459e51e564f1896c8, type: 3}
+  m_Color: {r: 1, g: 0, b: .186206818, a: .192156866}
 --- !u!212 &21235402
 SpriteRenderer:
   m_ObjectHideFlags: 1

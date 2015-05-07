@@ -3048,6 +3048,9 @@ MonoBehaviour:
   targSnapSpeed: 4
   toSize: 0
   cameraResizeSpeed: 8
+  shaking: 0
+  initialShakeMagnitude: 0
+  shakeDampening: 0
 --- !u!1 &293689504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,7 +3899,7 @@ Transform:
   m_PrefabInternal: {fileID: 2111913079}
   m_GameObject: {fileID: 399855264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 2.20000005, z: 0}
+  m_LocalPosition: {x: -8.81999969, y: 2.03999996, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1769840755}
@@ -30204,11 +30207,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.5
+      value: -8.81999969
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.20000005
+      value: 2.03999996
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -30232,7 +30235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 153492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_Layer
