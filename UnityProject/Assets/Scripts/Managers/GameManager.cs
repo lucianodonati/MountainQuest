@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -172,6 +173,21 @@ public class GameManager : MonoBehaviour
         if (!saveData.ContainsKey("sfxVol"))
             saveData.Add("sfxVol", sfxVol);
 
+        if (!saveData.ContainsKey("date_Year"))
+            saveData.Add("date_Year", DateTime.Now.Year);
+
+        if (!saveData.ContainsKey("date_Month"))
+            saveData.Add("date_Month", DateTime.Now.Month);
+
+        if (!saveData.ContainsKey("date_Day"))
+            saveData.Add("date_Day", DateTime.Now.Day);
+
+        if (!saveData.ContainsKey("date_Hour"))
+            saveData.Add("date_Hour", DateTime.Now.Hour);
+
+        if (!saveData.ContainsKey("date_Minute"))
+            saveData.Add("date_Minute", DateTime.Now.Minute);
+
         foreach (KeyValuePair<string, int> key in saveData)
             PlayerPrefs.SetInt(key.Key, key.Value);
 
@@ -211,7 +227,19 @@ public class GameManager : MonoBehaviour
         {
             MenuInstances[0] = newCanvas(Menus.Title);
             if (PlayerPrefs.HasKey("lvl"))
-                GameObject.Find("LoadButton").GetComponent<Button>().interactable = true;
+            {
+                int hour = PlayerPrefs.GetInt("date_Hour");
+                string ampm = " AM";
+                if (hour > 12)
+                {
+                    hour -= 12;
+                    ampm = " PM";
+                }
+                string date = PlayerPrefs.GetInt("date_Month") + "/" + PlayerPrefs.GetInt("date_Day") + "/" + PlayerPrefs.GetInt("date_Year") + "\t" + hour + ":" + PlayerPrefs.GetInt("date_Minute") + ampm;
+                Button loadButton = GameObject.Find("LoadButton").GetComponent<Button>();
+                loadButton.interactable = true;
+                loadButton.GetComponentsInChildren<Text>()[1].text = date;
+            }
             activeMenu = Menus.Title;
         }
     }
