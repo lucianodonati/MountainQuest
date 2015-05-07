@@ -18,6 +18,7 @@ GameObject:
   - 114: {fileID: 11453886}
   - 114: {fileID: 11453884}
   - 114: {fileID: 11453882}
+  - 114: {fileID: 11493366}
   m_Layer: 10
   m_Name: Orc Chief
   m_TagString: Enemy
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 0
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
@@ -288,6 +290,21 @@ MonoBehaviour:
   swingMaxY: 1.29999995
   swingMinY: -1.60000002
   damageType: {fileID: 11453894}
+--- !u!114 &11493366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1458344c8a0f544b3490fbdb55c56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadTimerMax: 2
+  weapon: {fileID: 0}
+  healAmount: 5
+  particleEmitter: {fileID: 118064, guid: 7e3cc663c50262d498e80e19acdc07a9, type: 2}
 --- !u!212 &21253882
 SpriteRenderer:
   m_ObjectHideFlags: 1
