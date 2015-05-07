@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 132.514648, y: 116.140709, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,7 +41,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 1873fecc557d16e46af01d2d4a35d722, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .200000003
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Debug: 0
-  stats: {fileID: 0}
+  statsPrefab: {fileID: 117112, guid: fe7e8e2ad67f56c439c81a9f0d50b70e, type: 2}
   MenuPrefabsDONOTTOUCH:
   - {fileID: 140592, guid: 27920e7adacc6ec48a194aebda67cf66, type: 2}
   - {fileID: 104390, guid: 584598989d570d94fbc5a3643120f011, type: 2}
@@ -225,13 +225,13 @@ MonoBehaviour:
   - {fileID: 110472, guid: 11c53587818f8e94fba93c2b9a5bb85f, type: 2}
   - {fileID: 193818, guid: c1a61eaf91f370b4f83bbc1b7148e05b, type: 2}
   - {fileID: 133620, guid: b09ea30c1a45e484dbba880ed52b4bd1, type: 2}
-  - {fileID: 105658, guid: 492642c7e7ec6da4a8a85421c06b03c8, type: 2}
-  - {fileID: 111796, guid: 70b40c3324b4135438c4d773e4c63c4a, type: 2}
   music: {fileID: 8217112}
   slowmoSfx: {fileID: 8255178}
   speedupSfx: {fileID: 8294400}
   menuSelectionChange: {fileID: 0}
   menuSelect: {fileID: 0}
+  musicVol: 100
+  sfxVol: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

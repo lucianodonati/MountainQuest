@@ -1,27 +1,33 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class WindArrow : Arrow {
+public class WindArrow : Arrow
+{
+    private bool hit = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	  private void OnCollisionEnter2D(Collision2D coll)
+    // Use this for initialization
+    private void Start()
+    {
+    }
+
+    // Update is called once per frame
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         numCollisions += 1;
         if (coll.gameObject.layer == LayerMask.NameToLayer("Entity"))
         {
-            GameManager.instance.stats.shotsHit++;
+            if (!hit)
+            {
+                hit = true;
+                StatsManager.instance.shotsHit++;
+            }
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
             if (isEntity != null)
                 damageType.attachToEnemy(isEntity);
         }
         if (numCollisions <= 2)
         {
-            GetStuck(coll.collider);            
+            GetStuck(coll.collider);
         }
     }
 }

@@ -8,13 +8,15 @@ public class GameManager : MonoBehaviour
     public bool _Debug = false;
     private string log;
     private static GameManager _instance;
-    public StatsManager stats;
+    public GameObject statsPrefab;
+
+    // Use this for initialization
 
     public static GameManager instance
     {
         get
         {
-            if (_instance == null)
+            if (_instance != null)
             {
                 _instance = GameObject.FindObjectOfType<GameManager>();
                 DontDestroyOnLoad(_instance.gameObject);
@@ -23,27 +25,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
-    //static public GameManager instance
-    //{
-    //    get
-    //    {
-    //        if (_instance == null)
-    //        {
-    //            _instance = Object.FindObjectOfType(typeof(GameManager)) as GameManager;
-
-    //            if (_instance == null)
-    //            {
-    //                GameObject go = new GameObject("GameManager");
-    //                DontDestroyOnLoad(go);
-    //                _instance = go.AddComponent<GameManager>();
-    //                if (_instance._Debug)
-    //                    Debug.Log("GameManager: Instance created.");
-    //            }
-    //        }
-    //        return _instance;
-    //    }
-    //}
 
     #region Menus
 
@@ -85,9 +66,15 @@ public class GameManager : MonoBehaviour
     #region Sound
 
     public AudioSource music, slowmoSfx, speedupSfx, menuSelectionChange, menuSelect;
-    private float musicVol = 20.0f, sfxVol = 50.0f;
+    public int musicVol = 100, sfxVol = 100;
 
     #endregion Sound
+
+    #region Save
+
+    private Dictionary<string, int> saveData = new Dictionary<string, int>();
+
+    #endregion Save
 
     private PlayerController playerController = null;
 
@@ -106,13 +93,15 @@ public class GameManager : MonoBehaviour
             if (this != _instance)
                 Destroy(this.gameObject);
         }
+        Instantiate(statsPrefab).name = statsPrefab.name;
+        gameObject.transform.parent = Camera.main.transform;
     }
 
     private void Start()
     {
-        stats = gameObject.AddComponent<StatsManager>();
-        OnLevelWasLoaded(0);
-
+        if (Application.loadedLevelName == "MainMenu")
+            OnLevelWasLoaded(0);
+        music.Play();
         UpdateMusic(musicVol);
         AudioListener.volume = sfxVol;
     }
@@ -136,30 +125,64 @@ public class GameManager : MonoBehaviour
         if (_Debug)
             log = "GameManager: Switching from " + activeMenu.ToString() + " to ";
 
-        if (_newMenu == Menus.Previous)
+        switch (_newMenu)
         {
-            if (_Debug)
-                log += "previous (" + previous.ToString() + ").";
-            disableCurrentMenu();
-            activeMenu = previous;
-            MenuInstances[(int)activeMenu].SetActive(true);
+            case Menus.Save:
+                Savegame();
+                break;
+
+            case Menus.Load:
+                Loadgame();
+                break;
+
+            case Menus.Previous:
+                if (_Debug)
+                    log += "previous (" + previous.ToString() + ").";
+                disableCurrentMenu();
+                activeMenu = previous;
+                MenuInstances[(int)activeMenu].SetActive(true);
+                break;
+
+            default:
+                log += _newMenu.ToString() + ".";
+                previous = activeMenu;
+                disableCurrentMenu();
+                newCanvas(_newMenu).SetActive(true);
+                activeMenu = _newMenu;
+                break;
         }
-        else
-        {
-            log += _newMenu.ToString() + ".";
-            previous = activeMenu;
-            disableCurrentMenu();
-            newCanvas(_newMenu).SetActive(true);
-            activeMenu = _newMenu;
-        }
+
         if (_Debug)
             Debug.Log(log);
 
         if (_newMenu == Menus.Options)
         {
-            MenuInstances[(int)activeMenu].GetComponentsInChildren<Slider>()[0].value = musicVol;
-            MenuInstances[(int)activeMenu].GetComponentsInChildren<Slider>()[1].value = sfxVol;
+            Slider[] slider = MenuInstances[(int)activeMenu].GetComponentsInChildren<Slider>();
+            slider[0].value = musicVol;
+            slider[1].value = sfxVol;
         }
+    }
+
+    public void Savegame()
+    {
+        if (!saveData.ContainsKey("lvl"))
+            saveData.Add("lvl", (int)currentLevel);
+        if (!saveData.ContainsKey("musicVol"))
+            saveData.Add("musicVol", musicVol);
+        if (!saveData.ContainsKey("sfxVol"))
+            saveData.Add("sfxVol", sfxVol);
+
+        foreach (KeyValuePair<string, int> key in saveData)
+            PlayerPrefs.SetInt(key.Key, key.Value);
+
+        PlayerPrefs.Save();
+    }
+
+    public void Loadgame()
+    {
+        musicVol = PlayerPrefs.GetInt("musicVol");
+        sfxVol = PlayerPrefs.GetInt("sfxVol");
+        Load((Scenes)PlayerPrefs.GetInt("lvl"));
     }
 
     private void disableCurrentMenu()
@@ -174,7 +197,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
             MenuInstances.Add(null);
         transform.parent = Camera.main.transform;
-
+        UpdateMusic(musicVol);
+        UpdateSFx(sfxVol);
         pause = false;
         music.pitch = 1.0f;
         Time.timeScale = 1.0f;
@@ -186,6 +210,8 @@ public class GameManager : MonoBehaviour
         else if (currentLevel == Scenes.MainMenu)
         {
             MenuInstances[0] = newCanvas(Menus.Title);
+            if (PlayerPrefs.HasKey("lvl"))
+                GameObject.Find("LoadButton").GetComponent<Button>().interactable = true;
             activeMenu = Menus.Title;
         }
     }
@@ -227,7 +253,7 @@ public class GameManager : MonoBehaviour
             }
         }
         //Stats
-        stats.timePlayed += Time.deltaTime;
+        StatsManager.instance.timePlayed += Time.deltaTime;
     }
 
     private void Pause()
@@ -265,23 +291,22 @@ public class GameManager : MonoBehaviour
         Load(++currentLevel);
     }
 
-    // Update is called once per frame
-    public void UpdateMusic(float newMusicVol)
+    public void UpdateMusic(int newMusicVol)
     {
         musicVol = newMusicVol;
         if (music != null)
         {
-            music.volume = musicVol / 100;
+            music.volume = (float)musicVol / 100;
             music.ignoreListenerVolume = true;
         }
         else
             Debug.LogWarning("Trying to adjust music volume with no AudioSource attached.");
     }
 
-    public void UpdateSFx(float newSfxVol)
+    public void UpdateSFx(int newSfxVol)
     {
         sfxVol = newSfxVol;
-        AudioListener.volume = sfxVol / 100;
+        AudioListener.volume = (float)sfxVol / 100;
     }
 
     public void ToggleFullScreen()

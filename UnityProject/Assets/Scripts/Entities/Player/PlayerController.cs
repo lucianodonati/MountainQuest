@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     // MOVEMENT VARS
     public float movementSpeed = 10;
+
     public float dragCoef = 0.2f;
 
     public float jumpSpeed = 1f;
@@ -297,7 +298,7 @@ public class PlayerController : MonoBehaviour
 
                 arrowCooldownTimer = arrowCooldownTimerMax;
 
-                GameManager.instance.stats.shotsFired++;
+                StatsManager.instance.shotsFired++;
             }
         }
         else

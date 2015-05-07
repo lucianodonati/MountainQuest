@@ -3,6 +3,25 @@ using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
+    private static StatsManager _instance;
+
+    public static StatsManager instance
+    {
+        get
+        {
+            if (_instance != null)
+            {
+                DontDestroyOnLoad(_instance.gameObject);
+            }
+            else
+            {
+                _instance = GameObject.FindObjectOfType<StatsManager>();
+            }
+
+            return _instance;
+        }
+    }
+
     // Time
     public float timePlayed { get; set; }
 
@@ -28,6 +47,11 @@ public class StatsManager : MonoBehaviour
     public int arrowsRedirected { get; set; }
 
     public int arrowsBoosted { get; set; }
+
+    public void Awake()
+    {
+        transform.parent = GameManager.instance.transform;
+    }
 
     // Use this for initialization
     private void Start()

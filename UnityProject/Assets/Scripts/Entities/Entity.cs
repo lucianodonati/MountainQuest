@@ -87,7 +87,7 @@ public class Entity : MonoBehaviour
             Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             player.experience += experience;
             player.CheckForUpgrade();
-            GameManager.instance.stats.enemiesKilledTotal++;
+            StatsManager.instance.enemiesKilledTotal++;
         }
 
         Destroy(gameObject);

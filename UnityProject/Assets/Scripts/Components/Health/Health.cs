@@ -23,9 +23,9 @@ public class Health : MonoBehaviour
             if (sfx != null)
                 sfx.Play("Hit");
             if (tag == "Player")
-                GameManager.instance.stats.damageTaken += _damage;
+                StatsManager.instance.damageTaken += _damage;
             else if (tag == "Enemy" || tag == "Boss")
-                GameManager.instance.stats.damageDealt += _damage;
+                StatsManager.instance.damageDealt += _damage;
 
             currentHP -= _damage;
             if (currentHP < 0.0f)

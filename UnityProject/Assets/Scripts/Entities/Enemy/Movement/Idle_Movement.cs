@@ -1,23 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Idle_Movement : Enemy_Movement {
-
-    float turntimer;
+public class Idle_Movement : Enemy_Movement
+{
+    private float turntimer;
     public float turnTimerMax = 2f;
     public float turnTimerError = 0.5f;
 
     public LayerMask layerMask;
 
-	// Use this for initialization
-	protected override void Start () {
+    // Use this for initialization
+    protected override void Start()
+    {
         preserveUp = transform.up;
         turntimer = turnTimerMax;
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
+    }
 
+    // Update is called once per frame
+    protected override void Update()
+    {
         turntimer -= Time.deltaTime;
 
         if (turntimer <= 0.0f && !InFOV(GameObject.FindGameObjectWithTag("Player")))
@@ -36,7 +37,7 @@ public class Idle_Movement : Enemy_Movement {
         }
 
         transform.up = preserveUp;
-	}
+    }
 
     public bool InFOV(GameObject targ)
     {
@@ -45,12 +46,9 @@ public class Idle_Movement : Enemy_Movement {
         RaycastHit2D checkFOV =
             Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
 
-        if (checkFOV != null)
-        {
-            if (checkFOV.collider != null)
-                if (checkFOV.collider.transform == targ.transform)
-                    val = true;
-        }
+        if (checkFOV.collider != null)
+            if (checkFOV.collider.transform == targ.transform)
+                val = true;
 
         Debug.DrawLine(transform.position, checkFOV.point);
 

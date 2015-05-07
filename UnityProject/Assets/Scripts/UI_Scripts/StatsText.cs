@@ -7,7 +7,7 @@ public class StatsText : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        StatsManager stats = GameManager.instance.stats;
+        StatsManager stats = StatsManager.instance;
 
         string text = "Time Played: ";
         {
