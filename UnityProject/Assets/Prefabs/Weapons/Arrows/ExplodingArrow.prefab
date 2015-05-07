@@ -102,6 +102,9 @@ MonoBehaviour:
   stuckTimer: 5
   numCollisions: 0
   damageType: {fileID: 11464714, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
+  AOE_Emitter: {fileID: 117650, guid: 26c19e5ef67351d40895e32c45ed917b, type: 2}
+  OnAOEShakeAmount: .150000006
+  OnAOEDampeningAmount: 1
 --- !u!114 &11459890
 MonoBehaviour:
   m_ObjectHideFlags: 1

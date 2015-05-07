@@ -29,6 +29,14 @@ public class Boss1Movement : Enemy
     public float aggroTimerMax = 3.0f;
 
     public LayerMask layerMask;
+    /// ///////////////////////////////////////////
+
+    //screenshake vars
+    public float missShakeAmount;
+    public float missShakeDampening;
+
+    public float stompHitShakeAmount;
+    public float stompHitShakeDampening;
 
     protected override void Update()
     {
@@ -189,6 +197,7 @@ public class Boss1Movement : Enemy
     {
         if (coll.gameObject.tag == "Wall" && charging == true)
         {
+            Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(missShakeAmount, missShakeDampening);
             chargeTimer = 1.0f;
             charging = false;
         }
@@ -214,12 +223,15 @@ public class Boss1Movement : Enemy
         {
             stompTimer = 1.0f;
             stomping = false;
+            Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(stompHitShakeAmount, stompHitShakeDampening);
             player.GetComponent<Player>().health.TakeDamage(30, false);
         }
 
         if (coll.gameObject.tag == "Platform" && ground == null)
         {
             ground = coll.gameObject;
+            if (stomping)
+                Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(missShakeAmount, missShakeDampening);
             stomping = false;
         }
     }

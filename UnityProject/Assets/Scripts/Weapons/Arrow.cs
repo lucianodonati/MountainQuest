@@ -9,12 +9,19 @@ public class Arrow : MonoBehaviour
     public int numCollisions = 0;
     public DamageType damageType;
 
+    //AOE Emitter
+    public GameObject AOE_Emitter;
+
+    //screenshake variables
+    public float OnAOEShakeAmount;
+    public float OnAOEDampeningAmount;
+
     // Use this for initialization
     private void Start()
     {
         SoundFX sfx = GetComponent<SoundFX>();
-        if (sfx != null)
-            sfx.Play("Fire");
+        //if (sfx != null)
+        //    sfx.Play("Fire");
         rigidbody2D.velocity = transform.up * speed;
         //GetComponent<BoxCollider2D>().isTrigger = true;
     }
@@ -38,6 +45,14 @@ public class Arrow : MonoBehaviour
         {
             if (!GetComponent<AOE>().enabled)
             {
+                SoundFX sfx = GetComponent<SoundFX>();
+                if (sfx != null)
+                   sfx.Play("Fire");
+                GameObject emitter = (GameObject)Instantiate(AOE_Emitter, transform.position, transform.rotation);
+                emitter.transform.parent = transform;
+
+                Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(OnAOEShakeAmount,OnAOEDampeningAmount);
+
                 GetComponent<AOE>().enabled = true;
                 GetComponent<CircleCollider2D>().enabled = true;
             }

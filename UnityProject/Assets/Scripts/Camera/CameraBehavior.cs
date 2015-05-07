@@ -82,12 +82,12 @@ public class CameraBehavior : MonoBehaviour
             Resize(toSize, cameraResizeSpeed);
         }
 
+        transform.position = newpos;
+
         if (shaking)
         {
             ShakeScreen();
         }
-
-        transform.position = newpos;
     }
 
     private Vector3 AdjustForBounds(Vector3 pos)
@@ -138,5 +138,18 @@ public class CameraBehavior : MonoBehaviour
         {
             shaking = false;
         }
+    }
+
+    public void BeginShake(float magnitude)
+    {
+        currentShakeMagnitude = initialShakeMagnitude = magnitude;
+        shaking = true;
+    }
+
+    public void BeginShake(float magnitude, float dampening)
+    {
+        currentShakeMagnitude = initialShakeMagnitude = magnitude;
+        shakeDampening = dampening;
+        shaking = true;
     }
 }
