@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 475442}
   - 212: {fileID: 21275442}
   m_Layer: 0
-  m_Name: AngleGround
+  m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

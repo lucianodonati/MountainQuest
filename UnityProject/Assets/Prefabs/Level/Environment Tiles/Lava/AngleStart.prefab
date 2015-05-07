@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 406178}
   - 212: {fileID: 21206180}
   m_Layer: 0
-  m_Name: AngleCeiling
+  m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,10 +97,10 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: .458163261, y: .491778851}
+    - - {x: .458163261, y: .423753232}
       - {x: .460652828, y: -.714311242}
       - {x: -.46065259, y: -.714311242}
-      - {x: -.461132765, y: -.130979061}
+      - {x: -.461132765, y: -.188800856}
 --- !u!212 &21206178
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 475442}
   - 212: {fileID: 21275442}
   m_Layer: 0
-  m_Name: AngleGround
+  m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,10 +97,10 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: .46002388, y: .13895154}
+    - - {x: .46002388, y: .111741319}
       - {x: .461730003, y: -.477362633}
       - {x: -.458839655, y: -1.0673933}
-      - {x: -.459926605, y: .131251574}
+      - {x: -.459926605, y: .104041345}
 --- !u!212 &21275440
 SpriteRenderer:
   m_ObjectHideFlags: 1
