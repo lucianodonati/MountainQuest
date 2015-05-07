@@ -5,6 +5,8 @@ public class MeleeAI : AttackAI {
 
     public float range;
 
+    public LayerMask layerMask;
+
 	// Use this for initialization
 	protected override void Start () {
         base.Start();
@@ -30,7 +32,7 @@ public class MeleeAI : AttackAI {
 
             weapon.GetComponent<Sword>().Follow();
 
-            if (((transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).magnitude < range) &&
+            if (InFOV(GameObject.FindGameObjectWithTag("Player")) &&
                 Random.Range(1, 3) < 2 &&
                 !weapon.GetComponent<Sword>().swinging)
             {
@@ -38,5 +40,19 @@ public class MeleeAI : AttackAI {
                 reloadTimer = reloadTimerMax;
             }
         }
+    }
+
+    public bool InFOV(GameObject targ)
+    {
+        bool val = false;
+
+        RaycastHit2D checkFOV =
+            Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
+
+        if (checkFOV.collider != null)
+            if (checkFOV.collider.transform == targ.transform && checkFOV.distance <= range)
+                val = true;
+
+        return val;
     }
 }

@@ -230,6 +230,9 @@ MonoBehaviour:
   reloadTimerMax: 0
   weapon: {fileID: 141858}
   range: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 33536
 --- !u!114 &11441854
 MonoBehaviour:
   m_ObjectHideFlags: 1

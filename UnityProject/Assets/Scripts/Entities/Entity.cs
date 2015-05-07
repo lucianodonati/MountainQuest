@@ -5,8 +5,12 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public int experience;
+
     public Health health;
+    public float maxHealth = 100.0f;
+
     public bool isSlowed = false;
+
     public Color myColor;
 
     // Use this for initialization
@@ -14,6 +18,8 @@ public class Entity : MonoBehaviour
     {
         gameObject.AddComponent<Health>();
         health = GetComponent<Health>();
+        health.currentHP = health.maxHP = maxHealth;
+
         myColor = gameObject.GetComponent<SpriteRenderer>().color;
     }
 

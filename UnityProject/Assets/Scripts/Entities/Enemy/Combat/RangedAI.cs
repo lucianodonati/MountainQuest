@@ -42,8 +42,6 @@ public class RangedAI : AttackAI
             if (checkFOV.collider.transform == targ.transform && checkFOV.distance > minimumRange && checkFOV.distance <= maximumRange)
                 val = true;
 
-        Debug.DrawLine(transform.position, checkFOV.point);
-
         return val;
     }
 
