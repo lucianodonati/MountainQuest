@@ -15,10 +15,10 @@ public class Enemy : Entity
     protected override void Update()
     {
         transform.up = Vector2.up;
-        base.Update();
         Seek_Movement seek = gameObject.GetComponent<Seek_Movement>();
         if (seek != null)
             seek.enabled = disableSeek;
+        base.Update();
     }
 
     public override void die()

@@ -86,14 +86,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe4e8149e7ead04d8f18def677db096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   slow: 1
-  ticEvery: 1
-  duration: 1
+  stun: 0
+  ticEvery: 3
+  duration: 3
   timer: 0
   particle: 1
   color: 1
   changeColor: {r: .117647052, g: .525355041, b: 1, a: 1}
+  effect: {fileID: 0}
 --- !u!198 &19883814
 ParticleSystem:
   m_ObjectHideFlags: 1

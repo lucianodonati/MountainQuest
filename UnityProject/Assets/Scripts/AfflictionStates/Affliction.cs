@@ -4,6 +4,7 @@ using UnityEngine;
 public class Affliction : DamageType
 {
     public bool slow = false;
+    public bool stun = false;
     public float ticEvery = 2.0f, duration = 5.0f, timer = 0.0f;
     private float damageDealt = 0.0f;
     public bool particle = false, color = false;
@@ -13,15 +14,26 @@ public class Affliction : DamageType
     // Update is called once per frame
     private void Update()
     {
+        // slows enemy struck
         if (slow == true)
         {
             Entity Slowed = GetComponent<Entity>();
-            //  IsSlowed move = null;
             if (Slowed != null)
             {
                 Slowed.isSlowed = true;
             }
         }
+        // stuns enemy struck
+        if (stun == true)
+        {
+            Entity Stunned = GetComponent<Entity>();
+            if (Stunned != null)
+            {
+                Stunned.isStunned = true;
+            }
+        }
+
+
         if (duration >= 0.0f)
         {
             if (timer <= 0.0f)

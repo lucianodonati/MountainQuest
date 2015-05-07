@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public float slowTimer = 3.0f;
+    public float stunTimer = 2.0f;
     public int experience;
 
     public Health health;
     public float maxHealth = 100.0f;
 
     public bool isSlowed = false;
-
+    public bool isStunned = false;
     public Color myColor;
 
     // Use this for initialization
@@ -28,12 +30,34 @@ public class Entity : MonoBehaviour
     {
         if (health.currentHP <= 0.0f)
             die();
+        ///////////////////////////////// Slow code {
+        if (slowTimer <= 0)
+        {
+            isSlowed = false;
+            slowTimer = 3.0f;
+            //rigidbody2D.velocity *= 2;
+        }
 
         if (isSlowed)
         {
-            rigidbody2D.velocity /= 2;
-            isSlowed = false;
+            slowTimer -= Time.deltaTime;
+           // rigidbody2D.velocity /= 2;
         }
+        ///////////////////////////////// Slow code }
+
+        ///////////////////////////////// Stun code {
+        if (stunTimer <= 0)
+        {
+            isStunned = false;
+            stunTimer = 2.0f;
+        }
+
+        if (isStunned)
+        {
+            stunTimer -= Time.deltaTime;
+        }
+        ///////////////////////////////// Stun code }
+
     }
 
     public void TakeTamage(OneTimeHit type)
@@ -53,6 +77,8 @@ public class Entity : MonoBehaviour
         aff.duration = type.duration;
         aff.ticEvery = type.ticEvery;
         aff.slow = type.slow;
+        aff.stun = type.stun;
+
         aff.particle = type.particle;
         if (aff.particle)
         {

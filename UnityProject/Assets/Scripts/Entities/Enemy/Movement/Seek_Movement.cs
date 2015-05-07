@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Seek_Movement : Enemy_Movement
 {
+
+    public bool currSlowed = false;
+    public bool currStunned = false;
+    public float howSlowed = 5.0f;
     //public bool direction;
     public float moveSpeed = 4;
 
@@ -29,52 +33,64 @@ public class Seek_Movement : Enemy_Movement
     // Update is called once per frame
     protected override void Update()
     {
-        if (GetComponent<Entity>().isSlowed)
-            moveSpeed = 3;
-        if (aggroTimer > 0.0f)
+        if (GetComponent<Entity>().isStunned == false)
         {
-            aggroTimer -= Time.deltaTime;
 
-            if (ground != null)
+            if (GetComponent<Entity>().isSlowed && currSlowed == false)
             {
-                Vector2 velocityHold = rigidbody2D.velocity;
+                moveSpeed /= howSlowed;
+                currSlowed = true;
+            }
+            if (GetComponent<Entity>().isSlowed == false && currSlowed == true)
+            {
+                moveSpeed *= howSlowed;
+                currSlowed = false;
+            }
 
-                if (InFOV(target))
+            if (aggroTimer > 0.0f)
+            {
+                aggroTimer -= Time.deltaTime;
+
+                if (ground != null)
                 {
-                    Vector3 toPlayer = target.transform.position - transform.position;
-                    toPlayer.y = toPlayer.z = 0;
+                    Vector2 velocityHold = rigidbody2D.velocity;
 
-                    if (toPlayer.x < 0)
-                        direction = false; //left
-                    else if (toPlayer.x > 0)
-                        direction = true; //right
+                    if (InFOV(target))
+                    {
+                        Vector3 toPlayer = target.transform.position - transform.position;
+                        toPlayer.y = toPlayer.z = 0;
 
-                    if (Mathf.Abs(toPlayer.x) > moveSpeed)
-                        toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
+                        if (toPlayer.x < 0)
+                            direction = false; //left
+                        else if (toPlayer.x > 0)
+                            direction = true; //right
 
-                    rigidbody2D.velocity = toPlayer;
-                }
-                else
-                {
-                    rigidbody2D.velocity = velocityHold.normalized * moveSpeed;
-                }
+                        if (Mathf.Abs(toPlayer.x) > moveSpeed)
+                            toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
 
-                if (!ignoreEdges)
-                {
-                    if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
-                       collider2D.bounds.max.x + (rigidbody2D.velocity.x * Time.deltaTime) > ground.collider2D.bounds.max.x)
-                        rigidbody2D.velocity = Vector2.zero;
+                        rigidbody2D.velocity = toPlayer;
+                    }
+                    else
+                    {
+                        rigidbody2D.velocity = velocityHold.normalized * moveSpeed;
+                    }
+
+                    if (!ignoreEdges)
+                    {
+                        if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
+                           collider2D.bounds.max.x + (rigidbody2D.velocity.x * Time.deltaTime) > ground.collider2D.bounds.max.x)
+                            rigidbody2D.velocity = Vector2.zero;
+                    }
                 }
             }
-        }
-        else if (target != null)
-        {
-            target = null;
-        }
+            else if (target != null)
+            {
+                target = null;
+            }
 
-        this.transform.up = preserveUp;
+            this.transform.up = preserveUp;
+        }
     }
-
     private void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
