@@ -38,8 +38,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .327834219, y: .313078851}
-  m_Center: {x: .0763044357, y: -.0186729431}
+  m_Size: {x: .327834219, y: .266603917}
+  m_Center: {x: .0763044357, y: -.0419104099}
 --- !u!212 &21219934
 SpriteRenderer:
   m_ObjectHideFlags: 1
