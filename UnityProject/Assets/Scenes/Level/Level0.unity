@@ -3048,6 +3048,9 @@ MonoBehaviour:
   targSnapSpeed: 4
   toSize: 0
   cameraResizeSpeed: 8
+  shaking: 0
+  initialShakeMagnitude: 0
+  shakeDampening: 0
 --- !u!1 &293689504
 GameObject:
   m_ObjectHideFlags: 0
