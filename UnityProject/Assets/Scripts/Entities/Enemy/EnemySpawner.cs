@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour {
 
         for(int currSpawn = spawns.Count - 1; currSpawn >= 0; --currSpawn)
         {
-            if (spawns[currSpawn] == null)
+            if (spawns[currSpawn] == null || spawns[currSpawn].GetComponent<Entity>().dead)
                 spawns.RemoveAt(currSpawn);
         }
     }

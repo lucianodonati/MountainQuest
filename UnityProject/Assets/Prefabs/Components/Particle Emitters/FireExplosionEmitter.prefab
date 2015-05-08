@@ -41,9 +41,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32c53bcebd2a91498ba1a3b13af3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numParticles: 50
-  lifetimeVariance: 2
-  angleCorrectionSpeed: 0
+  numParticles: 100
+  lifetimeVariance: .5
+  particleVelocityMultiplier: 8
+  angleCorrectionSpeed: 1
 --- !u!198 &19817650
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -61,7 +62,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2.5
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:

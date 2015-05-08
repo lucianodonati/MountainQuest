@@ -13,6 +13,12 @@ public class Entity : MonoBehaviour
 
     public Color myColor;
 
+    //death vars
+    public bool dead = false;
+    private float deadLingerTimer;
+    public float deadLingerTimerMax = 5.0f;
+    private bool collidersOff = false;
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -26,13 +32,39 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (health.currentHP <= 0.0f)
-            die();
-
-        if (isSlowed)
+        if (!dead)
         {
-            rigidbody2D.velocity /= 2;
-            isSlowed = false;
+            if (health.currentHP <= 0.0f)
+                die();
+
+            if (isSlowed)
+            {
+                rigidbody2D.velocity /= 2;
+                isSlowed = false;
+            }
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(myColor.r / 2, myColor.g / 2, myColor.b / 2, myColor.a);
+
+            if (GetComponent<Parasite>() == null)
+            {
+                deadLingerTimer -= Time.deltaTime;
+
+                if (!collidersOff)
+                {
+                    Collider2D[] colliders = GetComponents<Collider2D>();
+                    foreach (Collider2D coll in colliders)
+                    {
+                        if (coll.enabled)
+                            coll.enabled = false;
+                    }
+                    collidersOff = true;
+                }
+            }
+
+            if (deadLingerTimer <= 0.0f)
+                Destroy(gameObject);
         }
     }
 
@@ -47,13 +79,28 @@ public class Entity : MonoBehaviour
 
     public void TakeTamage(Affliction type)
     {
-        Affliction aff = gameObject.AddComponent<Affliction>();
+
+        Affliction aff;
+
+        if (type.GetType() != System.Type.GetType("Parasite"))
+            aff = gameObject.AddComponent<Affliction>();
+        else
+            aff = gameObject.AddComponent<Parasite>();
+
         aff.enabled = true;
         aff.damage = type.damage;
-        aff.duration = type.duration;
+        aff.currentDuration = aff.initialDuration = type.initialDuration;
         aff.ticEvery = type.ticEvery;
         aff.slow = type.slow;
         aff.particle = type.particle;
+
+        if(aff.GetType() == System.Type.GetType("Parasite"))
+        {
+            ((Parasite)aff).infectionChance = ((Parasite)type).infectionChance - ((Parasite)type).decayRate;
+            ((Parasite)aff).decayRate = ((Parasite)type).decayRate;
+            ((Parasite)aff).germinationTimerMax = ((Parasite)aff).germinationTimer = ((Parasite)type).germinationTimerMax;
+        }
+
         if (aff.particle)
         {
             ParticleSystem pSys = GetComponent<ParticleSystem>();
@@ -69,7 +116,7 @@ public class Entity : MonoBehaviour
             {
                 aff.effect = type.effect;
                 Panic effect = gameObject.AddComponent<Panic>(), other = type.effect as Panic;
-                effect.duration = aff.duration;
+                effect.duration = aff.currentDuration;
                 effect.faceOtherSideEvery_Max = other.faceOtherSideEvery_Max;
                 effect.faceOtherSideEvery_Min = other.faceOtherSideEvery_Min;
                 effect.speed_Max = other.speed_Max;
@@ -78,6 +125,8 @@ public class Entity : MonoBehaviour
         }
         if (type.color)
         {
+            aff.color = type.color;
+            aff.changeColor = type.changeColor;
             myColor = gameObject.GetComponent<SpriteRenderer>().color;
             gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
         }
@@ -96,6 +145,34 @@ public class Entity : MonoBehaviour
             GameManager.instance.stats.enemiesKilledTotal++;
         }
 
-        Destroy(gameObject);
+        if(GetComponent<Parasite>() != null)
+        {
+            GetComponent<Parasite>().currentDuration = 5.0f;
+            GetComponent<ParticleSystem>().emissionRate *= 4;
+        }
+        //Destroy(gameObject);
+
+        MonoBehaviour[] components = GetComponents<MonoBehaviour>();
+
+        foreach(Object c in components)
+        {
+            if(c.GetType() != System.Type.GetType("SpriteRenderer") &&
+                c.GetType() != System.Type.GetType("ParticleSystem") &&
+                c.GetType() != System.Type.GetType("Enemy") &&
+                c.GetType() != System.Type.GetType("Parasite"))
+            {
+                if (c.GetType() == System.Type.GetType("Collider2D") && GetComponent<Parasite>() != null)
+                {
+                    if (!((Collider2D)c).isTrigger)
+                        continue;
+                }
+
+                ((MonoBehaviour)c).enabled = false;
+            }
+        }
+
+        dead = true;
+        deadLingerTimer = deadLingerTimerMax;
+
     }
 }

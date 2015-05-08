@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .400000006
-  maxRadius: 1.5
+  maxRadius: 1
 --- !u!114 &11455430
 MonoBehaviour:
   m_ObjectHideFlags: 1

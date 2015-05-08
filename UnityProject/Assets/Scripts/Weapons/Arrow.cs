@@ -48,8 +48,11 @@ public class Arrow : MonoBehaviour
                 SoundFX sfx = GetComponent<SoundFX>();
                 if (sfx != null)
                    sfx.Play("Fire");
-                GameObject emitter = (GameObject)Instantiate(AOE_Emitter, transform.position, transform.rotation);
-                emitter.transform.parent = transform;
+                if (AOE_Emitter != null)
+                {
+                    GameObject emitter = (GameObject)Instantiate(AOE_Emitter, transform.position, transform.rotation);
+                    emitter.transform.parent = transform;
+                }
 
                 Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(OnAOEShakeAmount,OnAOEDampeningAmount);
 

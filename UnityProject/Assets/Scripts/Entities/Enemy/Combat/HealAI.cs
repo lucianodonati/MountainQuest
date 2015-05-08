@@ -7,13 +7,13 @@ public class HealAI : AttackAI {
     private ParticleSystem psys;
 
     public float healAmount;
-    public GameObject particleEmitter;
+    public GameObject Emitter;
 
 	// Use this for initialization
 	protected override void Start () {
         base.Start();
 
-        GameObject emitter = (GameObject)Instantiate(particleEmitter, transform.position, transform.rotation);
+        GameObject emitter = (GameObject)Instantiate(Emitter, transform.position, transform.rotation);
         emitter.transform.parent = transform;
         psys = emitter.GetComponent<ParticleSystem>();
 	}

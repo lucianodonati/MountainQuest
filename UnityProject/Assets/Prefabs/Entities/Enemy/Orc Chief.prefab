@@ -304,7 +304,7 @@ MonoBehaviour:
   reloadTimerMax: 2
   weapon: {fileID: 0}
   healAmount: 5
-  particleEmitter: {fileID: 118064, guid: 7e3cc663c50262d498e80e19acdc07a9, type: 2}
+  Emitter: {fileID: 118064, guid: 7e3cc663c50262d498e80e19acdc07a9, type: 2}
 --- !u!212 &21253882
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,6 +5,7 @@ public class AOE_Emitter : MonoBehaviour {
 
     public int numParticles;
     public float lifetimeVariance;
+    public float particleVelocityMultiplier;
 
     protected ParticleSystem psys;
     protected ParticleSystem.Particle[] particles;
@@ -31,7 +32,7 @@ public class AOE_Emitter : MonoBehaviour {
 
             particles[currParticle].velocity *= (psys.startLifetime / particles[currParticle].lifetime);
 
-            particles[currParticle].velocity *= 2;
+            particles[currParticle].velocity *= particleVelocityMultiplier;
         }
 
         psys.SetParticles(particles,particleCount);
@@ -39,6 +40,5 @@ public class AOE_Emitter : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-	
 	}
 }
