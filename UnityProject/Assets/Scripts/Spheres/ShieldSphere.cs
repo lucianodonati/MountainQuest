@@ -19,7 +19,7 @@ public class ShieldSphere : BaseSphere {
     private void OnTriggerStay2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj != null)
+        if (proj != null && !proj.IsStuck() && !proj.IsInsideShield())
         {
             if (other.rigidbody2D.velocity.magnitude < 32)
             {
