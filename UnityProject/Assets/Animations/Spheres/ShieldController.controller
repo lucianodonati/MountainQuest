@@ -25,13 +25,13 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Shield
+  m_Name: ShieldAnim
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: b5fd365b7a6e63c46b655662ec07a0ce, type: 2}
   m_ParentStateMachine: {fileID: 110705652}
-  m_Position: {x: 200, y: 0, z: 0}
+  m_Position: {x: 48, y: 48, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 

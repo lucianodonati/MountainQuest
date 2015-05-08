@@ -10,12 +10,12 @@ GameObject:
   - 4: {fileID: 462238}
   - 212: {fileID: 21262238}
   - 95: {fileID: 9552030}
-  - 114: {fileID: 11433720}
-  - 58: {fileID: 5833720}
   - 114: {fileID: 11448588}
+  - 58: {fileID: 5876190}
+  - 114: {fileID: 11412816}
   m_Layer: 0
   m_Name: ShieldSphere
-  m_TagString: Untagged
+  m_TagString: Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,12 +27,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.194005, y: 13.5157375, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.88649952, y: 1.88649845, z: 1.88649845}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!58 &5833720
+--- !u!58 &5876190
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -58,7 +58,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11433720
+--- !u!114 &11412816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817be80dbdcfb2749905111e0f464e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AliveTimer: 7
+  Owner: {fileID: 0}
 --- !u!212 &21262238
 SpriteRenderer:
   m_ObjectHideFlags: 1
