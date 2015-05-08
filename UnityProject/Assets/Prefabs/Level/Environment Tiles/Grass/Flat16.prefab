@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437158}
   - 61: {fileID: 6136832}
+  - 114: {fileID: 11499524}
   m_Layer: 0
   m_Name: Flat16
   m_TagString: Platform
@@ -566,7 +567,7 @@ Transform:
   m_GameObject: {fileID: 137158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1.60000002}
   m_Children:
   - {fileID: 482462}
   - {fileID: 482464}
@@ -1023,6 +1024,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 14.4175997, y: .540902376}
   m_Center: {x: 6.74544668, y: -.200188994}
+--- !u!114 &11499524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5067dacd0f28094c9bba632f39c4e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daddy: Platforms
 --- !u!212 &21237158
 SpriteRenderer:
   m_ObjectHideFlags: 1
