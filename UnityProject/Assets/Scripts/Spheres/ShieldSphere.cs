@@ -27,6 +27,8 @@ public class ShieldSphere : BaseSphere {
                 other.rigidbody2D.velocity += new Vector2(pushVector.x, pushVector.y);
                 if (other.rigidbody2D.velocity.magnitude > 32)
                     other.rigidbody2D.velocity = other.rigidbody2D.velocity.normalized * 32;
+
+                other.transform.rotation = Quaternion.FromToRotation(transform.up, other.rigidbody2D.velocity);
             }
         }
     }

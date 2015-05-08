@@ -137,7 +137,7 @@ MonoBehaviour:
   isAiming: 0
   instructionsUI: {fileID: 0}
   RedirectClickObj: {fileID: 135404, guid: 3437cea711b526a47ac242597f0a0562, type: 2}
-  OtherClickObj: {fileID: 151538, guid: a2498950c13bcad4f8599e77bdb169b3, type: 2}
+  OtherClickObj: {fileID: 162238, guid: ccbf9f43704db724baeedda91dbac48e, type: 2}
   basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
   SphereDistance: 7
   PlayerAliveTimer: 8
