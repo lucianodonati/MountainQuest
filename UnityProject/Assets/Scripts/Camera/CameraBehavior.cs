@@ -9,19 +9,26 @@ public class CameraBehavior : MonoBehaviour
     private float halfWidth;
     public float deadHalfHeight = 4;
 
+    //TRANSITION VARS
+
     //KEEP IN MIND: camera stops at their POSITIONS.
     //Minbound is in the bottom left of the level
     //Maxbound is in the top right of the level
     public GameObject MinBound = null;
-
     public GameObject MaxBound = null;
 
-    public GameObject looktarget;
-    public float targSnapSpeed = 4;
+    private float size;
+    private bool stationary;
+    private Vector3 targetPosition;
 
-    private float originalSize;
-    public float toSize;
-    public float cameraResizeSpeed = 8;
+    public bool focused;
+    public float snapDistance = 0.05f;
+    public float accelerateDistance = 2;
+
+    public float moveLerpSpeed = 8;
+    public float scaleLerpSpeed = 16;
+
+    private GameObject lastWaypoint;
 
     //SHAKE VARS
     public bool shaking;
@@ -34,9 +41,8 @@ public class CameraBehavior : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        originalSize = Camera.main.orthographicSize;
+        size = Camera.main.orthographicSize;
 
-        toSize = originalSize;
     }
 
     // Update is called once per frame
@@ -45,44 +51,13 @@ public class CameraBehavior : MonoBehaviour
         halfHeight = camera.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
 
-        Vector3 newpos = new Vector3();
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 newpos = SetPos();
 
-        if (looktarget == null)
-        {
-            if (camera.orthographicSize < originalSize)
-                camera.orthographicSize = originalSize;
-
-            if (player != null)
-                newpos = new Vector3(player.transform.position.x, player.transform.position.y + deadHalfHeight, transform.position.z);
-
-            if (player != null)
-            {
-                if ((player.transform.position.y > transform.position.y - deadHalfHeight))
-                    newpos.y = transform.position.y;
-                if (player.GetComponent<PlayerController>() != null)
-                {
-                    if (player.GetComponent<PlayerController>().grounded && transform.position.y - deadHalfHeight < player.transform.position.y)
-                    {
-                        newpos.y = Mathf.SmoothStep(transform.position.y, player.transform.position.y + deadHalfHeight, 8 * Time.deltaTime);
-                    }
-                    else if (transform.position.y + (3 * halfHeight / 4) < player.transform.position.y)
-                    {
-                        newpos.y = player.transform.position.y - (3 * halfHeight / 4);
-                    }
-                }
-            }
-
-            newpos = AdjustForBounds(newpos);
-        }
-        else
-        {
-            newpos = SnapTo(looktarget.transform.position, targSnapSpeed);
-            Resize(toSize, cameraResizeSpeed);
-        }
+        newpos = AdjustForBounds(newpos);
 
         transform.position = newpos;
+
+        AdjustSize();
 
         if (shaking)
         {
@@ -90,40 +65,75 @@ public class CameraBehavior : MonoBehaviour
         }
     }
 
-    private Vector3 AdjustForBounds(Vector3 pos)
+    Vector3 SetPos()
     {
-        if (MinBound != null)
-        {
-            if (pos.x - halfWidth < MinBound.transform.position.x)
-                pos.x = MinBound.transform.position.x + halfWidth;
+        Vector3 pos;
 
-            if (pos.y - halfHeight < MinBound.transform.position.y)
-                pos.y = MinBound.transform.position.y + halfHeight;
+        if(stationary)
+        {
+            pos = targetPosition;
+        }
+        else
+        {
+            pos = new Vector3(player.transform.position.x, player.transform.position.y + deadHalfHeight, transform.position.z);
+
+            if ((player.transform.position.y > transform.position.y - deadHalfHeight))
+                pos.y = transform.position.y;
+
+            if (player.GetComponent<PlayerController>().grounded && transform.position.y - deadHalfHeight < player.transform.position.y)
+            {
+                pos.y = Mathf.SmoothStep(transform.position.y, player.transform.position.y + deadHalfHeight, 8 * Time.deltaTime);
+            }
+            else if (transform.position.y + (3 * halfHeight / 4) < player.transform.position.y)
+            {
+                pos.y = player.transform.position.y - (3 * halfHeight / 4);
+            }
         }
 
-        if (MaxBound != null)
-        {
-            if (pos.x + halfWidth > MaxBound.transform.position.x)
-                pos.x = MaxBound.transform.position.x - halfWidth;
+        if ((transform.position - pos).magnitude <= snapDistance)
+            focused = true;
 
-            if (pos.y + halfHeight > MaxBound.transform.position.y)
-                pos.y = MaxBound.transform.position.y - halfHeight;
+        pos = Vector3.Lerp(transform.position,
+                           pos,
+                           (focused?1:((((transform.position - pos).magnitude <= accelerateDistance)?3:1)*moveLerpSpeed*Time.deltaTime)));
+
+        return pos;
+    }
+
+    private Vector3 AdjustForBounds(Vector3 pos)
+    {
+        if (focused)
+        {
+
+
+            if (MinBound != null)
+            {
+                if (pos.x - halfWidth < MinBound.transform.position.x)
+                    pos.x = MinBound.transform.position.x + halfWidth;
+
+                if (pos.y - halfHeight < MinBound.transform.position.y)
+                    pos.y = MinBound.transform.position.y + halfHeight;
+            }
+
+            if (MaxBound != null)
+            {
+                if (pos.x + halfWidth > MaxBound.transform.position.x)
+                    pos.x = MaxBound.transform.position.x - halfWidth;
+
+                if (pos.y + halfHeight > MaxBound.transform.position.y)
+                    pos.y = MaxBound.transform.position.y - halfHeight;
+            }
         }
 
         return pos;
     }
 
-    private Vector3 SnapTo(Vector3 pos, float speed)
+    void AdjustSize()
     {
-        return new Vector3(Mathf.Lerp(transform.position.x, pos.x, speed * Time.deltaTime),
-                           Mathf.Lerp(transform.position.y, pos.y, speed * Time.deltaTime),
-                           transform.position.z);
+        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, size, scaleLerpSpeed * Time.deltaTime);
     }
 
-    private void Resize(float newSize, float speed)
-    {
-        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, newSize, speed * Time.deltaTime);
-    }
+    #region screenshake
 
     void ShakeScreen()
     {
@@ -151,5 +161,32 @@ public class CameraBehavior : MonoBehaviour
         currentShakeMagnitude = initialShakeMagnitude = magnitude;
         shakeDampening = dampening;
         shaking = true;
+    }
+
+    #endregion
+
+    void SetView(CameraWaypoint hit)
+    {
+        if (hit.gameObject != lastWaypoint)
+        {
+            lastWaypoint = hit.gameObject;
+
+            stationary = hit.isStationary;
+
+            if (hit.isStationary)
+            {
+                targetPosition = new Vector3(hit.stationaryFocus.position.x, hit.stationaryFocus.position.y, transform.position.z);
+            }
+
+            size = hit.cameraSize;
+
+            MinBound = hit.MinBound;
+            MaxBound = hit.MaxBound;
+
+            moveLerpSpeed = hit.moveLerpSpeed;
+            scaleLerpSpeed = hit.scaleLerpSpeed;
+
+            focused = false;
+        }
     }
 }
