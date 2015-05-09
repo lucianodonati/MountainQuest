@@ -87,7 +87,10 @@ MonoBehaviour:
   speed: 20
   stuckTimer: 5
   numCollisions: 0
-  damageType: {fileID: 11404710, guid: a1c5b306c14ebea4ab5c5dfef8a7429e, type: 2}
+  damageType: {fileID: 11404710}
+  AOE_Emitter: {fileID: 124784, guid: eeede2b0ff481854f9fb6b53500d2478, type: 2}
+  OnAOEShakeAmount: .0500000007
+  OnAOEDampeningAmount: 1
 --- !u!114 &11404710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,11 +105,13 @@ MonoBehaviour:
   damage: 3
   slow: 1
   ticEvery: 1
-  duration: 1
+  currentDuration: 5
+  initialDuration: 5
   timer: 0
   particle: 1
   color: 1
   changeColor: {r: .117647052, g: .525355041, b: 1, a: 1}
+  effect: {fileID: 0}
 --- !u!114 &11482760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,7 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .400000006
-  maxRadius: 1.5
+  maxRadius: 1
+  blastForce: 20
 --- !u!198 &19883814
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -12,7 +12,7 @@ GameObject:
   - 199: {fileID: 19917650}
   - 114: {fileID: 11417650}
   m_Layer: 0
-  m_Name: FireExplosionEmitter
+  m_Name: FireExplosionEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

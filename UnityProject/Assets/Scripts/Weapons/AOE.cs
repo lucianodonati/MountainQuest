@@ -4,6 +4,7 @@ using System.Collections;
 public class AOE : MonoBehaviour {
     public float duration;
     public float maxRadius;
+    public float blastForce;
 
 	// Use this for initialization
 	void Start () {
@@ -21,4 +22,18 @@ public class AOE : MonoBehaviour {
             enabled = false;
         }
 	}
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if(coll.gameObject.tag == "Enemy")
+        {
+            if (coll.gameObject.GetComponent<Entity>().dead)
+            {
+                Vector2 toTarg = (Vector2)(coll.gameObject.transform.position - transform.position);
+
+                coll.gameObject.rigidbody2D.velocity =
+                    toTarg.normalized * (blastForce * (maxRadius / toTarg.magnitude));
+            }
+        }
+    }
 }

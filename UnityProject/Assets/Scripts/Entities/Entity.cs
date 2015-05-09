@@ -64,7 +64,10 @@ public class Entity : MonoBehaviour
             }
 
             if (deadLingerTimer <= 0.0f)
+            {
+                if(!renderer.isVisible)
                 Destroy(gameObject);
+            }
         }
     }
 
@@ -159,7 +162,9 @@ public class Entity : MonoBehaviour
             if(c.GetType() != System.Type.GetType("SpriteRenderer") &&
                 c.GetType() != System.Type.GetType("ParticleSystem") &&
                 c.GetType() != System.Type.GetType("Enemy") &&
-                c.GetType() != System.Type.GetType("Parasite"))
+                c.GetType() != System.Type.GetType("Parasite") &&
+                c.GetType() != System.Type.GetType("Health") &&
+                c.GetType() != System.Type.GetType("HealthBar"))
             {
                 if (c.GetType() == System.Type.GetType("Collider2D") && GetComponent<Parasite>() != null)
                 {

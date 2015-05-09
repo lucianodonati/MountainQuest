@@ -93,6 +93,9 @@ MonoBehaviour:
   stuckTimer: 5
   numCollisions: 0
   damageType: {fileID: 11464714}
+  AOE_Emitter: {fileID: 0}
+  OnAOEShakeAmount: 0
+  OnAOEDampeningAmount: 0
 --- !u!114 &11459890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,7 +126,8 @@ MonoBehaviour:
   damage: 1
   slow: 0
   ticEvery: 2
-  duration: 5
+  currentDuration: 5
+  initialDuration: 5
   timer: 0
   particle: 1
   color: 1
