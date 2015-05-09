@@ -25,6 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 475438}
   - 60: {fileID: 6086794}
+  - 114: {fileID: 11497228}
   m_Layer: 0
   m_Name: AngleEnd
   m_TagString: Platform
@@ -68,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 175438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 475442}
   - {fileID: 467456}
@@ -101,6 +102,18 @@ PolygonCollider2D:
       - {x: .461730003, y: -.376626819}
       - {x: -.455831945, y: -.995208979}
       - {x: -.454170257, y: .189050287}
+--- !u!114 &11497228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5067dacd0f28094c9bba632f39c4e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daddy: Platforms
 --- !u!212 &21267456
 SpriteRenderer:
   m_ObjectHideFlags: 1

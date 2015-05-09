@@ -556,7 +556,7 @@ GameObject:
   - 33: {fileID: 23007636}
   - 23: {fileID: 23007635}
   - 61: {fileID: 23007634}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Middle
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1531,7 +1531,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 157928226}
   - 114: {fileID: 157928227}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Platform10
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2763,7 +2763,7 @@ GameObject:
   - 33: {fileID: 259774460}
   - 23: {fileID: 259774459}
   - 61: {fileID: 259774458}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3579,7 +3579,7 @@ GameObject:
   - 33: {fileID: 357486914}
   - 23: {fileID: 357486913}
   - 61: {fileID: 357486912}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3788,9 +3788,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb90537699653c4479ca44cf09b71ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTimer: 3
+  stunTimer: 1.5
   experience: 0
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   level: 1
   skillPoints: 0
@@ -3864,6 +3868,7 @@ MonoBehaviour:
   - {fileID: 132966, guid: f1f15e846f34b0d46be717ca92023b28, type: 2}
   - {fileID: 155430, guid: 5173c76e1a72a9f49ba192c2412a0420, type: 2}
   - {fileID: 104710, guid: 6dc67c4fe39b1054db44b855436137dc, type: 2}
+  - {fileID: 163060, guid: eecf8075511ff354a86f85c5bd89b6e0, type: 2}
   - {fileID: 155430, guid: 040b89db688440d4c97c8ab0cae21b63, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
@@ -4397,7 +4402,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 430398186}
   - 114: {fileID: 430398187}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Platform10
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -7472,6 +7477,9 @@ MonoBehaviour:
   reloadTimerMax: 0
   weapon: {fileID: 1365685616}
   range: 9
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 33536
 --- !u!114 &774159314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7484,9 +7492,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTimer: 3
+  stunTimer: 2
   experience: 35
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
 --- !u!114 &774159315
@@ -7502,6 +7514,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
+  currSlowed: 0
+  currStunned: 0
+  howSlowed: 5
   moveSpeed: 10
   ground: {fileID: 0}
   target: {fileID: 0}
@@ -8983,7 +8998,7 @@ GameObject:
   - 33: {fileID: 791820309}
   - 23: {fileID: 791820308}
   - 61: {fileID: 791820307}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10187,7 +10202,7 @@ GameObject:
   - 33: {fileID: 951659094}
   - 23: {fileID: 951659093}
   - 61: {fileID: 951659092}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11001,6 +11016,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
+  currSlowed: 0
+  currStunned: 0
+  howSlowed: 5
   moveSpeed: 10
   ground: {fileID: 0}
   target: {fileID: 0}
@@ -11155,9 +11173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTimer: 3
+  stunTimer: 2
   experience: 35
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
 --- !u!114 &1011545881
@@ -11175,6 +11197,9 @@ MonoBehaviour:
   reloadTimerMax: 0
   weapon: {fileID: 138298336}
   range: 9
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 33536
 --- !u!114 &1011545882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15629,7 +15654,7 @@ GameObject:
   - 33: {fileID: 1237700157}
   - 23: {fileID: 1237700156}
   - 61: {fileID: 1237700155}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Middle
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -16727,7 +16752,7 @@ GameObject:
   - 33: {fileID: 1332765921}
   - 23: {fileID: 1332765920}
   - 61: {fileID: 1332765919}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18462,9 +18487,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTimer: 3
+  stunTimer: 2
   experience: 20
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
 --- !u!114 &1406499191
@@ -22330,9 +22359,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTimer: 3
+  stunTimer: 2
   experience: 20
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
 --- !u!114 &1564936155
@@ -23352,7 +23385,7 @@ GameObject:
   - 33: {fileID: 1665301398}
   - 23: {fileID: 1665301397}
   - 61: {fileID: 1665301396}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24041,7 +24074,7 @@ GameObject:
   - 33: {fileID: 1745721585}
   - 23: {fileID: 1745721584}
   - 61: {fileID: 1745721583}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Middle
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -24265,7 +24298,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11496524, guid: 727b833586c0e014299e00c72228c59f, type: 2}
       propertyPath: attachedDoor
@@ -28449,9 +28482,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17360214862bed948a7ba63e9ab51392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTimer: 3
+  stunTimer: 2
   experience: 100
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
   stompTimer: .00897426158
@@ -28614,7 +28651,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1952197245}
   - 114: {fileID: 1952197246}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Platform10
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -29533,7 +29570,7 @@ GameObject:
   - 33: {fileID: 2070172718}
   - 23: {fileID: 2070172717}
   - 61: {fileID: 2070172716}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29692,7 +29729,7 @@ GameObject:
   - 33: {fileID: 2089153251}
   - 23: {fileID: 2089153250}
   - 61: {fileID: 2089153249}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29860,7 +29897,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2102145768}
   - 114: {fileID: 2102145769}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Platform10
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -30063,7 +30100,7 @@ GameObject:
   - 33: {fileID: 2108721568}
   - 23: {fileID: 2108721567}
   - 61: {fileID: 2108721566}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Middle
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -30235,7 +30272,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 153492, guid: 8b0b1429fc9148847ae5a151266dfcc5, type: 2}
       propertyPath: m_Layer
