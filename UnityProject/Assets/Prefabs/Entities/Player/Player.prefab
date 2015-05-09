@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 2.20000005, z: 0}
+  m_LocalPosition: {x: -.899999976, y: .699999988, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 425198}
@@ -129,8 +129,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 0
   health: {fileID: 0}
-  isSlowed: 0
+  maxHealth: 100
+  isSlowed: 1
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   level: 1
   skillPoints: 0
   arrow: {fileID: 0}
@@ -189,6 +192,7 @@ MonoBehaviour:
   - {fileID: 155430, guid: 5173c76e1a72a9f49ba192c2412a0420, type: 2}
   - {fileID: 104710, guid: 6dc67c4fe39b1054db44b855436137dc, type: 2}
   - {fileID: 155430, guid: 040b89db688440d4c97c8ab0cae21b63, type: 2}
+  - {fileID: 146716, guid: d1181c8f34e601b4f8789421658d7f38, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
   - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
