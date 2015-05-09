@@ -44,14 +44,15 @@ public class Arrow : MonoBehaviour
         }
         else if (coll.gameObject.GetComponent<Entity>())
         {
-            if (name.Contains("WindArrow") && numCollisions >= 0)
+            if (name.Contains("WindArrow") && numCollisions > 0)
             {
                 numCollisions--;
-                justFired = true;
-                GetComponent<BoxCollider2D>().isTrigger = true;
+                Physics2D.IgnoreCollision(coll.collider, this.collider2D);
+                //justFired = true;
+                //GetComponent<BoxCollider2D>().isTrigger = true;
 
-                if (numCollisions == -1)
-                    GetStuck(coll.collider);
+                //if (numCollisions == -1)
+                //    GetStuck(coll.collider);
             }
 
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
@@ -60,7 +61,7 @@ public class Arrow : MonoBehaviour
         }
 
         if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Boss")
-            StatsManager.instance.shotsHit++;
+           // GameManager.instance.stats.shotsHit++;
 
         if (!name.Contains("WindArrow") || (coll.gameObject.tag != "Enemy" && coll.gameObject.tag != "Boss"))
             GetStuck(coll.collider);
@@ -80,15 +81,34 @@ public class Arrow : MonoBehaviour
                     damageType.attachToEnemy(isEntity);
             }
         }
+        if ((name.Contains("WindArrow") && (LayerMask.LayerToName(other.gameObject.layer) == "Platform" || other.name.Contains("Platforms"))))
+        {
+            GetComponent<BoxCollider2D>().isTrigger = false;
+            GetStuck(other);
+        }
+        else if (name.Contains("WindArrow") && other.gameObject.GetComponent<Enemy>())
+        {
+            if (other.gameObject.GetComponent<CircleCollider2D>() != null)
+            {
+                if (other.isTrigger == false)
+                {
+                    numCollisions--;
+
+                }
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (justFired)
-        {
+
+        //if (justFired)
+        //{
+        if (name.Contains("WindArrow") == false || numCollisions <= 0)
             GetComponent<BoxCollider2D>().isTrigger = false;
-            justFired = false;
-        }
+
+        //    justFired = false;
+        //}
     }
 
     protected void GetStuck(Collider2D coll)
