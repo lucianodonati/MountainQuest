@@ -83,8 +83,8 @@ MonoBehaviour:
   effect: {fileID: 0}
   infectionChance: 100
   decayRate: 10
-  germinationTimer: 3
-  germinationTimerMax: 1
+  germinationTimer: 0
+  germinationTimerMax: .0500000007
 --- !u!114 &11446718
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -10,6 +10,7 @@ public class Parasite : Affliction {
 
 	// Use this for initialization
 	protected override void Start () {
+        germinationTimer = germinationTimerMax;
 	}
 	
 	// Update is called once per frame
@@ -32,6 +33,8 @@ public class Parasite : Affliction {
                 enabled = true;
                 attachToEnemy(coll.gameObject.GetComponent<Entity>());
             }
+            else
+                germinationTimer = germinationTimerMax / 2;
         }
     }
 
