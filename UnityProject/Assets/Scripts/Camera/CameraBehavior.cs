@@ -19,7 +19,7 @@ public class CameraBehavior : MonoBehaviour
 
     private float size;
     private bool stationary;
-    private Vector3 targetPosition;
+    private Transform lookTarget;
 
     public bool focused;
     public float snapDistance = 0.05f;
@@ -71,7 +71,7 @@ public class CameraBehavior : MonoBehaviour
 
         if(stationary)
         {
-            pos = targetPosition;
+            pos = new Vector3(lookTarget.position.x, lookTarget.position.y, transform.position.z);
         }
         else
         {
@@ -175,7 +175,7 @@ public class CameraBehavior : MonoBehaviour
 
             if (hit.isStationary)
             {
-                targetPosition = new Vector3(hit.stationaryFocus.position.x, hit.stationaryFocus.position.y, transform.position.z);
+                lookTarget = hit.stationaryFocus;
             }
 
             size = hit.cameraSize;
