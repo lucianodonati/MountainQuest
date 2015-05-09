@@ -19,15 +19,18 @@ public class RangedAI : AttackAI
     // Update is called once per frame
     protected override void Update()
     {
-        if (target != null)
+        if (GetComponent<Entity>().isStunned == false)
         {
-            if (InFOV(target))
+            if (target != null)
             {
-                Attack();
-            }
+                if (InFOV(target))
+                {
+                    Attack();
+                }
 
-            if ((target.transform.position - transform.position).magnitude > maximumRange)
-                target = null;
+                if ((target.transform.position - transform.position).magnitude > maximumRange)
+                    target = null;
+            }
         }
     }
 
