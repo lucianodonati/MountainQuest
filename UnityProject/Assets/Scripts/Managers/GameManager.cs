@@ -107,6 +107,13 @@ public class GameManager : MonoBehaviour
         AudioListener.volume = sfxVol;
     }
 
+    public void setMusic(AudioClip _music)
+    {
+        music.Stop();
+        music.clip = _music;
+        music.Play();
+    }
+
     private GameObject newCanvas(Menus _newCanvas)
     {
         GameObject theCanvas = MenuInstances[(int)_newCanvas];
