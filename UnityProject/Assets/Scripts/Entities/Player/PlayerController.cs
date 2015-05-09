@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     // linear drag 0
     // angular drag 0.05
     // gravity scale 4
+    public bool activeControls = true;
 
     // MOVEMENT VARS
     public float movementSpeed = 10;
@@ -85,22 +86,24 @@ public class PlayerController : MonoBehaviour
         //MOVEMENT
         Look(looktarget);
 
-        Walk();
-
         if (grounded)
             jumpCooldownTimer -= Time.deltaTime;
 
-        if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock)
-            Jump();
+        if (activeControls)
+        {
+            Walk();
 
-        if (Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock)
-            jumplock = true;
+            if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock)
+                Jump();
 
+            if (Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock)
+                jumplock = true;
+
+            SwitchWeaponCheck();
+
+            AttackCheck();
+        }
         this.transform.up = Vector2.up;
-
-        SwitchWeaponCheck();
-
-        AttackCheck();
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
