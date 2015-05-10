@@ -83,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 152630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.8499999, y: 3.20300007, z: 0}
-  m_LocalScale: {x: 1.65593445, y: 1.85375237, z: .22041586}
+  m_LocalScale: {x: 10, y: 30, z: 0}
   m_Children:
   - {fileID: 452628}
   m_Father: {fileID: 0}
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 35
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}

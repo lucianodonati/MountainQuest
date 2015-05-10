@@ -4,37 +4,30 @@ using UnityEngine;
 public class Affliction : DamageType
 {
     public bool slow = false;
-    public bool stun = false;
-    public float ticEvery = 2.0f, duration = 5.0f, timer = 0.0f;
+    public float ticEvery = 2.0f, currentDuration = 5.0f,initialDuration = 5.0f, timer = 0.0f;
     private float damageDealt = 0.0f;
     public bool particle = false, color = false;
     public Color changeColor;
     public OverrideEffect effect;
 
-    // Update is called once per frame
-    private void Update()
+    protected virtual void Start()
     {
-        // slows enemy struck
+
+    }
+
+    // Update is called once per frame
+    protected virtual void Update()
+    {
         if (slow == true)
         {
             Entity Slowed = GetComponent<Entity>();
+            //  IsSlowed move = null;
             if (Slowed != null)
             {
                 Slowed.isSlowed = true;
             }
         }
-        // stuns enemy struck
-        if (stun == true)
-        {
-            Entity Stunned = GetComponent<Entity>();
-            if (Stunned != null)
-            {
-                Stunned.isStunned = true;
-            }
-        }
-
-
-        if (duration >= 0.0f)
+        if (currentDuration >= 0.0f)
         {
             if (timer <= 0.0f)
             {
@@ -47,7 +40,7 @@ public class Affliction : DamageType
                 }
             }
             timer -= Time.deltaTime;
-            duration -= Time.deltaTime;
+            currentDuration -= Time.deltaTime;
         }
         else
             Destroy(this);

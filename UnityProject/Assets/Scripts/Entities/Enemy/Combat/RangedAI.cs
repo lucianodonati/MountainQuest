@@ -58,6 +58,8 @@ public class RangedAI : AttackAI
 
             currArrow.rigidbody2D.velocity = (target.transform.position - transform.position).normalized * 7.5f;
 
+            currArrow.GetComponent<Arrow>().owner = this.gameObject;
+
             reloadTimer = reloadTimerMax;
         }
     }

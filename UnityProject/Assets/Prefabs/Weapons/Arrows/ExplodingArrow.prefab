@@ -86,7 +86,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .400000006
-  maxRadius: 1.5
+  maxRadius: 1
+  blastForce: 30
 --- !u!114 &11455430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +102,10 @@ MonoBehaviour:
   speed: 20
   stuckTimer: 5
   numCollisions: 0
-  damageType: {fileID: 11464714, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
+  damageType: {fileID: 11464714}
+  AOE_Emitter: {fileID: 117650, guid: 26c19e5ef67351d40895e32c45ed917b, type: 2}
+  OnAOEShakeAmount: .150000006
+  OnAOEDampeningAmount: 1
 --- !u!114 &11459890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +136,8 @@ MonoBehaviour:
   damage: 5
   slow: 0
   ticEvery: 2
-  duration: 5
+  currentDuration: 5
+  initialDuration: 5
   timer: 0
   particle: 1
   color: 1
@@ -608,7 +613,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 1
   UVModule:
-    enabled: 0
+    enabled: 1
     frameOverTime:
       scalar: 1
       maxCurve:
@@ -642,11 +647,11 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 1
-    tilesX: 1
+    tilesX: 3
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 20
     randomRow: 1
   VelocityModule:
     enabled: 0
@@ -1202,7 +1207,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3113644dec133384e9f86d5c419f9b12, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

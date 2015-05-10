@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.4130859, y: 42.1436539, z: -62.2855835}
+  m_LocalPosition: {x: 11.5981979, y: 2.17841935, z: 0}
   m_LocalScale: {x: 5.44191265, y: 5.44191313, z: 5.44191313}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 100
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   lastPlatform: {fileID: 0}
@@ -123,7 +124,11 @@ MonoBehaviour:
   aggroTimerMax: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 33024
+    m_Bits: 33536
+  missShakeAmount: .150000006
+  missShakeDampening: 1
+  stompHitShakeAmount: 1
+  stompHitShakeDampening: 1
 --- !u!198 &19816404
 ParticleSystem:
   m_ObjectHideFlags: 1

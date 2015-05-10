@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class EarthquakeArrow : MonoBehaviour
 {
+    public float duration = 2;
+
+    private float instances = 0;
+
     // Use this for initialization
     private void Start()
     {
@@ -13,22 +17,29 @@ public class EarthquakeArrow : MonoBehaviour
     {
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Platform")
+        if (!coll.isTrigger && instances <= 0)
         {
-            if (coll.gameObject.transform.parent.gameObject.GetComponents<Shake>().Length < 1)
-                coll.gameObject.transform.parent.gameObject.AddComponent<Shake>();
-            else
-                coll.gameObject.transform.parent.gameObject.GetComponent<Shake>().duration = 2.0f;
-        }
-        else if (coll.gameObject.tag == "Enemy")
-        {
-            Enemy theEnemy = coll.gameObject.GetComponent<Enemy>();
-            if (theEnemy.lastPlatform.GetComponents<Shake>().Length < 1)
-                theEnemy.lastPlatform.AddComponent<Shake>();
-            else
-                theEnemy.lastPlatform.GetComponent<Shake>().duration = 2.0f;
+            if (coll.gameObject.tag == "Platform")
+            {
+                if (coll.gameObject.transform.parent.gameObject.GetComponents<Shake>().Length < 1)
+                    coll.gameObject.transform.parent.gameObject.AddComponent<Shake>();
+                else
+                    coll.gameObject.transform.parent.gameObject.GetComponent<Shake>().duration = duration;
+
+                ++instances;
+            }
+            else if (coll.gameObject.tag == "Enemy")
+            {
+                Enemy theEnemy = coll.gameObject.GetComponent<Enemy>();
+                if (theEnemy.lastPlatform.GetComponents<Shake>().Length < 1)
+                    theEnemy.lastPlatform.AddComponent<Shake>();
+                else
+                    theEnemy.lastPlatform.GetComponent<Shake>().duration = duration;
+
+                ++instances;
+            }
         }
     }
 }

@@ -53,6 +53,7 @@ public class RedirectSphere : MonoBehaviour
             other.rigidbody2D.rotation = RotationDirection + 0;
 
             other.GetComponent<Arrow>().damageType.damage += DamageModifier;
+            other.GetComponent<Arrow>().owner = this.gameObject;
         }
         else if (other.tag == "Player")
         {
