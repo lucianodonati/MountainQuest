@@ -1732,7 +1732,7 @@ Transform:
   m_LocalScale: {x: 11.6532011, y: 11.6532068, z: 11.6532068}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!114 &178592553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,10 +1745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dab6d50d8d68fb47a51a9bc5ff8c29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 132178, guid: 492929ad98da2ab43bd1131298c3db6c, type: 2}
   spawnCount: 0
   spawnCap: 0
-  spawnTimerMax: 0
+  spawnTimerMax: 1
 --- !u!1001 &187753692
 Prefab:
   m_ObjectHideFlags: 0
@@ -2976,6 +2976,7 @@ GameObject:
   - 124: {fileID: 289946466}
   - 81: {fileID: 289946465}
   - 114: {fileID: 289946470}
+  - 114: {fileID: 289946471}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3062,13 +3063,26 @@ MonoBehaviour:
   deadHalfHeight: 11.3000002
   MinBound: {fileID: 2111464335}
   MaxBound: {fileID: 1205972021}
-  looktarget: {fileID: 0}
-  targSnapSpeed: 4
-  toSize: 0
-  cameraResizeSpeed: 8
+  focused: 0
+  snapDistance: .0500000007
+  accelerateDistance: 2
+  moveLerpSpeed: 8
+  scaleLerpSpeed: 16
   shaking: 0
   initialShakeMagnitude: 0
   shakeDampening: 0
+--- !u!114 &289946471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289946464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5fc0a7680e4814f80dc07f81a7e957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManagerPrefab: {fileID: 117112, guid: edba3b4b238f79d43a0b28f9c037fac4, type: 2}
 --- !u!1 &293689504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,8 +3822,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 0
   health: {fileID: 0}
-  isSlowed: 0
+  maxHealth: 100
+  isSlowed: 1
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   level: 1
   skillPoints: 0
   arrow: {fileID: 0}
@@ -3883,6 +3900,7 @@ MonoBehaviour:
   - {fileID: 155430, guid: 5173c76e1a72a9f49ba192c2412a0420, type: 2}
   - {fileID: 104710, guid: 6dc67c4fe39b1054db44b855436137dc, type: 2}
   - {fileID: 155430, guid: 040b89db688440d4c97c8ab0cae21b63, type: 2}
+  - {fileID: 146716, guid: d1181c8f34e601b4f8789421658d7f38, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
   - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
@@ -7341,7 +7359,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &770133315
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,8 +7525,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 35
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
 --- !u!114 &774159315
 MonoBehaviour:
@@ -11178,8 +11199,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 35
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
 --- !u!114 &1011545881
 MonoBehaviour:
@@ -18488,8 +18512,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 20
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
 --- !u!114 &1406499191
 MonoBehaviour:
@@ -22356,8 +22383,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 20
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
 --- !u!114 &1564936155
 MonoBehaviour:
@@ -28519,8 +28549,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 100
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
   stompTimer: .00897426158
   chargeTimer: 1
@@ -28542,7 +28575,11 @@ MonoBehaviour:
   aggroTimerMax: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 33024
+    m_Bits: 33536
+  missShakeAmount: .150000006
+  missShakeDampening: 1
+  stompHitShakeAmount: 1
+  stompHitShakeDampening: 1
 --- !u!95 &1944674399
 Animator:
   serializedVersion: 3

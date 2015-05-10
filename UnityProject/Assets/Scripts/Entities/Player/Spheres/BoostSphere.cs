@@ -36,6 +36,7 @@ public class BoostSphere : MonoBehaviour
         {
             GameManager.instance.stats.arrowsBoosted++;
             proj.damageType.damage += DamageModifier;
+            proj.owner = this.gameObject;
         }
         if (other.rigidbody2D != null)
         {

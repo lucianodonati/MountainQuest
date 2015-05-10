@@ -297,6 +297,8 @@ public class PlayerController : MonoBehaviour
 
                 arrowCooldownTimer = arrowCooldownTimerMax;
 
+                currArrow.GetComponent<Arrow>().owner = this.gameObject;
+
                 GameManager.instance.stats.shotsFired++;
             }
         }
