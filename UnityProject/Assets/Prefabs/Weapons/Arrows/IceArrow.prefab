@@ -75,6 +75,9 @@ MonoBehaviour:
   stuckTimer: 5
   numCollisions: 0
   damageType: {fileID: 11404710}
+  AOE_Emitter: {fileID: 0}
+  OnAOEShakeAmount: 0
+  OnAOEDampeningAmount: 0
 --- !u!114 &11404710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,11 +92,13 @@ MonoBehaviour:
   damage: 3
   slow: 1
   ticEvery: 1
-  duration: 1
+  currentDuration: 5
+  initialDuration: 5
   timer: 0
   particle: 1
   color: 1
   changeColor: {r: .117647052, g: .525355041, b: 1, a: 1}
+  effect: {fileID: 0}
 --- !u!198 &19883814
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1158,7 +1163,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8e255b6d7e24f9346a4eea70586f254d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

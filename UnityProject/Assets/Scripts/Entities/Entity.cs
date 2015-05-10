@@ -111,6 +111,7 @@ public class Entity : MonoBehaviour
             {
                 pSys.enableEmission = true;
                 pSys.startColor = type.gameObject.GetComponent<ParticleSystem>().startColor;
+                GetComponent<ParticleSystemRenderer>().material = type.gameObject.GetComponent<ParticleSystemRenderer>().material;
             }
         }
         if (type.effect != null)

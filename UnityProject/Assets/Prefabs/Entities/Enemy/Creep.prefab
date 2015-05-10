@@ -89,6 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   moveSpeed: 4
+  ground: {fileID: 0}
 --- !u!114 &11432178
 MonoBehaviour:
   m_ObjectHideFlags: 1
