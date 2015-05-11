@@ -28,7 +28,7 @@ public class HealAI : AttackAI {
 
         if (coordinator.OnSightMovement != "Seek_Movement")
         {
-            if (coordinator.nonseekAggroTimerMax <= 0.0f)
+            if (coordinator.nonseekAggroTimer <= 0.0f)
                 notAggro = true;
         }
         else

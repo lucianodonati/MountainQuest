@@ -23,7 +23,8 @@ public class Movement_Coordinator : MonoBehaviour {
     // adds randomness into the timer mix;
     public float changeTimerError = 0.5f;
 
-    private float nonseekAggroTimer;
+    [HideInInspector]
+    public float nonseekAggroTimer;
     public float nonseekAggroTimerMax = 3;
     private bool draining = false;
 
