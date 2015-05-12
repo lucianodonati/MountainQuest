@@ -57,11 +57,12 @@ public class RangedAI : AttackAI
         {
             GameObject currArrow = (GameObject)Instantiate(weapon,
                                                             gameObject.transform.position + Vector3.back,
-                                                            Quaternion.FromToRotation(transform.up, (target.transform.position - transform.position)));
+                                                            Quaternion.FromToRotation(transform.up, (Vector3)((Vector2)(target.transform.position - transform.position))));
 
             currArrow.rigidbody2D.velocity = (target.transform.position - transform.position).normalized * 7.5f;
 
-            currArrow.GetComponent<Arrow>().owner = this.gameObject;
+            if (currArrow.GetComponent<Arrow>() != null)
+                currArrow.GetComponent<Arrow>().owner = this.gameObject;
 
             reloadTimer = reloadTimerMax;
         }
