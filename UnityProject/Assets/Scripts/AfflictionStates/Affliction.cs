@@ -27,6 +27,7 @@ public class Affliction : DamageType
                 Slowed.isSlowed = true;
             }
         }
+        
         if (currentDuration >= 0.0f)
         {
             if (timer <= 0.0f)
