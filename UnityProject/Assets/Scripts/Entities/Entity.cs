@@ -131,7 +131,6 @@ public class Entity : MonoBehaviour
         {
             aff.color = type.color;
             aff.changeColor = type.changeColor;
-            myColor = gameObject.GetComponent<SpriteRenderer>().color;
             gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
         }
     }

@@ -46,73 +46,86 @@ public class WaveSphere : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Arrow proj = other.GetComponent<Arrow>();
-        if (proj != null)
+        bool notAOE = true;
+
+        if (other.GetComponent<AOE>() != null)
+            if (other.GetComponent<AOE>().enabled)
+                notAOE = false;
+
+        if (notAOE)
         {
-            if (proj.owner != this.gameObject)
+            Arrow proj = other.GetComponent<Arrow>();
+            if (proj != null)
             {
-                proj.damageType.damage += DamageModifier;
-                proj.owner = this.gameObject;
-
-                SoundFX sfx = GetComponent<SoundFX>();
-                if (sfx != null)
-                    sfx.Play("Poop");
-
-                float currangle = 0, angleIncrement = 360.0f / (float)arrowsPerWave;
-
-                if (arrowsCreated + arrowsPerWave <= MaxArrowsCreated)
+                if (proj.owner != this.gameObject)
                 {
-                    for (int i = 0; i < arrowsPerWave; ++i)
+                    proj.damageType.damage += DamageModifier;
+                    proj.owner = this.gameObject;
+
+                    SoundFX sfx = GetComponent<SoundFX>();
+                    if (sfx != null)
+                        sfx.Play("Poop");
+
+                    float currangle = 0, angleIncrement = 360.0f / (float)arrowsPerWave;
+
+                    if (arrowsCreated + arrowsPerWave <= MaxArrowsCreated)
                     {
-                        GameObject currArrow =
-                            (GameObject)Instantiate(other.gameObject, transform.position, Quaternion.Euler(new Vector3(0, 0, currangle)));
-                        currArrow.GetComponent<Arrow>().owner = this.gameObject;
-                        currangle += angleIncrement;
-                    }
-
-                    if (instabilityTimer <= 0.0f)
-                        arrowsCreated = arrowsPerWave;
-                    else
-                        arrowsCreated += arrowsPerWave;
-
-                    instabilityTimer = instabilityTimerMax;
-                }
-
-                if (arrowsCreated >= MaxArrowsCreated)
-                {
-                    sfx.Play("Destabilize");
-
-                    if(destabilizeViolently)
-                    {
-                        currangle = 0;
-                        angleIncrement = 360 / ((float)arrowsPerWave * 4.0f);
-
-                        for (int i = 0; i < arrowsPerWave * 4; ++i)
+                        for (int i = 0; i < arrowsPerWave; ++i)
                         {
                             GameObject currArrow =
                                 (GameObject)Instantiate(other.gameObject, transform.position, Quaternion.Euler(new Vector3(0, 0, currangle)));
                             currArrow.GetComponent<Arrow>().owner = this.gameObject;
-
-                            Color newColor = new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),1.0f);
-
-                            currArrow.GetComponent<SpriteRenderer>().color = newColor;
-
-                            if (currArrow.GetComponent<ParticleSystem>() != null)
-                                currArrow.GetComponent<ParticleSystem>().startColor = newColor;
-
-                            currArrow.rigidbody2D.gravityScale = Random.Range(0.0f, 5.0f);
-
-                            currArrow.rigidbody2D.velocity =
-                                currArrow.rigidbody2D.velocity.normalized
-                                    * Random.Range(currArrow.rigidbody2D.velocity.magnitude/10, 4.0f*currArrow.rigidbody2D.velocity.magnitude);
-
-                            currArrow.rigidbody2D.angularVelocity = Random.Range(180.0f, 360.0f);
-
                             currangle += angleIncrement;
                         }
+
+                        if (instabilityTimer <= 0.0f)
+                            arrowsCreated = arrowsPerWave;
+                        else
+                            arrowsCreated += arrowsPerWave;
+
+                        instabilityTimer = instabilityTimerMax;
                     }
 
-                    Destroy(this.gameObject);
+                    if (arrowsCreated >= MaxArrowsCreated)
+                    {
+                        sfx.Play("Destabilize");
+
+                        if (destabilizeViolently)
+                        {
+                            currangle = 0;
+                            angleIncrement = 360 / ((float)arrowsPerWave * 4.0f);
+
+                            for (int i = 0; i < arrowsPerWave * 4; ++i)
+                            {
+                                GameObject currArrow =
+                                    (GameObject)Instantiate(other.gameObject, transform.position, Quaternion.Euler(new Vector3(0, 0, currangle)));
+                                currArrow.GetComponent<Arrow>().owner = this.gameObject;
+
+                                Color newColor = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1.0f);
+
+                                currArrow.GetComponent<SpriteRenderer>().color = newColor;
+
+                                if (currArrow.GetComponent<ParticleSystem>() != null)
+                                {
+                                    currArrow.GetComponent<ParticleSystem>().startColor = newColor;
+                                    //currArrow.GetComponent<ParticleSystem>().emissionRate *= 32;
+                                    //currArrow.GetComponent<ParticleSystem>().startLifetime /= 16;
+                                }
+
+                                currArrow.rigidbody2D.gravityScale = Random.Range(0.0f, 5.0f);
+
+                                currArrow.rigidbody2D.velocity =
+                                    currArrow.rigidbody2D.velocity.normalized
+                                        * Random.Range(currArrow.rigidbody2D.velocity.magnitude / 10, 4.0f * currArrow.rigidbody2D.velocity.magnitude);
+
+                                currArrow.rigidbody2D.angularVelocity = Random.Range(180.0f, 360.0f);
+
+                                currangle += angleIncrement;
+                            }
+                        }
+
+                        Destroy(this.gameObject);
+                    }
                 }
             }
         }

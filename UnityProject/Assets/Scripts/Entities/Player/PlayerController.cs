@@ -30,13 +30,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 preserveUp;
 
     //ARROW VARS
-    private GameObject Arrow = null;
+    [HideInInspector]
+    public GameObject Arrow = null;
 
     private float arrowCooldownTimer;
     public float arrowCooldownTimerMax = 0.5f;
 
     //SWORD VARS
-    private GameObject Sword = null;
+    [HideInInspector]
+    public GameObject Sword = null;
 
     //SWITCH VARS
     private bool usingSword = false;
@@ -53,6 +55,8 @@ public class PlayerController : MonoBehaviour
     //REFERENCES TO CHILDREN
     private GameObject looker;
 
+    private GameObject bow;
+
     // Use this for initialization
     private void Start()
     {
@@ -63,6 +67,7 @@ public class PlayerController : MonoBehaviour
         arrowCooldownTimer = arrowCooldownTimerMax;
 
         looker = transform.GetChild(0).gameObject;
+        bow = transform.GetChild(1).gameObject;
 
         arrowiter = 0;
         sworditer = 0;
@@ -216,12 +221,14 @@ public class PlayerController : MonoBehaviour
 
             if (usingSword)
             {
+                bow.GetComponent<SpriteRenderer>().enabled = false;
                 Sword = (GameObject)Instantiate(Swords[sworditer], transform.position, Quaternion.Euler(0, 0, -45));
                 Sword.transform.parent = transform;
                 Sword.transform.position = Sword.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
             }
             else
             {
+                bow.GetComponent<SpriteRenderer>().enabled = true;
                 Destroy(Sword);
                 Sword = Swords[sworditer];
             }
