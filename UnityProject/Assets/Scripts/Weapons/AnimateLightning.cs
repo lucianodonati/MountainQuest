@@ -1,32 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class AnimateLightning : Arrow {
-
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.GetComponent<Entity>())
-        {
-            if (name.Contains("WindArrow") && numCollisions > 0)
-            {
-                numCollisions--;
-                Physics2D.IgnoreCollision(coll.collider, this.collider2D);
-            }
-
-            Entity isEntity = coll.gameObject.GetComponent<Entity>();
-            if (isEntity != null)
-                damageType.attachToEnemy(isEntity);
-
-            GetComponent<Animator>().SetBool("animate", true);
-        }
-
-        if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Boss")
-            GameManager.instance.stats.shotsHit++;
-
-        if (!name.Contains("WindArrow") || (coll.gameObject.tag != "Enemy" && coll.gameObject.tag != "Boss"))
-            GetStuck(coll.collider);
-    }
-
+public class AnimateLightning : Arrow
+{
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow"))
@@ -53,7 +29,6 @@ public class AnimateLightning : Arrow {
                 if (other.isTrigger == false)
                 {
                     numCollisions--;
-
                 }
             }
         }

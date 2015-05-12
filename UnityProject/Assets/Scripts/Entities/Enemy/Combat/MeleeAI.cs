@@ -1,19 +1,21 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class MeleeAI : AttackAI {
-
+public class MeleeAI : AttackAI
+{
     public float range;
 
     public LayerMask layerMask;
 
-	// Use this for initialization
-	protected override void Start () {
+    // Use this for initialization
+    protected override void Start()
+    {
         base.Start();
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
+    }
+
+    // Update is called once per frame
+    protected override void Update()
+    {
         if (GetComponent<Entity>().isStunned == false)
         {
             if (!weapon.GetComponent<Sword>().swinging)
@@ -25,14 +27,13 @@ public class MeleeAI : AttackAI {
             if (reloadTimer <= 0.0f)
                 AttackCheck();
         }
-	}
+    }
 
     private void AttackCheck()
     {
         //SWORD CODE
         if (!weapon.GetComponent<Sword>().swinging)
         {
-
             weapon.GetComponent<Sword>().Follow();
 
             if (InFOV(GameObject.FindGameObjectWithTag("Player")) &&
@@ -48,13 +49,15 @@ public class MeleeAI : AttackAI {
     public bool InFOV(GameObject targ)
     {
         bool val = false;
+        if (targ != null)
+        {
+            RaycastHit2D checkFOV =
+                Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
 
-        RaycastHit2D checkFOV =
-            Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
-
-        if (checkFOV.collider != null)
-            if (checkFOV.collider.transform == targ.transform && checkFOV.distance <= range)
-                val = true;
+            if (checkFOV.collider != null)
+                if (checkFOV.collider.transform == targ.transform && checkFOV.distance <= range)
+                    val = true;
+        }
 
         return val;
     }

@@ -13,14 +13,13 @@ public class Boss2Movement : Enemy
     public float runTimer = 2.0f;
     public bool attacking = false;
 
-    float shotDelay = 0.3f;
+    private float shotDelay = 0.3f;
 
     public Player player;
     public bool facingRight = false;
     /// ///////////////////////////////////////////
 
     private Vector2 preserveUp;
-
 
     public bool ignoreEdges = false;
 
@@ -38,15 +37,10 @@ public class Boss2Movement : Enemy
 
     public Vector3 SprayDirection;
 
-
-
-
-
-
     protected override void Start()
     {
         preserveUp = this.transform.up;
-        SprayDirection = new Vector3(-5.0f, 0,0);
+        SprayDirection = new Vector3(-5.0f, 0, 0);
         base.Start();
     }
 
@@ -62,8 +56,6 @@ public class Boss2Movement : Enemy
         }
         else
         {
-
-
             if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
             {
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -82,8 +74,6 @@ public class Boss2Movement : Enemy
 
                 if (ground != null)
                 {
-                    Vector2 velocityHold = rigidbody2D.velocity;
-
                     if (InFOV(target))
                     {
                         Vector3 toPlayer = target.transform.position - transform.position;
@@ -93,10 +83,6 @@ public class Boss2Movement : Enemy
                             direction = false; //left
                         else if (toPlayer.x > 0)
                             direction = true; //right
-
-
-
-
 
                         if (Mathf.Abs(toPlayer.x) <= 13.5 && Mathf.Abs(toPlayer.x) >= 6.5) // if medium range
                         {
@@ -110,10 +96,7 @@ public class Boss2Movement : Enemy
                             else if (rand >= 0.30 && rand <= 1.0)
                             {
                                 Shooting = true;
-
                             }
-
-
                         }
 
                         if (Mathf.Abs(toPlayer.x) >= 13.5) // if long range
@@ -129,14 +112,8 @@ public class Boss2Movement : Enemy
                             {
                                 Shooting = true;
                             }
-
-
                         }
-
-
-
                     }
-
 
                     if (!ignoreEdges)
                     {
@@ -151,13 +128,7 @@ public class Boss2Movement : Enemy
                 target = null;
             }
         }
-
-
     }
-
-
-
-
 
     private void OnTriggerStay2D(Collider2D coll)
     {
@@ -169,12 +140,6 @@ public class Boss2Movement : Enemy
                 target = coll.gameObject;
             }
         }
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-
     }
 
     private void OnCollisionStay2D(Collision2D coll)
@@ -213,21 +178,15 @@ public class Boss2Movement : Enemy
         return val;
     }
 
-
-
-
-
-
     private void ArrowSpray()
     {
         shotDelay -= Time.deltaTime;
         if (shotDelay <= 0)
         {
-            
             if (SprayDirection.x <= 0)
-            SprayDirection += new Vector3(1, 0.5f, 0);
+                SprayDirection += new Vector3(1, 0.5f, 0);
             if (SprayDirection.x > 0)
-               SprayDirection += new Vector3(1, -0.5f, 0);
+                SprayDirection += new Vector3(1, -0.5f, 0);
 
             Vector3 ArrowAngle = transform.position + SprayDirection;
             ArrowAngle -= transform.position;
@@ -243,7 +202,7 @@ public class Boss2Movement : Enemy
                 shotDelay = 0.2f;
             }
             else
-            shotDelay = 0.4f;
+                shotDelay = 0.4f;
 
             if (SprayDirection.x >= 6)
             {
@@ -251,9 +210,6 @@ public class Boss2Movement : Enemy
                 SprayDirection = new Vector3(-5.0f, 0, 0);
             }
         }
-        
-
-
     }
 
     private void ShootPlayer()
@@ -283,9 +239,5 @@ public class Boss2Movement : Enemy
                 Shooting = false;
             }
         }
-
     }
-
 }
-
-

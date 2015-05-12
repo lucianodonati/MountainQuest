@@ -15,10 +15,6 @@ public class Entity : MonoBehaviour
     //death vars
     public bool dead = false;
 
-    private float deadLingerTimer;
-    public float deadLingerTimerMax = 5.0f;
-    private bool collidersOff = false;
-
     // Use this for initialization
     protected virtual void Start()
     {
@@ -32,6 +28,8 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        transform.up = Vector2.up;
+
         if (!dead)
         {
             if (health.currentHP <= 0.0f)
@@ -41,32 +39,6 @@ public class Entity : MonoBehaviour
             {
                 rigidbody2D.velocity /= 2;
                 isSlowed = false;
-            }
-        }
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(myColor.r / 2, myColor.g / 2, myColor.b / 2, myColor.a);
-
-            if (GetComponent<Parasite>() == null)
-            {
-                deadLingerTimer -= Time.deltaTime;
-
-                if (!collidersOff)
-                {
-                    Collider2D[] colliders = GetComponents<Collider2D>();
-                    foreach (Collider2D coll in colliders)
-                    {
-                        if (coll.enabled)
-                            coll.enabled = false;
-                    }
-                    collidersOff = true;
-                }
-            }
-
-            if (deadLingerTimer <= 0.0f)
-            {
-                if (!renderer.isVisible)
-                    Destroy(gameObject);
             }
         }
     }
@@ -140,43 +112,7 @@ public class Entity : MonoBehaviour
         SoundFX sfx = GetComponent<SoundFX>();
         if (sfx != null)
             sfx.Play("Die");
-        if (tag == "Enemy" || tag == "Boss")
-        {
-            Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            player.experience += experience;
-            player.CheckForUpgrade();
-            StatsManager.instance.enemiesKilledTotal++;
-        }
-
-        if (GetComponent<Parasite>() != null)
-        {
-            GetComponent<Parasite>().currentDuration = 5.0f;
-            GetComponent<ParticleSystem>().emissionRate *= 4;
-        }
-        //Destroy(gameObject);
-
-        MonoBehaviour[] components = GetComponents<MonoBehaviour>();
-
-        foreach (Object c in components)
-        {
-            if (c.GetType() != System.Type.GetType("SpriteRenderer") &&
-                c.GetType() != System.Type.GetType("ParticleSystem") &&
-                c.GetType() != System.Type.GetType("Enemy") &&
-                c.GetType() != System.Type.GetType("Parasite") &&
-                c.GetType() != System.Type.GetType("Health") &&
-                c.GetType() != System.Type.GetType("HealthBar"))
-            {
-                if (c.GetType() == System.Type.GetType("Collider2D") && GetComponent<Parasite>() != null)
-                {
-                    if (!((Collider2D)c).isTrigger)
-                        continue;
-                }
-
-                ((MonoBehaviour)c).enabled = false;
-            }
-        }
 
         dead = true;
-        deadLingerTimer = deadLingerTimerMax;
     }
 }

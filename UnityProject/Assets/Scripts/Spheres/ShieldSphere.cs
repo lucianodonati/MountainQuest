@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class ShieldSphere : BaseSphere {
+public class ShieldSphere : BaseSphere
+{
     public float magnitude;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,10 +17,11 @@ public class ShieldSphere : BaseSphere {
                 sfx.Play("EnterSphere");
         }
     }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj != null && !proj.IsStuck() && !proj.IsInsideShield())
+        if (proj != null && !proj.stuck && !proj.createdInsideShield)
         {
             if (other.rigidbody2D.velocity.magnitude < 32)
             {
@@ -33,8 +35,15 @@ public class ShieldSphere : BaseSphere {
         }
     }
 
-    public void SetOwner(Player owner)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Owner = owner;
+        Arrow theArrow = other.GetComponent<Arrow>();
+        if (theArrow != null)
+            theArrow.owner = gameObject;
+    }
+
+    public void SetOwner(Entity _owner)
+    {
+        Owner = _owner;
     }
 }

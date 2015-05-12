@@ -14,17 +14,22 @@ public abstract class DamageType : MonoBehaviour
     {
         Entity attacked = GetComponent<Entity>();
         Health attackedHealth = null;
-        if (attacked != null)
+        if (!attacked.dead)
         {
-            attackedHealth = attacked.health;
-            if (attackedHealth == null)
-                Debug.LogWarning("Trying to access health but entity has no health.");
+            if (attacked != null)
+            {
+                attackedHealth = attacked.health;
+                if (attackedHealth == null)
+                    Debug.LogWarning("Trying to access health but entity has no health.");
+            }
+            else
+                Debug.LogWarning("Trying to access Entity but the parent is not an entity.");
         }
-        else
-            Debug.LogWarning("Trying to access Entity but the parent is not an entity.");
+        //else
+        //    Debug.LogWarning("Trying to attack a dead guy (you weirdo).");
 
         return attackedHealth;
     }
-    
+
     public abstract void attachToEnemy(Entity theOtherGuy);
 }

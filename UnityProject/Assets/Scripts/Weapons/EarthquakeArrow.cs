@@ -23,10 +23,10 @@ public class EarthquakeArrow : MonoBehaviour
         {
             if (coll.gameObject.tag == "Platform")
             {
-                if (coll.gameObject.transform.parent.gameObject.GetComponents<Shake>().Length < 1)
-                    coll.gameObject.transform.parent.gameObject.AddComponent<Shake>();
+                if (coll.gameObject.GetComponents<Shake>().Length < 1)
+                    coll.gameObject.AddComponent<Shake>();
                 else
-                    coll.gameObject.transform.parent.gameObject.GetComponent<Shake>().duration = duration;
+                    coll.gameObject.GetComponent<Shake>().duration = duration;
 
                 ++instances;
             }

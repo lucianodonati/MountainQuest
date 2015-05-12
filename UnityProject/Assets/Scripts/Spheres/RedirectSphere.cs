@@ -28,12 +28,12 @@ public class RedirectSphere : MonoBehaviour
                         Owner.GetComponent<Player>().RemoveRSphere();
                 Destroy(this.gameObject);
             }
-        }
 
-        if (AliveTimer <= 2)
-        {
-            SpriteRenderer mySR = GetComponent<SpriteRenderer>();
-            mySR.color = new Color(1, 1, 1, AliveTimer / 2);
+            if (AliveTimer <= 2)
+            {
+                SpriteRenderer mySR = GetComponent<SpriteRenderer>();
+                mySR.color = new Color(1, 1, 1, AliveTimer / 2);
+            }
         }
     }
 

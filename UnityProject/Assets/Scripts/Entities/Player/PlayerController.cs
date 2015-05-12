@@ -293,7 +293,7 @@ public class PlayerController : MonoBehaviour
                 mousepos -= transform.position;
                 mousepos.z = 0;
 
-                GameObject currArrow = (GameObject)Instantiate(Arrow,gameObject.transform.position + Vector3.back,
+                GameObject currArrow = (GameObject)Instantiate(Arrow, gameObject.transform.position + Vector3.back,
                                                                 Quaternion.FromToRotation(preserveUp, mousepos));
 
                 currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
@@ -302,7 +302,7 @@ public class PlayerController : MonoBehaviour
 
                 currArrow.GetComponent<Arrow>().owner = this.gameObject;
                 if (gameObject.GetComponentInChildren<ShieldSphere>() != null)
-                    currArrow.GetComponent<Arrow>().SetCreatedInsideShield();
+                    currArrow.GetComponent<Arrow>().createdInsideShield = true;
                 StatsManager.instance.shotsFired++;
             }
         }

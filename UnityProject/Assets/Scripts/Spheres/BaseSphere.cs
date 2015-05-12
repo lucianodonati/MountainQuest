@@ -1,18 +1,21 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class BaseSphere : MonoBehaviour {
+public class BaseSphere : MonoBehaviour
+{
     public float AliveTimer = 7;
-    public Player Owner;
+    public Entity Owner;
     private float startingTransparency;
 
-	// Use this for initialization
-	public virtual void Start () {
+    // Use this for initialization
+    public virtual void Start()
+    {
         startingTransparency = GetComponent<SpriteRenderer>().color.a;
-	}
-	
-	// Update is called once per frame
-	public virtual void Update () {
+    }
+
+    // Update is called once per frame
+    public virtual void Update()
+    {
         if (AliveTimer != -1)
         {
             AliveTimer -= Time.deltaTime;

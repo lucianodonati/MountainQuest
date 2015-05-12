@@ -41,7 +41,7 @@ public class Door : MonoBehaviour
             if (sprite.color.a <= 0.0f)
             {
                 if (callSomeone)
-                    GetComponent<ButtonScript>().SwitchMenu();
+                    GetComponent<ButtonScript>().LoadScene();
                 Destroy(gameObject);
             }
         }
