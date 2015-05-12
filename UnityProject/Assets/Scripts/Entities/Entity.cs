@@ -66,6 +66,7 @@ public class Entity : MonoBehaviour
         aff.currentDuration = aff.initialDuration = type.initialDuration;
         aff.ticEvery = type.ticEvery;
         aff.slow = type.slow;
+        aff.stun = type.stun;
         aff.particle = type.particle;
 
         if (aff.GetType() == System.Type.GetType("Parasite"))
