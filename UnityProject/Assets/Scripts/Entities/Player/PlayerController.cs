@@ -303,7 +303,7 @@ public class PlayerController : MonoBehaviour
 
                 currArrow.GetComponent<Arrow>().owner = this.gameObject;
 
-                GameManager.instance.stats.shotsFired++;
+                StatsManager.instance.shotsFired++;
             }
         }
         else

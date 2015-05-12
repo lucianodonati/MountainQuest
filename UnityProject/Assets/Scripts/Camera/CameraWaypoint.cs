@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class CameraWaypoint : MonoBehaviour {
-
-    public bool isStationary;
+public class CameraWaypoint : MonoBehaviour
+{
+    public bool isStationary, destroyOnContact = false;
     public Transform stationaryFocus;
 
     public float cameraSize = 10;
@@ -14,21 +14,23 @@ public class CameraWaypoint : MonoBehaviour {
     public float moveLerpSpeed = 8;
     public float scaleLerpSpeed = 16;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    // Use this for initialization
+    private void Start()
+    {
+    }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    // Update is called once per frame
+    private void Update()
+    {
+    }
+
+    private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
         {
             Camera.main.GetComponent<CameraBehavior>().SendMessage("SetView", this);
+            if (destroyOnContact)
+                Destroy(gameObject);
         }
     }
 }

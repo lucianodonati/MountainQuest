@@ -16,14 +16,15 @@ public class Arrow : MonoBehaviour
 
     //screenshake variables
     public float OnAOEShakeAmount;
+
     public float OnAOEDampeningAmount;
 
     // Use this for initialization
     private void Start()
     {
         SoundFX sfx = GetComponent<SoundFX>();
-        //if (sfx != null)
-        //    sfx.Play("Fire");
+        if (sfx != null)
+            sfx.Play("Fire");
         rigidbody2D.velocity = transform.up * speed;
         //GetComponent<BoxCollider2D>().isTrigger = true;
     }
@@ -126,7 +127,7 @@ public class Arrow : MonoBehaviour
                         GetComponent<CircleCollider2D>().enabled = true;
                     }
                 }
-                
+
                 if (other.gameObject.GetComponent<Entity>())
                 {
                     if (name.Contains("WindArrow") && numCollisions >= 0)
@@ -144,7 +145,7 @@ public class Arrow : MonoBehaviour
                 }
 
                 if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
-                    GameManager.instance.stats.shotsHit++;
+                    StatsManager.instance.shotsHit++;
 
                 if (!name.Contains("WindArrow") || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss"))
                     GetStuck(other);

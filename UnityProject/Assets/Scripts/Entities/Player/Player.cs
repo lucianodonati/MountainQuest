@@ -8,7 +8,6 @@ public class Player : Entity
     public int skillPoints = 0;
     public Arrow arrow;
     public bool isAiming = false;
-    public GameObject instructionsUI;
     public GameObject ClickObj;
     public GameObject ClickObjBoost;
     public GameObject basicClickObj;

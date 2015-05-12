@@ -5,16 +5,16 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public int experience;
-
     public Health health;
     public float maxHealth = 100.0f;
 
-    public bool isSlowed = false;
+    public bool isSlowed = false, isStunned = false;
 
     public Color myColor;
 
     //death vars
     public bool dead = false;
+
     private float deadLingerTimer;
     public float deadLingerTimerMax = 5.0f;
     private bool collidersOff = false;
@@ -65,8 +65,8 @@ public class Entity : MonoBehaviour
 
             if (deadLingerTimer <= 0.0f)
             {
-                if(!renderer.isVisible)
-                Destroy(gameObject);
+                if (!renderer.isVisible)
+                    Destroy(gameObject);
             }
         }
     }
@@ -82,7 +82,6 @@ public class Entity : MonoBehaviour
 
     public void TakeTamage(Affliction type)
     {
-
         Affliction aff;
 
         if (type.GetType() != System.Type.GetType("Parasite"))
@@ -97,7 +96,7 @@ public class Entity : MonoBehaviour
         aff.slow = type.slow;
         aff.particle = type.particle;
 
-        if(aff.GetType() == System.Type.GetType("Parasite"))
+        if (aff.GetType() == System.Type.GetType("Parasite"))
         {
             ((Parasite)aff).infectionChance = ((Parasite)type).infectionChance - ((Parasite)type).decayRate;
             ((Parasite)aff).decayRate = ((Parasite)type).decayRate;
@@ -146,10 +145,10 @@ public class Entity : MonoBehaviour
             Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             player.experience += experience;
             player.CheckForUpgrade();
-            GameManager.instance.stats.enemiesKilledTotal++;
+            StatsManager.instance.enemiesKilledTotal++;
         }
 
-        if(GetComponent<Parasite>() != null)
+        if (GetComponent<Parasite>() != null)
         {
             GetComponent<Parasite>().currentDuration = 5.0f;
             GetComponent<ParticleSystem>().emissionRate *= 4;
@@ -158,9 +157,9 @@ public class Entity : MonoBehaviour
 
         MonoBehaviour[] components = GetComponents<MonoBehaviour>();
 
-        foreach(Object c in components)
+        foreach (Object c in components)
         {
-            if(c.GetType() != System.Type.GetType("SpriteRenderer") &&
+            if (c.GetType() != System.Type.GetType("SpriteRenderer") &&
                 c.GetType() != System.Type.GetType("ParticleSystem") &&
                 c.GetType() != System.Type.GetType("Enemy") &&
                 c.GetType() != System.Type.GetType("Parasite") &&
@@ -179,6 +178,5 @@ public class Entity : MonoBehaviour
 
         dead = true;
         deadLingerTimer = deadLingerTimerMax;
-
     }
 }
