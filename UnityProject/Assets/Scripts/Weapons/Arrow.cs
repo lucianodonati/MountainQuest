@@ -93,7 +93,7 @@ public class Arrow : MonoBehaviour
                 if (other.isTrigger == false)
                 {
                     numCollisions--;
-
+                    other.GetComponent<Health>().TakeDamage(7, false);
                 }
             }
         }
