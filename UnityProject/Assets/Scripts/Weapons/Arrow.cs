@@ -60,8 +60,6 @@ public class Arrow : MonoBehaviour
         }
 
         if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Boss")
-            GameManager.instance.stats.shotsHit++;
-
         if (!name.Contains("WindArrow") || (coll.gameObject.tag != "Enemy" && coll.gameObject.tag != "Boss"))
             GetStuck(coll.collider);
     }
@@ -91,8 +89,8 @@ public class Arrow : MonoBehaviour
             {
                 if (other.isTrigger == false)
                 {
-                    numCollisions--;                
-                    
+                    numCollisions--;
+                    other.GetComponent<Health>().TakeDamage(7, false);
                 }
             }
         }
