@@ -189,9 +189,10 @@ MonoBehaviour:
   - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
   - {fileID: 104710, guid: a1c5b306c14ebea4ab5c5dfef8a7429e, type: 2}
   - {fileID: 132966, guid: f1f15e846f34b0d46be717ca92023b28, type: 2}
+  - {fileID: 163060, guid: eecf8075511ff354a86f85c5bd89b6e0, type: 2}
   - {fileID: 155430, guid: 5173c76e1a72a9f49ba192c2412a0420, type: 2}
   - {fileID: 104710, guid: 6dc67c4fe39b1054db44b855436137dc, type: 2}
-  - {fileID: 163060, guid: eecf8075511ff354a86f85c5bd89b6e0, type: 2}
+  - {fileID: 130572, guid: 98d6a6f81dd717841b4fc76687f31c46, type: 2}
   - {fileID: 155430, guid: 040b89db688440d4c97c8ab0cae21b63, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
