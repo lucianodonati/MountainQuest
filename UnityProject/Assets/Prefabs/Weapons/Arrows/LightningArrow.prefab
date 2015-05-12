@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &100190
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -10,8 +10,23 @@ GameObject:
   - 4: {fileID: 400190}
   - 212: {fileID: 21200190}
   - 114: {fileID: 11492264}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Tip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &124856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 424856}
+  m_Layer: 14
+  m_Name: PreserveScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +59,22 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0260000005, y: .057, z: -.100000001}
-  m_LocalScale: {x: 2.21685076, y: .385539442, z: 0}
+  m_LocalPosition: {x: .00499999989, y: .330000013, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_Father: {fileID: 424856}
+  m_RootOrder: 0
+--- !u!4 &424856
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: .166999996, z: 1}
+  m_Children:
+  - {fileID: 400190}
   m_Father: {fileID: 430572}
   m_RootOrder: 0
 --- !u!4 &430572
@@ -56,10 +84,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.6999998, y: 3.4000001, z: 0}
+  m_LocalPosition: {x: -5.01000023, y: 6.98699999, z: 0}
   m_LocalScale: {x: 1, y: 6, z: 0}
   m_Children:
-  - {fileID: 400190}
+  - {fileID: 424856}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5030574
@@ -110,10 +138,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 130572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e553f34bce74afd4abbf56240d378c7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 837cdba79f6fd79468c7813c7009940c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 30
   stuckTimer: 5
   numCollisions: 1
   damageType: {fileID: 11430572}
@@ -128,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83acb7817b13a4c41a623180b5c9bd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: 1
+  spinSpeed: 30
 --- !u!212 &21200190
 SpriteRenderer:
   m_ObjectHideFlags: 1
