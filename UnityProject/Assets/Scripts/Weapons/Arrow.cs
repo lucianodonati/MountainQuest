@@ -3,21 +3,11 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public GameObject owner;
-
     public float speed;
     public float stuckTimer = 5;
-    private bool stuck = false;
+    private bool stuck = false, justFired = true;
     public int numCollisions = 0;
     public DamageType damageType;
-
-    //AOE Emitter
-    public GameObject AOE_Emitter;
-
-    //screenshake variables
-    public float OnAOEShakeAmount;
-
-    public float OnAOEDampeningAmount;
 
     // Use this for initialization
     private void Start()
@@ -42,37 +32,27 @@ public class Arrow : MonoBehaviour
         //rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
     }
 
-    /*private void OnCollisionEnter2D(Collision2D coll)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         if ((name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow")))
         {
             if (!GetComponent<AOE>().enabled)
             {
-                SoundFX sfx = GetComponent<SoundFX>();
-                if (sfx != null)
-                   sfx.Play("Fire");
-                if (AOE_Emitter != null)
-                {
-                    GameObject emitter = (GameObject)Instantiate(AOE_Emitter, transform.position, transform.rotation);
-                    emitter.transform.parent = transform;
-                }
-
-                Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(OnAOEShakeAmount,OnAOEDampeningAmount);
-
                 GetComponent<AOE>().enabled = true;
                 GetComponent<CircleCollider2D>().enabled = true;
             }
         }
         else if (coll.gameObject.GetComponent<Entity>())
         {
-            if (name.Contains("WindArrow") && numCollisions >= 0)
+            if (name.Contains("WindArrow") && numCollisions > 0)
             {
                 numCollisions--;
-                justFired = true;
-                GetComponent<BoxCollider2D>().isTrigger = true;
+                Physics2D.IgnoreCollision(coll.collider, this.collider2D);
+                //justFired = true;
+                //GetComponent<BoxCollider2D>().isTrigger = true;
 
-                if (numCollisions == -1)
-                    GetStuck(coll.collider);
+                //if (numCollisions == -1)
+                //    GetStuck(coll.collider);
             }
 
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
@@ -81,76 +61,54 @@ public class Arrow : MonoBehaviour
         }
 
         if (coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Boss")
-            StatsManager.instance.shotsHit++;
+            GameManager.instance.stats.shotsHit++;
 
         if (!name.Contains("WindArrow") || (coll.gameObject.tag != "Enemy" && coll.gameObject.tag != "Boss"))
             GetStuck(coll.collider);
-    }*/
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject != owner && !other.isTrigger)
+        if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow"))
         {
-            if (stuck)
+            CircleCollider2D circle = GetComponent<CircleCollider2D>();
+            if (circle.enabled &&
+                (other.tag == "Enemy" || other.tag == "Boss") &&
+                other.Equals((Collider2D)other.gameObject.GetComponent<BoxCollider2D>()))
             {
-                if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow"))
-                {
-                    CircleCollider2D circle = GetComponent<CircleCollider2D>();
-                    if (circle.enabled &&
-                        (other.tag == "Enemy" || other.tag == "Boss") &&
-                        other.Equals((Collider2D)other.gameObject.GetComponent<BoxCollider2D>()))
-                    {
-                        Entity isEntity = other.gameObject.GetComponent<Entity>();
-                        if (isEntity != null)
-                            damageType.attachToEnemy(isEntity);
-                    }
-                }
-            }
-            else
-            {
-                if ((name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow")))
-                {
-                    if (!GetComponent<AOE>().enabled)
-                    {
-                        SoundFX sfx = GetComponent<SoundFX>();
-                        if (sfx != null)
-                            sfx.Play("Fire");
-                        if (AOE_Emitter != null)
-                        {
-                            GameObject emitter = (GameObject)Instantiate(AOE_Emitter, transform.position, transform.rotation);
-                            emitter.transform.parent = transform;
-                        }
-
-                        Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(OnAOEShakeAmount, OnAOEDampeningAmount);
-
-                        GetComponent<AOE>().enabled = true;
-                        GetComponent<CircleCollider2D>().enabled = true;
-                    }
-                }
-
-                if (other.gameObject.GetComponent<Entity>())
-                {
-                    if (name.Contains("WindArrow") && numCollisions >= 0)
-                    {
-                        numCollisions--;
-                        GetComponent<BoxCollider2D>().isTrigger = true;
-
-                        if (numCollisions == -1)
-                            GetStuck(other);
-                    }
-
-                    Entity isEntity = other.gameObject.GetComponent<Entity>();
-                    if (isEntity != null)
-                        damageType.attachToEnemy(isEntity);
-                }
-
-                if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
-                    StatsManager.instance.shotsHit++;
-
-                if (!name.Contains("WindArrow") || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss"))
-                    GetStuck(other);
+                Entity isEntity = other.gameObject.GetComponent<Entity>();
+                if (isEntity != null)
+                    damageType.attachToEnemy(isEntity);
             }
         }
+        if ((name.Contains("WindArrow") && (LayerMask.LayerToName(other.gameObject.layer) == "Platform" || other.name.Contains("Platforms"))))
+        {
+            GetComponent<BoxCollider2D>().isTrigger = false;
+            GetStuck(other);
+        }
+        else if (name.Contains("WindArrow") && other.gameObject.GetComponent<Enemy>())
+        {
+            if (other.gameObject.GetComponent<CircleCollider2D>() != null)
+            {
+                if (other.isTrigger == false)
+                {
+                    numCollisions--;                
+                    
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        
+        //if (justFired)
+        //{
+            if (name.Contains("WindArrow") == false || numCollisions <= 0)
+            GetComponent<BoxCollider2D>().isTrigger = false;
+           
+        //    justFired = false;
+        //}
     }
 
     protected void GetStuck(Collider2D coll)
