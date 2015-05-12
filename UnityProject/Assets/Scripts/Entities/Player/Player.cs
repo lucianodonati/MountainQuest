@@ -8,19 +8,20 @@ public class Player : Entity
     public int skillPoints = 0;
     public Arrow arrow;
     public bool isAiming = false;
-    public GameObject ClickObj;
-    public GameObject ClickObjBoost;
+    public GameObject instructionsUI;
+    public GameObject RedirectClickObj;
+    public GameObject OtherClickObj;
     public GameObject basicClickObj;
     private GameObject CreateRedirectSphere;
-    private GameObject CreateBoostSphere;
+    private GameObject CreateOtherSphere;
     private GameObject CreateBasicSphere;
     private bool RedirectMade = false;
     public float SphereDistance = 7;
     public float PlayerAliveTimer = 8.0f;
     public int RSphereTotal = 0;
     public int RSphereCap = 3;
-    public int BSphereTotal = 0;
-    public int BSphereCap = 3;
+    public int OSphereTotal = 0;
+    public int OSphereCap = 3;
     public int lives = 3;
     private float deathTimer = 0.0f;
 
@@ -60,32 +61,40 @@ public class Player : Entity
         Vector3 mPos = Camera.main.ScreenToWorldPoint(mouse);
 
         if (Input.GetMouseButtonDown(1))
-        {
             CreateBasicSphere = (GameObject)GameObject.Instantiate(basicClickObj, mPos, Quaternion.identity);
-        }
 
-        if (Input.GetMouseButtonUp(1) && BSphereTotal <= BSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7))
+        if (Input.GetMouseButtonUp(1) && OSphereTotal <= OSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7))
         {
             bool goCreate = true;
-            foreach (BoostSphere ball in GameObject.FindObjectsOfType<BoostSphere>())
+            foreach (BaseSphere ball in GameObject.FindObjectsOfType<BaseSphere>())
             {
                 if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
                 {
                     goCreate = true;
                     Destroy(ball.gameObject);
-                    BSphereTotal--;
+                    OSphereTotal--;
                 }
-                if (BSphereCap == BSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
-                {
+                if (OSphereCap == OSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
                     goCreate = false;
-                }
             }
 
             if (goCreate)
             {
-                CreateBoostSphere = (GameObject)Instantiate(ClickObjBoost, mPos, Quaternion.identity);
-                BSphereTotal += 1;
-                CreateBoostSphere.GetComponent<BoostSphere>().SetOwner(this);
+                if (OtherClickObj.GetComponent<ShieldSphere>() != null)
+                {
+                    if (transform.GetComponentInChildren<ShieldSphere>() == null)
+                    {
+                        CreateOtherSphere = (GameObject)Instantiate(OtherClickObj, transform.position, Quaternion.identity);
+                        CreateOtherSphere.GetComponent<ShieldSphere>().SetOwner(this);
+                        CreateOtherSphere.transform.parent = transform;
+                    }
+                }
+                else
+                {
+                    CreateOtherSphere = (GameObject)Instantiate(OtherClickObj, mPos, Quaternion.identity);
+                    CreateOtherSphere.GetComponent<BoostSphere>().SetOwner(this);
+                }
+                OSphereTotal += 1;
             }
         }
         else if (Input.GetMouseButtonDown(1) && RSphereTotal <= RSphereCap)
@@ -111,7 +120,7 @@ public class Player : Entity
                 }
                 if (goCreate)
                 {
-                    CreateRedirectSphere = (GameObject)Instantiate(ClickObj, CreateBasicSphere.transform.position, Quaternion.identity);
+                    CreateRedirectSphere = (GameObject)Instantiate(RedirectClickObj, CreateBasicSphere.transform.position, Quaternion.identity);
                     RSphereTotal += 1;
                     CreateRedirectSphere.GetComponent<RedirectSphere>().SetOwner(this);
                     RedirectMade = true;
@@ -134,7 +143,7 @@ public class Player : Entity
         {
             isAiming = false;
             CreateRedirectSphere = null;
-            CreateBoostSphere = null;
+            CreateOtherSphere = null;
             RedirectMade = false;
             Destroy(CreateBasicSphere);
         }
@@ -145,9 +154,9 @@ public class Player : Entity
         RSphereTotal -= 1;
     }
 
-    public void RemoveBSphere()
+    public void RemoveOSphere()
     {
-        BSphereTotal -= 1;
+        OSphereTotal -= 1;
     }
 
     public int numRedirectSpheresLeft()
@@ -155,9 +164,9 @@ public class Player : Entity
         return (RSphereCap - RSphereTotal);
     }
 
-    public int numBoostSpheresLeft()
+    public int numOtherSpheresLeft()
     {
-        return (BSphereCap - BSphereTotal);
+        return (OSphereCap - OSphereTotal);
     }
 
     public override void die()

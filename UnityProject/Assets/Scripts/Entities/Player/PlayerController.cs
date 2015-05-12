@@ -302,7 +302,8 @@ public class PlayerController : MonoBehaviour
                 arrowCooldownTimer = arrowCooldownTimerMax;
 
                 currArrow.GetComponent<Arrow>().owner = this.gameObject;
-
+                if (gameObject.GetComponentInChildren<ShieldSphere>() != null)
+                    currArrow.GetComponent<Arrow>().SetCreatedInsideShield();
                 StatsManager.instance.shotsFired++;
             }
         }

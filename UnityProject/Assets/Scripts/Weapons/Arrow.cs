@@ -5,7 +5,7 @@ public class Arrow : MonoBehaviour
 {
     public float speed;
     public float stuckTimer = 5;
-    private bool stuck = false, justFired = true;
+    private bool stuck = false, justFired = true, createdInsideShield = false;
     public int numCollisions = 0;
     public DamageType damageType;
 
@@ -16,7 +16,6 @@ public class Arrow : MonoBehaviour
         if (sfx != null)
             sfx.Play("Fire");
         rigidbody2D.velocity = transform.up * speed;
-        //GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     // Update is called once per frame
@@ -109,6 +108,9 @@ public class Arrow : MonoBehaviour
            
         //    justFired = false;
         //}
+
+        if(createdInsideShield && other.GetComponent<ShieldSphere>() != null)
+            createdInsideShield = false;
     }
 
     protected void GetStuck(Collider2D coll)
@@ -134,5 +136,20 @@ public class Arrow : MonoBehaviour
             transform.parent = dummyChildTransform;
             rigidbody2D.isKinematic = true;
         }
+    }
+
+    public bool IsStuck()
+    {
+        return stuck;
+    }
+
+    public void SetCreatedInsideShield()
+    {
+        createdInsideShield = true;
+    }
+
+    public bool IsInsideShield()
+    {
+        return createdInsideShield;
     }
 }
