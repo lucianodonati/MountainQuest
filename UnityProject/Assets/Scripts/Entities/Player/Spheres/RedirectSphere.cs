@@ -81,10 +81,4 @@ public class RedirectSphere : MonoBehaviour
     {
         Owner = owner;
     }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (name == "JumpThroughRedirectSphere1" || name == "JumpThroughRedirectSphere2")
-            Destroy(gameObject);
-    }
 }
