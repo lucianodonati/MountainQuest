@@ -104,7 +104,14 @@ public class CameraBehavior : MonoBehaviour
     {
         if (focused)
         {
+            if (MaxBound != null)
+            {
+                if (pos.x + halfWidth > MaxBound.transform.position.x)
+                    pos.x = MaxBound.transform.position.x - halfWidth;
 
+                if (pos.y + halfHeight > MaxBound.transform.position.y)
+                    pos.y = MaxBound.transform.position.y - halfHeight;
+            }
 
             if (MinBound != null)
             {
@@ -113,15 +120,6 @@ public class CameraBehavior : MonoBehaviour
 
                 if (pos.y - halfHeight < MinBound.transform.position.y)
                     pos.y = MinBound.transform.position.y + halfHeight;
-            }
-
-            if (MaxBound != null)
-            {
-                if (pos.x + halfWidth > MaxBound.transform.position.x)
-                    pos.x = MaxBound.transform.position.x - halfWidth;
-
-                if (pos.y + halfHeight > MaxBound.transform.position.y)
-                    pos.y = MaxBound.transform.position.y - halfHeight;
             }
         }
 
