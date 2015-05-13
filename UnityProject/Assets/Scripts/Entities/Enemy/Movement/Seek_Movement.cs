@@ -46,17 +46,7 @@ public class Seek_Movement : Enemy_Movement
                 moveSpeed *= howSlowed;
                 currSlowed = false;
             }
-///////////////////////////////
-            if (GetComponent<Entity>().isStunned && currStunned == false)
-            {
-                moveSpeed /= howSlowed;
-                currSlowed = true;
-            }
-            if (GetComponent<Entity>().isStunned == false && currStunned == true)
-            {
-                moveSpeed *= howSlowed;
-                currSlowed = false;
-            }
+
 
 
             if (aggroTimer > 0.0f)

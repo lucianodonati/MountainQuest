@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public float slowTimer = 3.0f;
+    public float stunTimer = 2.0f;
+
     public int experience;
     public Health health;
     public float maxHealth = 100.0f;
@@ -35,11 +38,33 @@ public class Entity : MonoBehaviour
             if (health.currentHP <= 0.0f)
                 die();
 
-            if (isSlowed)
-            {
-                rigidbody2D.velocity /= 2;
-                isSlowed = false;
-            }
+        ///////////////////////////////// Slow code {
+        if (slowTimer <= 0)
+        {
+            isSlowed = false;
+            slowTimer = 3.0f;
+            //rigidbody2D.velocity *= 2;
+        }
+
+        if (isSlowed)
+        {
+            slowTimer -= Time.deltaTime;
+            // rigidbody2D.velocity /= 2;
+        }
+        ///////////////////////////////// Slow code }
+
+        ///////////////////////////////// Stun code {
+        if (stunTimer <= 0)
+        {
+            isStunned = false;
+            stunTimer = 2.0f;
+        }
+
+        if (isStunned)
+        {
+            stunTimer -= Time.deltaTime;
+        }
+        ///////////////////////////////// Stun code }
         }
     }
 
