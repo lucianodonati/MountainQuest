@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32c53bcebd2a91498ba1a3b13af3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numParticles: 100
+  numParticles: 50
   lifetimeVariance: .5
   particleVelocityMultiplier: 8
   angleCorrectionSpeed: 1

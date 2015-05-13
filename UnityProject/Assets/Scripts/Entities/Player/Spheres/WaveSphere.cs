@@ -9,12 +9,19 @@ public class WaveSphere : MonoBehaviour {
     public int arrowsPerWave = 20;
 
     private int arrowsCreated;
-    public int MaxArrowsCreated = 100;
+
+    private int timesHit;
+    public int maxTimesHit = 5;
+    public float timesHitAOEDivider = 2;
 
     private float instabilityTimer;
     private float instabilityTimerMax = 3;
 
     public bool destabilizeViolently = false;
+    public float destabilizeArrowMultiplier = 4;
+
+    public float minAngVel = 180.0f;
+    public float maxAngVel = 360.0f;
 
     Vector3 posSaver;
 
@@ -40,7 +47,8 @@ public class WaveSphere : MonoBehaviour {
         if(instabilityTimer >= 0.0f)
         {
             instabilityTimer -= Time.deltaTime;
-            transform.position = posSaver + ((Vector3)Random.insideUnitCircle * (arrowsCreated * (instabilityTimer / instabilityTimerMax)/100));
+            transform.position =
+                posSaver + ((Vector3)Random.insideUnitCircle * (arrowsCreated * (instabilityTimer / instabilityTimerMax)/100));
         }
 	}
 
@@ -68,7 +76,7 @@ public class WaveSphere : MonoBehaviour {
 
                     float currangle = 0, angleIncrement = 360.0f / (float)arrowsPerWave;
 
-                    if (arrowsCreated + arrowsPerWave <= MaxArrowsCreated)
+                    if (timesHit <= ((other.GetComponent<AOE>() != null)?(int)(maxTimesHit/timesHitAOEDivider):maxTimesHit))
                     {
                         for (int i = 0; i < arrowsPerWave; ++i)
                         {
@@ -79,14 +87,20 @@ public class WaveSphere : MonoBehaviour {
                         }
 
                         if (instabilityTimer <= 0.0f)
+                        {
                             arrowsCreated = arrowsPerWave;
+                            timesHit = 1;
+                        }
                         else
+                        {
                             arrowsCreated += arrowsPerWave;
+                            ++timesHit;
+                        }
 
                         instabilityTimer = instabilityTimerMax;
                     }
 
-                    if (arrowsCreated >= MaxArrowsCreated)
+                    if (timesHit >= ((other.GetComponent<AOE>() != null) ? (int)(maxTimesHit / timesHitAOEDivider) : maxTimesHit))
                     {
                         sfx.Play("Destabilize");
 
@@ -95,7 +109,7 @@ public class WaveSphere : MonoBehaviour {
                             currangle = 0;
                             angleIncrement = 360 / ((float)arrowsPerWave * 4.0f);
 
-                            for (int i = 0; i < arrowsPerWave * 4; ++i)
+                            for (int i = 0; i < (int)(arrowsPerWave * destabilizeArrowMultiplier); ++i)
                             {
                                 GameObject currArrow =
                                     (GameObject)Instantiate(other.gameObject, transform.position, Quaternion.Euler(new Vector3(0, 0, currangle)));
@@ -118,7 +132,7 @@ public class WaveSphere : MonoBehaviour {
                                     currArrow.rigidbody2D.velocity.normalized
                                         * Random.Range(currArrow.rigidbody2D.velocity.magnitude / 10, 4.0f * currArrow.rigidbody2D.velocity.magnitude);
 
-                                currArrow.rigidbody2D.angularVelocity = Random.Range(180.0f, 360.0f);
+                                currArrow.rigidbody2D.angularVelocity = Random.Range(minAngVel, maxAngVel);
 
                                 currangle += angleIncrement;
                             }

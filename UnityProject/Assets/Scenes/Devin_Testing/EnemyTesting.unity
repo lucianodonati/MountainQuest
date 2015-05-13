@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19865448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.1999998, y: 1, z: -5.9000001}
+  m_LocalPosition: {x: 55, y: 4, z: -5.9000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -828,12 +828,12 @@ Transform:
   m_PrefabInternal: {fileID: 1810829304}
   m_GameObject: {fileID: 195740990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 10.5, z: 0}
+  m_LocalPosition: {x: 37.5999985, y: 13.6999998, z: 0}
   m_LocalScale: {x: 10, y: 30, z: 1}
   m_Children:
   - {fileID: 432865508}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!114 &195740992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3168,7 +3168,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 512011079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.5, y: 1.39999998, z: -5.9000001}
+  m_LocalPosition: {x: 47.7000008, y: 4.4000001, z: -5.9000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3252,9 +3252,13 @@ MonoBehaviour:
   DamageModifier: 10
   AliveTimer: -1
   Owner: {fileID: 0}
-  arrowsPerWave: 20
-  MaxArrowsCreated: 100
+  arrowsPerWave: 10
+  maxTimesHit: 5
+  timesHitAOEDivider: 1.5
   destabilizeViolently: 1
+  destabilizeArrowMultiplier: 1.5
+  minAngVel: 180
+  maxAngVel: 360
 --- !u!114 &567344978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3334,7 +3338,7 @@ Transform:
   m_PrefabInternal: {fileID: 1263505630}
   m_GameObject: {fileID: 567344976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.1400003, y: 6.5999999, z: -4.11000013}
+  m_LocalPosition: {x: 12.6999998, y: 5.0999999, z: -4.0999999}
   m_LocalScale: {x: 2.78271532, y: 2.78271675, z: 2.78271675}
   m_Children:
   - {fileID: 943616071}
@@ -3505,11 +3509,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 468894, guid: d5e03e77566b6704ea253f6857dc903c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.2000008
+      value: 51.0999985
       objectReference: {fileID: 0}
     - target: {fileID: 468894, guid: d5e03e77566b6704ea253f6857dc903c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 468894, guid: d5e03e77566b6704ea253f6857dc903c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4984,15 +4988,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 420396, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.1400003
+      value: 12.6999998
       objectReference: {fileID: 0}
     - target: {fileID: 420396, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.5999999
+      value: 5.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 420396, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -4.11000013
+      value: -4.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 420396, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5013,6 +5017,26 @@ Prefab:
     - target: {fileID: 420396, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420394, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
+      propertyPath: destabilizeArrowMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420394, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
+      propertyPath: arrowsPerWave
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420394, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
+      propertyPath: MaxArrowsCreated
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420394, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
+      propertyPath: maxTimesHit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420394, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
+      propertyPath: timesHitAOEDivider
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
@@ -6189,7 +6213,7 @@ Transform:
   m_PrefabInternal: {fileID: 702292726}
   m_GameObject: {fileID: 1590079108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.2000008, y: 2, z: -5.9000001}
+  m_LocalPosition: {x: 51.0999985, y: 6, z: -5.9000001}
   m_LocalScale: {x: 10, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6537,7 +6561,7 @@ Transform:
   - {fileID: 1239646901}
   - {fileID: 1746232010}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!114 &1673192759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6707,7 +6731,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11451678, guid: 49720bfc9359b5c498eef886406ebd80, type: 2}
       propertyPath: spawnCap
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49720bfc9359b5c498eef886406ebd80, type: 2}
@@ -6723,11 +6747,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453882, guid: 0a551737fc01c204d8e8fb4f4f68cb90, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 37.5999985
       objectReference: {fileID: 0}
     - target: {fileID: 453882, guid: 0a551737fc01c204d8e8fb4f4f68cb90, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.5
+      value: 13.6999998
       objectReference: {fileID: 0}
     - target: {fileID: 453882, guid: 0a551737fc01c204d8e8fb4f4f68cb90, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6751,7 +6775,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453882, guid: 0a551737fc01c204d8e8fb4f4f68cb90, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a551737fc01c204d8e8fb4f4f68cb90, type: 2}
@@ -6936,7 +6960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 132178, guid: 492929ad98da2ab43bd1131298c3db6c, type: 2}
   spawnCount: 0
-  spawnCap: 0
+  spawnCap: 10
   spawnTimerMax: 1
 --- !u!212 &1879863320
 SpriteRenderer:
