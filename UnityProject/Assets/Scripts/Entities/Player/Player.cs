@@ -74,18 +74,26 @@ public class Player : Entity
             if (Input.GetMouseButtonDown(1))
                 CreateBasicSphere = (GameObject)GameObject.Instantiate(basicClickObj, mPos, Quaternion.identity);
 
-            if (Input.GetMouseButtonUp(1) && OSphereTotal <= OSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7))
+            if (Input.GetMouseButtonUp(1) && OSphereTotal <= OSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7f))
             {
                 bool goCreate = true;
-                foreach (BaseSphere ball in GameObject.FindObjectsOfType<BaseSphere>())
+                if (!OtherClickObj.GetComponent<ShieldSphere>() == null)
                 {
-                    if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
+                    foreach (BaseSphere ball in GameObject.FindObjectsOfType<BaseSphere>())
                     {
-                        goCreate = true;
-                        Destroy(ball.gameObject);
-                        OSphereTotal--;
+                        if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
+                        {
+                            goCreate = true;
+                            Destroy(ball.gameObject);
+                            OSphereTotal--;
+                        }
+                        if (OSphereCap == OSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
+                            goCreate = false;
                     }
-                    if (OSphereCap == OSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
+                }
+                else
+                {
+                    if (gameObject.GetComponentInChildren<ShieldSphere>())
                         goCreate = false;
                 }
 
@@ -93,12 +101,9 @@ public class Player : Entity
                 {
                     if (OtherClickObj.GetComponent<ShieldSphere>() != null)
                     {
-                        if (transform.GetComponentInChildren<ShieldSphere>() == null)
-                        {
-                            CreateOtherSphere = (GameObject)Instantiate(OtherClickObj, transform.position, Quaternion.identity);
-                            CreateOtherSphere.GetComponent<ShieldSphere>().SetOwner(this);
-                            CreateOtherSphere.transform.parent = transform;
-                        }
+                        CreateOtherSphere = (GameObject)Instantiate(OtherClickObj, transform.position, Quaternion.identity);
+                        CreateOtherSphere.GetComponent<ShieldSphere>().SetOwner(this);
+                        CreateOtherSphere.transform.parent = transform;
                     }
                     else
                     {
