@@ -86,13 +86,16 @@ public class Arrow : MonoBehaviour
 
                 if (other.gameObject.GetComponent<Entity>())
                 {
-                    if (name.Contains("WindArrow") && numCollisions >= 0)
+                    if ((name.Contains("WindArrow") || name.Contains("LightningArrow")) && numCollisions >= 0)
                     {
                         numCollisions--;
                         GetComponent<BoxCollider2D>().isTrigger = true;
 
                         if (numCollisions == -1)
                             GetStuck(other);
+
+                        if(name.Contains("LightningArrow"))
+                            GetComponent<LightningArrow>().CreateLightningHitAnimation();
                     }
 
                     Entity isEntity = other.gameObject.GetComponent<Entity>();
@@ -103,7 +106,7 @@ public class Arrow : MonoBehaviour
                 if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
                     StatsManager.instance.shotsHit++;
 
-                if (!name.Contains("WindArrow") || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss"))
+                if ((!name.Contains("WindArrow") && !name.Contains("LightningArrow")) || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss"))
                     GetStuck(other);
             }
         }
@@ -111,7 +114,7 @@ public class Arrow : MonoBehaviour
 
     protected void GetStuck(Collider2D coll)
     {
-        if (coll.tag != "Sphere" /*&& !justFired*/ && transform.parent == null)
+        if (coll.tag != "Sphere" && transform.parent == null)
         {
             rigidbody2D.velocity = new Vector2(0, 0);
             GetComponent<BoxCollider2D>().isTrigger = true;
