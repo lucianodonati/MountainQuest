@@ -127,18 +127,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb90537699653c4479ca44cf09b71ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowTimer: 3
-  stunTimer: 1.5
   experience: 0
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
   level: 1
   skillPoints: 0
   arrow: {fileID: 0}
   isAiming: 0
-  instructionsUI: {fileID: 0}
   RedirectClickObj: {fileID: 135404, guid: 3437cea711b526a47ac242597f0a0562, type: 2}
   OtherClickObj: {fileID: 162238, guid: ccbf9f43704db724baeedda91dbac48e, type: 2}
   basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
@@ -174,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309091226dadda74989d022fb9b6abdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeControls: 1
   movementSpeed: 10
   dragCoef: .949999988
   jumpSpeed: 1
@@ -194,6 +194,7 @@ MonoBehaviour:
   - {fileID: 104710, guid: 6dc67c4fe39b1054db44b855436137dc, type: 2}
   - {fileID: 130572, guid: 98d6a6f81dd717841b4fc76687f31c46, type: 2}
   - {fileID: 155430, guid: 040b89db688440d4c97c8ab0cae21b63, type: 2}
+  - {fileID: 146716, guid: d1181c8f34e601b4f8789421658d7f38, type: 2}
   Swords:
   - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
   - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
