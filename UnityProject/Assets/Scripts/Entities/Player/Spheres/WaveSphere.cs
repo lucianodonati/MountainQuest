@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class WaveSphere : MonoBehaviour {
-
+public class WaveSphere : MonoBehaviour
+{
     public float DamageModifier = 10;
     public float AliveTimer = 7;
     public Player Owner;
@@ -23,34 +23,35 @@ public class WaveSphere : MonoBehaviour {
     public float minAngVel = 180.0f;
     public float maxAngVel = 360.0f;
 
-    Vector3 posSaver;
+    private Vector3 posSaver;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Start()
+    {
         posSaver = transform.position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
 
+    // Update is called once per frame
+    private void Update()
+    {
         if (AliveTimer != -1)
         {
             AliveTimer -= Time.deltaTime;
             if (AliveTimer <= 0)
             {
                 if (Owner != null && Owner.GetComponent<Player>() != null)
-                    Owner.GetComponent<Player>().RemoveBSphere();
+                    Owner.GetComponent<Player>().RemoveOSphere();
                 Destroy(this.gameObject);
             }
         }
 
-        if(instabilityTimer >= 0.0f)
+        if (instabilityTimer >= 0.0f)
         {
             instabilityTimer -= Time.deltaTime;
             transform.position =
-                posSaver + ((Vector3)Random.insideUnitCircle * (arrowsCreated * (instabilityTimer / instabilityTimerMax)/100));
+                posSaver + ((Vector3)Random.insideUnitCircle * (arrowsCreated * (instabilityTimer / instabilityTimerMax) / 100));
         }
-	}
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -76,7 +77,7 @@ public class WaveSphere : MonoBehaviour {
 
                     float currangle = 0, angleIncrement = 360.0f / (float)arrowsPerWave;
 
-                    if (timesHit <= ((other.GetComponent<AOE>() != null)?(int)(maxTimesHit/timesHitAOEDivider):maxTimesHit))
+                    if (timesHit <= ((other.GetComponent<AOE>() != null) ? (int)(maxTimesHit / timesHitAOEDivider) : maxTimesHit))
                     {
                         for (int i = 0; i < arrowsPerWave; ++i)
                         {

@@ -14,9 +14,13 @@ public class KoCinematic : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (goTransform)
-            if (GameObject.Find("Portal") != null)
-                transform.position = Vector3.Lerp(transform.position, GameObject.Find("Portal").transform.position, moveSpeed * Time.deltaTime);
         this.transform.up = Vector2.up;
+        if (goTransform)
+        {
+            if (GameObject.Find("Portal") != null)
+                transform.position = Vector3.MoveTowards(transform.position, GameObject.Find("Portal").transform.position, moveSpeed * Time.deltaTime);
+            else
+                transform.position = Vector3.MoveTowards(transform.position, GameObject.Find("EnterRoom").transform.position, moveSpeed * Time.deltaTime);
+        }
     }
 }

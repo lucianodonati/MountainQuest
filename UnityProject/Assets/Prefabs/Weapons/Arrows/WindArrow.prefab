@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5032966}
   - 114: {fileID: 11432964}
   - 114: {fileID: 11442380}
+  - 114: {fileID: 11421234}
   m_Layer: 14
   m_Name: WindArrow
   m_TagString: Arrow
@@ -58,6 +59,25 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11421234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Fire
+    sounds:
+    - {fileID: 8300000, guid: dc7fc69fe7dee4346a002fd39aeef3bc, type: 3}
+    - {fileID: 8300000, guid: 03291244a3734a244bc3a898a9b2b13e, type: 3}
+    - {fileID: 8300000, guid: 3b7f094b353bf3e4bb5548d93c03bb1a, type: 3}
+    - {fileID: 8300000, guid: 6cb93ed1ec21ce9409f32c1096db7877, type: 3}
+    volume: .100000001
 --- !u!114 &11432964
 MonoBehaviour:
   m_ObjectHideFlags: 1

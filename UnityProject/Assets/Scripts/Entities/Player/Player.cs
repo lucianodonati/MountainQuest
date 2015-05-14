@@ -77,7 +77,7 @@ public class Player : Entity
             if (Input.GetMouseButtonUp(1) && OSphereTotal <= OSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7f))
             {
                 bool goCreate = true;
-                if (!OtherClickObj.GetComponent<ShieldSphere>() == null)
+                if (OtherClickObj.GetComponent<ShieldSphere>() != null)
                 {
                     foreach (BaseSphere ball in GameObject.FindObjectsOfType<BaseSphere>())
                     {
