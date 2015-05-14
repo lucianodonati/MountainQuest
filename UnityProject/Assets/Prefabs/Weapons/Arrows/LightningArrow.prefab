@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400190}
   - 212: {fileID: 21200190}
   - 114: {fileID: 11492264}
+  - 95: {fileID: 9598362}
   m_Layer: 14
   m_Name: Tip
   m_TagString: Untagged
@@ -44,9 +45,7 @@ GameObject:
   - 61: {fileID: 6130574}
   - 50: {fileID: 5030574}
   - 114: {fileID: 11430572}
-  - 114: {fileID: 11439168}
   - 114: {fileID: 11430574}
-  - 114: {fileID: 11421234}
   m_Layer: 14
   m_Name: LightningArrow
   m_TagString: Arrow
@@ -86,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.8377609, y: 6.02630711, z: 0}
+  m_LocalPosition: {x: 236.830002, y: 84, z: 0}
   m_LocalScale: {x: 1, y: 6, z: 0}
   m_Children:
   - {fileID: 424856}
@@ -118,25 +117,21 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
---- !u!114 &11421234
-MonoBehaviour:
+--- !u!95 &9598362
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130572}
+  m_GameObject: {fileID: 100190}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SFX:
-  - name: Fire
-    sounds:
-    - {fileID: 8300000, guid: dc7fc69fe7dee4346a002fd39aeef3bc, type: 3}
-    - {fileID: 8300000, guid: 03291244a3734a244bc3a898a9b2b13e, type: 3}
-    - {fileID: 8300000, guid: 3b7f094b353bf3e4bb5548d93c03bb1a, type: 3}
-    - {fileID: 8300000, guid: 6cb93ed1ec21ce9409f32c1096db7877, type: 3}
-    volume: .100000001
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11430572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,12 +143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a1cd497e2e64b44b2dcf60bb2a83c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  critChance: .200000003
-  critMult: 2
+  damage: 3
+  critChance: .699999988
+  critMult: 5
 --- !u!114 &11430574
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130572}
@@ -163,32 +158,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  speed: 30
-  stuckTimer: 5
-  numCollisions: 1
+  speed: 50
+  stuckTimer: 0
+  numCollisions: 10
   damageType: {fileID: 11430572}
   AOE_Emitter: {fileID: 0}
   OnAOEShakeAmount: 0
   OnAOEDampeningAmount: 0
---- !u!114 &11439168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e553f34bce74afd4abbf56240d378c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
-  speed: 58
-  stuckTimer: 5
-  numCollisions: 1
-  damageType: {fileID: 11430572}
-  AOE_Emitter: {fileID: 0}
-  OnAOEShakeAmount: 0
-  OnAOEDampeningAmount: 0
+  lightningEffectObj: {fileID: 135968, guid: 6cacf0c983e379f4a914b46c62e9f589, type: 2}
 --- !u!114 &11492264
 MonoBehaviour:
   m_ObjectHideFlags: 1
