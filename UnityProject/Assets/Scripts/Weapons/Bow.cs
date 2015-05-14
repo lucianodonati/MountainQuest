@@ -1,13 +1,16 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Bow : MonoBehaviour {
+public class Bow : MonoBehaviour
+{
+    private GameObject owner;
+    private PlayerController playercontroller;
+    private ParticleSystem pSys;
+    private float eRate;
 
-    GameObject owner;
-    PlayerController playercontroller;
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Start()
+    {
         owner = transform.parent.gameObject;
 
         if (owner.tag == "Player")
@@ -15,18 +18,34 @@ public class Bow : MonoBehaviour {
 
         transform.Rotate(0, 0, 45);
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        pSys = GetComponent<ParticleSystem>();
+        eRate = pSys.emissionRate;
+        pSys.emissionRate = 0;
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
         if (playercontroller != null)
         {
             if (playercontroller.Arrow != null)
                 GetComponent<SpriteRenderer>().color = playercontroller.Arrow.GetComponent<SpriteRenderer>().color;
 
+            if (playercontroller.Arrow.name.Contains("ExplodingArrow") ||
+                playercontroller.Arrow.name.Contains("ShatteringArrow") ||
+                playercontroller.Arrow.name.Contains("LightningArrow") ||
+                playercontroller.Arrow.name.Contains("EarthquakeArrow") ||
+                playercontroller.Arrow.name.Contains("PlagueArrow"))
+            {
+                pSys.startColor = playercontroller.Arrow.GetComponent<SpriteRenderer>().color;
+                pSys.emissionRate = eRate;
+            }
+            else
+                pSys.emissionRate = 0;
+
             transform.up = (Vector3)((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
 
             transform.Rotate(0, 0, 45);
         }
-	}
+    }
 }
