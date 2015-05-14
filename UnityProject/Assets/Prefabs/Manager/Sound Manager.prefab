@@ -63,6 +63,13 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d96b3dd564c064a4e8b22c59c1f02742, type: 3}
     - {fileID: 8300000, guid: ec7b7a2746b527b4b9dc338bf00eab3a, type: 3}
     volume: 1
+  - name: Poisoned
+    sounds:
+    - {fileID: 8300000, guid: 096ebe06794f909438cbf7657e5d9e82, type: 3}
+    - {fileID: 8300000, guid: 183889253b22e8641ab611405537c664, type: 3}
+    - {fileID: 8300000, guid: 384383a6ba90182458dfb67dc49511a5, type: 3}
+    - {fileID: 8300000, guid: 5daa1c40b3c54c549a467ede2c7b48e7, type: 3}
+    volume: .00999999978
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

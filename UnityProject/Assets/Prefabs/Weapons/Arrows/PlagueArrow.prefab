@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11446716}
   - 198: {fileID: 19846716}
   - 199: {fileID: 19946716}
+  - 114: {fileID: 11457634}
   m_Layer: 14
   m_Name: PlagueArrow
   m_TagString: Arrow
@@ -48,7 +49,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!61 &6146716
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e553f34bce74afd4abbf56240d378c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
   speed: 20
   stuckTimer: 5
   numCollisions: 0
@@ -103,6 +105,22 @@ MonoBehaviour:
   AOE_Emitter: {fileID: 0}
   OnAOEShakeAmount: 0
   OnAOEDampeningAmount: 0
+--- !u!114 &11457634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: cab414ede76f1b84aa8de11a757eb362, type: 3}
+    volume: .5
 --- !u!198 &19846716
 ParticleSystem:
   m_ObjectHideFlags: 1

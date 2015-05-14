@@ -17,6 +17,7 @@ GameObject:
   - 198: {fileID: 19883814}
   - 114: {fileID: 11482760}
   - 58: {fileID: 5880262}
+  - 114: {fileID: 11428644}
   m_Layer: 14
   m_Name: ShatteringArrow
   m_TagString: Arrow
@@ -50,7 +51,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!58 &5880262
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -84,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e553f34bce74afd4abbf56240d378c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
   speed: 20
   stuckTimer: 5
   numCollisions: 0
@@ -112,6 +114,22 @@ MonoBehaviour:
   color: 1
   changeColor: {r: .117647052, g: .525355041, b: 1, a: 1}
   effect: {fileID: 0}
+--- !u!114 &11428644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: e23967353cae9ff419fa73fbd091144c, type: 3}
+    volume: .600000024
 --- !u!114 &11482760
 MonoBehaviour:
   m_ObjectHideFlags: 1

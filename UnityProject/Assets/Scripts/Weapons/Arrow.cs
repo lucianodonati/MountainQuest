@@ -70,7 +70,7 @@ public class Arrow : MonoBehaviour
                     {
                         SoundFX sfx = GetComponent<SoundFX>();
                         if (sfx != null)
-                            sfx.Play("Fire");
+                            sfx.Play("Hit");
                         if (AOE_Emitter != null)
                         {
                             GameObject emitter = (GameObject)Instantiate(AOE_Emitter, transform.position, transform.rotation);

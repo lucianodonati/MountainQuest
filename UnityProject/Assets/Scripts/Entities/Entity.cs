@@ -66,10 +66,13 @@ public class Entity : MonoBehaviour
         aff.currentDuration = aff.initialDuration = type.initialDuration;
         aff.ticEvery = type.ticEvery;
         aff.slow = type.slow;
+        if (aff.slow)
+            SoundManager.instance.GetComponent<SoundFX>().Play("Frozen");
         aff.particle = type.particle;
 
         if (aff.GetType() == System.Type.GetType("Parasite"))
         {
+            SoundManager.instance.GetComponent<SoundFX>().Play("Poisoned");
             ((Parasite)aff).infectionChance = ((Parasite)type).infectionChance - ((Parasite)type).decayRate;
             ((Parasite)aff).decayRate = ((Parasite)type).decayRate;
             ((Parasite)aff).germinationTimerMax = ((Parasite)aff).germinationTimer = ((Parasite)type).germinationTimerMax;
@@ -89,6 +92,7 @@ public class Entity : MonoBehaviour
         {
             if (type.effect is Panic)
             {
+                SoundManager.instance.GetComponent<SoundFX>().Play("OnFire");
                 aff.effect = type.effect;
                 Panic effect = gameObject.AddComponent<Panic>(), other = type.effect as Panic;
                 effect.duration = aff.currentDuration;

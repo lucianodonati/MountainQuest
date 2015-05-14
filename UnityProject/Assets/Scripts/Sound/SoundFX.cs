@@ -31,8 +31,6 @@ public class SoundFX : MonoBehaviour
             source.volume = playMe.volume;
             source.Play();
         }
-        else
-            Debug.LogWarning("Sound not found: " + name);
     }
 
     private Sound findSound(string _name)
