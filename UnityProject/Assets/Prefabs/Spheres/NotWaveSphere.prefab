@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 420394}
   - 212: {fileID: 21220394}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 50: {fileID: 5020394}
   - 114: {fileID: 11420396}
   - 114: {fileID: 11420394}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NotWaveSphere
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.6770115, y: 5.94566917, z: -4.11000013}
+  m_LocalPosition: {x: 12.1400003, y: 6.5999999, z: -4.11000013}
   m_LocalScale: {x: 2.78271532, y: 2.78271675, z: 2.78271675}
   m_Children:
   - {fileID: 420394}
@@ -99,10 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageModifier: 10
-  AliveTimer: 7
+  AliveTimer: -1
   Owner: {fileID: 0}
   arrowsPerWave: 20
   MaxArrowsCreated: 100
+  destabilizeViolently: 1
 --- !u!114 &11420396
 MonoBehaviour:
   m_ObjectHideFlags: 1

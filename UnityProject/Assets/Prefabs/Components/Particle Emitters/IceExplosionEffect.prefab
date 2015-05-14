@@ -41,9 +41,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4432b269036cf4481205620aa3527b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numParticles: 100
+  numParticles: 50
   lifetimeVariance: .5
-  particleVelocityMultiplier: 8
+  particleVelocityMultiplier: 4.5
   rotationspeed: 500
 --- !u!198 &19824784
 ParticleSystem:
