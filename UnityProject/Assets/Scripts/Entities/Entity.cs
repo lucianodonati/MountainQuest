@@ -87,6 +87,10 @@ public class Entity : MonoBehaviour
             aff = gameObject.AddComponent<Parasite>();
 
         aff.enabled = true;
+        if (gameObject.GetComponent<Panic>() != null && type.isFirebolt == true)
+        {
+            type.damage *= 5;
+        }
         aff.damage = type.damage;
         aff.currentDuration = aff.initialDuration = type.initialDuration;
         aff.ticEvery = type.ticEvery;

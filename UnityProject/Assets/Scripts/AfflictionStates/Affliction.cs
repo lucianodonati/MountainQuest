@@ -10,6 +10,7 @@ public class Affliction : DamageType
     public bool particle = false, color = false;
     public Color changeColor;
     public OverrideEffect effect;
+    public bool isFirebolt = false;
 
     protected virtual void Start()
     {

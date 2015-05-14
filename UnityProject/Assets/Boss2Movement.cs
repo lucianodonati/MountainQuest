@@ -256,6 +256,8 @@ public class Boss2Movement : Enemy
             GameObject currArrow = (GameObject)Instantiate(Arrow, gameObject.transform.position + Vector3.back,
                                                             Quaternion.FromToRotation(preserveUp, ArrowAngle));
 
+            currArrow.GetComponent<Arrow>().owner = this.gameObject;
+
             currArrow.rigidbody2D.velocity = ArrowAngle.normalized * 7.5f;
 
             if (atLongRange == true)
@@ -287,6 +289,8 @@ public class Boss2Movement : Enemy
 
             GameObject currArrow = (GameObject)Instantiate(Arrow, gameObject.transform.position + Vector3.back,
                                                             Quaternion.FromToRotation(preserveUp, playerPos));
+
+            currArrow.GetComponent<Arrow>().owner = this.gameObject;
 
             currArrow.rigidbody2D.velocity = playerPos.normalized * 7.5f;
             shotsTaken++;
@@ -325,6 +329,7 @@ public class Boss2Movement : Enemy
             if (stabsTaken >= 5)
             {
                 Flurrying = false;
+                stabsTaken = 0;
             }
         }
     }
@@ -337,29 +342,29 @@ public class Boss2Movement : Enemy
 
         if (direction == false)
         {
-            Vector2 KB = new Vector2(-4, 2);
+            Vector2 KB = new Vector2(-5, 3);
 
             playerBody.isKinematic = true;
-            // playerBody.AddForce(Vector3.left * 1000);
+            //playerBody.AddForce(Vector3.left * 1000);
             playerBody.velocity += KB;
 
-            Vector2 jumpBack = new Vector2(7, 5);
+            Vector2 jumpBack = new Vector2(8, 8);
             gameObject.rigidbody2D.velocity += jumpBack;
         }
         if (direction == true)
         {
-            Vector2 KB = new Vector2(4, 2);
+            Vector2 KB = new Vector2(5, 3);
 
             playerBody.isKinematic = true;
            // playerBody.AddForce(Vector3.right * 1000);
             playerBody.velocity += KB;
 
-            Vector2 jumpBack = new Vector2(-7, 5);
+            Vector2 jumpBack = new Vector2(-8, 8);
             gameObject.rigidbody2D.velocity += jumpBack;
         }
-        VaultTimer = 0.7f;
+        VaultTimer = 5.0f;
 
-        ShootPlayer();
+        Shooting = true;
         Vaulting = false;
     }
 
