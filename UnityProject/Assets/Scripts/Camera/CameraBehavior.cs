@@ -51,11 +51,15 @@ public class CameraBehavior : MonoBehaviour
         halfHeight = camera.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
 
-        Vector3 newpos = SetPos();
+        Vector3 newpos = AdjustForBounds(SetPos());
 
-        newpos = AdjustForBounds(newpos);
+        transform.position =
+            Vector3.Lerp(transform.position,
+                         newpos,
+                         (focused?1:(((transform.position - newpos).magnitude <= accelerateDistance)?3:1) * moveLerpSpeed * Time.deltaTime));
 
-        transform.position = newpos;
+        if ((transform.position - newpos).magnitude <= snapDistance)
+            focused = true;
 
         AdjustSize();
 
@@ -90,20 +94,20 @@ public class CameraBehavior : MonoBehaviour
             }
         }
 
-        if ((transform.position - pos).magnitude <= snapDistance)
-            focused = true;
+        //if ((transform.position - pos).magnitude <= snapDistance)
+        //    focused = true;
 
-        pos = Vector3.Lerp(transform.position,
-                           pos,
-                           (focused?1:((((transform.position - pos).magnitude <= accelerateDistance)?3:1)*moveLerpSpeed*Time.deltaTime)));
+        //pos = Vector3.Lerp(transform.position,
+        //                   pos,
+        //                   (focused?1:((((transform.position - pos).magnitude <= accelerateDistance)?3:1)*moveLerpSpeed*Time.deltaTime)));
 
         return pos;
     }
 
     private Vector3 AdjustForBounds(Vector3 pos)
     {
-        if (focused)
-        {
+        //if (focused)
+        //{
             if (MaxBound != null)
             {
                 if (pos.x + halfWidth > MaxBound.transform.position.x)
@@ -121,7 +125,7 @@ public class CameraBehavior : MonoBehaviour
                 if (pos.y - halfHeight < MinBound.transform.position.y)
                     pos.y = MinBound.transform.position.y + halfHeight;
             }
-        }
+        //}
 
         return pos;
     }
