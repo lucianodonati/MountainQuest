@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class KO : Entity
 {
+    private Animator myAnimator;
+
     // Use this for initialization
     protected override void Start()
     {
         base.Start();
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -17,7 +20,7 @@ public class KO : Entity
 
     public override void die()
     {
-        // Play animation here
+        myAnimator.SetBool("dead", true);
 
         base.die(); // Play sound and set bool "dead" to true
     }
