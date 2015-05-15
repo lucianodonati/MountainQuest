@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5fc0a7680e4814f80dc07f81a7e957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMusic: {fileID: 0}
   gameManagerPrefab: {fileID: 117112, guid: edba3b4b238f79d43a0b28f9c037fac4, type: 2}
   soundManagerPrefab: {fileID: 117112, guid: cd59148605e9405408c87555ea63d47d, type: 2}
 --- !u!1 &853241291
