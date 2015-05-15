@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     private string log;
     private static GameManager _instance;
     public GameObject statsPrefab;
+    public StatsManager statsManager;
+    public GameObject skillsPrefab;
+    public SkillsManager skillsManager;
 
     // Use this for initialization
 
@@ -94,7 +97,13 @@ public class GameManager : MonoBehaviour
             if (this != _instance)
                 Destroy(this.gameObject);
         }
-        Instantiate(statsPrefab).name = statsPrefab.name;
+
+        statsManager = ((GameObject)Instantiate(statsPrefab)).GetComponent<StatsManager>();
+        statsManager.name = statsPrefab.name;
+
+        skillsManager = ((GameObject)Instantiate(skillsPrefab)).GetComponent<SkillsManager>();
+        skillsManager.name = skillsPrefab.name;
+
         gameObject.transform.parent = Camera.main.transform;
     }
 
@@ -291,7 +300,7 @@ public class GameManager : MonoBehaviour
             }
         }
         //Stats
-        StatsManager.instance.timePlayed += Time.deltaTime;
+        GameManager.instance.statsManager.timePlayed += Time.deltaTime;
     }
 
     private void Pause()

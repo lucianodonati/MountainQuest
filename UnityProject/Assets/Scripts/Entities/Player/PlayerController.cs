@@ -219,6 +219,9 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchWeaponCheck()
     {
+        if (Input.GetKeyDown(KeyCode.Tab))
+            GetComponent<Player>().nextSphere();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             usingSword = !usingSword;
@@ -310,7 +313,7 @@ public class PlayerController : MonoBehaviour
                 currArrow.GetComponent<Arrow>().owner = this.gameObject;
                 if (gameObject.GetComponentInChildren<ShieldSphere>() != null)
                     currArrow.GetComponent<Arrow>().createdInsideShield = true;
-                StatsManager.instance.shotsFired++;
+                GameManager.instance.statsManager.shotsFired++;
             }
         }
         else

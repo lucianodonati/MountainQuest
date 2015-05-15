@@ -11,7 +11,7 @@ public class BoostSphere : BaseSphere
         Arrow proj = other.GetComponent<Arrow>();
         if (proj != null)
         {
-            StatsManager.instance.arrowsBoosted++;
+            GameManager.instance.statsManager.arrowsBoosted++;
             proj.damageType.damage += DamageModifier;
             proj.owner = this.gameObject;
         }
@@ -30,10 +30,5 @@ public class BoostSphere : BaseSphere
                 }
             }
         }
-    }
-
-    public void SetOwner(Player owner)
-    {
-        Owner = owner;
     }
 }

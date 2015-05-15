@@ -5,12 +5,12 @@ public class BaseSphere : MonoBehaviour
 {
     public float AliveTimer = 7;
     public Entity Owner;
-    private float startingTransparency;
+    private Color startingTransparency;
 
     // Use this for initialization
     public virtual void Start()
     {
-        startingTransparency = GetComponent<SpriteRenderer>().color.a;
+        startingTransparency = GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class BaseSphere : MonoBehaviour
             if (AliveTimer <= 2)
             {
                 SpriteRenderer mySR = gameObject.GetComponent<SpriteRenderer>();
-                mySR.color = new Color(1, 1, 1, startingTransparency * AliveTimer / 2);
+                mySR.color = new Color(startingTransparency.r, startingTransparency.g, startingTransparency.b, startingTransparency.a * AliveTimer / 2);
             }
         }
     }

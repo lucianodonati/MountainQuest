@@ -4,30 +4,42 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public int lives = 3;
+
+    [HideInInspector]
     public int level = 1;
+
+    [HideInInspector]
     public int skillPoints = 0;
-    public Arrow arrow;
-    public bool isAiming = false;
+
+    private bool isAiming = false;
     public GameObject RedirectClickObj;
-    public GameObject OtherClickObj;
-    public GameObject basicClickObj;
+
+    public SkillsManager.SetPrefabs ClickObj;
+
     private GameObject CreateRedirectSphere;
     private GameObject CreateOtherSphere;
     private GameObject CreateBasicSphere;
     private bool RedirectMade = false;
     public float SphereDistance = 7;
     public float PlayerAliveTimer = 8.0f;
+
+    [HideInInspector]
     public int RSphereTotal = 0;
+
     public int RSphereCap = 3;
+
+    [HideInInspector]
     public int OSphereTotal = 0;
+
     public int OSphereCap = 3;
-    public int lives = 3;
     private float deathTimer = 0.0f;
     private bool reallyDead = false;
 
     // Use this for initialization
     protected override void Start()
     {
+        ClickObj = GameManager.instance.skillsManager.spheres[0];
         base.Start();
     }
 
@@ -72,86 +84,98 @@ public class Player : Entity
             Vector3 mPos = Camera.main.ScreenToWorldPoint(mouse);
 
             if (Input.GetMouseButtonDown(1))
-                CreateBasicSphere = (GameObject)GameObject.Instantiate(basicClickObj, mPos, Quaternion.identity);
+            {
+                CreateBasicSphere = new GameObject();
+                CreateBasicSphere.transform.position = mPos;
+            }
 
             if (Input.GetMouseButtonUp(1) && OSphereTotal <= OSphereCap && (Vector3.Distance(mPos, CreateBasicSphere.transform.position) <= 0.7f))
             {
                 bool goCreate = true;
-                if (OtherClickObj.GetComponent<ShieldSphere>() != null)
+                Debug.Log(ClickObj.id.ToString());
+                if (ClickObj.active)
                 {
-                    foreach (BaseSphere ball in GameObject.FindObjectsOfType<BaseSphere>())
+                    if (ClickObj.prefab.GetComponent<BoostSphere>() != null)
                     {
-                        if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
+                        foreach (BaseSphere ball in GameObject.FindObjectsOfType<BaseSphere>())
                         {
-                            goCreate = true;
-                            Destroy(ball.gameObject);
-                            OSphereTotal--;
+                            if (ball.GetType() == System.Type.GetType("BoostSphere") && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
+                            {
+                                goCreate = true;
+                                Destroy(ball.gameObject);
+                                OSphereTotal--;
+                            }
+                            if (OSphereCap == OSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
+                                goCreate = false;
                         }
-                        if (OSphereCap == OSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
-                            goCreate = false;
-                    }
-                }
-                else
-                {
-                    if (gameObject.GetComponentInChildren<ShieldSphere>())
-                        goCreate = false;
-                }
-
-                if (goCreate)
-                {
-                    if (OtherClickObj.GetComponent<ShieldSphere>() != null)
-                    {
-                        CreateOtherSphere = (GameObject)Instantiate(OtherClickObj, transform.position, Quaternion.identity);
-                        CreateOtherSphere.GetComponent<ShieldSphere>().SetOwner(this);
-                        CreateOtherSphere.transform.parent = transform;
                     }
                     else
                     {
-                        CreateOtherSphere = (GameObject)Instantiate(OtherClickObj, mPos, Quaternion.identity);
-                        CreateOtherSphere.GetComponent<BoostSphere>().SetOwner(this);
+                        if ((ClickObj.prefab.name.Contains("ShieldSphere") && gameObject.GetComponentInChildren<ShieldSphere>()) ||
+                            (ClickObj.prefab.name.Contains("WaveSphere") && FindObjectOfType<WaveSphere>() != null))
+                            goCreate = false;
                     }
-                    OSphereTotal += 1;
+
+                    if (goCreate)
+                    {
+                        CreateOtherSphere = (GameObject)Instantiate(ClickObj.prefab);
+                        CreateOtherSphere.GetComponent<BaseSphere>().Owner = this;
+
+                        if (CreateOtherSphere.GetComponent<ShieldSphere>() != null)
+                        {
+                            CreateOtherSphere.transform.position = transform.position;
+                            CreateOtherSphere.transform.parent = transform;
+                        }
+                        else
+                        {
+                            CreateOtherSphere.transform.position = mPos;
+                        }
+                        OSphereTotal += 1;
+                    }
                 }
             }
             else if (Input.GetMouseButtonDown(1) && RSphereTotal <= RSphereCap)
                 isAiming = true;
 
-            if (isAiming && Vector3.Distance(mPos, CreateBasicSphere.transform.position) > 0.7f)
+            if (GameManager.instance.skillsManager.spheres[3].active)
             {
-                if (RedirectMade == false)
+                if (isAiming && Vector3.Distance(mPos, CreateBasicSphere.transform.position) > 0.7f)
                 {
-                    bool goCreate = true;
-                    foreach (RedirectSphere ball in GameObject.FindObjectsOfType<RedirectSphere>())
+                    if (RedirectMade == false)
                     {
-                        if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
+                        bool goCreate = true;
+                        foreach (RedirectSphere ball in GameObject.FindObjectsOfType<RedirectSphere>())
                         {
-                            Destroy(ball.gameObject);
-                            RSphereTotal--;
-                            goCreate = true;
+                            if (Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) < SphereDistance)
+                            {
+                                Destroy(ball.gameObject);
+                                RSphereTotal--;
+                                goCreate = true;
+                            }
+                            if (RSphereCap == RSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
+                            {
+                                goCreate = false;
+                            }
                         }
-                        if (RSphereCap == RSphereTotal && Vector3.Distance(CreateBasicSphere.transform.position, ball.transform.position) > SphereDistance)
+                        if (goCreate)
                         {
-                            goCreate = false;
+                            CreateRedirectSphere = (GameObject)Instantiate(RedirectClickObj, CreateBasicSphere.transform.position, Quaternion.identity);
+                            RSphereTotal += 1;
+                            CreateRedirectSphere.GetComponent<RedirectSphere>().SetOwner(this);
+                            RedirectMade = true;
                         }
                     }
-                    if (goCreate)
+                    if (CreateRedirectSphere != null)
                     {
-                        CreateRedirectSphere = (GameObject)Instantiate(RedirectClickObj, CreateBasicSphere.transform.position, Quaternion.identity);
-                        RSphereTotal += 1;
-                        CreateRedirectSphere.GetComponent<RedirectSphere>().SetOwner(this);
-                        RedirectMade = true;
-                    }
-                }
-                if (CreateRedirectSphere != null)
-                {
-                    Vector3 aimDirection = mPos - CreateRedirectSphere.transform.position;
-                    aimDirection.Normalize();
-                    float angle = Vector3.Angle(aimDirection, new Vector3(0, 1, 0));
-                    Vector3 cross = Vector3.Cross(aimDirection, new Vector3(0, 1, 0));
-                    if (cross.z > 0)
-                        angle = 360 - angle;
+                        Vector3 aimDirection = mPos - CreateRedirectSphere.transform.position;
+                        aimDirection.Normalize();
+                        float angle = Vector3.Angle(aimDirection, new Vector3(0, 1, 0));
+                        Vector3 cross = Vector3.Cross(aimDirection, new Vector3(0, 1, 0));
+                        if (cross.z > 0)
+                            angle = 360 - angle;
 
-                    CreateRedirectSphere.GetComponent<RedirectSphere>().ChangeDirection(angle, aimDirection, PlayerAliveTimer);
+                        CreateRedirectSphere.GetComponent<RedirectSphere>().ChangeDirection(angle, aimDirection, PlayerAliveTimer);
+                    }
                 }
             }
 
@@ -162,6 +186,25 @@ public class Player : Entity
                 CreateOtherSphere = null;
                 RedirectMade = false;
                 Destroy(CreateBasicSphere);
+            }
+        }
+    }
+
+    public void nextSphere()
+    {
+        List<SkillsManager.SetPrefabs> tempSpheres = GameManager.instance.skillsManager.spheres;
+
+        int currentOne = tempSpheres.IndexOf(ClickObj);
+
+        for (int i = currentOne + 1; i != currentOne; i++)
+        {
+            if (i == (tempSpheres.Count - 1))
+                i = 0;
+
+            if (tempSpheres[i].active)
+            {
+                ClickObj = tempSpheres[i];
+                break;
             }
         }
     }

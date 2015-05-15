@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class WaveSphere : MonoBehaviour
+public class WaveSphere : BaseSphere
 {
     public float DamageModifier = 10;
-    public float AliveTimer = 7;
-    public Player Owner;
     public int arrowsPerWave = 20;
 
     private int arrowsCreated;
@@ -25,26 +23,21 @@ public class WaveSphere : MonoBehaviour
 
     private Vector3 posSaver;
 
-    // Use this for initialization
-    private void Start()
+    private void Awake()
     {
+    }
+
+    // Use this for initialization
+    public override void Start()
+    {
+        base.Start();
         posSaver = transform.position;
     }
 
     // Update is called once per frame
-    private void Update()
+    public override void Update()
     {
-        if (AliveTimer != -1)
-        {
-            AliveTimer -= Time.deltaTime;
-            if (AliveTimer <= 0)
-            {
-                if (Owner != null && Owner.GetComponent<Player>() != null)
-                    Owner.GetComponent<Player>().RemoveOSphere();
-                Destroy(this.gameObject);
-            }
-        }
-
+        base.Update();
         if (instabilityTimer >= 0.0f)
         {
             instabilityTimer -= Time.deltaTime;
@@ -121,11 +114,7 @@ public class WaveSphere : MonoBehaviour
                                 currArrow.GetComponent<SpriteRenderer>().color = newColor;
 
                                 if (currArrow.GetComponent<ParticleSystem>() != null)
-                                {
                                     currArrow.GetComponent<ParticleSystem>().startColor = newColor;
-                                    //currArrow.GetComponent<ParticleSystem>().emissionRate *= 32;
-                                    //currArrow.GetComponent<ParticleSystem>().startLifetime /= 16;
-                                }
 
                                 currArrow.rigidbody2D.gravityScale = Random.Range(0.0f, 5.0f);
 
@@ -138,7 +127,8 @@ public class WaveSphere : MonoBehaviour
                                 currangle += angleIncrement;
                             }
                         }
-
+                        if (Owner != null)
+                            (Owner as Player).RemoveOSphere();
                         Destroy(this.gameObject);
                     }
                 }
