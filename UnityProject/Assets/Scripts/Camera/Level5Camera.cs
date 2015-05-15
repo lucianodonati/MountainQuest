@@ -52,7 +52,8 @@ public class Level5Camera : MonoBehaviour
                 if (transform.position == new Vector3(endKo.position.x, 5.0f, -1.0f))
                 {
                     cameraBehaviour.enabled = true;
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().activeControls = true;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().movementEnabled = true;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().combatEnabled = true;
                     GameObject.Find("KoPlat").rigidbody2D.isKinematic = true;
                     Destroy(GameObject.Find("Faia"));
                     Destroy(this);

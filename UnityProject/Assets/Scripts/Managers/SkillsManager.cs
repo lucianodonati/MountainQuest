@@ -28,7 +28,11 @@ public class SkillsManager : MonoBehaviour
     // Use this for initialization
     public void ToggleSphere(SpheresId _id, bool _state)
     {
-        spheres.ToArray()[(int)_id].active = _state;
+        SetPrefabs temp = new SetPrefabs();
+        temp.active = _state;
+        temp.id = _id;
+        temp.prefab = spheres[(int)_id].prefab;
+        spheres[(int)_id] = temp;
     }
 
     //private void UpdateEnumerator()

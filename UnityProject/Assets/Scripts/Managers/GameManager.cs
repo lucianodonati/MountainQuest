@@ -9,9 +9,15 @@ public class GameManager : MonoBehaviour
     public bool _Debug = false;
     private string log;
     private static GameManager _instance;
+
     public GameObject statsPrefab;
+
+    [HideInInspector]
     public StatsManager statsManager;
+
     public GameObject skillsPrefab;
+
+    [HideInInspector]
     public SkillsManager skillsManager;
 
     // Use this for initialization

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     // linear drag 0
     // angular drag 0.05
     // gravity scale 4
-    public bool activeControls = true;
+    public bool movementEnabled = true, combatEnabled = true;
 
     // MOVEMENT VARS
     public float movementSpeed = 10;
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         if (grounded)
             jumpCooldownTimer -= Time.deltaTime;
 
-        if (activeControls)
+        if (movementEnabled)
         {
             Walk();
 
@@ -103,7 +103,10 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock)
                 jumplock = true;
+        }
 
+        if (combatEnabled)
+        {
             SwitchWeaponCheck();
 
             AttackCheck();
