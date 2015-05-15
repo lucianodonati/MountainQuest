@@ -25,6 +25,8 @@ public class Player : Entity
     private float deathTimer = 0.0f;
     private bool reallyDead = false;
 
+    private Vector3 respawnPos;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -216,6 +218,8 @@ public class Player : Entity
             GameManager.instance.switchToMenu(GameManager.Menus.GameOver);
             gameObject.GetComponent<PlayerController>().enabled = false;
         }
+
+        transform.position = respawnPos;
     }
 
     public void CheckForUpgrade()
@@ -225,5 +229,11 @@ public class Player : Entity
             level++;
             skillPoints++;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.GetComponent<CameraWaypoint>() != null && coll.GetComponent<CameraWaypoint>().checkpoint)
+            respawnPos = transform.position;
     }
 }
