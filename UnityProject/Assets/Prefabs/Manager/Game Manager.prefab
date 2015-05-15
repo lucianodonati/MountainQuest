@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 110472, guid: 11c53587818f8e94fba93c2b9a5bb85f, type: 2}
   - {fileID: 193818, guid: c1a61eaf91f370b4f83bbc1b7148e05b, type: 2}
   - {fileID: 133620, guid: b09ea30c1a45e484dbba880ed52b4bd1, type: 2}
+  - {fileID: 134180, guid: e46d58ffa23f06f4d8de24ededef3e4f, type: 2}
   currentLevel: 0
   music: {fileID: 8217112}
   slowmoSfx: {fileID: 8255178}

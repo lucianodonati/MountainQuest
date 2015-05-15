@@ -44,10 +44,10 @@ MonoBehaviour:
     active: 1
     prefab: {fileID: 151538, guid: 0f84410773201714cbcfd3b661fc1b85, type: 2}
   - id: 1
-    active: 1
+    active: 0
     prefab: {fileID: 162238, guid: ccbf9f43704db724baeedda91dbac48e, type: 2}
   - id: 2
-    active: 1
+    active: 0
     prefab: {fileID: 120396, guid: a0ef85ef5cb2ea649940967165f869f5, type: 2}
   - id: 3
     active: 1

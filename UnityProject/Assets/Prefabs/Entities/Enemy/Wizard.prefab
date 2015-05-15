@@ -192,10 +192,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: 0
+  experience: 50
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
 --- !u!114 &11464276
 MonoBehaviour:
@@ -251,6 +255,7 @@ MonoBehaviour:
   OnSightMovement: Idle_Movement
   changeTimerMax: 5
   changeTimerError: .5
+  nonseekAggroTimer: 0
   nonseekAggroTimerMax: 3
 --- !u!114 &11464282
 MonoBehaviour:
