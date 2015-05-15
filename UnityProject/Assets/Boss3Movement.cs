@@ -69,12 +69,12 @@ public class Boss3Movement : Enemy
             {
                 player.GetComponent<PlayerController>().movementSpeed = 10;
             }
+
         }
         if (Barraging == true)
         {
             FireBarrage();
         }
-
         else
         {
 
@@ -119,11 +119,11 @@ public class Boss3Movement : Enemy
 
                                 if (rand >= 0 && rand <= 0.29)
                                 {
-                               //     Barraging = true;
+                                   Barraging = true;
                                 }
                                 else if (rand >= 0.30 && rand <= 0.39)
                                 {
-                                   // Fireball();
+                                    Fireball();
                                 }
                                 else if (rand >= 0.40 && rand <= 1.0)
                                 {
@@ -138,15 +138,15 @@ public class Boss3Movement : Enemy
 
                                 if (rand >= 0 && rand <= 0.59)
                                 {
-                                   // Barraging = true;
+                                    Barraging = true;
                                 }
                                 else if (rand >= 0.60 && rand <= 0.84)
                                 {
-                                  //  Fireball();
+                                    Fireball();
                                 }
                                 else if (rand >= 0.85 && rand <= 1.0)
                                 {
-                                    //flamethrower
+                                    Flamethrower();
                                 }
                             }
 
@@ -156,15 +156,15 @@ public class Boss3Movement : Enemy
 
                                 if (rand >= 0 && rand <= 0.29)
                                 {
-                                   // Barraging = true;
+                                    Barraging = true;
                                 }
                                 else if (rand >= 0.30 && rand <= 0.69)
                                 {
-                                   // Fireball();
+                                   Fireball();
                                 }
                                 else if (rand >= 0.70 && rand <= 1.0)
                                 {
-                                    //flamethrower
+                                    Flamethrower();
                                 }
                             }
                         }
@@ -300,7 +300,26 @@ public class Boss3Movement : Enemy
             currArrow.rigidbody2D.velocity = playerPos.normalized * 7.5f;
     }
 
+    private void Flamethrower()
+    {
 
+      
+        bool startAtkDir = direction;
+        GetComponent<Animator>().SetBool("IsIdle", false);
+        GetComponent<Animator>().SetBool("flamethrower", true);
+
+            
+            if (startAtkDir == direction && Vector3.Distance(transform.position, player.GetComponent<Player>().transform.position) <= 10)
+            {
+                player.GetComponent<Player>().health.TakeDamage(15, false);
+            }
+
+
+
+        //GetComponent<Animator>().SetBool("IsIdle", true);
+        //GetComponent<Animator>().SetBool("flamethrower", false);
+
+    }
 
 
 
