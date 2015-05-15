@@ -21,14 +21,17 @@ public class Lava : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D coll)
     {
-        if (player != null)
+        if (coll.tag == "Player")
         {
-            if (timer <= 0.0f)
+            if (player != null)
             {
-                if (!player.dead)
+                if (timer <= 0.0f)
                 {
-                    timer = 0.5f;
-                    player.health.TakeDamage(10, true);
+                    if (!player.dead)
+                    {
+                        timer = 0.5f;
+                        player.health.TakeDamage(10, true);
+                    }
                 }
             }
         }

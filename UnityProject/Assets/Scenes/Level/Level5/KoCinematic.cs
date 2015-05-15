@@ -20,7 +20,9 @@ public class KoCinematic : MonoBehaviour
             if (GameObject.Find("Portal") != null)
                 transform.position = Vector3.MoveTowards(transform.position, GameObject.Find("Portal").transform.position, moveSpeed * Time.deltaTime);
             else
+            {
                 transform.position = Vector3.MoveTowards(transform.position, GameObject.Find("EnterRoom").transform.position, moveSpeed * Time.deltaTime);
+            }
         }
     }
 }
