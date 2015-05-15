@@ -19,7 +19,7 @@ public class WindArrow : Arrow
             if (!hit)
             {
                 hit = true;
-                StatsManager.instance.shotsHit++;
+                GameManager.instance.statsManager.shotsHit++;
             }
             Entity isEntity = coll.gameObject.GetComponent<Entity>();
             if (isEntity != null)

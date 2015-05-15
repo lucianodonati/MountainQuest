@@ -98,7 +98,7 @@ public class Arrow : MonoBehaviour
                         if (numCollisions == -1)
                             GetStuck(other);
 
-                        if(name.Contains("LightningArrow"))
+                        if (name.Contains("LightningArrow"))
                             GetComponent<LightningArrow>().CreateLightningHitAnimation();
                     }
 
@@ -108,7 +108,7 @@ public class Arrow : MonoBehaviour
                 }
 
                 if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
-                    StatsManager.instance.shotsHit++;
+                    GameManager.instance.statsManager.shotsHit++;
 
                 if ((!name.Contains("WindArrow") && !name.Contains("LightningArrow")) || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss"))
                     GetStuck(other);

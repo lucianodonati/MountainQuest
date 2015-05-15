@@ -8,11 +8,14 @@ public class Entity : MonoBehaviour
     public Health health;
     public float maxHealth = 100.0f;
 
+    [HideInInspector]
     public bool isSlowed = false, isStunned = false;
 
+    [HideInInspector]
     public Color myColor;
 
     //death vars
+    [HideInInspector]
     public bool dead = false;
 
     // Use this for initialization

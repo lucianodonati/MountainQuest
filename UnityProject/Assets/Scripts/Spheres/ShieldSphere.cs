@@ -43,9 +43,4 @@ public class ShieldSphere : BaseSphere
                 theArrow.createdInsideShield = false;
         }
     }
-
-    public void SetOwner(Entity owner)
-    {
-        Owner = owner;
-    }
 }

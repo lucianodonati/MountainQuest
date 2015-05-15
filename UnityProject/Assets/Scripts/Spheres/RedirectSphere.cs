@@ -45,7 +45,7 @@ public class RedirectSphere : MonoBehaviour
             if (sfx != null)
                 sfx.Play("EnterSphere");
 
-            StatsManager.instance.arrowsRedirected++;
+            GameManager.instance.statsManager.arrowsRedirected++;
             other.rigidbody2D.position = this.transform.position;
             Direction.Normalize();
             Direction *= other.rigidbody2D.velocity.magnitude;

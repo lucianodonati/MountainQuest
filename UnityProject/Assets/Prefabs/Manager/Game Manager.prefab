@@ -218,6 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Debug: 0
   statsPrefab: {fileID: 117112, guid: fe7e8e2ad67f56c439c81a9f0d50b70e, type: 2}
+  statsManager: {fileID: 0}
+  skillsPrefab: {fileID: 117112, guid: 564d7bf1eb432744f94e52f795b97962, type: 2}
+  skillsManager: {fileID: 0}
   MenuPrefabsDONOTTOUCH:
   - {fileID: 140592, guid: 27920e7adacc6ec48a194aebda67cf66, type: 2}
   - {fileID: 104390, guid: 584598989d570d94fbc5a3643120f011, type: 2}

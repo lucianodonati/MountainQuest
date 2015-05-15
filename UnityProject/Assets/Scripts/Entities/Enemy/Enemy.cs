@@ -45,7 +45,7 @@ public class Enemy : Entity
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         player.experience += experience;
         player.CheckForUpgrade();
-        StatsManager.instance.enemiesKilledTotal++;
+        GameManager.instance.statsManager.enemiesKilledTotal++;
 
         if (GetComponent<Parasite>() != null)
         {
