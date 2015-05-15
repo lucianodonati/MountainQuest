@@ -37,8 +37,8 @@ public class HUD : MonoBehaviour {
             }
         }
 
-        //Sprite otherSphereSprite = player.getCurrentSphereSprite();
-        //if(otherSphereSprite != transform.FindChild("OtherSphereImage").GetComponent<SpriteRenderer>().sprite)
-        //    transform.FindChild("OtherSphereImage").GetComponent<SpriteRenderer>().sprite = otherSphereSprite;
+        Sprite otherSphereSprite = player.ClickObj.prefab.GetComponent<SpriteRenderer>().sprite;
+        if (otherSphereSprite != transform.FindChild("OtherSphereImage").GetComponent<Image>().sprite)
+            transform.FindChild("OtherSphereImage").GetComponent<Image>().sprite = otherSphereSprite;
 	}
 }

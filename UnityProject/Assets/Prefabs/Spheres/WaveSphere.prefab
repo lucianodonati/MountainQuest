@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 420396}
   - 212: {fileID: 21220396}
   - 58: {fileID: 5820394}
-  - 50: {fileID: 5020394}
   - 114: {fileID: 11420396}
   - 114: {fileID: 11420394}
+  - 95: {fileID: 9554624}
   m_Layer: 12
   m_Name: WaveSphere
   m_TagString: Sphere
@@ -61,21 +61,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 420396}
   m_RootOrder: 0
---- !u!50 &5020394
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120396}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!58 &5820394
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -87,6 +72,21 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: .5
   m_Center: {x: 0, y: 0}
+--- !u!95 &9554624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120396}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ecd150f061240d43b4169d333523d97, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11420394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,8 +148,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 57d4b142b9e66014fb82a4cd5d8b276e, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9746b031830f4a942b0d818c92fc926c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21291224
 SpriteRenderer:
   m_ObjectHideFlags: 1
