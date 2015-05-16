@@ -9,24 +9,27 @@ public class BoostSphere : BaseSphere
     private void OnTriggerEnter2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj != null)
+        if (proj == null || proj.owner.name != "Boss 2")
         {
-            StatsManager.instance.arrowsBoosted++;
-            proj.damageType.damage += DamageModifier;
-            proj.owner = this.gameObject;
-        }
-        if (other.rigidbody2D != null)
-        {
-            SoundFX sfx = GetComponent<SoundFX>();
-            if (sfx != null)
-                sfx.Play("EnterSphere");
-
-            if (other.rigidbody2D.velocity.magnitude < 32)
+            if (proj != null)
             {
-                other.rigidbody2D.velocity *= VelocityModifier;
-                if (other.rigidbody2D.velocity.magnitude > 32)
+                StatsManager.instance.arrowsBoosted++;
+                proj.damageType.damage += DamageModifier;
+                proj.owner = this.gameObject;
+            }
+            if (other.rigidbody2D != null)
+            {
+                SoundFX sfx = GetComponent<SoundFX>();
+                if (sfx != null)
+                    sfx.Play("EnterSphere");
+
+                if (other.rigidbody2D.velocity.magnitude < 32)
                 {
-                    other.rigidbody2D.velocity = other.rigidbody2D.velocity.normalized * 32;
+                    other.rigidbody2D.velocity *= VelocityModifier;
+                    if (other.rigidbody2D.velocity.magnitude > 32)
+                    {
+                        other.rigidbody2D.velocity = other.rigidbody2D.velocity.normalized * 32;
+                    }
                 }
             }
         }

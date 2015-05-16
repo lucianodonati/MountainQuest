@@ -21,16 +21,19 @@ public class ShieldSphere : BaseSphere
     private void OnTriggerStay2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj != null && !proj.stuck && !proj.createdInsideShield)
+        if (proj == null || proj.owner.name != "Boss 2")
         {
-            if (other.rigidbody2D.velocity.magnitude < 32)
+            if (proj != null && !proj.stuck && !proj.createdInsideShield)
             {
-                Vector3 pushVector = other.transform.position - transform.position;
-                other.rigidbody2D.velocity += new Vector2(pushVector.x, pushVector.y);
-                if (other.rigidbody2D.velocity.magnitude > 32)
-                    other.rigidbody2D.velocity = other.rigidbody2D.velocity.normalized * 32;
+                if (other.rigidbody2D.velocity.magnitude < 32)
+                {
+                    Vector3 pushVector = other.transform.position - transform.position;
+                    other.rigidbody2D.velocity += new Vector2(pushVector.x, pushVector.y);
+                    if (other.rigidbody2D.velocity.magnitude > 32)
+                        other.rigidbody2D.velocity = other.rigidbody2D.velocity.normalized * 32;
 
-                other.transform.rotation = Quaternion.FromToRotation(transform.up, other.rigidbody2D.velocity);
+                    other.transform.rotation = Quaternion.FromToRotation(transform.up, other.rigidbody2D.velocity);
+                }
             }
         }
     }

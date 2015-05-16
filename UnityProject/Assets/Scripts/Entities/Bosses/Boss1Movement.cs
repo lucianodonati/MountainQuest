@@ -33,6 +33,7 @@ public class Boss1Movement : Enemy
 
     //screenshake vars
     public float missShakeAmount;
+
     public float missShakeDampening;
 
     public float stompHitShakeAmount;
@@ -62,7 +63,7 @@ public class Boss1Movement : Enemy
 
                 if (InFOV(target))
                 {
-                    Vector3 toPlayer = target.transform.position - transform.position;
+                    Vector3 toPlayer = player.transform.position - transform.position;
                     toPlayer.y = toPlayer.z = 0;
 
                     if (toPlayer.x < 0)
@@ -153,10 +154,9 @@ public class Boss1Movement : Enemy
                         //    if (Mathf.Abs(toPlayer.x) > moveSpeed)
                         //        toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed / 2;
                         //}
-                       
-                            if (Mathf.Abs(toPlayer.x) > moveSpeed)
-                                toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
-                        
+
+                        if (Mathf.Abs(toPlayer.x) > moveSpeed)
+                            toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
 
                         rigidbody2D.velocity = toPlayer;
                     }
