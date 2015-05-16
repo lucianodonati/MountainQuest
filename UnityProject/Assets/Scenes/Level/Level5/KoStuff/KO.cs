@@ -5,7 +5,7 @@ using UnityEngine;
 public class KO : Entity
 {
     private List<KOAttack> KOAttacks;
-    private KOAttack currentAttack = null;
+   private KOAttack currentAttack = null;
 
     private KoPlatforms myPlats;
 
