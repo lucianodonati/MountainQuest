@@ -5,14 +5,21 @@ public class Boss3Movement : Enemy
 {
     public GameObject Arrow;
     public GameObject firebolt;
+    public GameObject flames;
+
 
     public bool Barraging = false;
+    public bool flameThrowing = false;
+
     public float boltsShot = 0f;
     public float AbilityDelay = 2.0f;
+    public float flamesShot = 0f;
 
     public float shotsTaken = 0;
 
     public float BarrageDelay = 0.3f;
+    public float flameDelay = 0.1f;
+
     public Player player;
     public bool facingRight = false;
 
@@ -74,6 +81,10 @@ public class Boss3Movement : Enemy
         if (Barraging == true)
         {
             FireBarrage();
+        }
+        else if (flameThrowing == true)
+        {
+            Flamethrower();
         }
         else
         {
@@ -146,7 +157,7 @@ public class Boss3Movement : Enemy
                                 }
                                 else if (rand >= 0.85 && rand <= 1.0)
                                 {
-                                    Flamethrower();
+                                    flameThrowing = true;
                                 }
                             }
 
@@ -164,7 +175,7 @@ public class Boss3Movement : Enemy
                                 }
                                 else if (rand >= 0.70 && rand <= 1.0)
                                 {
-                                    Flamethrower();
+                                    flameThrowing = true;
                                 }
                             }
                         }
@@ -303,21 +314,35 @@ public class Boss3Movement : Enemy
     private void Flamethrower()
     {
 
-      
-        bool startAtkDir = direction;
-        GetComponent<Animator>().SetBool("IsIdle", false);
-        GetComponent<Animator>().SetBool("flamethrower", true);
 
-            
-            if (startAtkDir == direction && Vector3.Distance(transform.position, player.GetComponent<Player>().transform.position) <= 10)
+        flameDelay -= Time.deltaTime;
+        if (flameDelay <= 0)
+        {
+            float rand = Random.Range(-5.0f, 6.0f);
+
+            Vector3 playerPos = player.transform.position;
+            playerPos -= transform.position;
+            playerPos.z = 0;
+
+            playerPos.y += rand;
+
+            GameObject flameThrowah = (GameObject)Instantiate(flames, gameObject.transform.position + Vector3.back,
+                                                            Quaternion.FromToRotation(preserveUp, playerPos));
+
+            flameThrowah.GetComponent<Arrow>().owner = this.gameObject;
+
+            flameThrowah.rigidbody2D.velocity = playerPos.normalized * 7.5f;
+
+            flamesShot++;
+            flameDelay = 0.03f;
+            if (flamesShot >= 100)
             {
-                player.GetComponent<Player>().health.TakeDamage(15, false);
+                flameThrowing = false;
+                flamesShot = 0;
             }
 
 
-
-        //GetComponent<Animator>().SetBool("IsIdle", true);
-        //GetComponent<Animator>().SetBool("flamethrower", false);
+        }
 
     }
 
