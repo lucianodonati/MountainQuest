@@ -1,12 +1,11 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Despawner : MonoBehaviour {
-
+public class Despawner : MonoBehaviour
+{
     public bool killPlayer = true;
 
-    void OnTriggerEnter2D(Collider2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
         if (!coll.isTrigger)
         {
