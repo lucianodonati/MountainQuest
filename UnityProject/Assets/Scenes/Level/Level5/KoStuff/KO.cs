@@ -14,7 +14,7 @@ public class KO : Entity
 
     private Vector2 preserveUp;
     public bool ignoreEdges = false;
-    private bool direction;
+    public bool direction;
     public float moveSpeed = 4;
     private GameObject ground;
     private GameObject target;
@@ -28,8 +28,8 @@ public class KO : Entity
 
     protected override void Update()
     {
-        if (currentAttack.doneAttacking)
-            currentAttack = getRandomAttack();
+        //if (currentAttack.doneAttacking)
+        //    currentAttack = getRandomAttack();
 
         if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
         {
@@ -43,21 +43,22 @@ public class KO : Entity
 
         base.Update();
 
+
+        if (InFOV(target))
+        {
+            Vector3 toPlayer = player.transform.position - transform.position;
+            toPlayer.y = toPlayer.z = 0;
+
+            if (toPlayer.x < 0)
+                direction = false; //left
+            else if (toPlayer.x > 0)
+                direction = true; //right
+
+            // All Luci's attack choosing jargon
+        }
+
         if (ground != null)
         {
-            if (InFOV(target))
-            {
-                Vector3 toPlayer = target.transform.position - transform.position;
-                toPlayer.y = toPlayer.z = 0;
-
-                if (toPlayer.x < 0)
-                    direction = false; //left
-                else if (toPlayer.x > 0)
-                    direction = true; //right
-
-                // All Luci's attack choosing jargon
-            }
-
             if (!ignoreEdges)
             {
                 if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
@@ -65,10 +66,10 @@ public class KO : Entity
                     rigidbody2D.velocity = Vector2.zero;
             }
         }
-        else if (target != null)
-        {
-            target = null;
-        }
+        //else if (target != null)
+        //{
+        //    target = null;
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D coll)
