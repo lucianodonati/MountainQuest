@@ -4,7 +4,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float currentHP = 100.0f, maxHP = 100.0f;
-    public bool showHealthBar = true;
+    public bool showHealthBar;
     public HealthBar healthBar;
 
     // Use this for initialization
@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     {
         gameObject.AddComponent<HealthBar>();
         healthBar = gameObject.GetComponent<HealthBar>();
+        healthBar.show = showHealthBar;
     }
 
     public void TakeDamage(float _damage, bool crit)

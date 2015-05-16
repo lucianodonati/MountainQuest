@@ -340,6 +340,7 @@ MonoBehaviour:
   OnSightMovement: Seek_Movement
   changeTimerMax: 5
   changeTimerError: .5
+  nonseekAggroTimer: 0
   nonseekAggroTimerMax: 3
 --- !u!114 &11461280
 MonoBehaviour:
@@ -370,6 +371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
+  currSlowed: 0
+  currStunned: 0
+  howSlowed: 5
   moveSpeed: 4
   ground: {fileID: 0}
   target: {fileID: 0}
@@ -392,8 +396,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 0
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
+  dead: 0
+  deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
 --- !u!212 &21261278
 SpriteRenderer:

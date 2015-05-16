@@ -133,6 +133,7 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
   level: 1
   skillPoints: 0

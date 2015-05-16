@@ -12,6 +12,8 @@ public class Entity : MonoBehaviour
 
     public Color myColor;
 
+    public bool showHealth = true;
+
     //death vars
     public bool dead = false;
 
@@ -21,6 +23,7 @@ public class Entity : MonoBehaviour
         gameObject.AddComponent<Health>();
         health = GetComponent<Health>();
         health.currentHP = health.maxHP = maxHealth;
+        health.showHealthBar = showHealth;
 
         myColor = gameObject.GetComponent<SpriteRenderer>().color;
     }
