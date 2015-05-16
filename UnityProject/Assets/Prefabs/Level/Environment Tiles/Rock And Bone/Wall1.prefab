@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21211812}
   - 61: {fileID: 6105564}
   - 114: {fileID: 11487088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall1
   m_TagString: Wall
   m_Icon: {fileID: 0}

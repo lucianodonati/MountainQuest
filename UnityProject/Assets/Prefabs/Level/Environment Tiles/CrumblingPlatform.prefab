@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetimeMax: 2
+  dead: 0
+  refreshTimerMax: 10
 --- !u!198 &19858352
 ParticleSystem:
   m_ObjectHideFlags: 1
