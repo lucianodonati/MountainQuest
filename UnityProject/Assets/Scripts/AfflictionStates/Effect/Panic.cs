@@ -9,6 +9,12 @@ public class Panic : OverrideEffect
     private bool left = true;
     private Vector2 movePos;
 
+    private void Awake()
+    {
+        if (tag == "Boss")
+            Destroy(this);
+    }
+
     // Update is called once per frame
     public override void Update()
     {

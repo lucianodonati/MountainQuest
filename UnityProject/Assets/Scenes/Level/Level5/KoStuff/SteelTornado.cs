@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SteelTornado : KOAttack
 {
-    public float TurnTimer;
+    public float TurnTimer, vel = 30.0f;
     public bool CurrDirection;
 
     // Use this for initialization
@@ -25,6 +25,9 @@ public class SteelTornado : KOAttack
     public override void Update()
     {
         base.Update();
+
+        if (GetComponent<Entity>().dead)
+            Destroy(this);
 
         GameObject PBL = GameObject.Find("BottomLeft");
         Vector3 PlayerBottomLeft = PBL.transform.position;
@@ -58,11 +61,11 @@ public class SteelTornado : KOAttack
             Vector3 randVec = new Vector3(0, rand, 0);
             if (CurrDirection == false)
             {
-                rigidbody2D.velocity = (Vector3.left.normalized * 35f) + randVec;
+                rigidbody2D.velocity = (Vector3.left.normalized * vel) + randVec;
             }
             else if (CurrDirection == true)
             {
-                rigidbody2D.velocity = (Vector3.right.normalized * 35) + randVec;
+                rigidbody2D.velocity = (Vector3.right.normalized * vel) + randVec;
             }
 
             TurnTimer = 0.67f;
@@ -74,9 +77,7 @@ public class SteelTornado : KOAttack
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.name == "Player")
-        {
-            player.GetComponent<Health>().TakeDamage(30, false);
-        }
+            player.GetComponent<Health>().TakeDamage(20, false);
     }
 
     private void OnDestroy()

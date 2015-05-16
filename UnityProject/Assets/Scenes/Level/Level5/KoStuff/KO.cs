@@ -7,7 +7,7 @@ public class KO : Entity
     private int currentAttack = -1;
     private KOAttack currentKOAttack;
     private KoPlatforms myPlats;
-
+    private float deathTimerPoop = 3.5f;
     private Animator myAnimator;
 
     // ALLLLLL the Data Members
@@ -23,35 +23,71 @@ public class KO : Entity
     protected override void Update()
     {
         base.Update();
-
-        if (currentAttack == -1)
+        if (!dead)
         {
-            teleportToRandomPlat();
-            currentAttack = getRandomAttack();
-            switch (currentAttack)
+            if (health.currentHP <= 0)
+                die();
+
+            if (currentAttack == -1)
             {
-                case 1:
-                    currentKOAttack = gameObject.AddComponent<SteelTornado>();
-                    currentKOAttack.myAnim = 1;
-                    break;
+                teleportToRandomPlat();
+                currentAttack = getRandomAttack();
+                switch (currentAttack)
+                {
+                    case 1:
+                        currentKOAttack = gameObject.AddComponent<SteelTornado>();
+                        break;
+
+                    case 3:
+                        currentKOAttack = gameObject.AddComponent<CoolAttack>();
+                        break;
+                }
+                currentKOAttack.myAnim = currentAttack;
+            }
+            else
+            {
+                if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+                facingRight = rigidbody2D.velocity.x > 0;
+
+                if (currentKOAttack == null)
+                    currentAttack = -1;
             }
         }
         else
         {
-            if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
-            facingRight = rigidbody2D.velocity.x > 0;
-
-            if (currentKOAttack == null)
-                currentAttack = -1;
+            if (deathTimerPoop < 0.0f)
+            {
+                deathTimerPoop = 0.0f;
+                SoundFX sfx = GetComponent<SoundFX>();
+                if (sfx != null)
+                    sfx.Play("Died");
+            }
+            else if (deathTimerPoop > 0.0f)
+                deathTimerPoop -= Time.deltaTime;
         }
     }
 
     public override void die()
     {
+        CameraWaypoint cw = gameObject.AddComponent<CameraWaypoint>();
+        cw.stationaryFocus = this.transform;
+        cw.isStationary = true;
+        cw.cameraSize = 8.0f;
+
+        Camera.main.GetComponent<CameraBehavior>().SendMessage("SetView", cw);
+
+        if (currentKOAttack != null)
+            Destroy(currentKOAttack);
+        myAnimator.SetInteger("attack", 0);
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        teleportToRandomPlat();
+        rigidbody2D.velocity = new Vector3();
+
         myAnimator.SetBool("dead", true);
-        base.die(); // Play sound and set bool "dead" to true
+
+        dead = true;
     }
 
     private int getRandomAttack()

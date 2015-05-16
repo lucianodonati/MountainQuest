@@ -4,7 +4,7 @@ using UnityEngine;
 public class Affliction : DamageType
 {
     public bool slow = false;
-    public float ticEvery = 2.0f, currentDuration = 5.0f,initialDuration = 5.0f, timer = 0.0f;
+    public float ticEvery = 2.0f, currentDuration = 5.0f, initialDuration = 5.0f, timer = 0.0f;
     private float damageDealt = 0.0f;
     public bool particle = false, color = false;
     public Color changeColor;
@@ -12,7 +12,8 @@ public class Affliction : DamageType
 
     protected virtual void Start()
     {
-
+        if (GetComponent<Entity>().dead)
+            Destroy(this);
     }
 
     // Update is called once per frame
