@@ -1,23 +1,18 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SteelTornado : KOAttack
 {
-
     public float TurnTimer;
     public bool CurrDirection;
-    public GameObject player;
-
 
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
-        player = GameObject.Find("Player");
-
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        base.Start();
 
         TurnTimer = 1.25f;
-        Vector3 toPlayer = GetComponent<KO>().player.transform.position - transform.position;
+        Vector3 toPlayer = player.transform.position - transform.position;
         toPlayer.y = toPlayer.z = 0;
 
         if (toPlayer.x < 0)
@@ -27,31 +22,24 @@ public class SteelTornado : KOAttack
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        if (attackTimer <= 0)
-        {
-            doneAttacking = true;
-        }
-        attackTimer -= Time.deltaTime;
+        base.Update();
 
-       GameObject PBL = GameObject.Find("BottomLeft");
+        GameObject PBL = GameObject.Find("BottomLeft");
         Vector3 PlayerBottomLeft = PBL.transform.position;
 
         GameObject PTR = GameObject.Find("TopRight");
         Vector3 PlayerTopRight = PTR.transform.position;
 
-
-        if (transform.position.x <= PlayerBottomLeft.x ) // off the left side
+        if (transform.position.x <= PlayerBottomLeft.x) // off the left side
         {
             CurrDirection = !CurrDirection;
         }
         if (transform.position.x >= PlayerTopRight.x) // off the right side
         {
             CurrDirection = !CurrDirection;
-          
         }
-       
 
         TurnTimer -= Time.deltaTime;
         if (TurnTimer <= 0)
@@ -67,7 +55,6 @@ public class SteelTornado : KOAttack
                 rand = -10;
             }
 
-
             Vector3 randVec = new Vector3(0, rand, 0);
             if (CurrDirection == false)
             {
@@ -80,20 +67,20 @@ public class SteelTornado : KOAttack
 
             TurnTimer = 0.67f;
             CurrDirection = !CurrDirection;
-
         }
         // Play animation
-
-
-
-
     }
 
-    private void OnTriggerEnter2D(Collider2D coll)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.name == "Player")
         {
             player.GetComponent<Health>().TakeDamage(30, false);
         }
+    }
+
+    private void OnDestroy()
+    {
+        rigidbody2D.velocity = new Vector3();
     }
 }

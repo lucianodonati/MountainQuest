@@ -5,13 +5,24 @@ public abstract class KOAttack : MonoBehaviour
 {
     public bool doneAttacking = false;
     public float attackTimer = 5.0f;
+    protected GameObject player;
+    public int myAnim = 0;
 
     public virtual void Start()
     {
         attackTimer = 5.0f;
+        player = GameObject.Find("Player");
+        GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", myAnim);
     }
 
     public virtual void Update()
     {
+        if (attackTimer <= 0)
+        {
+            GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", 0);
+            Destroy(this);
+        }
+
+        attackTimer -= Time.deltaTime;
     }
 }

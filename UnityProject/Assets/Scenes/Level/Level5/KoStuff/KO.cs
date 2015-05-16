@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class KO : Entity
 {
-    private List<KOAttack> KOAttacks;
-   private KOAttack currentAttack = null;
-
+    private int currentAttack = -1;
+    private KOAttack currentKOAttack;
     private KoPlatforms myPlats;
 
     private Animator myAnimator;
@@ -14,18 +13,8 @@ public class KO : Entity
     // ALLLLLL the Data Members
     private bool facingRight = false;
 
-    public Player player;
-
-    private Vector2 preserveUp;
-    public bool ignoreEdges = false;
-    public float moveSpeed = 4;
-    private GameObject ground;
-    private GameObject target;
-    public LayerMask layerMask;
-
     protected override void Start()
     {
-        preserveUp = this.transform.up;
         myPlats = GameObject.Find("KoPlatforms").GetComponent<KoPlatforms>();
         myAnimator = GetComponent<Animator>();
         base.Start();
@@ -35,72 +24,28 @@ public class KO : Entity
     {
         base.Update();
 
-        if (currentAttack == null)
+        if (currentAttack == -1)
+        {
+            teleportToRandomPlat();
             currentAttack = getRandomAttack();
+            switch (currentAttack)
+            {
+                case 1:
+                    currentKOAttack = gameObject.AddComponent<SteelTornado>();
+                    currentKOAttack.myAnim = 1;
+                    break;
+            }
+        }
         else
         {
-            if (currentAttack.doneAttacking)
-            {
-                //currentAttack.enabled = false;
-                currentAttack = null;
-            }
-            else
-            {
-                if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
-                facingRight = rigidbody2D.velocity.x > 0;
+            facingRight = rigidbody2D.velocity.x > 0;
 
-                currentAttack.Update();
-            }
+            if (currentKOAttack == null)
+                currentAttack = -1;
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag == "Player")
-        {
-            if (InFOV(coll.gameObject))
-            {
-                target = coll.gameObject;
-            }
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Platform" && ground == null)
-        {
-            ground = coll.gameObject;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Platform")
-        {
-            ground = null;
-        }
-    }
-
-    private bool InFOV(GameObject targ)
-    {
-        bool val = false;
-        if (targ == null)
-            targ = GameObject.Find("Player");
-
-        RaycastHit2D checkFOV =
-            Physics2D.Linecast(transform.position, targ.transform.position, layerMask);
-        if (checkFOV.collider != null)
-        {
-            if (checkFOV.collider.transform == targ.transform)
-            {
-                val = true;
-            }
-        }
-        Debug.DrawLine(transform.position, checkFOV.point);
-
-        return val;
     }
 
     public override void die()
@@ -109,9 +54,10 @@ public class KO : Entity
         base.die(); // Play sound and set bool "dead" to true
     }
 
-    private KOAttack getRandomAttack()
+    private int getRandomAttack()
     {
-        return KOAttacks[0]; // For now
+        //return Random.Range(1, 5); // For now
+        return 1; // For now
     }
 
     public void teleportToRandomPlat()
