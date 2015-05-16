@@ -47,10 +47,21 @@ public class Enemy : Entity
         player.CheckForUpgrade();
         StatsManager.instance.enemiesKilledTotal++;
 
-        if (GetComponent<Parasite>() != null)
+        bool AOEon = false;
+        if(transform.FindChild("PreserveScale") != null)
         {
-            GetComponent<Parasite>().currentDuration = 5.0f;
-            GetComponent<ParticleSystem>().emissionRate *= 4;
+            if (transform.FindChild("PreserveScale").FindChild("ShatteringArrow(Clone)") != null ||
+               transform.FindChild("PreserveScale").FindChild("ExplodingArrow(Clone)") != null)
+                AOEon = true;
+        }
+
+        if (GetComponent<Parasite>() != null || AOEon)
+        {
+            if (GetComponent<Parasite>() != null)
+            {
+                GetComponent<Parasite>().currentDuration = 5.0f;
+                GetComponent<ParticleSystem>().emissionRate *= 4;
+            }
 
             deadLingerTimer = deadLingerTimerMax;
         }
@@ -66,14 +77,35 @@ public class Enemy : Entity
                 c.GetType() != System.Type.GetType("Health") &&
                 c.GetType() != System.Type.GetType("HealthBar"))
             {
-                if (c.GetType() == System.Type.GetType("Collider2D") && GetComponent<Parasite>() != null)
+                if (c.GetType() == System.Type.GetType("Collider2D") && (GetComponent<Parasite>() != null || AOEon))
                 {
-                    if (!((Collider2D)c).isTrigger)
+                    if (!AOEon && !((Collider2D)c).isTrigger)
                         continue;
                 }
 
                 ((MonoBehaviour)c).enabled = false;
             }
+        }
+
+        if (AOEon)
+        {
+            Renderer[] rends = GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in rends)
+                if (!r.gameObject.name.Contains("Effect"))
+                    r.enabled = false;
+
+            Rigidbody2D[] bods = GetComponentsInChildren<Rigidbody2D>();
+            foreach (Rigidbody2D b in bods)
+            {
+                b.isKinematic = false;
+                b.velocity = Vector2.zero;
+                b.drag = 100000;
+                b.gravityScale = 0;
+            }
+
+            BoxCollider2D[] bxcols = GetComponentsInChildren<BoxCollider2D>();
+            foreach (BoxCollider2D bx in bxcols)
+                bx.enabled = false;
         }
     }
 

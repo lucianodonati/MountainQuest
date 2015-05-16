@@ -195,6 +195,7 @@ public class Boss2Movement : Enemy
             GameObject currArrow = (GameObject)Instantiate(Arrow, gameObject.transform.position + Vector3.back,
                                                             Quaternion.FromToRotation(preserveUp, ArrowAngle));
 
+            currArrow.GetComponent<Arrow>().owner = this.gameObject;
             currArrow.rigidbody2D.velocity = ArrowAngle.normalized * 7.5f;
 
             if (atLongRange == true)
@@ -225,6 +226,7 @@ public class Boss2Movement : Enemy
                                                             Quaternion.FromToRotation(preserveUp, playerPos));
 
             currArrow.rigidbody2D.velocity = playerPos.normalized * 7.5f;
+            currArrow.GetComponent<Arrow>().owner = this.gameObject;
             shotsTaken++;
 
             if (atLongRange == true)

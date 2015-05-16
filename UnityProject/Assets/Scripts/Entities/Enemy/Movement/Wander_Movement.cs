@@ -11,6 +11,8 @@ public class Wander_Movement : Enemy_Movement {
     //public bool grounded = false;
     public GameObject ground;
 
+    public float clearance = 0.1f;
+    private bool chosen;
 
 	// Use this for initialization
 	protected override void Start () {
@@ -29,8 +31,12 @@ public class Wander_Movement : Enemy_Movement {
 
             rigidbody2D.velocity = movevec;
 
-            if (ground.collider2D.bounds.min.x > collider2D.bounds.max.x || ground.collider2D.bounds.max.x < collider2D.bounds.min.x)
+            if (ground.collider2D.bounds.min.x > collider2D.bounds.max.x + clearance ||
+                ground.collider2D.bounds.max.x < collider2D.bounds.min.x - clearance)
+            {
                 ground = null;
+                chosen = false;
+            }
         }else{
             rigidbody2D.velocity = new Vector2(0,rigidbody2D.velocity.y);
         }
@@ -38,15 +44,12 @@ public class Wander_Movement : Enemy_Movement {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if(coll.gameObject.tag == "Platform")
+        if(coll.collider.bounds.max.y <= collider2D.bounds.min.y && !chosen)
         {
-            if(coll.gameObject.transform.parent != null)
-            {
-                if (coll.gameObject.transform.parent.gameObject != GetComponent<Enemy>().lastPlatform)
-                    direction = !direction;
+            direction = !direction;
+            ground = coll.gameObject;
 
-                ground = coll.gameObject;
-            }
+            chosen = true;
         }
     }
 }

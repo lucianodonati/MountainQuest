@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 419934}
   - 61: {fileID: 6100506}
   - 114: {fileID: 11487088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437958}
   - 212: {fileID: 21237958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformEndGround
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437960}
   - 212: {fileID: 21237960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformEndCeiling
   m_TagString: Platform
   m_Icon: {fileID: 0}

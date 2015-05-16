@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 406176}
   - 212: {fileID: 21206178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 406178}
   - 212: {fileID: 21206180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 406180}
   - 60: {fileID: 6069068}
   - 114: {fileID: 11487088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleStart
   m_TagString: Platform
   m_Icon: {fileID: 0}

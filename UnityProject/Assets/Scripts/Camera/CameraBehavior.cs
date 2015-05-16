@@ -17,7 +17,7 @@ public class CameraBehavior : MonoBehaviour
     public GameObject MinBound = null;
     public GameObject MaxBound = null;
 
-    private float size;
+    public float size;
     private bool stationary;
     private Transform lookTarget;
 
