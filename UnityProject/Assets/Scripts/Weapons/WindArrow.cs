@@ -5,11 +5,6 @@ public class WindArrow : Arrow
 {
     private bool hit = false;
 
-    // Use this for initialization
-    private void Start()
-    {
-    }
-
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D coll)
     {

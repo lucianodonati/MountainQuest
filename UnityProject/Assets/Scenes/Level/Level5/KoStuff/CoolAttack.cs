@@ -4,22 +4,23 @@ using UnityEngine;
 public class CoolAttack : KOAttack
 {
     private int jumps;
-    private float timer = 1.0f;
+    private float timer = 1.0f, animTimer = 4.0f;
     private KO me;
+    private Animator anim;
+    private bool shoot = false;
 
     // Use this for initialization
-    private void Start()
+    public override void Start()
     {
         me = GetComponent<KO>();
-        jumps = 4;
+        player = GameObject.Find("Player");
+        anim = me.GetComponent<Animator>();
+        jumps = Random.Range(2, 4);
     }
 
     // Update is called once per frame
-    private void Update()
+    public override void Update()
     {
-        base.Update();
-
-        attackTimer = 5.0f;
         if (jumps > 0)
         {
             if (timer < 0.0f)
@@ -27,17 +28,36 @@ public class CoolAttack : KOAttack
                 timer = 1.0f;
                 jumps--;
                 me.teleportToRandomCoolPos();
-                GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", 0);
+                anim.SetInteger("attack", 0);
             }
             else
             {
-                GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", myAnim);
+                anim.SetInteger("attack", myAnim);
                 timer -= Time.deltaTime;
             }
         }
         else
         {
-            GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", myAnim);
+            anim.SetInteger("attack", myAnim);
+            animTimer -= Time.deltaTime;
+            if (animTimer < 0.0f && !shoot)
+            {
+                shoot = true;
+                Vector3 playerPos = player.transform.position;
+                playerPos -= transform.position;
+                playerPos.z = 0;
+                for (int i = 0; i < 2; i++)
+                {
+                    int mult = i % 2 == 0 ? 1 : -1;
+                    GameObject currArrow = (GameObject)Instantiate(me.SoulOrb, gameObject.transform.position + Vector3.forward + new Vector3(mult * 10, -2),
+                                                      Quaternion.FromToRotation(transform.up, playerPos));
+
+                    currArrow.GetComponent<Arrow>().owner = this.gameObject;
+
+                    currArrow.rigidbody2D.velocity = playerPos.normalized * 7.5f;
+                }
+                Destroy(this);
+            }
         }
     }
 }

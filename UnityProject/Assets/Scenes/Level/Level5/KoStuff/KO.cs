@@ -9,7 +9,10 @@ public class KO : Entity
     private KoPlatforms myPlats;
     private float deathTimerPoop = 3.5f;
     private Animator myAnimator;
-    public GameObject Dagger;
+    public GameObject Dagger, SoulOrb;
+
+    private ParticleSystem psys;
+    public GameObject Emitter;
 
     // ALLLLLL the Data Members
     private bool facingRight = false;
@@ -18,6 +21,9 @@ public class KO : Entity
     {
         myPlats = GameObject.Find("KoPlatforms").GetComponent<KoPlatforms>();
         myAnimator = GetComponent<Animator>();
+        GameObject emitter = (GameObject)Instantiate(Emitter, transform.position, transform.rotation);
+        emitter.transform.parent = transform;
+        psys = emitter.GetComponent<ParticleSystem>();
         base.Start();
     }
 
@@ -40,18 +46,21 @@ public class KO : Entity
                         break;
 
                     case 2:
+                        break;
 
                     case 3:
                         currentKOAttack = gameObject.AddComponent<CoolAttack>();
                         break;
 
                     case 4:
+                        break;
 
                     case 5:
                         currentKOAttack = gameObject.AddComponent<RainOfDaggers>();
                         break;
                 }
-                currentKOAttack.myAnim = currentAttack;
+                if (currentKOAttack != null)
+                    currentKOAttack.myAnim = currentAttack;
             }
             else
             {
@@ -101,8 +110,7 @@ public class KO : Entity
 
     private int getRandomAttack()
     {
-        //return Random.Range(1, 5); // For now
-        return 5;
+        return Random.Range(1, 5); // For now
     }
 
     public void teleportToRandomPlat()
@@ -124,5 +132,11 @@ public class KO : Entity
         Vector3 pos = _gobj.transform.position;
 
         return new Vector3(pos.x + coll.size.x * 0.7f, pos.y + coll.size.y * 6);
+    }
+
+    public void healKO(float _ammount)
+    {
+        health.Heal(_ammount);
+        psys.Emit((int)_ammount);
     }
 }

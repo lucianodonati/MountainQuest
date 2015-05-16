@@ -23,7 +23,7 @@ public class Arrow : MonoBehaviour
     public float OnAOEDampeningAmount;
 
     // Use this for initialization
-    private void Start()
+    protected virtual void Start()
     {
         SoundFX sfx = GetComponent<SoundFX>();
         if (sfx != null)
@@ -33,7 +33,7 @@ public class Arrow : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
         if (stuck)
         {
@@ -47,7 +47,7 @@ public class Arrow : MonoBehaviour
         //rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject != owner && !other.isTrigger)
         {
