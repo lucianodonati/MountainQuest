@@ -46,6 +46,7 @@ public class KO : Entity
                         break;
 
                     case 2:
+                        currentKOAttack = gameObject.AddComponent<PlatAttack>();
                         break;
 
                     case 3:
@@ -110,7 +111,8 @@ public class KO : Entity
 
     private int getRandomAttack()
     {
-        return Random.Range(1, 5); // For now
+        //return Random.Range(1, 5); // For now
+        return 2; // For now
     }
 
     public void teleportToRandomPlat()
@@ -131,7 +133,7 @@ public class KO : Entity
 
         Vector3 pos = _gobj.transform.position;
 
-        return new Vector3(pos.x + coll.size.x * 0.7f, pos.y + coll.size.y * 6);
+        return new Vector3(pos.x + coll.size.x * 0.7f, pos.y + coll.size.y * 7);
     }
 
     public void healKO(float _ammount)
