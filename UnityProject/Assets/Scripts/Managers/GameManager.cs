@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
     {
         if (Application.loadedLevelName == "MainMenu")
             OnLevelWasLoaded(0);
+
         music.Play();
         UpdateMusic(musicVol);
         AudioListener.volume = sfxVol;
