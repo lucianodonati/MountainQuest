@@ -9,6 +9,7 @@ public class KO : Entity
     private KoPlatforms myPlats;
     private float deathTimerPoop = 3.5f;
     private Animator myAnimator;
+    public GameObject Dagger;
 
     // ALLLLLL the Data Members
     private bool facingRight = false;
@@ -38,8 +39,16 @@ public class KO : Entity
                         currentKOAttack = gameObject.AddComponent<SteelTornado>();
                         break;
 
+                    case 2:
+
                     case 3:
                         currentKOAttack = gameObject.AddComponent<CoolAttack>();
+                        break;
+
+                    case 4:
+
+                    case 5:
+                        currentKOAttack = gameObject.AddComponent<RainOfDaggers>();
                         break;
                 }
                 currentKOAttack.myAnim = currentAttack;
@@ -93,7 +102,7 @@ public class KO : Entity
     private int getRandomAttack()
     {
         //return Random.Range(1, 5); // For now
-        return 1; // For now
+        return 5;
     }
 
     public void teleportToRandomPlat()
