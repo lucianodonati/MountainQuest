@@ -14,6 +14,8 @@ public class CameraWaypoint : MonoBehaviour
     public float moveLerpSpeed = 8;
     public float scaleLerpSpeed = 16;
 
+    public bool checkpoint = false;
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player" || (!justPlayer && coll.gameObject.tag == "TriggersWaypoint"))
