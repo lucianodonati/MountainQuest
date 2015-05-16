@@ -53,7 +53,7 @@ public class Arrow : MonoBehaviour
         {
             if (stuck)
             {
-                if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow"))
+                if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow") || name.Contains("Fireball") || name.Contains("Firebolt") || name.Contains("flames"))
                 {
                     CircleCollider2D circle = GetComponent<CircleCollider2D>();
                     if (circle.enabled &&
@@ -68,7 +68,7 @@ public class Arrow : MonoBehaviour
             }
             else
             {
-                if ((name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow")))
+                if ((name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow") || name.Contains("Fireball") || name.Contains("Firebolt")))
                 {
                     if (!GetComponent<AOE>().enabled)
                     {
@@ -110,8 +110,15 @@ public class Arrow : MonoBehaviour
                 if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
                     StatsManager.instance.shotsHit++;
 
-                if ((!name.Contains("WindArrow") && !name.Contains("LightningArrow")) || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss"))
+                if ((!name.Contains("WindArrow") && !name.Contains("LightningArrow")) || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss" && !name.Contains("Fireball") && !name.Contains("Firebolt") && !name.Contains("flames")))
                     GetStuck(other);
+                if (name.Contains("Fireball") || !name.Contains("Firebolt") || name.Contains("flames"))
+                {
+                    //Destroy(gameObject);
+                    renderer.enabled = false;
+                    foreach (SpriteRenderer child in GetComponentsInChildren<SpriteRenderer>())
+                        child.enabled = false;
+                }
             }
         }
     }

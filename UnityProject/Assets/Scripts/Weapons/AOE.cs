@@ -27,7 +27,7 @@ public class AOE : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Enemy")
         {
-            if (coll.gameObject.GetComponent<Entity>().dead)
+            if (coll.gameObject.GetComponent<Entity>())
             {
                 Vector2 toTarg = (Vector2)(coll.gameObject.transform.position - transform.position);
 

@@ -94,8 +94,8 @@ MonoBehaviour:
   damage: 5
   slow: 0
   ticEvery: 3
-  currentDuration: 5
-  initialDuration: 5
+  currentDuration: 2
+  initialDuration: 2
   timer: 0
   particle: 1
   color: 1

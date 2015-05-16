@@ -4,11 +4,13 @@ using UnityEngine;
 public class Affliction : DamageType
 {
     public bool slow = false;
+    public bool stun = false;   
     public float ticEvery = 2.0f, currentDuration = 5.0f,initialDuration = 5.0f, timer = 0.0f;
     private float damageDealt = 0.0f;
     public bool particle = false, color = false;
     public Color changeColor;
     public OverrideEffect effect;
+    public bool isFirebolt = false;
 
     protected virtual void Start()
     {
@@ -27,6 +29,18 @@ public class Affliction : DamageType
                 Slowed.isSlowed = true;
             }
         }
+
+        // stuns enemy struck
+        if (stun == true)
+        {
+            Entity Stunned = GetComponent<Entity>();
+            if (Stunned != null)
+            {
+                Stunned.isStunned = true;
+            }
+        }
+
+        
         if (currentDuration >= 0.0f)
         {
             if (timer <= 0.0f)
