@@ -279,7 +279,7 @@ public class Player : Entity
         }
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.GetComponent<CameraWaypoint>() != null && coll.GetComponent<CameraWaypoint>().checkpoint)
             respawnPos = transform.position;
