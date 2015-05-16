@@ -10,7 +10,7 @@ public class KO : Entity
     private float deathTimerPoop = 3.5f;
     private Animator myAnimator;
     public GameObject Dagger, SoulOrb;
-
+    public bool animating = true;
     private ParticleSystem psys;
     public GameObject Emitter;
 
@@ -30,61 +30,64 @@ public class KO : Entity
     protected override void Update()
     {
         base.Update();
-        if (!dead)
+        if (!animating)
         {
-            if (health.currentHP <= 0)
-                die();
-
-            if (currentAttack == -1)
+            if (!dead)
             {
-                teleportToRandomPlat();
-                currentAttack = getRandomAttack();
-                switch (currentAttack)
+                if (health.currentHP <= 0)
+                    die();
+
+                if (currentAttack == -1)
                 {
-                    case 1:
-                        currentKOAttack = gameObject.AddComponent<SteelTornado>();
-                        break;
+                    teleportToRandomPlat();
+                    currentAttack = getRandomAttack();
+                    switch (currentAttack)
+                    {
+                        case 1:
+                            currentKOAttack = gameObject.AddComponent<SteelTornado>();
+                            break;
 
-                    case 2:
-                        currentKOAttack = gameObject.AddComponent<PlatAttack>();
-                        break;
+                        case 2:
+                            currentKOAttack = gameObject.AddComponent<PlatAttack>();
+                            break;
 
-                    case 3:
-                        currentKOAttack = gameObject.AddComponent<CoolAttack>();
-                        break;
+                        case 3:
+                            currentKOAttack = gameObject.AddComponent<CoolAttack>();
+                            break;
 
-                    case 4:
-                        break;
+                        case 4:
+                            break;
 
-                    case 5:
-                        currentKOAttack = gameObject.AddComponent<RainOfDaggers>();
-                        break;
+                        case 5:
+                            currentKOAttack = gameObject.AddComponent<RainOfDaggers>();
+                            break;
+                    }
+                    if (currentKOAttack != null)
+                        currentKOAttack.myAnim = currentAttack;
                 }
-                if (currentKOAttack != null)
-                    currentKOAttack.myAnim = currentAttack;
+                else
+                {
+                    if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+                    facingRight = rigidbody2D.velocity.x > 0;
+
+                    if (currentKOAttack == null)
+                        currentAttack = -1;
+                }
             }
             else
             {
-                if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
-                facingRight = rigidbody2D.velocity.x > 0;
-
-                if (currentKOAttack == null)
-                    currentAttack = -1;
+                if (deathTimerPoop < 0.0f)
+                {
+                    deathTimerPoop = 0.0f;
+                    SoundFX sfx = GetComponent<SoundFX>();
+                    if (sfx != null)
+                        sfx.Play("Died");
+                }
+                else if (deathTimerPoop > 0.0f)
+                    deathTimerPoop -= Time.deltaTime;
             }
-        }
-        else
-        {
-            if (deathTimerPoop < 0.0f)
-            {
-                deathTimerPoop = 0.0f;
-                SoundFX sfx = GetComponent<SoundFX>();
-                if (sfx != null)
-                    sfx.Play("Died");
-            }
-            else if (deathTimerPoop > 0.0f)
-                deathTimerPoop -= Time.deltaTime;
         }
     }
 
@@ -111,8 +114,7 @@ public class KO : Entity
 
     private int getRandomAttack()
     {
-        //return Random.Range(1, 5); // For now
-        return 2; // For now
+        return Random.Range(1, 5); // For now
     }
 
     public void teleportToRandomPlat()

@@ -22,6 +22,11 @@ public class KoCinematic : MonoBehaviour
             else
             {
                 transform.position = Vector3.MoveTowards(transform.position, GameObject.Find("EnterRoom").transform.position, moveSpeed * Time.deltaTime);
+                if (Vector2.Distance(GameObject.Find("EnterRoom").transform.position, transform.position) < 5.0f)
+                {
+                    GetComponent<KO>().animating = false;
+                    Destroy(this);
+                }
             }
         }
     }
