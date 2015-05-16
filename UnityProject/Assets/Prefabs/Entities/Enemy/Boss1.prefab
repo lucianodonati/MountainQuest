@@ -68,10 +68,10 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196448}
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -110,8 +110,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17360214862bed948a7ba63e9ab51392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 0
   health: {fileID: 0}
+  maxHealth: 100
   isSlowed: 0
+  isStunned: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
+  dead: 0
+  deadLingerTimerMax: 5
+  lastPlatform: {fileID: 0}
   stompTimer: 1
   chargeTimer: 1
   runTimer: 3
@@ -122,6 +129,7 @@ MonoBehaviour:
   attackDelay: .899999976
   player: {fileID: 0}
   tiredTimer: 0
+  facingRight: 0
   ignoreEdges: 1
   direction: 0
   moveSpeed: 4
@@ -132,6 +140,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33024
+  missShakeAmount: 0
+  missShakeDampening: 0
+  stompHitShakeAmount: 0
+  stompHitShakeDampening: 0
 --- !u!198 &19849082
 ParticleSystem:
   m_ObjectHideFlags: 1
