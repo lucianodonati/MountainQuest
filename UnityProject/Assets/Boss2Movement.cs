@@ -40,7 +40,6 @@ public class Boss2Movement : Enemy
 
     public Vector3 SprayDirection;
 
-
     protected override void Start()
     {
         preserveUp = this.transform.up;
@@ -54,7 +53,7 @@ public class Boss2Movement : Enemy
 
         if (VaultTimer <= 0)
         {
-            player.GetComponent<Player>().rigidbody2D.isKinematic = false; 
+            player.GetComponent<Player>().rigidbody2D.isKinematic = false;
         }
         if (Vaulting == true)
         {
@@ -74,8 +73,6 @@ public class Boss2Movement : Enemy
         }
         else
         {
-
-
             if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
             {
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -94,7 +91,6 @@ public class Boss2Movement : Enemy
 
                 if (ground != null)
                 {
-
                     if (InFOV(target))
                     {
                         Vector3 toPlayer = target.transform.position - transform.position;
@@ -104,7 +100,6 @@ public class Boss2Movement : Enemy
                             direction = false; //left
                         else if (toPlayer.x > 0)
                             direction = true; //right
-
 
                         if (Mathf.Abs(toPlayer.x) < 6.5) // if short range
                         {
@@ -119,7 +114,6 @@ public class Boss2Movement : Enemy
                             {
                                 Flurrying = true;
                             }
-
                         }
 
                         if (Mathf.Abs(toPlayer.x) <= 13.5 && Mathf.Abs(toPlayer.x) >= 6.5) // if medium range
@@ -134,9 +128,7 @@ public class Boss2Movement : Enemy
                             else if (rand >= 0.30 && rand <= 1.0)
                             {
                                 Shooting = true;
-
                             }
-
                         }
 
                         if (Mathf.Abs(toPlayer.x) >= 13.5) // if long range
@@ -152,9 +144,7 @@ public class Boss2Movement : Enemy
                             {
                                 Shooting = true;
                             }
-
                         }
-
                     }
 
                     if (!ignoreEdges)
@@ -170,13 +160,7 @@ public class Boss2Movement : Enemy
                 target = null;
             }
         }
-
-
     }
-
-
-
-
 
     private void OnTriggerStay2D(Collider2D coll)
     {
@@ -190,10 +174,8 @@ public class Boss2Movement : Enemy
         }
     }
 
-
     private void OnCollisionEnter2D(Collision2D coll)
     {
-
     }
 
     private void OnCollisionStay2D(Collision2D coll)
@@ -232,22 +214,15 @@ public class Boss2Movement : Enemy
         return val;
     }
 
-
-
-
-
-
     private void ArrowSpray()
     {
         shotDelay -= Time.deltaTime;
         if (shotDelay <= 0)
         {
-
             if (SprayDirection.x <= 0)
                 SprayDirection += new Vector3(1, 0.5f, 0);
             if (SprayDirection.x > 0)
                 SprayDirection += new Vector3(1, -0.5f, 0);
-
 
             Vector3 ArrowAngle = transform.position + SprayDirection;
             ArrowAngle -= transform.position;
@@ -273,9 +248,6 @@ public class Boss2Movement : Enemy
                 SprayDirection = new Vector3(-5.0f, 0, 0);
             }
         }
-
-
-
     }
 
     private void ShootPlayer()
@@ -308,13 +280,10 @@ public class Boss2Movement : Enemy
                 Shooting = false;
             }
         }
-
     }
-
 
     private void FlurryAttack()
     {
-
         stabDelay -= Time.deltaTime;
         // GetComponent<Animator>().SetBool("isAttacking", false);
         // animation.Play()
@@ -335,30 +304,28 @@ public class Boss2Movement : Enemy
         }
     }
 
-
-
     private void Vault()
     {
         Rigidbody2D playerBody = player.GetComponent<Player>().rigidbody2D;
 
         if (direction == false)
         {
-          //  Vector2 KB = new Vector2(-5, 3);
+            //  Vector2 KB = new Vector2(-5, 3);
 
-          //  playerBody.isKinematic = true
-            playerBody.AddForce(new Vector2(-5,3) * 1000);
-         //   playerBody.velocity += KB;
+            //  playerBody.isKinematic = true
+            playerBody.AddForce(new Vector2(-5, 3) * 1000);
+            //   playerBody.velocity += KB;
 
             Vector2 jumpBack = new Vector2(8, 8);
             gameObject.rigidbody2D.velocity += jumpBack;
         }
         if (direction == true)
         {
-            Vector2 KB = new Vector2(5, 3);
+            //Vector2 KB = new Vector2(5, 3);
 
-         //   playerBody.isKinematic = true;
+            //   playerBody.isKinematic = true;
             playerBody.AddForce(new Vector2(5, 3) * 1000);
-          //  playerBody.velocity += KB;
+            //  playerBody.velocity += KB;
 
             Vector2 jumpBack = new Vector2(-8, 8);
             gameObject.rigidbody2D.velocity += jumpBack;
@@ -368,5 +335,4 @@ public class Boss2Movement : Enemy
         Shooting = true;
         Vaulting = false;
     }
-
 }

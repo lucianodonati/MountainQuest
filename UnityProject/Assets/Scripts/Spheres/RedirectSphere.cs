@@ -40,37 +40,34 @@ public class RedirectSphere : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj == null || proj.owner.name != "Boss 2")
+        if (proj != null && proj.owner.name != "Boss 2")
         {
-            if (other.GetComponent<Arrow>() != null)
-            {
-                SoundFX sfx = GetComponent<SoundFX>();
-                if (sfx != null)
-                    sfx.Play("EnterSphere");
+            SoundFX sfx = GetComponent<SoundFX>();
+            if (sfx != null)
+                sfx.Play("EnterSphere");
 
-                StatsManager.instance.arrowsRedirected++;
-                other.rigidbody2D.position = this.transform.position;
-                Direction.Normalize();
-                Direction *= other.rigidbody2D.velocity.magnitude;
-                other.rigidbody2D.velocity = Direction;
-                other.rigidbody2D.rotation = RotationDirection + 0;
+            GameManager.instance.statsManager.arrowsRedirected++;
+            other.rigidbody2D.position = this.transform.position;
+            Direction.Normalize();
+            Direction *= other.rigidbody2D.velocity.magnitude;
+            other.rigidbody2D.velocity = Direction;
+            other.rigidbody2D.rotation = RotationDirection;
 
-                other.GetComponent<Arrow>().damageType.damage += DamageModifier;
-                other.GetComponent<Arrow>().owner = this.gameObject;
-            }
-            else if (other.tag == "Player")
-            {
-                SoundFX sfx = GetComponent<SoundFX>();
-                if (sfx != null)
-                    sfx.Play("EnterSphere");
+            other.GetComponent<Arrow>().damageType.damage += DamageModifier;
+            other.GetComponent<Arrow>().owner = this.gameObject;
+        }
+        else if (other.tag == "Player")
+        {
+            SoundFX sfx = GetComponent<SoundFX>();
+            if (sfx != null)
+                sfx.Play("EnterSphere");
 
-                other.rigidbody2D.position = this.transform.position;
-                Direction.Normalize();
-                Direction *= PlayerRedirectMagnitude;
-                other.rigidbody2D.velocity = Direction;
-                other.GetComponent<PlayerController>().redirectedTimer = antigravityTime;
-                other.rigidbody2D.gravityScale = 0;
-            }
+            other.rigidbody2D.position = this.transform.position;
+            Direction.Normalize();
+            Direction *= PlayerRedirectMagnitude;
+            other.rigidbody2D.velocity = Direction;
+            other.GetComponent<PlayerController>().redirectedTimer = antigravityTime;
+            other.rigidbody2D.gravityScale = 0;
         }
     }
 

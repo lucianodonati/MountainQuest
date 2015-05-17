@@ -13,7 +13,7 @@ public class BoostSphere : BaseSphere
         {
             if (proj != null)
             {
-                StatsManager.instance.arrowsBoosted++;
+                GameManager.instance.statsManager.arrowsBoosted++;
                 proj.damageType.damage += DamageModifier;
                 proj.owner = this.gameObject;
             }

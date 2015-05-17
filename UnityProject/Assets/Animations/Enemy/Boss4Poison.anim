@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Boss4Poison
+  serializedVersion: 4
+  m_AnimationType: 2
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 4056c42bcff708e4d99f6d74a9340156, type: 3}
+    - time: .0833333358
+      value: {fileID: 21300000, guid: 975eda5da1c108e45bb67f65f4808745, type: 3}
+    - time: .166666672
+      value: {fileID: 21300000, guid: d182b3ccd7d691b4e84618310fa967c3, type: 3}
+    - time: .25
+      value: {fileID: 21300000, guid: 73b2b82b01cc7fd4fb146fe17dd900e1, type: 3}
+    - time: .333333343
+      value: {fileID: 21300000, guid: 40027bd86923dff4a832f024d3368788, type: 3}
+    - time: .416666657
+      value: {fileID: 21300000, guid: 076f41430fec59e47b6b6b8aa7ef4e16, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 12
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 0
+      attribute: 0
+      script: {fileID: 0}
+      classID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 4056c42bcff708e4d99f6d74a9340156, type: 3}
+    - {fileID: 21300000, guid: 975eda5da1c108e45bb67f65f4808745, type: 3}
+    - {fileID: 21300000, guid: d182b3ccd7d691b4e84618310fa967c3, type: 3}
+    - {fileID: 21300000, guid: 73b2b82b01cc7fd4fb146fe17dd900e1, type: 3}
+    - {fileID: 21300000, guid: 40027bd86923dff4a832f024d3368788, type: 3}
+    - {fileID: 21300000, guid: 076f41430fec59e47b6b6b8aa7ef4e16, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_StartTime: 0
+    m_StopTime: .5
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_Events: []
