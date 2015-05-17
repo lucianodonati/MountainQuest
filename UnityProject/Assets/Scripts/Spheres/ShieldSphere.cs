@@ -21,7 +21,7 @@ public class ShieldSphere : BaseSphere
     private void OnTriggerStay2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj != null && !proj.stuck && !proj.createdInsideShield)
+        if (proj == null || proj.owner.name != "Boss 2")
         {
             Vector3 pushVector = (other.transform.position - transform.position);
             other.rigidbody2D.velocity += new Vector2(pushVector.x, pushVector.y);

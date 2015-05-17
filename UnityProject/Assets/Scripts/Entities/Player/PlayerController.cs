@@ -96,9 +96,12 @@ public class PlayerController : MonoBehaviour
 
         if (movementEnabled)
         {
-            Walk();
+            if (!rigidbody2D.isKinematic)
+            {
+                Walk();                
+            }
 
-            if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock)
+            if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock && !rigidbody2D.isKinematic)
                 Jump();
 
             if (Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock)

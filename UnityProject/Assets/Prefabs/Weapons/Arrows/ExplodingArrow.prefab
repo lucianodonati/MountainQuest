@@ -141,8 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe4e8149e7ead04d8f18def677db096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   slow: 0
+  stun: 0
   ticEvery: 2
   currentDuration: 5
   initialDuration: 5
@@ -151,6 +152,7 @@ MonoBehaviour:
   color: 1
   changeColor: {r: 1, g: 0, b: 0, a: 1}
   effect: {fileID: 11455232, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
+  isFirebolt: 0
 --- !u!198 &19865964
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1215,7 +1217,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3113644dec133384e9f86d5c419f9b12, type: 2}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

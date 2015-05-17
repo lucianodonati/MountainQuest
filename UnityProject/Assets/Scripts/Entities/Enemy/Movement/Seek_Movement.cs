@@ -47,6 +47,8 @@ public class Seek_Movement : Enemy_Movement
                 currSlowed = false;
             }
 
+
+
             if (aggroTimer > 0.0f)
             {
                 aggroTimer -= Time.deltaTime;
