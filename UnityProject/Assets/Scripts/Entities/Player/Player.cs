@@ -272,11 +272,13 @@ public class Player : Entity
 
     public void CheckForUpgrade()
     {
-        if (experience / 100 > level - 1)
-        {
-            level++;
-            skillPoints++;
-        }
+        level = experience / 100 + 1;
+        skillPoints = level - 1;
+        //if (experience / 100 > level - 1)
+        //{
+        //    level++;
+        //    skillPoints++;
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D coll)

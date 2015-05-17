@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80e9481a95ec374db6b4af35e9ae742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuToSwitch: 7
+  MenuToSwitch: 8
   SceneToLoad: 1
 --- !u!114 &11409274
 MonoBehaviour:
