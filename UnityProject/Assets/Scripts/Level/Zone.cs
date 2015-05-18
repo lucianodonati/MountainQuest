@@ -6,7 +6,8 @@ public class Zone : MonoBehaviour
 {
     public List<SkillsManager.SpheresId> spheresEnabled;
     private List<SkillsManager.SpheresId> oldSpheres;
-    public bool destroyOnExit, playerMovement, oldMovement, playerCombat, oldCombat;
+    public bool destroyOnExit, playerMovement, playerCombat;
+    private bool oldMovement, oldCombat;
     private PlayerController playerController;
     private SkillsManager skills;
 
@@ -31,7 +32,7 @@ public class Zone : MonoBehaviour
             if (sphere.active)
                 oldSpheres.Add(sphere.id);
 
-            skills.ToggleSphere(sphere.id, spheresEnabled.Contains(sphere.id));
+            skills.ToggleSphere(sphere.id, spheresEnabled.Count > 0 ? spheresEnabled.Contains(sphere.id) : false);
         }
     }
 

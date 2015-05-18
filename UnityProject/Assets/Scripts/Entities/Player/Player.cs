@@ -83,7 +83,7 @@ public class Player : Entity
 
         if (!dead)
         {
-            if (GetComponent<PlayerController>().combatEnabled)
+            if (GetComponent<PlayerController>().combatEnabled && GameManager.instance.skillsManager.spheres.Count > 0)
             {
                 Vector3 mouse = Input.mousePosition;
                 mouse.z = 10;
@@ -199,18 +199,20 @@ public class Player : Entity
     public void nextSphere()
     {
         List<SkillsManager.SetPrefabs> tempSpheres = GameManager.instance.skillsManager.spheres;
-
-        int currentOne = tempSpheres.IndexOf(ClickObj);
-
-        for (int i = currentOne + 1; i != currentOne; i++)
+        if (tempSpheres.Count > 0)
         {
-            if (i == (tempSpheres.Count - 1))
-                i = 0;
+            int currentOne = tempSpheres.IndexOf(ClickObj);
 
-            if (tempSpheres[i].active)
+            for (int i = currentOne + 1; i != currentOne; i++)
             {
-                ClickObj = tempSpheres[i];
-                break;
+                if (i == (tempSpheres.Count - 1))
+                    i = 0;
+
+                if (tempSpheres[i].active)
+                {
+                    ClickObj = tempSpheres[i];
+                    break;
+                }
             }
         }
     }
