@@ -9,7 +9,7 @@ public class BoostSphere : BaseSphere
     private void OnTriggerEnter2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj == null || proj.owner.name != "Boss 2")
+        if ((proj != null && proj.owner != null && proj.owner.name != "Boss 2") || other.tag == "Player")
         {
             if (proj != null)
             {
@@ -17,6 +17,7 @@ public class BoostSphere : BaseSphere
                 proj.damageType.damage += DamageModifier;
                 proj.owner = this.gameObject;
             }
+
             if (other.rigidbody2D != null)
             {
                 SoundFX sfx = GetComponent<SoundFX>();

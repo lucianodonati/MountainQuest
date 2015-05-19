@@ -40,7 +40,20 @@ public class RedirectSphere : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if (proj != null && proj.owner.name != "Boss 2")
+        if (other.tag == "Player")
+        {
+            SoundFX sfx = GetComponent<SoundFX>();
+            if (sfx != null)
+                sfx.Play("EnterSphere");
+
+            other.rigidbody2D.position = this.transform.position;
+            Direction.Normalize();
+            Direction *= PlayerRedirectMagnitude;
+            other.rigidbody2D.velocity = Direction;
+            other.GetComponent<PlayerController>().redirectedTimer = antigravityTime;
+            other.rigidbody2D.gravityScale = 0;
+        }
+        else if (proj != null && proj.owner != null && proj.owner.name != "Boss 2")
         {
             SoundFX sfx = GetComponent<SoundFX>();
             if (sfx != null)
@@ -55,19 +68,6 @@ public class RedirectSphere : MonoBehaviour
 
             other.GetComponent<Arrow>().damageType.damage += DamageModifier;
             other.GetComponent<Arrow>().owner = this.gameObject;
-        }
-        else if (other.tag == "Player")
-        {
-            SoundFX sfx = GetComponent<SoundFX>();
-            if (sfx != null)
-                sfx.Play("EnterSphere");
-
-            other.rigidbody2D.position = this.transform.position;
-            Direction.Normalize();
-            Direction *= PlayerRedirectMagnitude;
-            other.rigidbody2D.velocity = Direction;
-            other.GetComponent<PlayerController>().redirectedTimer = antigravityTime;
-            other.rigidbody2D.gravityScale = 0;
         }
     }
 

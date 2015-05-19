@@ -10,9 +10,9 @@ public class Arrow : MonoBehaviour
     public int numCollisions = 0;
     public DamageType damageType;
 
-    public bool stuck { get; set; }
+    public bool stuck = false;
 
-    public bool createdInsideShield { get; set; }
+    public bool createdInsideShield = false;
 
     //AOE Emitter
     public GameObject AOE_Emitter;
@@ -41,7 +41,7 @@ public class Arrow : MonoBehaviour
             if (stuckTimer <= 0)
                 Destroy(gameObject);
         }
-        else
+        else if (owner != null && owner.name.Contains("Wave"))
             rigidbody2D.velocity = transform.up * speed;
 
         //rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
