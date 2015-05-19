@@ -65,7 +65,9 @@ public class Enemy : Entity
             if (GetComponent<Parasite>() != null)
             {
                 GetComponent<Parasite>().currentDuration = 5.0f;
-                GetComponent<ParticleSystem>().emissionRate *= 4;
+                ParticleSystem psys = GetComponent<ParticleSystem>();
+                if (psys != null)
+                    psys.emissionRate *= 4;
             }
 
             deadLingerTimer = deadLingerTimerMax;

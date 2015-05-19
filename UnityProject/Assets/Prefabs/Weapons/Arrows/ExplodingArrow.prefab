@@ -127,6 +127,8 @@ MonoBehaviour:
   stuckTimer: 5
   numCollisions: 0
   damageType: {fileID: 11464714}
+  stuck: 0
+  createdInsideShield: 0
   AOE_Emitter: {fileID: 117650, guid: 26c19e5ef67351d40895e32c45ed917b, type: 2}
   OnAOEShakeAmount: .150000006
   OnAOEDampeningAmount: 1
@@ -143,7 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   slow: 0
-  stun: 0
   ticEvery: 2
   currentDuration: 5
   initialDuration: 5
@@ -152,7 +153,6 @@ MonoBehaviour:
   color: 1
   changeColor: {r: 1, g: 0, b: 0, a: 1}
   effect: {fileID: 11455232, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
-  isFirebolt: 0
 --- !u!198 &19865964
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1217,7 +1217,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 3113644dec133384e9f86d5c419f9b12, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
