@@ -26,7 +26,7 @@ public class SkillsManager : MonoBehaviour
     }
 
     // Use this for initialization
-    public void ToggleSphere(SpheresId _id, bool _state)
+    public void SetSphere(SpheresId _id, bool _state)
     {
         SetPrefabs temp = new SetPrefabs();
         temp.active = _state;
@@ -35,13 +35,17 @@ public class SkillsManager : MonoBehaviour
         spheres[(int)_id] = temp;
     }
 
-    //private void UpdateEnumerator()
-    //{
-    //    List<SetPrefabs>.Enumerator iter = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().iter;
-    //    List<SetPrefabs>.Enumerator tempIter = iter;
-    //    iter = spheres.GetEnumerator();
-    //    iter.MoveNext();
-    //    if (spheres.Contains(tempIter.Current))
-    //        while (iter.Current.id != tempIter.Current.id && iter.MoveNext()) ;
-    //}
+    public bool CheckEmpty()
+    {
+        bool isEmpty = true;
+        foreach (SetPrefabs item in spheres)
+        {
+            if (item.active)
+            {
+                isEmpty = false;
+                break;
+            }
+        }
+        return isEmpty;
+    }
 }

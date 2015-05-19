@@ -32,7 +32,7 @@ public class Zone : MonoBehaviour
             if (sphere.active)
                 oldSpheres.Add(sphere.id);
 
-            skills.ToggleSphere(sphere.id, spheresEnabled.Count > 0 ? spheresEnabled.Contains(sphere.id) : false);
+            skills.SetSphere(sphere.id, spheresEnabled.Count > 0 ? spheresEnabled.Contains(sphere.id) : false);
         }
     }
 
@@ -43,7 +43,7 @@ public class Zone : MonoBehaviour
 
         foreach (SkillsManager.SetPrefabs sphere in skills.spheres)
         {
-            skills.ToggleSphere(sphere.id, oldSpheres.Contains(sphere.id));
+            skills.SetSphere(sphere.id, oldSpheres.Contains(sphere.id));
         }
 
         if (destroyOnExit)
