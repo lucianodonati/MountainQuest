@@ -43,12 +43,17 @@ public class Enemy : Entity
         gameObject.GetComponent<SpriteRenderer>().color = new Color(myColor.r / 2, myColor.g / 2, myColor.b / 2, myColor.a);
 
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        GameObject emitter = (GameObject)Instantiate(new GameObject(), transform.position, transform.rotation);
+        ExperienceParticles ep = emitter.AddComponent<ExperienceParticles>();
+        ep.experience = experience;
+
         player.experience += experience;
         player.CheckForUpgrade();
         GameManager.instance.statsManager.enemiesKilledTotal++;
 
         bool AOEon = false;
-        if(transform.FindChild("PreserveScale") != null)
+        if (transform.FindChild("PreserveScale") != null)
         {
             if (transform.FindChild("PreserveScale").FindChild("ShatteringArrow(Clone)") != null ||
                transform.FindChild("PreserveScale").FindChild("ExplodingArrow(Clone)") != null)

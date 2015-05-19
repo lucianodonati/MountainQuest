@@ -44,6 +44,8 @@ public class HealthBar : MonoBehaviour
     public float labelspeed = 0.1f;
     public float labellife = 1.0f;
 
+    public bool show;
+
     // Use this for initialization
     private void Start()
     {
@@ -70,7 +72,15 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     private void LateUpdate()
     {
-        PositionBar();
+        if(!show)
+        {
+
+            maxHealthBar.renderer.enabled = false;
+            remainingHealthBar.renderer.enabled = false;
+        }
+        else
+            PositionBar();
+
 
         //Damagelabel pos updating
         for (int i = 0; i < damagelabels.Length; ++i)
@@ -94,6 +104,13 @@ public class HealthBar : MonoBehaviour
 
     private void PositionBar()
     {
+        if (!maxHealthBar.renderer.enabled && !gameObject.GetComponent<Enemy>().dead)
+        {
+            maxHealthBar.renderer.enabled = true;
+            remainingHealthBar.renderer.enabled = true;
+        }
+
+
         if (maxHealthBar != null && remainingHealthBar != null)
         {
             maxHealthBar.transform.position = new Vector3(transform.position.x,

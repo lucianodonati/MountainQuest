@@ -8,14 +8,13 @@ public class Entity : MonoBehaviour
     public Health health;
     public float maxHealth = 100.0f;
 
-    [HideInInspector]
     public bool isSlowed = false, isStunned = false;
 
-    [HideInInspector]
     public Color myColor;
 
+    public bool showHealth = true;
+
     //death vars
-    [HideInInspector]
     public bool dead = false;
 
     // Use this for initialization
@@ -24,6 +23,7 @@ public class Entity : MonoBehaviour
         gameObject.AddComponent<Health>();
         health = GetComponent<Health>();
         health.currentHP = health.maxHP = maxHealth;
+        health.showHealthBar = showHealth;
 
         myColor = gameObject.GetComponent<SpriteRenderer>().color;
     }
@@ -69,13 +69,10 @@ public class Entity : MonoBehaviour
         aff.currentDuration = aff.initialDuration = type.initialDuration;
         aff.ticEvery = type.ticEvery;
         aff.slow = type.slow;
-        if (aff.slow)
-            SoundManager.instance.GetComponent<SoundFX>().Play("Frozen");
         aff.particle = type.particle;
 
         if (aff.GetType() == System.Type.GetType("Parasite"))
         {
-            SoundManager.instance.GetComponent<SoundFX>().Play("Poisoned");
             ((Parasite)aff).infectionChance = ((Parasite)type).infectionChance - ((Parasite)type).decayRate;
             ((Parasite)aff).decayRate = ((Parasite)type).decayRate;
             ((Parasite)aff).germinationTimerMax = ((Parasite)aff).germinationTimer = ((Parasite)type).germinationTimerMax;
@@ -95,7 +92,6 @@ public class Entity : MonoBehaviour
         {
             if (type.effect is Panic)
             {
-                SoundManager.instance.GetComponent<SoundFX>().Play("OnFire");
                 aff.effect = type.effect;
                 Panic effect = gameObject.AddComponent<Panic>(), other = type.effect as Panic;
                 effect.duration = aff.currentDuration;
@@ -109,6 +105,7 @@ public class Entity : MonoBehaviour
         {
             aff.color = type.color;
             aff.changeColor = type.changeColor;
+            myColor = gameObject.GetComponent<SpriteRenderer>().color;
             gameObject.GetComponent<SpriteRenderer>().color = type.changeColor;
         }
     }
