@@ -36,6 +36,7 @@ public class Wander_Movement : Enemy_Movement {
             {
                 ground = null;
                 chosen = false;
+                GetComponent<Animator>().SetBool("falling", true);
             }
         }else{
             rigidbody2D.velocity = new Vector2(0,rigidbody2D.velocity.y);
@@ -50,6 +51,7 @@ public class Wander_Movement : Enemy_Movement {
             ground = coll.gameObject;
 
             chosen = true;
+            GetComponent<Animator>().SetBool("falling", false);
         }
     }
 }
