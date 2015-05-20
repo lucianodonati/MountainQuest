@@ -14,7 +14,6 @@ public class ExperienceOrb : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        renderer.material.renderQueue = 1;
         psys = GetComponent<ParticleSystem>();
     }
 
