@@ -274,7 +274,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentLevel != Scenes.MainMenu && Application.loadedLevelName != "LoadingScreen")
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 startTime = Time.time;
                 pause = !pause;

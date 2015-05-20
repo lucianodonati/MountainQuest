@@ -21,10 +21,10 @@ public class ExperienceParticles : MonoBehaviour
         psys = gameObject.AddComponent<ParticleSystem>();
         psys.simulationSpace = ParticleSystemSimulationSpace.World;
         psys.emissionRate = 0;
-        psys.startColor = new Color(205.0f / 255.0f, 208.0f / 255.0f, 8.0f / 255.0f, 255 / 255.0f);
-        psys.startLifetime = 100.0f;
+        psys.startColor = new Color(205.0f / 255.0f, 208.0f / 255.0f, 8.0f / 255.0f, 255.0f / 255.0f);
+        psys.startLifetime = 20.0f;
 
-        psys.startSize = 1;
+        psys.startSize = 0.1f;
         psys.Emit(experience);
 
         particles = new ParticleSystem.Particle[psys.maxParticles];
@@ -37,21 +37,27 @@ public class ExperienceParticles : MonoBehaviour
     {
         particlecount = psys.GetParticles(particles);
 
-        if (hangTime > 0.0f)
-            hangTime -= Time.deltaTime;
-
-        for (int i = 0; i < particlecount; ++i)
+        if (particlecount > 0)
         {
             if (hangTime > 0.0f)
-                particles[i].velocity = (particles[i].position - transform.position).normalized * (particleHangTimeSpeed * (hangTime / hangTimeMax));
-            else
+                hangTime -= Time.deltaTime;
+
+            for (int i = 0; i < particlecount; ++i)
             {
-                if ((particles[i].position - GameObject.FindGameObjectWithTag("Player").transform.position).magnitude > 2.0f)
-                    particles[i].velocity += (GameObject.FindGameObjectWithTag("Player").transform.position - particles[i].position).normalized;
+                if (hangTime > 0.0f)
+                    particles[i].velocity = (particles[i].position - transform.position).normalized * (particleHangTimeSpeed * (hangTime / hangTimeMax));
                 else
-                    particles[i].lifetime = 0;
+                {
+                    if ((particles[i].position - GameObject.FindGameObjectWithTag("Player").transform.position).magnitude > 2.0f)
+                        particles[i].velocity =
+                            (GameObject.FindGameObjectWithTag("Player").transform.position - particles[i].position) * 4;
+                    else
+                        particles[i].lifetime = 0;
+                }
             }
         }
+        else
+            Destroy(this.gameObject);
 
         psys.SetParticles(particles, particlecount);
     }

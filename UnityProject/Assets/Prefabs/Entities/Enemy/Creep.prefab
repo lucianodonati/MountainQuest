@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49992a468ff85184dbd31bae81e47b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: 5
+  experience: 0
   health: {fileID: 0}
   maxHealth: 1
   isSlowed: 0
