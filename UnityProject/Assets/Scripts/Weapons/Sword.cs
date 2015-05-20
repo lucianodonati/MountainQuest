@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
+    public int AnimationInt = 1;
+
     public bool swinging = false;
     public bool halfswung = false;
 
@@ -76,6 +78,12 @@ public class Sword : MonoBehaviour
                 hit = false;
             }
         }
+        else
+        {
+            Animator anim = GetComponentInParent<Animator>();
+            if (anim != null)
+                anim.SetInteger("attack", 0);
+        }
     }
 
     public void Follow()
@@ -103,8 +111,8 @@ public class Sword : MonoBehaviour
     public void Swing()
     {
         Animator anim = GetComponentInParent<Animator>();
-        if(anim!=null)
-            anim.SetInteger("attack", 2);
+        if (anim != null)
+            anim.SetInteger("attack", AnimationInt);
         swinging = true;
     }
 
