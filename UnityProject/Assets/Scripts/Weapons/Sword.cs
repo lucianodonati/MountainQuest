@@ -102,6 +102,7 @@ public class Sword : MonoBehaviour
 
     public void Swing()
     {
+        GetComponentInParent<Animator>().SetInteger("whatever", 2);
         swinging = true;
     }
 
