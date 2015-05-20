@@ -39,20 +39,15 @@ public class UpgradeManager : MonoBehaviour
                 GameManager.instance.skillsManager.SetSphere(SkillsManager.SpheresId.Wave, true);
 
             if (buyButton.name.Contains("Exploding"))
-                /*GameManager.instance.skillsManager.ToggleSphere(GameManager.instance.skillsManager.ArrowsID.Exploding, true)*/
-                ;
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Exploding, true);
             if (buyButton.name.Contains("Shattering"))
-                /*GameManager.instance.skillsManager.ToggleSphere(GameManager.instance.skillsManager.ArrowsID.Shattering, true)*/
-                ;
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Shattering, true);
             if (buyButton.name.Contains("Lightning"))
-                /*GameManager.instance.skillsManager.ToggleSphere(GameManager.instance.skillsManager.ArrowsID.Lightning, true)*/
-                ;
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Lightning, true);
             if (buyButton.name.Contains("Earthquake"))
-                /*GameManager.instance.skillsManager.ToggleSphere(GameManager.instance.skillsManager.ArrowsID.Earthquake, true)*/
-                ;
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.EarthQuake, true);
             if (buyButton.name.Contains("Plague"))
-                /*GameManager.instance.skillsManager.ToggleSphere(GameManager.instance.skillsManager.ArrowsID.Plague, true)*/
-                ;
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Plague, true);
 
             transform.FindChild("InfoPanel").FindChild("Text").GetComponent<Text>().text = "Level " + player.level + "\nSkill Points " + player.skillPoints;
         }

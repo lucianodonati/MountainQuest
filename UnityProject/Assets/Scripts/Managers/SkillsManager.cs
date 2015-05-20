@@ -48,4 +48,29 @@ public class SkillsManager : MonoBehaviour
         }
         return isEmpty;
     }
+
+    public List<SetArrowPrefabs> arrows;
+
+    [System.Serializable]
+    public struct SetArrowPrefabs
+    {
+        public ArrowsId id;
+        public bool active;
+        public GameObject prefab;
+    }
+
+    [System.Serializable]
+    public enum ArrowsId
+    {
+        Default, Fire, Exploding, Ice, Shattering, Wind, Lightning, Earth, EarthQuake, Plague
+    }
+
+    public void SetArrow(ArrowsId _id, bool _state)
+    {
+        SetArrowPrefabs temp = new SetArrowPrefabs();
+        temp.active = _state;
+        temp.id = _id;
+        temp.prefab = arrows[(int)_id].prefab;
+        arrows[(int)_id] = temp;
+    }
 }
