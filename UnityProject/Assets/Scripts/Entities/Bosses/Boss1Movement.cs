@@ -78,7 +78,7 @@ public class Boss1Movement : Enemy
                     if (Mathf.Abs(toPlayer.x) <= 6.5 && running == false && charging == false && stomping == false)
                     {
                         attacking = true;
-                        GetComponent<Animator>().SetBool("isAttacking", true);
+                        //GetComponent<Animator>().SetBool("isAttacking", true);
                     }
 
                     tiredTimer -= Time.deltaTime;
@@ -281,7 +281,7 @@ public class Boss1Movement : Enemy
         attackDelay -= Time.deltaTime;
         if (attackDelay <= 0)
         {
-            GetComponent<Animator>().SetBool("isAttacking", false);
+            GetComponent<Animator>().SetBool("isAttacking", true);
             attacking = false;
             attackDelay = 0.7f;
             // animation.Play();
@@ -296,6 +296,8 @@ public class Boss1Movement : Enemy
 
     private void Stomp()
     {
+        GetComponent<Animator>().SetBool("IsStomping", true);
+
         if (stompTimer <= 0)
         {
             stompTimer = 1.0f;
@@ -304,12 +306,12 @@ public class Boss1Movement : Enemy
         if (direction == true)
         {
             stompTimer -= Time.deltaTime;
-            rigidbody2D.velocity = new Vector2(7, 12);
+            rigidbody2D.velocity = new Vector2(14, 25);
         }
         else if (direction == false)
         {
             stompTimer -= Time.deltaTime;
-            rigidbody2D.velocity = new Vector2(-7, 12);
+            rigidbody2D.velocity = new Vector2(-14, 25);
         }
     }
 
