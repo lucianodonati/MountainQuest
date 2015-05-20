@@ -19,7 +19,6 @@ GameObject:
   - 198: {fileID: 19862716}
   - 114: {fileID: 11494740}
   - 95: {fileID: 9569566}
-  - 114: {fileID: 11485402}
   m_Layer: 10
   m_Name: Archer
   m_TagString: Enemy
@@ -147,18 +146,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
---- !u!114 &11485402
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
 --- !u!114 &11494740
 MonoBehaviour:
   m_ObjectHideFlags: 1
