@@ -25,12 +25,17 @@ public class RangedAI : AttackAI
             {
                 if (InFOV(target))
                 {
+                    GetComponent<Animator>().SetBool("targetInFOV", true);
                     Attack();
                 }
+                else
+                    GetComponent<Animator>().SetBool("targetInFOV", false);
 
                 if ((target.transform.position - transform.position).magnitude > maximumRange)
                     target = null;
             }
+            else
+                GetComponent<Animator>().SetBool("targetInFOV", false);
         }
     }
 

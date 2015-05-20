@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 403864}
   - 60: {fileID: 6046212}
   - 114: {fileID: 11499524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Angle1
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 457884}
   - 212: {fileID: 21257884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 457886}
   - 212: {fileID: 21257886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
