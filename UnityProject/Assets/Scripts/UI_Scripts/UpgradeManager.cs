@@ -12,6 +12,18 @@ public class UpgradeManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         transform.FindChild("InfoPanel").FindChild("Text").GetComponent<Text>().text = "Level " + player.level + "\nSkill Points " + player.skillPoints;
+
+        foreach (BuyButton buyButton in GetComponentsInChildren<BuyButton>())
+        {
+            if ((buyButton.name.Contains("Shield") && GameManager.instance.skillsManager.spheres[(int)SkillsManager.SpheresId.Shield].active) ||
+                (buyButton.name.Contains("Wave") && GameManager.instance.skillsManager.spheres[(int)SkillsManager.SpheresId.Wave].active) ||
+                (buyButton.name.Contains("Exploding") && GameManager.instance.skillsManager.arrows[(int)SkillsManager.ArrowsId.Exploding].active) ||
+                (buyButton.name.Contains("Shattering") && GameManager.instance.skillsManager.arrows[(int)SkillsManager.ArrowsId.Shattering].active) ||
+                (buyButton.name.Contains("Lightning") && GameManager.instance.skillsManager.arrows[(int)SkillsManager.ArrowsId.Lightning].active) ||
+                (buyButton.name.Contains("Earthquake") && GameManager.instance.skillsManager.arrows[(int)SkillsManager.ArrowsId.EarthQuake].active) ||
+                (buyButton.name.Contains("Plague") && GameManager.instance.skillsManager.arrows[(int)SkillsManager.ArrowsId.Plague].active))
+                buyButton.bought = true;
+        }
     }
 
     private void Update()
