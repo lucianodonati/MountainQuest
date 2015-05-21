@@ -16,6 +16,7 @@ GameObject:
   - 61: {fileID: 6134672}
   - 199: {fileID: 19934672}
   - 198: {fileID: 19834672}
+  - 114: {fileID: 11492782}
   m_Layer: 10
   m_Name: Baws2.0
   m_TagString: Boss
@@ -30,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5799999, y: 23.6800003, z: 0}
+  m_LocalPosition: {x: 128.020004, y: 74.5899963, z: 0}
   m_LocalScale: {x: 5.44191265, y: 5.44191313, z: 5.44191313}
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,6 +134,18 @@ MonoBehaviour:
   missShakeDampening: 1
   stompHitShakeAmount: 1
   stompHitShakeDampening: 1
+--- !u!114 &11492782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69c0f1cc16e45f46970848fba621b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 0}
 --- !u!198 &19834672
 ParticleSystem:
   m_ObjectHideFlags: 1
