@@ -9,12 +9,9 @@ public class ExperienceOrb : MonoBehaviour
     private Vector3 newAngVeloc;
     public float rotationSpeedMax = 2.5f;
 
-    private ParticleSystem psys;
-
     // Use this for initialization
     private void Start()
     {
-        psys = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
