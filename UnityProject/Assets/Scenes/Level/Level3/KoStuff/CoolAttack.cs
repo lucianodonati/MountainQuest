@@ -4,7 +4,7 @@ using UnityEngine;
 public class CoolAttack : KOAttack
 {
     private int jumps;
-    private float timer = 1.0f, animTimer = 4.0f;
+    private float timer = 1.0f, animTimer = 4.5f;
     private KO me;
     private Animator anim;
     private bool shoot = false;
@@ -15,7 +15,8 @@ public class CoolAttack : KOAttack
         me = GetComponent<KO>();
         player = GameObject.Find("Player");
         anim = me.GetComponent<Animator>();
-        jumps = Random.Range(2, 4);
+       // jumps = Random.Range(2, 4);
+        jumps = 2;
     }
 
     // Update is called once per frame
@@ -23,22 +24,26 @@ public class CoolAttack : KOAttack
     {
         if (jumps > 0)
         {
-            if (timer < 0.0f)
+            if (timer <= 0.0f)
             {
                 timer = 1.0f;
                 jumps--;
                 me.teleportToRandomCoolPos();
-                anim.SetInteger("attack", 0);
+               // anim.SetInteger("attack", 0);
             }
             else
             {
-                anim.SetInteger("attack", myAnim);
+              //  anim.SetInteger("attack", myAnim);
                 timer -= Time.deltaTime;
             }
         }
         else
         {
-            anim.SetInteger("attack", myAnim);
+            if (animTimer > 0 && animTimer <= 4.0 && animFinished == false)
+            {
+                anim.SetInteger("attack", myAnim);
+                animFinished = true; 
+            }
             animTimer -= Time.deltaTime;
             if (animTimer < 0.0f && !shoot)
             {
@@ -56,6 +61,7 @@ public class CoolAttack : KOAttack
 
                     currArrow.rigidbody2D.velocity = playerPos.normalized * 7.5f;
                 }
+                anim.SetInteger("attack", 0);
                 Destroy(this);
             }
         }
