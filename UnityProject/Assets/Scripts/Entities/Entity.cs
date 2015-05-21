@@ -38,10 +38,6 @@ public class Entity : MonoBehaviour
             if (movement == null)
                 movement = GetComponent<Enemy_Movement>();
         }
-        if (movement != null)
-            Debug.Log(name + " " + movement.GetType().ToString());
-        else
-            Debug.LogError(name + " DERP");
     }
 
     // Update is called once per frame

@@ -43,7 +43,7 @@ public class Enemy : Entity
         if (anim != null)
             anim.SetBool("dead", true);
 
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(myColor.r / 2, myColor.g / 2, myColor.b / 2, myColor.a);
+        //gameObject.GetComponent<SpriteRenderer>().color = new Color(myColor.r / 2, myColor.g / 2, myColor.b / 2, myColor.a);
 
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
