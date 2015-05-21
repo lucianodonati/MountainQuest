@@ -4,7 +4,7 @@ using UnityEngine;
 public class RangedAI : AttackAI
 {
     public LayerMask layerMask;
-
+    public int attackIntAnim = 2;
     private GameObject target;
 
     public float maximumRange;
@@ -21,27 +21,14 @@ public class RangedAI : AttackAI
     {
         if (GetComponent<Entity>().isStunned == false)
         {
-            Animator anim = GetComponent<Animator>();
             if (target != null)
             {
                 if (InFOV(target))
-                {
-                    if (anim != null)
-                        GetComponent<Animator>().SetBool("targetInFOV", true);
                     Attack();
-                }
-                else
-                {
-                    if (anim != null)
-                        GetComponent<Animator>().SetBool("targetInFOV", false);
-                }
 
                 if ((target.transform.position - transform.position).magnitude > maximumRange)
                     target = null;
             }
-            else
-                if (anim != null)
-                    GetComponent<Animator>().SetBool("targetInFOV", false);
         }
     }
 
@@ -61,6 +48,10 @@ public class RangedAI : AttackAI
 
     private void Attack()
     {
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+            anim.SetInteger("attack", attackIntAnim);
+
         if (reloadTimer > 0.0f)
             reloadTimer -= Time.deltaTime;
 
