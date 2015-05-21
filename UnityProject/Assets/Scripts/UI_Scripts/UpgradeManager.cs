@@ -39,13 +39,25 @@ public class UpgradeManager : MonoBehaviour
                 GameManager.instance.skillsManager.SetSphere(SkillsManager.SpheresId.Wave, true);
 
             if (buyButton.name.Contains("Exploding"))
+            {
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Fire, false);
                 GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Exploding, true);
+            }
             if (buyButton.name.Contains("Shattering"))
+            {
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Ice, false);
                 GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Shattering, true);
+            }
             if (buyButton.name.Contains("Lightning"))
+            {
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Wind, false);
                 GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Lightning, true);
+            }
             if (buyButton.name.Contains("Earthquake"))
+            {
+                GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Earth, false);
                 GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.EarthQuake, true);
+            }
             if (buyButton.name.Contains("Plague"))
                 GameManager.instance.skillsManager.SetArrow(SkillsManager.ArrowsId.Plague, true);
 
