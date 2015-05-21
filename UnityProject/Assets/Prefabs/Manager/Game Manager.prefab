@@ -237,6 +237,12 @@ MonoBehaviour:
   menuSelect: {fileID: 0}
   musicVol: 15
   sfxVol: 100
+  musicFiles:
+  - {fileID: 8300000, guid: 0049d688009fc7a4e90d8578879cc552, type: 3}
+  - {fileID: 8300000, guid: 1706276f30da36448b8f5fa2f1307701, type: 3}
+  - {fileID: 8300000, guid: c4079ba675767bf418d5a98796afc47b, type: 3}
+  - {fileID: 8300000, guid: 84c6ec956fbc7d5459608892869b982a, type: 3}
+  - {fileID: 8300000, guid: f8cb89bf0fce31c44ae9b0ed7cd5397a, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
