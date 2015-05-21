@@ -49,7 +49,7 @@ public class Arrow : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject != owner && !other.isTrigger)
+        if (other.gameObject != owner && !other.isTrigger && !(other.gameObject.name == "KO"))
         {
             if (stuck)
             {
