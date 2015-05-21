@@ -22,7 +22,7 @@ GameObject:
   - 114: {fileID: 11468880}
   - 114: {fileID: 11468878}
   - 95: {fileID: 9516096}
-  - 95: {fileID: 9517800}
+  - 95: {fileID: 9500206}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.9000001}
+  m_LocalPosition: {x: 30.1000004, y: -28.6900005, z: -5.9000001}
   m_LocalScale: {x: 3.07415724, y: 3.07415819, z: 3.07415819}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .624512732, y: 1.41374552}
   m_Center: {x: .00749291899, y: -.0224787574}
---- !u!95 &9516096
+--- !u!95 &9500206
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -94,7 +94,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9517800
+--- !u!95 &9516096
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1

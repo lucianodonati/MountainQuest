@@ -115,7 +115,7 @@ public class KO : Entity
 
     private int getRandomAttack()
     {
-      //  return Random.Range(1, 6); // For now
+        //  return Random.Range(1, 6); // For now
         return 4;
     }
 
@@ -144,5 +144,10 @@ public class KO : Entity
     {
         health.Heal(_ammount);
         psys.Emit((int)_ammount);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.switchToMenu(GameManager.Menus.Credits);
     }
 }

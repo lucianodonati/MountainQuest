@@ -19,6 +19,7 @@ GameObject:
   - 114: {fileID: 11453884}
   - 114: {fileID: 11453882}
   - 114: {fileID: 11493366}
+  - 95: {fileID: 9564658}
   m_Layer: 10
   m_Name: Orc Chief
   m_TagString: Enemy
@@ -67,8 +68,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.2999992, y: 13.5100002, z: 0}
-  m_LocalScale: {x: 10, y: 30, z: 1}
+  m_LocalPosition: {x: 36.0099983, y: -26.8700008, z: 0}
+  m_LocalScale: {x: 3.40908527, y: 3.40908265, z: 3.40908265}
   m_Children:
   - {fileID: 453884}
   m_Father: {fileID: 0}
@@ -122,7 +123,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: .400000006
+  m_Radius: 4.40446997
   m_Center: {x: 0, y: 0}
 --- !u!61 &6153882
 BoxCollider2D:
@@ -133,8 +134,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .129999995, y: .140000001}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 1.14657605, y: 1.38686395}
+  m_Center: {x: -.0740193948, y: .00164490135}
 --- !u!61 &6153884
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -146,6 +147,21 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .129999995, y: .140000001}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9564658
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7461101f0348139488bd08b152af4781, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11453882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,6 +179,7 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
   deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
@@ -260,6 +277,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
+  attackIntAnim: 2
   maximumRange: 20
   minimumRange: 7.5
 --- !u!114 &11453894
@@ -287,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24275c9b45aafa74597a2bb2a686e72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationInt: 1
   swinging: 0
   halfswung: 0
   ownerDirection: 1
@@ -332,8 +351,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: .0350495055, g: .183823526, b: .0297361538, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 00be08e8a2dcb324da301d2c02e12406, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21253884
 SpriteRenderer:
   m_ObjectHideFlags: 1

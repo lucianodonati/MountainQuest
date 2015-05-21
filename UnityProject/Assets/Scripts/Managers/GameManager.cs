@@ -171,6 +171,11 @@ public class GameManager : MonoBehaviour
                 MenuInstances[(int)activeMenu].SetActive(true);
                 break;
 
+            case Menus.Credits:
+                newCanvas(_newMenu).SetActive(true);
+                activeMenu = _newMenu;
+                break;
+
             default:
                 log += _newMenu.ToString() + ".";
                 previous = activeMenu;
@@ -217,7 +222,7 @@ public class GameManager : MonoBehaviour
         saveData.Add("LightningArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Lightning].active ? 1 : 0));
         saveData.Add("EarthquakeArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.EarthQuake].active ? 1 : 0));
         saveData.Add("PlagueArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Plague].active ? 1 : 0));
-        
+
         foreach (KeyValuePair<string, int> key in saveData)
             PlayerPrefs.SetInt(key.Key, key.Value);
 
