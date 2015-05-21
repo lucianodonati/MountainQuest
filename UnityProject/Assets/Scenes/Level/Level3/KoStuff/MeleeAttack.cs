@@ -4,7 +4,7 @@ using UnityEngine;
 public class MeleeAttack : KOAttack
 {
     private KO ko;
-    private int jumpsMax = 5, jumps;
+    private int jumps;
     private float jumpTimer = 0.8f, animTimer = 2.0f;
 
     // Use this for initialization
@@ -12,7 +12,6 @@ public class MeleeAttack : KOAttack
     {
         player = GameObject.Find("Player");
         ko = GetComponent<KO>();
-       // jumps = Random.Range(1, jumpsMax);
         jumps = 2;
     }
 
@@ -27,11 +26,11 @@ public class MeleeAttack : KOAttack
                 if (animTimer > 0.0f && animTimer <= 2.0f && animFinished == false)
                 {
                     animFinished = true;
-                GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", myAnim);
+                    GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", myAnim);
                     if (Vector2.Distance(transform.position, player.transform.position) < 6.0f)
                         player.GetComponent<Health>().TakeDamage(40, true);
                 }
-             
+
                 if (animTimer <= 0.0f)
                 {
                     Destroy(this);

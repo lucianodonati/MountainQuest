@@ -2956,6 +2956,7 @@ MonoBehaviour:
   RSphereCap: 3
   OSphereTotal: 0
   OSphereCap: 3
+  respawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1667457628
 MonoBehaviour:
   m_ObjectHideFlags: 0
