@@ -329,7 +329,7 @@ public class Boss2Movement : Enemy
         }
         if (direction == true)
         {
-            Vector2 KB = new Vector2(5, 3);
+            //Vector2 KB = new Vector2(5, 3);
 
             //   playerBody.isKinematic = true;
             playerBody.AddForce(new Vector2(5, 3) * 1000);
