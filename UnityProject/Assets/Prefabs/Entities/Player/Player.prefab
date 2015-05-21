@@ -50,7 +50,7 @@ GameObject:
   - 114: {fileID: 11402852}
   - 114: {fileID: 11440728}
   - 95: {fileID: 9571188}
-  - 58: {fileID: 5883096}
+  - 61: {fileID: 6147000}
   m_Layer: 15
   m_Name: Player
   m_TagString: Player
@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.46999979, y: 2.29999995, z: 0}
+  m_LocalPosition: {x: -5.73999977, y: -.170000002, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 425198}
@@ -111,8 +111,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5883096
-CircleCollider2D:
+--- !u!61 &6147000
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .340000004
+  m_Size: {x: .479999989, y: .680000007}
   m_Center: {x: 0, y: 0}
 --- !u!95 &9571188
 Animator:
