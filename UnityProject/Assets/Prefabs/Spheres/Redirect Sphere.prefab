@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX:
-  - name: EnterSphere
+  - name: Redirect
     sounds:
-    - {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
+    - {fileID: 8300000, guid: 0685241793bdc8d418f1c3c67b5cd10c, type: 3}
     volume: .00999999978
 --- !u!114 &11435402
 MonoBehaviour:

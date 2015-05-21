@@ -12,6 +12,8 @@ public class ButtonScript : MonoBehaviour
 
     public void SwitchMenu()
     {
+        if (MenuToSwitch == GameManager.Menus.Load)
+            GameManager.instance.loadedFromSave = true;
         GameManager.instance.switchToMenu(MenuToSwitch);
     }
 

@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX:
-  - name: EnterSphere
+  - name: Boost
     sounds:
-    - {fileID: 8300000, guid: bde8d7d030fc42d44af896572f2e6a3d, type: 3}
+    - {fileID: 8300000, guid: 356c79c235d576041aead356c3754e88, type: 3}
     volume: .00999999978
 --- !u!114 &11451540
 MonoBehaviour:

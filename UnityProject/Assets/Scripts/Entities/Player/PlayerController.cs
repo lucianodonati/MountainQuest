@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
 
     private GameObject bow;
 
+    private Animator anim;
+
     // Use this for initialization
     private void Start()
     {
@@ -76,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
         Arrow = Arrows[arrowiter];
         Sword = Swords[sworditer];
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -98,11 +102,19 @@ public class PlayerController : MonoBehaviour
         {
             if (!rigidbody2D.isKinematic)
             {
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+                    anim.SetBool("move", true);
+                else
+                    anim.SetBool("move", false);
+
                 Walk();                
             }
 
             if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock && !rigidbody2D.isKinematic)
+            {
+                anim.SetBool("jump", true);
                 Jump();
+            }
 
             if (Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock)
                 jumplock = true;
@@ -145,6 +157,8 @@ public class PlayerController : MonoBehaviour
             grounded = true;
             jumplock = false;
             jumpTimer = jumpTimerMax;
+            if (anim.GetBool("jump"))
+                anim.SetBool("jump", false);
         }
     }
 
@@ -305,11 +319,13 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetMouseButton(0) && arrowCooldownTimer <= 0.0f)
             {
+                anim.SetTrigger("ranged");
+
                 Vector3 mousepos = GameObject.FindGameObjectWithTag("MainCamera").camera.ScreenToWorldPoint(Input.mousePosition);
-                mousepos -= transform.position;
+                mousepos -= bow.transform.position;
                 mousepos.z = 0;
 
-                GameObject currArrow = (GameObject)Instantiate(Arrow, gameObject.transform.position + Vector3.back,
+                GameObject currArrow = (GameObject)Instantiate(Arrow, bow.transform.position + Vector3.back,
                                                                 Quaternion.FromToRotation(preserveUp, mousepos));
 
                 currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;

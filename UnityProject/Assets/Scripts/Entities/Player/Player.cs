@@ -36,7 +36,8 @@ public class Player : Entity
     private float deathTimer = 0.0f;
     private bool reallyDead = false;
 
-    private Vector3 respawnPos;
+    [HideInInspector]
+    public Vector3 respawnPos;
 
     // Use this for initialization
     protected override void Start()

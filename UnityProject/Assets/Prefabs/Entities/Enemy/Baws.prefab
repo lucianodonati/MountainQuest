@@ -82,7 +82,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dd406c57bfd341d458953a4b83d3bd56, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
@@ -104,6 +104,7 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
   deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}

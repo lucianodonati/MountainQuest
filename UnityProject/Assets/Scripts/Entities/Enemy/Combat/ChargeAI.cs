@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class ChargeAI : AttackAI {
-
+public class ChargeAI : AttackAI
+{
     private float chargeTimer;
     public float chargeTimerMax = 1.0f;
     public bool charging = false;
@@ -17,14 +17,15 @@ public class ChargeAI : AttackAI {
 
     private GameObject target;
 
-	// Use this for initialization
-	protected override void Start () {
+    // Use this for initialization
+    protected override void Start()
+    {
         base.Start();
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
+    }
 
+    // Update is called once per frame
+    protected override void Update()
+    {
         if (reloadTimer > 0.0f)
             reloadTimer -= Time.deltaTime;
         else if (target != null)
@@ -40,10 +41,9 @@ public class ChargeAI : AttackAI {
             else
                 coordinator.currentMovement.enabled = true;
         }
+    }
 
-	}
-
-    void Charge()
+    private void Charge()
     {
         if (chargeTimer <= 0.0f)
         {
@@ -59,6 +59,10 @@ public class ChargeAI : AttackAI {
                 rigidbody2D.velocity = new Vector3(chargeSpeed, 0, 0);
             else
                 rigidbody2D.velocity = new Vector3(-chargeSpeed, 0, 0);
+
+            Animator anim = GetComponentInParent<Animator>();
+            if (anim != null)
+                anim.SetTrigger("charge");
         }
     }
 
@@ -78,11 +82,11 @@ public class ChargeAI : AttackAI {
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if(charging && Mathf.Abs(rigidbody2D.velocity.x/chargeSpeed) >= 0.9f)
+        if (charging && Mathf.Abs(rigidbody2D.velocity.x / chargeSpeed) >= 0.9f)
         {
             reloadTimer = reloadTimerMax;
 
-            if(coll.gameObject.tag == "Wall")
+            if (coll.gameObject.tag == "Wall")
                 chargeTimer = 0.0f;
             else if (coll.gameObject.tag == "Player")
             {

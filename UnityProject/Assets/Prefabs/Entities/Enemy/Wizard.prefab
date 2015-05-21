@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11464270}
   - 61: {fileID: 6164282}
   - 114: {fileID: 11464272}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GreenSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,12 +35,12 @@ GameObject:
   - 114: {fileID: 11464278}
   - 114: {fileID: 11464280}
   - 114: {fileID: 11464282}
-  - 114: {fileID: 11464284}
   - 114: {fileID: 11464274}
   - 114: {fileID: 11494740}
-  m_Layer: 0
+  - 95: {fileID: 9568576}
+  m_Layer: 10
   m_Name: Wizard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SwordScalePreserver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 164280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 464284}
   m_RootOrder: 0
@@ -79,8 +79,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 30.7600002, z: 0}
-  m_LocalScale: {x: 10, y: 30, z: 1}
+  m_LocalPosition: {x: -31.3500004, y: 24.1499996, z: 0}
+  m_LocalScale: {x: 3.70299983, y: 3.70300174, z: 3.70300174}
   m_Children:
   - {fileID: 464284}
   m_Father: {fileID: 0}
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: .382499635
+  m_Radius: 6.26000023
   m_Center: {x: 0, y: 0}
 --- !u!61 &6164282
 BoxCollider2D:
@@ -133,8 +133,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .129999995, y: .140000001}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 2.4000001, y: 25.7999992}
+  m_Center: {x: -4.30000019, y: 0}
 --- !u!61 &6164284
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -144,8 +144,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .129999995, y: .140000001}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .889999986, y: 1.83000004}
+  m_Center: {x: .119999997, y: -.170000002}
+--- !u!95 &9568576
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39b3599917a404f4da026ad19ec8ea92, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11464270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24275c9b45aafa74597a2bb2a686e72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationInt: 1
   swinging: 0
   halfswung: 0
   ownerDirection: 1
@@ -198,6 +214,7 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
   deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
@@ -217,6 +234,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
+  attackIntAnim: 2
   maximumRange: 30
   minimumRange: 10
 --- !u!114 &11464278
@@ -251,7 +269,6 @@ MonoBehaviour:
   currentMovement: {fileID: 0}
   cycleOfMovement:
   - Idle_Movement
-  - Patrol_Movement
   OnSightMovement: Idle_Movement
   changeTimerMax: 5
   changeTimerError: .5
@@ -274,23 +291,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
---- !u!114 &11464284
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c00e3d59e6385a440b483aa9e0a12c9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 0
-  moveSpeed: 4
-  ground: {fileID: 0}
-  LimitToPlatform: 0
-  leftBound: {fileID: 0}
-  rightBound: {fileID: 0}
 --- !u!114 &11494740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,8 +365,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: .368627459, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8660c4f4a4ae21b43930a2348e355773, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

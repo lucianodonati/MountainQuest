@@ -5,6 +5,7 @@ public class Portal : MonoBehaviour
 {
     private Animator animator;
     private bool createIt = true;
+    private PlayerController player;
 
     private void Awake()
     {
@@ -13,6 +14,7 @@ public class Portal : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -42,5 +44,11 @@ public class Portal : MonoBehaviour
                 coll.GetComponent<Animator>().SetBool("Converted", true);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        player.movementEnabled = true;
+        player.combatEnabled = true;
     }
 }

@@ -150,7 +150,6 @@ public class Boss1Movement : Enemy
                         {
                             running = false;
                             GetComponent<Animator>().SetInteger("Attack", 0);
-               
 
                             runTimer = 2.0f;
                         }
@@ -229,8 +228,7 @@ public class Boss1Movement : Enemy
             stomping = false;
             Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(stompHitShakeAmount, stompHitShakeDampening);
             player.GetComponent<Player>().health.TakeDamage(30, false);
-            GetComponent<Animator>().SetInteger("Attack", 3);               
-
+            GetComponent<Animator>().SetInteger("Attack", 3);
         }
 
         if (coll.gameObject.tag == "Platform" && ground == null)
@@ -239,8 +237,7 @@ public class Boss1Movement : Enemy
             if (stomping)
             {
                 Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(missShakeAmount, missShakeDampening);
-                GetComponent<Animator>().SetInteger("Attack", 3);               
-
+                GetComponent<Animator>().SetInteger("Attack", 3);
             }
             stomping = false;
         }
@@ -291,7 +288,6 @@ public class Boss1Movement : Enemy
         {
             GetComponent<Animator>().SetInteger("Attack", 1);
 
-
             attacking = false;
             attackDelay = 0.7f;
             // animation.Play();
@@ -308,11 +304,10 @@ public class Boss1Movement : Enemy
     {
         GetComponent<Animator>().SetInteger("Attack", 2);
 
-
         if (stompTimer <= 0)
         {
             stompTimer = 1.0f;
-           // stomping = false;
+            // stomping = false;
         }
         if (direction == true)
         {
@@ -329,7 +324,6 @@ public class Boss1Movement : Enemy
     private void Charge()
     {
         GetComponent<Animator>().SetInteger("Attack", 0);
-
 
         if (chargeTimer <= 0)
         {

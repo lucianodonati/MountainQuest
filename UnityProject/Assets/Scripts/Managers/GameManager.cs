@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public SkillsManager skillsManager;
 
+    [HideInInspector]
+    public bool loadedFromSave = false;
+
     // Use this for initialization
 
     public static GameManager instance
@@ -75,15 +78,15 @@ public class GameManager : MonoBehaviour
     #region Sound
 
     public AudioSource music, slowmoSfx, speedupSfx, menuSelectionChange, menuSelect;
-    public int musicVol = 30, sfxVol = 100;
+    public int musicVol = 30, sfxVol = 50;
 
     #endregion Sound
 
-    #region Save
+    //#region Save
 
-    private Dictionary<string, int> saveData = new Dictionary<string, int>();
+    //private Dictionary<string, int> saveData = new Dictionary<string, int>();
 
-    #endregion Save
+    //#endregion Save
 
     private PlayerController playerController = null;
 
@@ -190,39 +193,61 @@ public class GameManager : MonoBehaviour
 
     public void Savegame()
     {
-        if (!saveData.ContainsKey("lvl"))
-            saveData.Add("lvl", (int)currentLevel);
-        if (!saveData.ContainsKey("musicVol"))
-            saveData.Add("musicVol", musicVol);
-        if (!saveData.ContainsKey("sfxVol"))
-            saveData.Add("sfxVol", sfxVol);
+        Dictionary<string, int> saveData = new Dictionary<string, int>();
 
-        if (!saveData.ContainsKey("date_Year"))
-            saveData.Add("date_Year", DateTime.Now.Year);
+        saveData.Add("lvl", (int)currentLevel);
+        saveData.Add("musicVol", musicVol);
+        saveData.Add("sfxVol", sfxVol);
 
-        if (!saveData.ContainsKey("date_Month"))
-            saveData.Add("date_Month", DateTime.Now.Month);
+        saveData.Add("date_Year", DateTime.Now.Year);
+        saveData.Add("date_Month", DateTime.Now.Month);
+        saveData.Add("date_Day", DateTime.Now.Day);
+        saveData.Add("date_Hour", DateTime.Now.Hour);
+        saveData.Add("date_Minute", DateTime.Now.Minute);
 
-        if (!saveData.ContainsKey("date_Day"))
-            saveData.Add("date_Day", DateTime.Now.Day);
+        saveData.Add("ShieldSphere", (skillsManager.GetComponent<SkillsManager>().spheres[(int)SkillsManager.SpheresId.Shield].active ? 1 : 0));
+        saveData.Add("WaveSphere", (skillsManager.GetComponent<SkillsManager>().spheres[(int)SkillsManager.SpheresId.Wave].active ? 1 : 0));
 
-        if (!saveData.ContainsKey("date_Hour"))
-            saveData.Add("date_Hour", DateTime.Now.Hour);
-
-        if (!saveData.ContainsKey("date_Minute"))
-            saveData.Add("date_Minute", DateTime.Now.Minute);
-
+        saveData.Add("ExplodingArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Exploding].active ? 1 : 0));
+        saveData.Add("ShatteringArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Shattering].active ? 1 : 0));
+        saveData.Add("LightningArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Lightning].active ? 1 : 0));
+        saveData.Add("EarthquakeArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.EarthQuake].active ? 1 : 0));
+        saveData.Add("PlagueArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Plague].active ? 1 : 0));
+        
         foreach (KeyValuePair<string, int> key in saveData)
             PlayerPrefs.SetInt(key.Key, key.Value);
 
-        PlayerPrefs.Save();
+        PlayerPrefs.SetFloat("PlayerPosX", GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().respawnPos.x);
+        PlayerPrefs.SetFloat("PlayerPosY", GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().respawnPos.y);
+
+        SavePlayerInfo();
     }
 
     public void Loadgame()
     {
         musicVol = PlayerPrefs.GetInt("musicVol");
         sfxVol = PlayerPrefs.GetInt("sfxVol");
+        skillsManager.SetSphere(SkillsManager.SpheresId.Shield, PlayerPrefs.GetInt("ShieldSphere") == 1);
+        skillsManager.SetSphere(SkillsManager.SpheresId.Wave, PlayerPrefs.GetInt("WaveSphere") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Exploding, PlayerPrefs.GetInt("ExplodingArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Shattering, PlayerPrefs.GetInt("ShatteringArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Lightning, PlayerPrefs.GetInt("LightningArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.EarthQuake, PlayerPrefs.GetInt("EarthquakeArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Plague, PlayerPrefs.GetInt("PlagueArrow") == 1);
         Load((Scenes)PlayerPrefs.GetInt("lvl"));
+    }
+
+    public void SavePlayerInfo()
+    {
+        PlayerPrefs.SetInt("Experience", GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().experience);
+
+        PlayerPrefs.Save();
+    }
+
+    public void LoadPlayerInfo()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().experience = PlayerPrefs.GetInt("Experience");
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), 0);
     }
 
     private void disableCurrentMenu()
@@ -251,6 +276,9 @@ public class GameManager : MonoBehaviour
             {
                 if (playerController == null)
                     playerController = (GameObject.FindGameObjectWithTag("Player")).GetComponent<PlayerController>();
+
+                if (loadedFromSave)
+                    LoadPlayerInfo();
             }
             else if (currentLevel == Scenes.MainMenu)
             {
@@ -338,6 +366,8 @@ public class GameManager : MonoBehaviour
 
     public void Load(Scenes _scene)
     {
+        if (currentLevel != Scenes.MainMenu)
+            SavePlayerInfo();
         currentLevel = _scene;
         Time.timeScale = 1.0f;
         transform.parent = null;
