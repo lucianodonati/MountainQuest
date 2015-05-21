@@ -20,9 +20,9 @@ GameObject:
   - 114: {fileID: 11468894}
   - 114: {fileID: 11468882}
   - 114: {fileID: 11468880}
-  - 114: {fileID: 11468878}
   - 95: {fileID: 9516096}
   - 95: {fileID: 9500206}
+  - 114: {fileID: 11468878}
   m_Layer: 10
   m_Name: Warlock
   m_TagString: Enemy
@@ -111,7 +111,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11468878
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168894}
