@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public SkillsManager skillsManager;
 
+    [HideInInspector]
+    public bool loadedFromSave = false;
+
     // Use this for initialization
 
     public static GameManager instance
@@ -273,7 +276,9 @@ public class GameManager : MonoBehaviour
             {
                 if (playerController == null)
                     playerController = (GameObject.FindGameObjectWithTag("Player")).GetComponent<PlayerController>();
-                LoadPlayerInfo();
+
+                if (loadedFromSave)
+                    LoadPlayerInfo();
             }
             else if (currentLevel == Scenes.MainMenu)
             {
