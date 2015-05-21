@@ -35,3 +35,4 @@ SyntaxTree.VisualStudio.Unity.Bridge.dll.meta
 Thumbs.db
 Thumbs.db.meta
 /UnityProject/*.lnk
+/UnityProject/Assets/Sprites/Objects/Arrow/*.zip
