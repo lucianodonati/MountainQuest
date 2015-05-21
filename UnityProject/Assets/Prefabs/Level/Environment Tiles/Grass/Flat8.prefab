@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingPieces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundPieces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453474}
   - 212: {fileID: 21253502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453476}
   - 212: {fileID: 21253504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453480}
   - 212: {fileID: 21253506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453482}
   - 212: {fileID: 21253508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453488}
   - 212: {fileID: 21253510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453490}
   - 212: {fileID: 21253512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453494}
   - 212: {fileID: 21253514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453496}
   - 212: {fileID: 21253516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453506}
   - 212: {fileID: 21253518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453508}
   - 212: {fileID: 21253520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453512}
   - 212: {fileID: 21253522}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453514}
   - 212: {fileID: 21253524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453520}
   - 212: {fileID: 21253526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453522}
   - 212: {fileID: 21253528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453526}
   - 212: {fileID: 21253530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453528}
   - 212: {fileID: 21253532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - 4: {fileID: 453532}
   - 61: {fileID: 6174966}
   - 114: {fileID: 11499524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flat8
   m_TagString: Platform
   m_Icon: {fileID: 0}

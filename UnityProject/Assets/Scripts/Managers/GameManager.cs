@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public bool _Debug = false;
     private string log;
     private static GameManager _instance;
-
     public GameObject statsPrefab;
 
     [HideInInspector]
@@ -87,6 +86,8 @@ public class GameManager : MonoBehaviour
     #endregion Save
 
     private PlayerController playerController = null;
+
+    public List<AudioClip> musicFiles;
 
     private void Awake()
     {
@@ -234,6 +235,9 @@ public class GameManager : MonoBehaviour
     {
         if (Application.loadedLevelName != "LoadingScreen")
         {
+            if (musicFiles.Count >= (int)currentLevel)
+                setMusic(musicFiles[(int)currentLevel]);
+
             MenuInstances.Clear();
             for (int i = 0; i < MenuPrefabsDONOTTOUCH.Count + 1; i++)
                 MenuInstances.Add(null);
@@ -274,7 +278,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentLevel != Scenes.MainMenu && Application.loadedLevelName != "LoadingScreen")
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 startTime = Time.time;
                 pause = !pause;

@@ -14,10 +14,13 @@ public class ScrollingText : MonoBehaviour {
 		if (createButton) {
 			if (waitToScrollTime > 0)
 				waitToScrollTime -= Time.deltaTime;
-			else if (transform.position.y >= endScrollYPos) {
-				returnButton.gameObject.SetActive(true);
+			else if (GetComponent<RectTransform>().localPosition.y >= endScrollYPos)
+            {
+                returnButton.gameObject.SetActive(true);
 				createButton = false;
-			} else {
+			}
+            else
+            {
 				transform.Translate (0, scrollSpeed * Time.deltaTime, 0);
 			}
 		}

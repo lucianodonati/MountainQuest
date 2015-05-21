@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundPieces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingPieces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414232}
   - 212: {fileID: 21214230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414234}
   - 212: {fileID: 21214232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414242}
   - 212: {fileID: 21214234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414244}
   - 212: {fileID: 21214236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414246}
   - 212: {fileID: 21214238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414248}
   - 212: {fileID: 21214240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414256}
   - 212: {fileID: 21214242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414258}
   - 212: {fileID: 21214244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - 4: {fileID: 414260}
   - 60: {fileID: 6026240}
   - 114: {fileID: 11499524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Angle4Start
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414264}
   - 212: {fileID: 21214246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414266}
   - 212: {fileID: 21214248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngleGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
