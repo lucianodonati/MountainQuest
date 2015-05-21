@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 2.20000005, z: 0}
+  m_LocalPosition: {x: -4, y: 62, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 425198}
@@ -147,7 +147,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 90b194b41a663584b87e213dc336ecf0, type: 3}
     - {fileID: 8300000, guid: e3e2a526863e0134783ebfffd725a294, type: 3}
     - {fileID: 8300000, guid: f4d0ee01f90aa244084243efa4fc474a, type: 3}
-    volume: .5
+    volume: .0500000007
 --- !u!114 &11408038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,21 +165,22 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
+  lives: 3
   level: 1
   skillPoints: 0
-  arrow: {fileID: 0}
-  isAiming: 0
   RedirectClickObj: {fileID: 135404, guid: 3437cea711b526a47ac242597f0a0562, type: 2}
-  OtherClickObj: {fileID: 162238, guid: ccbf9f43704db724baeedda91dbac48e, type: 2}
-  basicClickObj: {fileID: 199550, guid: af99e313d4a608444aa6342a5b261347, type: 2}
+  ClickObj:
+    id: 0
+    active: 0
+    prefab: {fileID: 0}
   SphereDistance: 7
   PlayerAliveTimer: 8
   RSphereTotal: 0
   RSphereCap: 3
   OSphereTotal: 0
   OSphereCap: 3
-  lives: 3
 --- !u!114 &11421210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,7 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309091226dadda74989d022fb9b6abdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeControls: 1
+  movementEnabled: 1
+  combatEnabled: 1
   movementSpeed: 10
   dragCoef: .949999988
   jumpSpeed: 1
