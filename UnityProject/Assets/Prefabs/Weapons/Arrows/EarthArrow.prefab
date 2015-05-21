@@ -15,6 +15,8 @@ GameObject:
   - 114: {fileID: 11463060}
   - 199: {fileID: 19963060}
   - 198: {fileID: 19863060}
+  - 114: {fileID: 11478812}
+  - 95: {fileID: 9540930}
   m_Layer: 14
   m_Name: EarthArrow
   m_TagString: Arrow
@@ -30,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 163060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.2432814, y: 62.4118423, z: 0}
-  m_LocalScale: {x: 1, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,6 +62,21 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9540930
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfd54248cd1c59f4884c0c1140cc3773, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11463060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,7 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   slow: 0
-  stun: 1
   ticEvery: 3
   currentDuration: 2
   initialDuration: 2
@@ -98,9 +114,30 @@ MonoBehaviour:
   stuckTimer: 5
   numCollisions: 0
   damageType: {fileID: 11463060}
+  stuck: 0
+  createdInsideShield: 0
   AOE_Emitter: {fileID: 0}
   OnAOEShakeAmount: 0
   OnAOEDampeningAmount: 0
+--- !u!114 &11478812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Fire
+    sounds:
+    - {fileID: 8300000, guid: dc7fc69fe7dee4346a002fd39aeef3bc, type: 3}
+    - {fileID: 8300000, guid: 03291244a3734a244bc3a898a9b2b13e, type: 3}
+    - {fileID: 8300000, guid: 3b7f094b353bf3e4bb5548d93c03bb1a, type: 3}
+    - {fileID: 8300000, guid: 6cb93ed1ec21ce9409f32c1096db7877, type: 3}
+    volume: .100000001
 --- !u!198 &19863060
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1205,7 +1242,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 42998b1253ffc6743a26ba3db017c78e, type: 3}
   m_Color: {r: .757352948, g: .574543476, b: .0946691185, a: 1}
 --- !u!1001 &100100000
 Prefab:
