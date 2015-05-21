@@ -8,6 +8,7 @@ public class startIntro : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             coll.GetComponent<PlayerController>().movementEnabled = false;
+            coll.GetComponent<PlayerController>().combatEnabled = false;
             GameObject.Find("KO").GetComponent<KoCinematic>().goTransform = true;
         }
     }
