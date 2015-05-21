@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11432964}
   - 114: {fileID: 11442380}
   - 114: {fileID: 11421234}
+  - 95: {fileID: 9540930}
   m_Layer: 14
   m_Name: WindArrow
   m_TagString: Arrow
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 132966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 53.6899986, y: 3.02999997, z: 0}
-  m_LocalScale: {x: 1, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,6 +60,21 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .159999996, y: .159999996}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9540930
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132966}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfd54248cd1c59f4884c0c1140cc3773, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11421234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,6 +124,8 @@ MonoBehaviour:
   stuckTimer: 5
   numCollisions: 1
   damageType: {fileID: 11432964}
+  stuck: 0
+  createdInsideShield: 0
   AOE_Emitter: {fileID: 0}
   OnAOEShakeAmount: 0
   OnAOEDampeningAmount: 0
@@ -131,7 +149,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 42998b1253ffc6743a26ba3db017c78e, type: 3}
   m_Color: {r: .210045427, g: .816176474, b: .816176474, a: 1}
 --- !u!1001 &100100000
 Prefab:
