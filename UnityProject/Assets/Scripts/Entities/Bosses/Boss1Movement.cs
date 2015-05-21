@@ -3,17 +3,21 @@ using UnityEngine;
 
 public class Boss1Movement : Enemy
 {
-    public float stompTimer = 1.0f;
+    public float stompTimer = 0.5f;
     public float chargeTimer = 1.0f;
     public float runTimer = 2.0f;
     public bool attacking = false;
     public bool running = false;
     public bool charging = false;
     public bool stomping = false;
-    public float attackDelay = 0.7f;
+    public float animTimer = 2.4f;
     public Player player;
-    public float tiredTimer = 0;
+    public float strikeTimer = 1.6f;
     public bool facingRight = false;
+    private bool stomped = false;
+    public bool animFinished = false;
+    public bool hitPlayer = false;
+    public float abilityDelay = 1.0f;
     /// ///////////////////////////////////////////
 
     public bool ignoreEdges = false;
@@ -43,144 +47,121 @@ public class Boss1Movement : Enemy
     {
         if (health.currentHP <= 0.0f)
             Destroy(gameObject);
+        abilityDelay -= Time.deltaTime;
 
-        if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
+        //stomping = true;
+
+        if (abilityDelay <= 0)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        }
-
-        if (rigidbody2D.velocity.x > 0)
-            facingRight = true;
-        else if (rigidbody2D.velocity.x < 0)
-            facingRight = false;
-
-        base.Update();
-
-        if (aggroTimer > 0.0f)
-        {
-            aggroTimer -= Time.deltaTime;
-
-            if (ground != null)
+            if (running == true)
             {
-                Vector2 velocityHold = rigidbody2D.velocity;
-
-                if (InFOV(target))
+                Running();
+            }
+            else if (attacking == true)
+            {
+                AttackPlayer();
+            }
+            else if (stomping == true)
+            {
+                Stomp();
+            }
+            else if (charging == true)
+            {
+                Charge();
+            }
+            else
+            {
+                if (facingRight && (rigidbody2D.velocity.x < 0) || (!facingRight && (rigidbody2D.velocity.x > 0)))
                 {
-                    Vector3 toPlayer = player.transform.position - transform.position;
-                    toPlayer.y = toPlayer.z = 0;
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                }
 
-                    if (toPlayer.x < 0)
-                        direction = false; //left
-                    else if (toPlayer.x > 0)
-                        direction = true; //right
+                if (rigidbody2D.velocity.x > 0)
+                    facingRight = true;
+                else if (rigidbody2D.velocity.x < 0)
+                    facingRight = false;
 
-                    ///////////////////////////////////////////
-                    if (Mathf.Abs(toPlayer.x) <= 6.5 && running == false && charging == false && stomping == false)
+                base.Update();
+
+                if (aggroTimer > 0.0f)
+                {
+                    aggroTimer -= Time.deltaTime;
+
+                    if (ground != null)
                     {
-                        attacking = true;
-                        //GetComponent<Animator>().SetBool("isAttacking", true);
-                    }
+                        Vector2 velocityHold = rigidbody2D.velocity;
 
-                    tiredTimer -= Time.deltaTime;
-                    if (attacking == true && tiredTimer <= 0)
-                    {
-                        AttackPlayer();
-                    }
+                        if (InFOV(target))
+                        {
+                            Vector3 toPlayer = player.transform.position - transform.position;
+                            toPlayer.y = toPlayer.z = 0;
 
-                    if (Mathf.Abs(toPlayer.x) <= 13.5 && Mathf.Abs(toPlayer.x) >= 6.5)
-                    {
-                        float rand = Random.value;
+                            if (toPlayer.x < 0)
+                                direction = false; //left
+                            else if (toPlayer.x > 0)
+                                direction = true; //right
 
-                        if (rand >= 0 && rand <= 0.14 && running == false && charging == false && attacking == false)
-                        {
-                            stomping = true;
-                        }
-                        else if (rand >= 0.15 && rand <= 0.50 && running == false && attacking == false && stomping == false)
-                        {
-                            charging = true;
-                        }
+                            ///////////////////////////////////////////
 
-                        if (stomping == true)
-                        {
-                            stompTimer -= Time.deltaTime;
-                            Stomp();
-                        }
-                        if (charging == true)
-                        {
-                            chargeTimer -= Time.deltaTime;
-                            Charge();
-                        }
-                    }
 
-                    if (Mathf.Abs(toPlayer.x) <= 22.5 && Mathf.Abs(toPlayer.x) >= 13.5)
-                    {
-                        float rand = Random.value;
+                            if (Mathf.Abs(toPlayer.x) <= 6.5)
+                            {
+                                attacking = true;
+                            }
+                            else if (Mathf.Abs(toPlayer.x) <= 13.5 && Mathf.Abs(toPlayer.x) >= 6.5)
+                            {
+                                float rand = Random.value;
 
-                        if (rand >= 0 && rand <= 0.44 && running == false && charging == false && attacking == false)
-                        {
-                            stomping = true;
-                        }
-                        else if (rand >= 0.45 && rand <= 0.80 && running == false && attacking == false && stomping == false)
-                        {
-                            charging = true;
-                        }
+                                if (rand >= 0 && rand <= 0.34)
+                                {
+                                    stomping = true;
+                                }
+                                else if (rand >= 0.35 && rand <= 0.74)
+                                {
+                                    charging = true;
+                                }
+                                else if (rand >= 0.75)
+                                {
+                                    running = true;
+                                }
+                            }
+                            else if (Mathf.Abs(toPlayer.x) <= 22.5 && Mathf.Abs(toPlayer.x) >= 13.5)
+                            {
+                                float rand = Random.value;
 
-                        if (charging == true)
-                        {
-                            chargeTimer -= Time.deltaTime;
-                            Charge();
-                        }
-                        if (stomping == true)
-                        {
-                            stompTimer -= Time.deltaTime;
-                            Stomp();
-                        }
-                    }
-                    else if (charging == false && stomping == false && attacking == false)
-                    {
-                        running = true;
-                        GetComponent<Animator>().SetInteger("Attack", 0);
-                    }
+                                if (rand >= 0 && rand <= 0.44)
+                                {
+                                    stomping = true;
+                                }
+                                else if (rand >= 0.45 && rand <= 0.69)
+                                {
+                                    charging = true;
+                                }
+                                else if (rand >= 0.70)
+                                {
+                                    running = true;
+                                }
+                            }
 
-                    if (running == true)
-                    {
-                        ///////////////////////////////////////////
-                        runTimer -= Time.deltaTime;
-                        if (runTimer <= 0)
-                        {
-                            running = false;
-                            GetComponent<Animator>().SetInteger("Attack", 0);
-
-                            runTimer = 2.0f;
                         }
-                        //if (isSlowed == true)
+                        //else
                         //{
-                        //    if (Mathf.Abs(toPlayer.x) > moveSpeed)
-                        //        toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed / 2;
+                        //    rigidbody2D.velocity = velocityHold.normalized * moveSpeed;
                         //}
 
-                        if (Mathf.Abs(toPlayer.x) > moveSpeed)
-                            toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
-
-                        rigidbody2D.velocity = toPlayer;
+                        if (!ignoreEdges)
+                        {
+                            if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
+                               collider2D.bounds.max.x + (rigidbody2D.velocity.x * Time.deltaTime) > ground.collider2D.bounds.max.x)
+                                rigidbody2D.velocity = Vector2.zero;
+                        }
                     }
                 }
-                else
+                else if (target != null)
                 {
-                    rigidbody2D.velocity = velocityHold.normalized * moveSpeed;
-                }
-
-                if (!ignoreEdges)
-                {
-                    if (collider2D.bounds.min.x + (rigidbody2D.velocity.x * Time.deltaTime) < ground.collider2D.bounds.min.x ||
-                       collider2D.bounds.max.x + (rigidbody2D.velocity.x * Time.deltaTime) > ground.collider2D.bounds.max.x)
-                        rigidbody2D.velocity = Vector2.zero;
+                    target = null;
                 }
             }
-        }
-        else if (target != null)
-        {
-            target = null;
         }
     }
 
@@ -224,25 +205,33 @@ public class Boss1Movement : Enemy
 
         if (coll.gameObject.tag == "Player" && stomping == true)
         {
-            stompTimer = 1.0f;
+            stompTimer = 0.35f;
             stomping = false;
+            abilityDelay = 1.0f;
             Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(stompHitShakeAmount, stompHitShakeDampening);
             player.GetComponent<Player>().health.TakeDamage(30, false);
-            GetComponent<Animator>().SetInteger("Attack", 3);
+            //GetComponent<Animator>().SetInteger("Attack", 3);
+            GetComponent<Animator>().SetTrigger("StompLand");
+            stomped = false;
         }
 
         if ((coll.gameObject.tag == "Platform" || coll.gameObject.tag == "Wall") && ground == null)
         {
-            if (stomping)
+            if (stomped)
             {
+                stompTimer = 0.35f;
+                stomped = false;
                 Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(missShakeAmount, missShakeDampening);
-                GetComponent<Animator>().SetInteger("Attack", 3);
+                //GetComponent<Animator>().SetInteger("Attack", 3);
+                GetComponent<Animator>().SetTrigger("StompLand");
+
             }
             stomping = false;
+            abilityDelay = 1.0f;
         }
 
-         if (coll.gameObject.tag == "Platform" && ground == null)
-             ground = coll.gameObject;
+        if (coll.gameObject.tag == "Platform" && ground == null)
+            ground = coll.gameObject;
 
     }
 
@@ -284,40 +273,81 @@ public class Boss1Movement : Enemy
 
     private void AttackPlayer()
     {
-        bool startAtkDir = direction;
+        //bool startAtkDir = direction;
 
-        attackDelay -= Time.deltaTime;
-        if (attackDelay <= 0)
+        //attackDelay -= Time.deltaTime;
+        //if (attackDelay <= 0)
+        //{
+        //    //GetComponent<Animator>().SetInteger("Attack", 1);
+        //    GetComponent<Animator>().SetTrigger("melee");
+
+        //    attacking = false;
+        //    attackDelay = 0.7f;
+        //    // animation.Play();
+        //    if (startAtkDir == direction && Vector3.Distance(transform.position, player.GetComponent<Player>().transform.position) <= 6.5)
+        //    {
+        //        player.GetComponent<Player>().health.TakeDamage(15, false);
+        //    }
+
+        //    tiredTimer = 1.3f;
+        //}
+
+        animTimer -= Time.deltaTime;
+        strikeTimer -= Time.deltaTime;
+        if (animFinished == false)
         {
-            GetComponent<Animator>().SetInteger("Attack", 1);
-
-            attacking = false;
-            attackDelay = 0.7f;
-            // animation.Play();
-            if (startAtkDir == direction && Vector3.Distance(transform.position, player.GetComponent<Player>().transform.position) <= 6.5)
-            {
-                player.GetComponent<Player>().health.TakeDamage(15, false);
-            }
-
-            tiredTimer = 1.3f;
+            animFinished = true;
+            GetComponent<Animator>().SetTrigger("meleeAttack");
         }
+        if (strikeTimer <= 0 && hitPlayer == false)
+        {
+            hitPlayer = true;
+            if (Vector2.Distance(transform.position, player.transform.position) < 8.0f)
+                player.GetComponent<Health>().TakeDamage(40, true);
+        }
+
+
+        if (animTimer <= 0.0f)
+        {
+            attacking = false;
+            GetComponent<Animator>().SetBool("Walking", true);
+            animTimer = 3.0f;
+            strikeTimer = 1.0f;
+            animFinished = false;
+            hitPlayer = false;
+        }
+
+
     }
 
     private void Stomp()
     {
-        GetComponent<Animator>().SetInteger("Attack", 2);
+        Vector3 toPlayer = player.transform.position - transform.position;
+        toPlayer.y = toPlayer.z = 0;
 
-        if (stompTimer <= 0)
+        if (toPlayer.x < 0)
+            direction = false; //left
+        else if (toPlayer.x > 0)
+            direction = true; //right
+
+        //GetComponent<Animator>().SetInteger("Attack", 2);
+        if (stomped == false)
         {
-            stompTimer = 1.0f;
-            // stomping = false;
+            GetComponent<Animator>().SetTrigger("StompJump");
+            stomped = true;
         }
-        if (direction == true)
+
+        //if (stompTimer <= 0)
+        //{
+        //    stompTimer = 1.0f;
+        //    // stomping = false;
+        //}
+        if (direction == true && stompTimer > 0)
         {
             stompTimer -= Time.deltaTime;
             rigidbody2D.velocity = new Vector2(14, 25);
         }
-        else if (direction == false)
+        else if (direction == false & stompTimer > 0)
         {
             stompTimer -= Time.deltaTime;
             rigidbody2D.velocity = new Vector2(-14, 25);
@@ -326,7 +356,7 @@ public class Boss1Movement : Enemy
 
     private void Charge()
     {
-        GetComponent<Animator>().SetInteger("Attack", 0);
+        //GetComponent<Animator>().SetInteger("Attack", 0);
 
         if (chargeTimer <= 0)
         {
@@ -343,5 +373,24 @@ public class Boss1Movement : Enemy
             chargeTimer -= Time.deltaTime;
             rigidbody2D.velocity = new Vector3(-25, 0, 0);
         }
+    }
+
+    private void Running()
+    {
+        Vector3 toPlayer = player.transform.position - transform.position;
+        toPlayer.y = toPlayer.z = 0;
+
+        runTimer -= Time.deltaTime;
+        if (runTimer <= 0)
+        {
+            running = false;
+            runTimer = 2.0f;
+        }
+
+
+        if (Mathf.Abs(toPlayer.x) > moveSpeed)
+            toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
+
+        rigidbody2D.velocity = toPlayer;
     }
 }

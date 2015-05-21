@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.5981979, y: 2.17841935, z: 0}
+  m_LocalPosition: {x: 58.7000008, y: -27.1000004, z: 0}
   m_LocalScale: {x: 5.44191265, y: 5.44191313, z: 5.44191313}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,7 +45,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 4
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -59,7 +59,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 3.5
+  m_Radius: 4.19477749
   m_Center: {x: 5.96046448e-08, y: 0}
 --- !u!61 &6190296
 BoxCollider2D:
@@ -70,8 +70,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1.00000012, y: 1.11859119}
-  m_Center: {x: 0, y: -.0367251076}
+  m_Size: {x: .999999881, y: 1.06691742}
+  m_Center: {x: 0, y: -.0108887441}
 --- !u!95 &9590296
 Animator:
   serializedVersion: 3
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 100
   health: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 1250
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
@@ -115,10 +115,13 @@ MonoBehaviour:
   running: 0
   charging: 0
   stomping: 1
-  attackDelay: .699999988
+  animTimer: 2
   player: {fileID: 0}
-  tiredTimer: -.495512903
+  strikeTimer: .600000024
   facingRight: 0
+  animFinished: 0
+  hitPlayer: 0
+  abilityDelay: 1
   ignoreEdges: 1
   direction: 0
   moveSpeed: 4
