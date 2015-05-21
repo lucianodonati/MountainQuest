@@ -8,6 +8,7 @@ public class RainOfDaggers : KOAttack
     public override void Start()
     {
         base.Start();
+        attackTimer = 1.5f;
         daggerSpawn = GameObject.Find("DaggerSpawn");
 
         for (int i = 0; i < 80; i += 5)
@@ -28,6 +29,10 @@ public class RainOfDaggers : KOAttack
     public override void Update()
     {
         base.Update();
+        if (attackTimer <= 0)
+        {
+        GameObject.Find("KO").GetComponent<Animator>().SetInteger("attack", 0);
+        }
         //Vector3 playerPos = player.transform.position;
         //playerPos -= transform.position;
         //playerPos.z = 0;
