@@ -104,7 +104,7 @@ public class HealthBar : MonoBehaviour
     {
         if (maxHealthBar != null)
         {
-            if (!maxHealthBar.renderer.enabled && !gameObject.GetComponent<Enemy>().dead)
+            if (!maxHealthBar.renderer.enabled && !gameObject.GetComponent<Entity>().dead)
             {
                 maxHealthBar.renderer.enabled = true;
                 remainingHealthBar.renderer.enabled = true;
