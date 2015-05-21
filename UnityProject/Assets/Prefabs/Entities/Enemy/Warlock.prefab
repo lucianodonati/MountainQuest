@@ -21,6 +21,7 @@ GameObject:
   - 114: {fileID: 11468882}
   - 114: {fileID: 11468880}
   - 114: {fileID: 11468878}
+  - 95: {fileID: 9516096}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -35,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.2000008, y: 2, z: -5.9000001}
-  m_LocalScale: {x: 10, y: 30, z: 1}
+  m_LocalPosition: {x: 30.1000004, y: -28.6900005, z: -5.9000001}
+  m_LocalScale: {x: 3.07415724, y: 3.07415819, z: 3.07415819}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,7 +65,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: .400000006
+  m_Radius: 5.71701002
   m_Center: {x: 0, y: 0}
 --- !u!61 &6168894
 BoxCollider2D:
@@ -75,8 +76,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .129999995, y: .140000001}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .624512732, y: 1.41374552}
+  m_Center: {x: .00749291899, y: -.0224787574}
+--- !u!95 &9516096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168894}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80247b7b5192f6a43a8bef266abd5b86, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11468878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,6 +139,7 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
   deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
@@ -142,6 +159,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
+  attackIntAnim: 2
   maximumRange: 10
   minimumRange: 0
 --- !u!114 &11468886
@@ -160,6 +178,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
+  attackIntAnim: 2
   maximumRange: 20
   minimumRange: 10
 --- !u!114 &11468888
@@ -177,7 +196,6 @@ MonoBehaviour:
   currentMovement: {fileID: 0}
   cycleOfMovement:
   - Idle_Movement
-  - Patrol_Movement
   OnSightMovement: Avoid_Movement
   changeTimerMax: 5
   changeTimerError: .5
@@ -257,8 +275,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: .352941155, g: .020761244, b: .330032229, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2725a1dbed846364bbea70f3ec9f2e70, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
