@@ -139,7 +139,7 @@ public class Boss1Movement : Enemy
                     else if (charging == false && stomping == false && attacking == false)
                     {
                         running = true;
-                        GetComponent<Animator>().SetBool("isWalking", false);
+                        GetComponent<Animator>().SetInteger("Attack", 0);
                     }
 
                     if (running == true)
@@ -149,7 +149,9 @@ public class Boss1Movement : Enemy
                         if (runTimer <= 0)
                         {
                             running = false;
-                            GetComponent<Animator>().SetBool("isWalking", true);
+                            GetComponent<Animator>().SetInteger("Attack", 0);
+               
+
                             runTimer = 2.0f;
                         }
                         //if (isSlowed == true)
@@ -227,13 +229,19 @@ public class Boss1Movement : Enemy
             stomping = false;
             Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(stompHitShakeAmount, stompHitShakeDampening);
             player.GetComponent<Player>().health.TakeDamage(30, false);
+            GetComponent<Animator>().SetInteger("Attack", 3);               
+
         }
 
         if (coll.gameObject.tag == "Platform" && ground == null)
         {
             ground = coll.gameObject;
             if (stomping)
+            {
                 Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(missShakeAmount, missShakeDampening);
+                GetComponent<Animator>().SetInteger("Attack", 3);               
+
+            }
             stomping = false;
         }
     }
@@ -281,7 +289,9 @@ public class Boss1Movement : Enemy
         attackDelay -= Time.deltaTime;
         if (attackDelay <= 0)
         {
-            GetComponent<Animator>().SetBool("isAttacking", true);
+            GetComponent<Animator>().SetInteger("Attack", 1);
+
+
             attacking = false;
             attackDelay = 0.7f;
             // animation.Play();
@@ -296,12 +306,13 @@ public class Boss1Movement : Enemy
 
     private void Stomp()
     {
-        GetComponent<Animator>().SetBool("IsStomping", true);
+        GetComponent<Animator>().SetInteger("Attack", 2);
+
 
         if (stompTimer <= 0)
         {
             stompTimer = 1.0f;
-            stomping = false;
+           // stomping = false;
         }
         if (direction == true)
         {
@@ -317,6 +328,9 @@ public class Boss1Movement : Enemy
 
     private void Charge()
     {
+        GetComponent<Animator>().SetInteger("Attack", 0);
+
+
         if (chargeTimer <= 0)
         {
             chargeTimer = 1.0f;
