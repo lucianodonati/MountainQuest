@@ -44,7 +44,7 @@ public class RedirectSphere : MonoBehaviour
         {
             SoundFX sfx = GetComponent<SoundFX>();
             if (sfx != null)
-                sfx.Play("EnterSphere");
+                sfx.Play("Redirect");
 
             other.rigidbody2D.position = this.transform.position;
             Direction.Normalize();
@@ -57,7 +57,7 @@ public class RedirectSphere : MonoBehaviour
         {
             SoundFX sfx = GetComponent<SoundFX>();
             if (sfx != null)
-                sfx.Play("EnterSphere");
+                sfx.Play("Redirect");
 
             GameManager.instance.statsManager.arrowsRedirected++;
             other.rigidbody2D.position = this.transform.position;

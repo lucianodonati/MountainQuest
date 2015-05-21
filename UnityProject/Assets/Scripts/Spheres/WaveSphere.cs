@@ -66,7 +66,7 @@ public class WaveSphere : BaseSphere
 
                     SoundFX sfx = GetComponent<SoundFX>();
                     if (sfx != null)
-                        sfx.Play("Poop");
+                        sfx.Play("Wave");
 
                     float currangle = 0, angleIncrement = 360.0f / (float)arrowsPerWave;
 

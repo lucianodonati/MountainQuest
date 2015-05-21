@@ -14,7 +14,7 @@ public class ShieldSphere : BaseSphere
 
             SoundFX sfx = GetComponent<SoundFX>();
             if (sfx != null)
-                sfx.Play("EnterSphere");
+                sfx.Play("Shield");
         }
     }
 
@@ -24,8 +24,6 @@ public class ShieldSphere : BaseSphere
         if (proj != null && !proj.stuck && !proj.createdInsideShield && proj.owner != null && proj.owner.name != "Boss 2")
         {
             Vector3 pushVector = (other.transform.position - transform.position) * GetComponent<CircleCollider2D>().radius;
-
-            Debug.Log("Push: " + pushVector + " Arrow: " + other.rigidbody2D.velocity);
 
             other.rigidbody2D.velocity += new Vector2(pushVector.x, pushVector.y);
             if (other.rigidbody2D.velocity.magnitude > enterSpeed)

@@ -22,7 +22,7 @@ public class BoostSphere : BaseSphere
             {
                 SoundFX sfx = GetComponent<SoundFX>();
                 if (sfx != null)
-                    sfx.Play("EnterSphere");
+                    sfx.Play("Boost");
 
                 if (other.rigidbody2D.velocity.magnitude < 32)
                 {
