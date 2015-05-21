@@ -19,8 +19,11 @@ public class ButtonScript : MonoBehaviour
 
     public void LoadScene()
     {
-        //if (name.Contains("Play"))
-        //    PlayerPrefs.SetInt();
+        if (name.Contains("Play"))
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt("Level", 1);
+        }
         GameManager.instance.Load(SceneToLoad);
     }
 
