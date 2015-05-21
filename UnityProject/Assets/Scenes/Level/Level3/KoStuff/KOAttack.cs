@@ -8,7 +8,7 @@ public abstract class KOAttack : MonoBehaviour
     protected GameObject player;
     public int myAnim = 0;
     public bool animFinished = false;
-
+    public float strikeTimer = 0.4f;
     public virtual void Start()
     {
         attackTimer = 5.0f;

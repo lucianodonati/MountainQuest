@@ -49,7 +49,7 @@ public class Arrow : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject != owner && !other.isTrigger && !(other.gameObject.name == "KO"))
+        if (other.gameObject != owner && !other.isTrigger)
         {
             if (stuck)
             {
@@ -118,7 +118,7 @@ public class Arrow : MonoBehaviour
 
     protected void GetStuck(Collider2D coll)
     {
-        if (coll.tag != "Sphere" && transform.parent == null)
+        if (coll.tag != "Sphere" && transform.parent == null && !(coll.gameObject.name == "KO"))
         {
             rigidbody2D.velocity = new Vector2(0, 0);
             GetComponent<BoxCollider2D>().isTrigger = true;
