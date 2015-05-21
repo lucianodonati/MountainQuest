@@ -36,38 +36,29 @@ TextureImporter:
     21300062: FullBlueBoss_31
     21300064: FullBlueBoss_32
     21300066: FullBlueBoss_33
-    21300068: FullBlueBoss_34
-    21300070: FullBlueBoss_35
-    21300072: FullBlueBoss_36
-    21300074: FullBlueBoss_37
-    21300076: FullBlueBoss_38
-    21300078: FullBlueBoss_39
-    21300080: FullBlueBoss_40
-    21300082: FullBlueBoss_41
-    21300084: FullBlueBoss_42
-    21300086: FullBlueBoss_43
-    21300088: FullBlueBoss_44
-    21300090: FullBlueBoss_45
-    21300092: FullBlueBoss_46
-    21300094: FullBlueBoss_47
-    21300096: FullBlueBoss_48
-    21300098: FullBlueBoss_49
-    21300100: FullBlueBoss_50
-    21300102: FullBlueBoss_51
-    21300104: FullBlueBoss_52
-    21300106: FullBlueBoss_53
-    21300108: FullBlueBoss_54
-    21300110: FullBlueBoss_55
-    21300112: FullBlueBoss_56
-    21300114: FullBlueBoss_57
-    21300116: FullBlueBoss_58
-    21300118: FullBlueBoss_59
-    21300120: FullBlueBoss_60
-    21300122: FullBlueBoss_61
-    21300124: FullBlueBoss_62
-    21300126: FullBlueBoss_63
-    21300128: FullBlueBoss_64
-    21300130: FullBlueBoss_65
+    21300068: FullBlueBoss_36
+    21300070: FullBlueBoss_37
+    21300072: FullBlueBoss_41
+    21300074: FullBlueBoss_42
+    21300076: FullBlueBoss_47
+    21300078: FullBlueBoss_48
+    21300080: FullBlueBoss_49
+    21300082: FullBlueBoss_50
+    21300084: FullBlueBoss_51
+    21300086: FullBlueBoss_52
+    21300088: FullBlueBoss_53
+    21300090: FullBlueBoss_54
+    21300092: FullBlueBoss_55
+    21300094: FullBlueBoss_56
+    21300096: FullBlueBoss_57
+    21300098: FullBlueBoss_58
+    21300100: FullBlueBoss_59
+    21300102: FullBlueBoss_60
+    21300104: FullBlueBoss_61
+    21300106: FullBlueBoss_62
+    21300108: FullBlueBoss_63
+    21300110: FullBlueBoss_64
+    21300112: FullBlueBoss_65
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -90,7 +81,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 1
+    filterMode: -1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -202,8 +193,8 @@ TextureImporter:
     - name: FullBlueBoss_9
       rect:
         serializedVersion: 2
-        x: 424
-        y: 773
+        x: 421
+        y: 776
         width: 127
         height: 116
       alignment: 0
@@ -359,16 +350,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_25
-      rect:
-        serializedVersion: 2
-        x: 1397
-        y: 487
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_26
       rect:
         serializedVersion: 2
@@ -376,16 +357,6 @@ TextureImporter:
         y: 428
         width: 162
         height: 148
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_27
-      rect:
-        serializedVersion: 2
-        x: 1395
-        y: 472
-        width: 9
-        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,8 +384,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 642
-        y: 269
-        width: 142
+        y: 270
+        width: 144
         height: 127
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -423,51 +394,31 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 805
-        y: 268
+        y: 272
         width: 142
-        height: 130
+        height: 126
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_32
       rect:
         serializedVersion: 2
-        x: 1068
-        y: 389
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 975
+        y: 272
+        width: 179
+        height: 122
+      alignment: 9
+      pivot: {x: .611164451, y: .510873258}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_33
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 393
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_34
-      rect:
-        serializedVersion: 2
-        x: 1291
-        y: 392
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_35
-      rect:
-        serializedVersion: 2
-        x: 1607
-        y: 387
-        width: 15
-        height: 17
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 1183
+        y: 272
+        width: 181
+        height: 137
+      alignment: 9
+      pivot: {x: .602607191, y: .470951289}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_36
       rect:
@@ -489,45 +440,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_38
-      rect:
-        serializedVersion: 2
-        x: 1248
-        y: 375
-        width: 11
-        height: 15
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_39
-      rect:
-        serializedVersion: 2
-        x: 1596
-        y: 375
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_40
-      rect:
-        serializedVersion: 2
-        x: 1601
-        y: 375
-        width: 6
-        height: 10
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_41
       rect:
         serializedVersion: 2
-        x: 1639
-        y: 374
-        width: 9
-        height: 17
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 1595
+        y: 266
+        width: 170
+        height: 124
+      alignment: 9
+      pivot: {x: .609246492, y: .51069814}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_42
       rect:
@@ -539,55 +460,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_43
-      rect:
-        serializedVersion: 2
-        x: 1252
-        y: 368
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_44
-      rect:
-        serializedVersion: 2
-        x: 1599
-        y: 362
-        width: 6
-        height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_45
-      rect:
-        serializedVersion: 2
-        x: 1389
-        y: 298
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FullBlueBoss_46
-      rect:
-        serializedVersion: 2
-        x: 1592
-        y: 321
-        width: 45
-        height: 17
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_47
       rect:
         serializedVersion: 2
-        x: 1393
-        y: 279
-        width: 21
-        height: 13
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 1389
+        y: 267
+        width: 182
+        height: 127
+      alignment: 9
+      pivot: {x: .60204339, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: FullBlueBoss_48
       rect:
@@ -732,10 +613,10 @@ TextureImporter:
     - name: FullBlueBoss_62
       rect:
         serializedVersion: 2
-        x: 1341
-        y: 22
-        width: 96
-        height: 26
+        x: 1342
+        y: 41
+        width: 8
+        height: 5
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
