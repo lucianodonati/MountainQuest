@@ -17,6 +17,8 @@ public class Entity : MonoBehaviour
     //death vars
     public bool dead = false;
 
+    private MonoBehaviour movement;
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -26,6 +28,16 @@ public class Entity : MonoBehaviour
         health.showHealthBar = showHealth;
 
         myColor = gameObject.GetComponent<SpriteRenderer>().color;
+
+        if (tag == "Player")
+            movement = GetComponent<PlayerController>();
+        else if (tag == "Enemy")
+        {
+            movement = GetComponent<Movement_Coordinator>();
+
+            if (movement == null)
+                movement = GetComponent<Enemy_Movement>();
+        }
     }
 
     // Update is called once per frame
@@ -42,6 +54,30 @@ public class Entity : MonoBehaviour
             {
                 rigidbody2D.velocity /= 2;
                 isSlowed = false;
+            }
+
+            if (movement != null)
+            {
+                Vector3 scaleflip = transform.localScale;
+                scaleflip.x = Mathf.Abs(scaleflip.x);
+
+                if (movement.GetType() == System.Type.GetType("PlayerController"))
+                {
+                    if (((PlayerController)movement).facingRight)
+                        scaleflip.x *= -1;
+                }
+                else if (movement.GetType() == System.Type.GetType("Movement_Coordinator"))
+                {
+                    if (((Movement_Coordinator)movement).currentMovement.direction)
+                        scaleflip.x *= -1;
+                }
+                else
+                {
+                    if (((Enemy_Movement)movement).direction)
+                        scaleflip.x *= -1;
+                }
+
+                transform.localScale = scaleflip;
             }
         }
     }

@@ -18,6 +18,16 @@ public class Enemy : Entity
     {
         base.Update();
 
+        Movement_Coordinator movCoord = GetComponent<Movement_Coordinator>();
+
+        if(movCoord != null)
+        {
+            if (movCoord.currentMovement.GetType() != System.Type.GetType("Idle_Movement"))
+                GetComponent<Animator>().SetBool("move", true);
+            else
+                GetComponent<Animator>().SetBool("move", false);
+        }
+
         Seek_Movement seek = gameObject.GetComponent<Seek_Movement>();
         if (seek != null)
             seek.enabled = disableSeek;
