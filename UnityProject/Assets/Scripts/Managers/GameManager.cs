@@ -256,6 +256,8 @@ public class GameManager : MonoBehaviour
     public void SavePlayerInfo()
     {
         PlayerPrefs.SetInt("Experience", GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().experience);
+        PlayerPrefs.SetInt("Level", GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().level);
+        PlayerPrefs.SetInt("SkillPoints", GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().skillPoints);
 
         PlayerPrefs.Save();
     }
@@ -263,6 +265,8 @@ public class GameManager : MonoBehaviour
     public void LoadPlayerInfo()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().experience = PlayerPrefs.GetInt("Experience");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().level = PlayerPrefs.GetInt("Level");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().skillPoints = PlayerPrefs.GetInt("SkillPoints");
         GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), 0);
     }
 
