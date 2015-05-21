@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 40
   health: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 225
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
