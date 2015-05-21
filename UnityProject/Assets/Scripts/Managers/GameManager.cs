@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public enum Scenes
     {
-        MainMenu, Tutorial, Level1, Level2, Level3, Level4, Level5
+        MainMenu, Tutorial, Level1, Level2, Level3
     };
 
     public Scenes currentLevel = Scenes.MainMenu;
