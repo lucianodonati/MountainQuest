@@ -114,14 +114,8 @@ public class Sword : MonoBehaviour
     {
         if (coll.gameObject.tag != gameObject.tag && coll.isTrigger == false && !hit)
         {
-            if (coll.gameObject.tag == "Enemy")
-            {
+            if (coll.gameObject.tag == "Enemy" || (coll.gameObject.tag == "Player"))
                 damageType.attachToEnemy(coll.gameObject.GetComponent<Entity>());
-            }
-            else if (coll.gameObject.tag == "Player")
-            {
-                damageType.attachToEnemy(coll.gameObject.GetComponent<Entity>());
-            }
 
             hit = true;
         }
