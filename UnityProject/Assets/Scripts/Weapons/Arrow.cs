@@ -119,7 +119,7 @@ public class Arrow : MonoBehaviour
 
     protected void GetStuck(Collider2D coll)
     {
-        if (coll.tag != "Sphere" && transform.parent == null && !(coll.gameObject.name == "KO"))
+        if (coll.tag != "Sphere" && transform.parent == null)
         {
             rigidbody2D.velocity = new Vector2(0, 0);
             GetComponent<BoxCollider2D>().isTrigger = true;
@@ -136,9 +136,9 @@ public class Arrow : MonoBehaviour
                 else
                     dummyChild.transform.parent = coll.transform;
                 dummyChildTransform = dummyChild.transform;
+                transform.parent = dummyChildTransform;
+                rigidbody2D.isKinematic = true;
             }
-            transform.parent = dummyChildTransform;
-            rigidbody2D.isKinematic = true;
         }
     }
 }
