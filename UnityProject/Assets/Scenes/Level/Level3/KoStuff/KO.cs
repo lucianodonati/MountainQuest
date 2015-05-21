@@ -85,6 +85,7 @@ public class KO : Entity
                     SoundFX sfx = GetComponent<SoundFX>();
                     if (sfx != null)
                         sfx.Play("Died");
+                    GameManager.instance.switchToMenu(GameManager.Menus.Credits);
                 }
                 else if (deathTimerPoop > 0.0f)
                     deathTimerPoop -= Time.deltaTime;
@@ -144,10 +145,5 @@ public class KO : Entity
     {
         health.Heal(_ammount);
         psys.Emit((int)_ammount);
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.instance.switchToMenu(GameManager.Menus.Credits);
     }
 }

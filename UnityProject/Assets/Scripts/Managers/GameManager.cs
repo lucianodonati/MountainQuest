@@ -236,20 +236,6 @@ public class GameManager : MonoBehaviour
     {
         musicVol = PlayerPrefs.GetInt("musicVol");
         sfxVol = PlayerPrefs.GetInt("sfxVol");
-        skillsManager.SetSphere(SkillsManager.SpheresId.Boost, true);
-        skillsManager.SetSphere(SkillsManager.SpheresId.Redirect, true);
-        skillsManager.SetSphere(SkillsManager.SpheresId.Shield, PlayerPrefs.GetInt("ShieldSphere") == 1);
-        skillsManager.SetSphere(SkillsManager.SpheresId.Wave, PlayerPrefs.GetInt("WaveSphere") == 1);
-
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Fire, PlayerPrefs.GetInt("FireArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Ice, PlayerPrefs.GetInt("IceArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Wind, PlayerPrefs.GetInt("WindArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Earth, PlayerPrefs.GetInt("EarthArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Exploding, PlayerPrefs.GetInt("ExplodingArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Shattering, PlayerPrefs.GetInt("ShatteringArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Lightning, PlayerPrefs.GetInt("LightningArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.EarthQuake, PlayerPrefs.GetInt("EarthquakeArrow") == 1);
-        skillsManager.SetArrow(SkillsManager.ArrowsId.Plague, PlayerPrefs.GetInt("PlagueArrow") == 1);
         Load((Scenes)PlayerPrefs.GetInt("lvl"));
     }
 
@@ -264,10 +250,30 @@ public class GameManager : MonoBehaviour
 
     public void LoadPlayerInfo()
     {
+        if (loadedFromSave)
+        {
+            GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), 0);
+            loadedFromSave = false;
+        }
+
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().experience = PlayerPrefs.GetInt("Experience");
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().level = PlayerPrefs.GetInt("Level");
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().skillPoints = PlayerPrefs.GetInt("SkillPoints");
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), 0);
+
+        skillsManager.SetSphere(SkillsManager.SpheresId.Boost, true);
+        skillsManager.SetSphere(SkillsManager.SpheresId.Redirect, true);
+        skillsManager.SetSphere(SkillsManager.SpheresId.Shield, PlayerPrefs.GetInt("ShieldSphere") == 1);
+        skillsManager.SetSphere(SkillsManager.SpheresId.Wave, PlayerPrefs.GetInt("WaveSphere") == 1);
+
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Fire, PlayerPrefs.GetInt("FireArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Ice, PlayerPrefs.GetInt("IceArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Wind, PlayerPrefs.GetInt("WindArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Earth, PlayerPrefs.GetInt("EarthArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Exploding, PlayerPrefs.GetInt("ExplodingArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Shattering, PlayerPrefs.GetInt("ShatteringArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Lightning, PlayerPrefs.GetInt("LightningArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.EarthQuake, PlayerPrefs.GetInt("EarthquakeArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Plague, PlayerPrefs.GetInt("PlagueArrow") == 1);
     }
 
     private void disableCurrentMenu()
@@ -297,8 +303,7 @@ public class GameManager : MonoBehaviour
                 if (playerController == null)
                     playerController = (GameObject.FindGameObjectWithTag("Player")).GetComponent<PlayerController>();
 
-                if (loadedFromSave)
-                    LoadPlayerInfo();
+                LoadPlayerInfo();
             }
             else if (currentLevel == Scenes.MainMenu)
             {
