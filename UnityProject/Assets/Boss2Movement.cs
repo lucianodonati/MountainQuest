@@ -228,6 +228,10 @@ public class Boss2Movement : Enemy
             ArrowAngle -= transform.position;
             ArrowAngle.z = 0;
 
+            Animator anim = GetComponent<Animator>();
+            if (anim != null)
+                anim.SetTrigger("ranged");
+
             GameObject currArrow = (GameObject)Instantiate(Arrow, gameObject.transform.position + Vector3.back,
                                                             Quaternion.FromToRotation(preserveUp, ArrowAngle));
 
@@ -258,6 +262,10 @@ public class Boss2Movement : Enemy
             Vector3 playerPos = player.transform.position;
             playerPos -= transform.position;
             playerPos.z = 0;
+
+            Animator anim = GetComponent<Animator>();
+            if (anim != null)
+                anim.SetTrigger("ranged");
 
             GameObject currArrow = (GameObject)Instantiate(Arrow, gameObject.transform.position + Vector3.back,
                                                             Quaternion.FromToRotation(preserveUp, playerPos));
@@ -316,7 +324,7 @@ public class Boss2Movement : Enemy
             playerBody.AddForce(new Vector2(-5, 3) * 1000);
             //   playerBody.velocity += KB;
 
-            Vector2 jumpBack = new Vector2(8, 8);
+            Vector2 jumpBack = new Vector2(8, 15);
             gameObject.rigidbody2D.velocity += jumpBack;
         }
         if (direction == true)
