@@ -78,12 +78,6 @@ public class Sword : MonoBehaviour
                 hit = false;
             }
         }
-        else
-        {
-            Animator anim = GetComponentInParent<Animator>();
-            if (anim != null)
-                anim.SetInteger("attack", 0);
-        }
     }
 
     public void Follow()
@@ -112,7 +106,7 @@ public class Sword : MonoBehaviour
     {
         Animator anim = GetComponentInParent<Animator>();
         if (anim != null)
-            anim.SetInteger("attack", AnimationInt);
+            anim.SetTrigger("melee");
         swinging = true;
     }
 
@@ -120,14 +114,8 @@ public class Sword : MonoBehaviour
     {
         if (coll.gameObject.tag != gameObject.tag && coll.isTrigger == false && !hit)
         {
-            if (coll.gameObject.tag == "Enemy")
-            {
+            if (coll.gameObject.tag == "Enemy" || (coll.gameObject.tag == "Player"))
                 damageType.attachToEnemy(coll.gameObject.GetComponent<Entity>());
-            }
-            else if (coll.gameObject.tag == "Player")
-            {
-                damageType.attachToEnemy(coll.gameObject.GetComponent<Entity>());
-            }
 
             hit = true;
         }

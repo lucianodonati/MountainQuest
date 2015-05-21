@@ -48,15 +48,15 @@ public class RangedAI : AttackAI
 
     private void Attack()
     {
-        Animator anim = GetComponent<Animator>();
-        if (anim != null)
-            anim.SetInteger("attack", attackIntAnim);
-
         if (reloadTimer > 0.0f)
             reloadTimer -= Time.deltaTime;
 
         if (reloadTimer <= 0.0f)
         {
+            Animator anim = GetComponent<Animator>();
+            if (anim != null)
+                anim.SetTrigger("ranged");
+
             GameObject currArrow = (GameObject)Instantiate(weapon,
                                                             gameObject.transform.position + Vector3.back,
                                                             Quaternion.FromToRotation(transform.up, (Vector3)((Vector2)(target.transform.position - transform.position))));

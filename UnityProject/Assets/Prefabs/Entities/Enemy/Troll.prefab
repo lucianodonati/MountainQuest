@@ -34,9 +34,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 461278}
-  - 60: {fileID: 6061284}
   - 114: {fileID: 11461270}
   - 114: {fileID: 11461272}
+  - 61: {fileID: 6136154}
   m_Layer: 10
   m_Name: Club
   m_TagString: Untagged
@@ -51,8 +51,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.1132278, y: -28.4388695, z: 0}
-  m_LocalScale: {x: 2.91266394, y: 2.91266465, z: 2.91266465}
+  m_LocalPosition: {x: 35.0099983, y: 64.6600037, z: 0}
+  m_LocalScale: {x: 7.16999006, y: 7.1699934, z: 7.1699934}
   m_Children:
   - {fileID: 461278}
   m_Father: {fileID: 0}
@@ -93,10 +93,10 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 5.21000004
+  m_Radius: 3.18000007
   m_Center: {x: 0, y: 0}
---- !u!60 &6061284
-PolygonCollider2D:
+--- !u!61 &6136154
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -104,25 +104,8 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Poly:
-    m_Paths:
-    - - {x: -.0213432312, y: 1.61898232}
-      - {x: .364089966, y: 1.52563667}
-      - {x: .658504486, y: 1.16529274}
-      - {x: .650623322, y: .716157913}
-      - {x: .504970551, y: .50214386}
-      - {x: .513080597, y: -.712966919}
-      - {x: .322166443, y: -1.02430916}
-      - {x: .333164215, y: -1.64115906}
-      - {x: .226161957, y: -1.89315414}
-      - {x: -.21339798, y: -1.89725494}
-      - {x: -.31621933, y: -1.65701103}
-      - {x: -.327140808, y: -1.03013611}
-      - {x: -.491737366, y: -.723640442}
-      - {x: -.510158539, y: .508018494}
-      - {x: -.625717163, y: .714542389}
-      - {x: -.668586731, y: 1.07354927}
-      - {x: -.364089966, y: 1.49361992}
+  m_Size: {x: 1.38, y: 5.01000023}
+  m_Center: {x: -1.20000005, y: 0}
 --- !u!61 &6161284
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -168,8 +151,8 @@ MonoBehaviour:
   lowSwingAngle: 90
   swingMinX: .5
   swingMaxX: 5
-  swingMaxY: 1.60000002
-  swingMinY: -1.5
+  swingMaxY: .629999995
+  swingMinY: -.810000002
   damageType: {fileID: 11461272}
 --- !u!114 &11461272
 MonoBehaviour:
