@@ -15,8 +15,8 @@ public class CoolAttack : KOAttack
         me = GetComponent<KO>();
         player = GameObject.Find("Player");
         anim = me.GetComponent<Animator>();
-       // jumps = Random.Range(2, 4);
-        jumps = 2;
+        jumps = Random.Range(2, 4);
+        //jumps = 2;
     }
 
     // Update is called once per frame
