@@ -231,9 +231,8 @@ public class Boss1Movement : Enemy
             GetComponent<Animator>().SetInteger("Attack", 3);
         }
 
-        if (coll.gameObject.tag == "Platform" && ground == null)
+        if ((coll.gameObject.tag == "Platform" || coll.gameObject.tag == "Wall") && ground == null)
         {
-            ground = coll.gameObject;
             if (stomping)
             {
                 Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(missShakeAmount, missShakeDampening);
@@ -241,6 +240,10 @@ public class Boss1Movement : Enemy
             }
             stomping = false;
         }
+
+         if (coll.gameObject.tag == "Platform" && ground == null)
+             ground = coll.gameObject;
+
     }
 
     private void OnCollisionStay2D(Collision2D coll)
