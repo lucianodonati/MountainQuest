@@ -56,6 +56,7 @@ public class KO : Entity
                             break;
 
                         case 4:
+                            currentKOAttack = gameObject.AddComponent<MeleeAttack>();
                             break;
 
                         case 5:
@@ -114,7 +115,8 @@ public class KO : Entity
 
     private int getRandomAttack()
     {
-        return Random.Range(1, 6); // For now
+      //  return Random.Range(1, 6); // For now
+        return 4;
     }
 
     public void teleportToRandomPlat()

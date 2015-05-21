@@ -7,6 +7,7 @@ public abstract class KOAttack : MonoBehaviour
     public float attackTimer = 5.0f;
     protected GameObject player;
     public int myAnim = 0;
+    public bool animFinished = false;
 
     public virtual void Start()
     {
