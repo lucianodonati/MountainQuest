@@ -19,34 +19,40 @@ public class Zone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        skills = GameManager.instance.skillsManager;
-
-        oldCombat = playerController.combatEnabled;
-        oldMovement = playerController.movementEnabled;
-
-        playerController.combatEnabled = playerCombat;
-        playerController.movementEnabled = playerMovement;
-
-        foreach (SkillsManager.SetPrefabs sphere in skills.spheres)
+        if (coll.gameObject.name == "Player")
         {
-            if (sphere.active)
-                oldSpheres.Add(sphere.id);
+            skills = GameManager.instance.skillsManager;
 
-            skills.SetSphere(sphere.id, spheresEnabled.Count > 0 ? spheresEnabled.Contains(sphere.id) : false);
+            oldCombat = playerController.combatEnabled;
+            oldMovement = playerController.movementEnabled;
+
+            playerController.combatEnabled = playerCombat;
+            playerController.movementEnabled = playerMovement;
+
+            foreach (SkillsManager.SetPrefabs sphere in skills.spheres)
+            {
+                if (sphere.active)
+                    oldSpheres.Add(sphere.id);
+
+                skills.SetSphere(sphere.id, spheresEnabled.Count > 0 ? spheresEnabled.Contains(sphere.id) : false);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D coll)
     {
-        playerController.combatEnabled = oldCombat;
-        playerController.movementEnabled = oldMovement;
-
-        foreach (SkillsManager.SetPrefabs sphere in skills.spheres)
+        if (coll.gameObject.name == "Player")
         {
-            skills.SetSphere(sphere.id, oldSpheres.Contains(sphere.id));
-        }
+            playerController.combatEnabled = oldCombat;
+            playerController.movementEnabled = oldMovement;
 
-        if (destroyOnExit)
-            Destroy(gameObject);
+            foreach (SkillsManager.SpheresId sphere in oldSpheres)
+            {
+                skills.SetSphere(sphere, true);
+            }
+
+            if (destroyOnExit)
+                Destroy(gameObject);
+        }
     }
 }
