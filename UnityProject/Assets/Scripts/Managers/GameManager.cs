@@ -250,10 +250,15 @@ public class GameManager : MonoBehaviour
 
     public void LoadPlayerInfo()
     {
+        if (loadedFromSave)
+        {
+            GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), 0);
+            loadedFromSave = false;
+        }
+
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().experience = PlayerPrefs.GetInt("Experience");
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().level = PlayerPrefs.GetInt("Level");
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().skillPoints = PlayerPrefs.GetInt("SkillPoints");
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), 0);
 
         skillsManager.SetSphere(SkillsManager.SpheresId.Boost, true);
         skillsManager.SetSphere(SkillsManager.SpheresId.Redirect, true);
@@ -298,11 +303,7 @@ public class GameManager : MonoBehaviour
                 if (playerController == null)
                     playerController = (GameObject.FindGameObjectWithTag("Player")).GetComponent<PlayerController>();
 
-                if (loadedFromSave)
-                {
-                    LoadPlayerInfo();
-                    loadedFromSave = false;
-                }
+                LoadPlayerInfo();
             }
             else if (currentLevel == Scenes.MainMenu)
             {
