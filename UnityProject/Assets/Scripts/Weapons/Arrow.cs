@@ -51,6 +51,10 @@ public class Arrow : MonoBehaviour
     {
         if (other.gameObject != owner && !other.isTrigger)
         {
+            SoundFX sfx = GetComponent<SoundFX>();
+            if (sfx != null)
+                sfx.Play("Hit");
+
             if (stuck)
             {
                 if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow"))
@@ -72,9 +76,6 @@ public class Arrow : MonoBehaviour
                 {
                     if (!GetComponent<AOE>().enabled)
                     {
-                        SoundFX sfx = GetComponent<SoundFX>();
-                        if (sfx != null)
-                            sfx.Play("Hit");
                         if (AOE_Emitter != null)
                         {
                             GameObject emitter = (GameObject)Instantiate(AOE_Emitter, transform.position, transform.rotation);

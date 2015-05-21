@@ -138,6 +138,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3b7f094b353bf3e4bb5548d93c03bb1a, type: 3}
     - {fileID: 8300000, guid: 6cb93ed1ec21ce9409f32c1096db7877, type: 3}
     volume: .100000001
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: 2adbbbf0878223e41978290a25feb9bb, type: 3}
+    volume: .100000001
 --- !u!198 &19863060
 ParticleSystem:
   m_ObjectHideFlags: 1
