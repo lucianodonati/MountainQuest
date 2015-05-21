@@ -13,6 +13,7 @@ GameObject:
   - 58: {fileID: 5863420}
   - 61: {fileID: 6163420}
   - 114: {fileID: 11463420}
+  - 95: {fileID: 9581440}
   m_Layer: 10
   m_Name: Boss 2
   m_TagString: Boss
@@ -27,8 +28,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.8199997, y: -8.92000008, z: 0}
-  m_LocalScale: {x: 5.64252567, y: 5.64252234, z: 5.64252234}
+  m_LocalPosition: {x: 40.2000008, y: -31.3500004, z: 0}
+  m_LocalScale: {x: 2.60297251, y: 2.60297203, z: 2.60297203}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,7 +57,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 3.92095733
+  m_Radius: 8.88587952
   m_Center: {x: 0, y: 0}
 --- !u!61 &6163420
 BoxCollider2D:
@@ -67,8 +68,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .498026609, y: .58515054}
-  m_Center: {x: 0, y: .0274246261}
+  m_Size: {x: .768487513, y: 1.24198818}
+  m_Center: {x: .0386368595, y: .00810650177}
+--- !u!95 &9581440
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25ab3fc328d4c5a4c8a70621fe151b19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11463420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,14 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a5fd8cee2102f4c87bcd3bd36bcc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowTimer: 3
-  stunTimer: 2
   experience: 0
   health: {fileID: 0}
   maxHealth: 100
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
   deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
@@ -135,8 +150,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0e853e80a2f6eb040b1af68f260048ef, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0fca991246f534c41941bd43053c0761, type: 3}
+  m_Color: {r: .117647052, g: 1, b: .233265623, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
