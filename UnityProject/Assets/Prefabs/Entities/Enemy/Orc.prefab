@@ -54,6 +54,7 @@ GameObject:
   - 114: {fileID: 11486176}
   - 114: {fileID: 11486174}
   - 114: {fileID: 11494740}
+  - 95: {fileID: 9523916}
   m_Layer: 10
   m_Name: Orc
   m_TagString: Enemy
@@ -147,6 +148,21 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .129999995, y: .140000001}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9523916
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d36c4cf9f142c2a498f362746ca485cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11486174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,6 +180,7 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  showHealth: 1
   dead: 0
   deadLingerTimerMax: 5
   lastPlatform: {fileID: 0}
@@ -279,6 +296,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 33536
+  attackIntAnim: 2
   maximumRange: 20
   minimumRange: 7.5
 --- !u!114 &11486188
@@ -306,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24275c9b45aafa74597a2bb2a686e72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationInt: 1
   swinging: 0
   halfswung: 0
   ownerDirection: 1
