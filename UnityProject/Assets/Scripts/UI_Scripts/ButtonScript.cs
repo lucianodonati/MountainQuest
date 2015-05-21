@@ -19,6 +19,8 @@ public class ButtonScript : MonoBehaviour
 
     public void LoadScene()
     {
+        //if (name.Contains("Play"))
+        //    PlayerPrefs.SetInt();
         GameManager.instance.Load(SceneToLoad);
     }
 
