@@ -116,8 +116,7 @@ public class KO : Entity
 
     private int getRandomAttack()
     {
-        //  return Random.Range(1, 6); // For now
-        return 4;
+        return Random.Range(1, 6); // For now
     }
 
     public void teleportToRandomPlat()
