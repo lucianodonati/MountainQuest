@@ -324,12 +324,12 @@ public class Boss2Movement : Enemy
             playerBody.AddForce(new Vector2(-5, 3) * 1000);
             //   playerBody.velocity += KB;
 
-            Vector2 jumpBack = new Vector2(8, 15);
+            Vector2 jumpBack = new Vector2(8, 8);
             gameObject.rigidbody2D.velocity += jumpBack;
         }
         if (direction == true)
         {
-            //Vector2 KB = new Vector2(5, 3);
+            Vector2 KB = new Vector2(5, 3);
 
             //   playerBody.isKinematic = true;
             playerBody.AddForce(new Vector2(5, 3) * 1000);
