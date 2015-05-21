@@ -45,6 +45,9 @@ public class Bow : MonoBehaviour
 
             transform.up = (Vector3)((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
 
+            if (owner.transform.localScale.x < 0)
+                transform.up = new Vector3(-1 * transform.up.x, transform.up.y, transform.up.z);
+
             transform.Rotate(0, 0, 45);
         }
     }
