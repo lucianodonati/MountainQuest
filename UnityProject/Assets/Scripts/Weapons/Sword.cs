@@ -78,12 +78,6 @@ public class Sword : MonoBehaviour
                 hit = false;
             }
         }
-        else
-        {
-            Animator anim = GetComponentInParent<Animator>();
-            if (anim != null)
-                anim.SetInteger("attack", 0);
-        }
     }
 
     public void Follow()
@@ -112,7 +106,7 @@ public class Sword : MonoBehaviour
     {
         Animator anim = GetComponentInParent<Animator>();
         if (anim != null)
-            anim.SetInteger("attack", AnimationInt);
+            anim.SetTrigger("melee");
         swinging = true;
     }
 
