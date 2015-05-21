@@ -23,9 +23,9 @@ GameObject:
   - 114: {fileID: 11468878}
   - 95: {fileID: 9516096}
   - 95: {fileID: 9500206}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Warlock
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
