@@ -208,6 +208,10 @@ public class GameManager : MonoBehaviour
         saveData.Add("ShieldSphere", (skillsManager.GetComponent<SkillsManager>().spheres[(int)SkillsManager.SpheresId.Shield].active ? 1 : 0));
         saveData.Add("WaveSphere", (skillsManager.GetComponent<SkillsManager>().spheres[(int)SkillsManager.SpheresId.Wave].active ? 1 : 0));
 
+        saveData.Add("FireArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Fire].active ? 1 : 0));
+        saveData.Add("IceArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Ice].active ? 1 : 0));
+        saveData.Add("WindArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Wind].active ? 1 : 0));
+        saveData.Add("EarthArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Earth].active ? 1 : 0));
         saveData.Add("ExplodingArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Exploding].active ? 1 : 0));
         saveData.Add("ShatteringArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Shattering].active ? 1 : 0));
         saveData.Add("LightningArrow", (skillsManager.GetComponent<SkillsManager>().arrows[(int)SkillsManager.ArrowsId.Lightning].active ? 1 : 0));
@@ -227,8 +231,15 @@ public class GameManager : MonoBehaviour
     {
         musicVol = PlayerPrefs.GetInt("musicVol");
         sfxVol = PlayerPrefs.GetInt("sfxVol");
+        skillsManager.SetSphere(SkillsManager.SpheresId.Boost, true);
+        skillsManager.SetSphere(SkillsManager.SpheresId.Redirect, true);
         skillsManager.SetSphere(SkillsManager.SpheresId.Shield, PlayerPrefs.GetInt("ShieldSphere") == 1);
         skillsManager.SetSphere(SkillsManager.SpheresId.Wave, PlayerPrefs.GetInt("WaveSphere") == 1);
+
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Fire, PlayerPrefs.GetInt("FireArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Ice, PlayerPrefs.GetInt("IceArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Wind, PlayerPrefs.GetInt("WindArrow") == 1);
+        skillsManager.SetArrow(SkillsManager.ArrowsId.Earth, PlayerPrefs.GetInt("EarthArrow") == 1);
         skillsManager.SetArrow(SkillsManager.ArrowsId.Exploding, PlayerPrefs.GetInt("ExplodingArrow") == 1);
         skillsManager.SetArrow(SkillsManager.ArrowsId.Shattering, PlayerPrefs.GetInt("ShatteringArrow") == 1);
         skillsManager.SetArrow(SkillsManager.ArrowsId.Lightning, PlayerPrefs.GetInt("LightningArrow") == 1);
