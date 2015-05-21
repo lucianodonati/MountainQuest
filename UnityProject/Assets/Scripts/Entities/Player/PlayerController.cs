@@ -111,7 +111,10 @@ public class PlayerController : MonoBehaviour
             }
 
             if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock && !rigidbody2D.isKinematic)
+            {
+                anim.SetBool("jump", true);
                 Jump();
+            }
 
             if (Input.GetAxisRaw("Vertical") == 0 && !grounded && !jumplock)
                 jumplock = true;
@@ -154,6 +157,8 @@ public class PlayerController : MonoBehaviour
             grounded = true;
             jumplock = false;
             jumpTimer = jumpTimerMax;
+            if (anim.GetBool("jump"))
+                anim.SetBool("jump", false);
         }
     }
 
