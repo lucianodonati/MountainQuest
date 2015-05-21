@@ -102,7 +102,7 @@ MonoBehaviour:
   - name: Boost
     sounds:
     - {fileID: 8300000, guid: 356c79c235d576041aead356c3754e88, type: 3}
-    volume: .00999999978
+    volume: .200000003
 --- !u!114 &11451540
 MonoBehaviour:
   m_ObjectHideFlags: 1

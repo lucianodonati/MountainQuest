@@ -73,7 +73,7 @@ MonoBehaviour:
   - name: Shield
     sounds:
     - {fileID: 8300000, guid: bc9b2ee8730001e4dbb160d88862c9e5, type: 3}
-    volume: .00999999978
+    volume: .100000001
 --- !u!114 &11448588
 MonoBehaviour:
   m_ObjectHideFlags: 1

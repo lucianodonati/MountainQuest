@@ -123,7 +123,7 @@ MonoBehaviour:
   - name: Wave
     sounds:
     - {fileID: 8300000, guid: 7cf107f278295004faa7f61ffa99df60, type: 3}
-    volume: .00999999978
+    volume: 1
   - name: Destabilize
     sounds:
     - {fileID: 8300000, guid: 2bec0f80be8e8ce4f9065300aeed6d5b, type: 3}

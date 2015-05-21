@@ -102,7 +102,7 @@ MonoBehaviour:
   - name: Redirect
     sounds:
     - {fileID: 8300000, guid: 0685241793bdc8d418f1c3c67b5cd10c, type: 3}
-    volume: .00999999978
+    volume: .5
 --- !u!114 &11435402
 MonoBehaviour:
   m_ObjectHideFlags: 1
