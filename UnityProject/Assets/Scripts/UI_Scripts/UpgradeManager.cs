@@ -10,12 +10,12 @@ public class UpgradeManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
-        transform.FindChild("InfoPanel").FindChild("Text").GetComponent<Text>().text = "Level " + player.level + "\nSkill Points " + player.skillPoints;
     }
 
     private void Update()
     {
+        transform.FindChild("InfoPanel").FindChild("Text").GetComponent<Text>().text = "Level " + player.level + "\nSkill Points " + player.skillPoints;
+
         foreach (BuyButton buyButton in GetComponentsInChildren<BuyButton>())
         {
             if ((buyButton.name.Contains("Shield") && GameManager.instance.skillsManager.spheres[(int)SkillsManager.SpheresId.Shield].active) ||
