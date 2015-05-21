@@ -100,6 +100,7 @@ MonoBehaviour:
   - name: Hit
     sounds:
     - {fileID: 8300000, guid: e3bf18ab8be00dd44b35b97eb8277179, type: 3}
+    - {fileID: 8300000, guid: 3ea5f6c3169678346b4c58490b507c86, type: 3}
     volume: 1
 --- !u!114 &11455232
 MonoBehaviour:

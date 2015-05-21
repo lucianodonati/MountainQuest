@@ -12,7 +12,10 @@ public class UpgradeManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         transform.FindChild("InfoPanel").FindChild("Text").GetComponent<Text>().text = "Level " + player.level + "\nSkill Points " + player.skillPoints;
+    }
 
+    private void Update()
+    {
         foreach (BuyButton buyButton in GetComponentsInChildren<BuyButton>())
         {
             if ((buyButton.name.Contains("Shield") && GameManager.instance.skillsManager.spheres[(int)SkillsManager.SpheresId.Shield].active) ||
@@ -23,13 +26,7 @@ public class UpgradeManager : MonoBehaviour
                 (buyButton.name.Contains("Earthquake") && GameManager.instance.skillsManager.arrows[(int)SkillsManager.ArrowsId.EarthQuake].active) ||
                 (buyButton.name.Contains("Plague") && GameManager.instance.skillsManager.arrows[(int)SkillsManager.ArrowsId.Plague].active))
                 buyButton.bought = true;
-        }
-    }
 
-    private void Update()
-    {
-        foreach (BuyButton buyButton in GetComponentsInChildren<BuyButton>())
-        {
             if (!buyButton.bought && buyButton.skillCost <= player.skillPoints)
                 buyButton.GetComponent<Button>().interactable = true;
             else
