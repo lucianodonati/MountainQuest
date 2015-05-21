@@ -58,7 +58,8 @@ public class Entity : MonoBehaviour
 
             if (movement != null)
             {
-                Vector3 scaleflip = new Vector3(1, 1, 1);
+                Vector3 scaleflip = transform.localScale;
+                scaleflip.x = Mathf.Abs(scaleflip.x);
 
                 if (movement.GetType() == System.Type.GetType("PlayerController"))
                 {
