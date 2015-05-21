@@ -33,12 +33,15 @@ public class EarthquakeArrow : MonoBehaviour
             else if (coll.gameObject.tag == "Enemy")
             {
                 Enemy theEnemy = coll.gameObject.GetComponent<Enemy>();
-                if (theEnemy.lastPlatform.GetComponents<Shake>().Length < 1)
-                    theEnemy.lastPlatform.AddComponent<Shake>();
-                else
-                    theEnemy.lastPlatform.GetComponent<Shake>().duration = duration;
+                if (theEnemy.lastPlatform != null)
+                {
+                    if (theEnemy.lastPlatform.GetComponents<Shake>().Length < 1)
+                        theEnemy.lastPlatform.AddComponent<Shake>();
+                    else
+                        theEnemy.lastPlatform.GetComponent<Shake>().duration = duration;
 
-                ++instances;
+                    ++instances;
+                }
             }
         }
     }
