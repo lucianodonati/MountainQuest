@@ -14,6 +14,7 @@ GameObject:
   - 61: {fileID: 6123678}
   - 114: {fileID: 11460704}
   - 114: {fileID: 11460702}
+  - 114: {fileID: 11438990}
   m_Layer: 10
   m_Name: KO
   m_TagString: Boss
@@ -44,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123678}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 36.2000008, y: 22.7000008, z: 0}
+  m_LocalPosition: {x: -43.6199989, y: 30.8500004, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 460704}
@@ -73,7 +74,7 @@ Rigidbody2D:
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -86,8 +87,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .730000019, y: 1.69000006}
-  m_Center: {x: -.159999996, y: -.0900000036}
+  m_Size: {x: .889999986, y: 2.68000007}
+  m_Center: {x: -.159999996, y: -.439999998}
 --- !u!61 &6160704
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -108,12 +109,28 @@ Animator:
   m_GameObject: {fileID: 123678}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c645db8589432249bd636bb3ec6a5fb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9f108bd555ffe054899a022a3a10a86b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11438990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e62b982b07af4cad8caffe6d47cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - name: Died
+    sounds:
+    - {fileID: 8300000, guid: a9ff62c46984c654ea06add3a331941c, type: 3}
+    volume: 1
 --- !u!114 &11460702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,16 +152,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 123678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c54a693a6a8324544a0848aae8a1ed63, type: 3}
+  m_Script: {fileID: 11500000, guid: 5041470677f93854aaabe7e958aa7288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: 0
+  experience: 1
   health: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 1000
   isSlowed: 0
   isStunned: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   dead: 0
+  Dagger: {fileID: 154322, guid: 7bb901a9f8e060b47b288d641313c21f, type: 2}
+  SoulOrb: {fileID: 155430, guid: 95e48fc11dc5bdb44884cbe0d9b9e93a, type: 2}
+  animating: 1
+  Emitter: {fileID: 118064, guid: 7e3cc663c50262d498e80e19acdc07a9, type: 2}
 --- !u!212 &21223678
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -165,7 +186,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c9ffadc88e561743a099506e4c69353, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fc6dc82b11aad64ea81fde1a4a0267f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
