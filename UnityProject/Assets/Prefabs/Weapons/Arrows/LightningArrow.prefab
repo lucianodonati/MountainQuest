@@ -203,14 +203,14 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 03291244a3734a244bc3a898a9b2b13e, type: 3}
     - {fileID: 8300000, guid: 3b7f094b353bf3e4bb5548d93c03bb1a, type: 3}
     - {fileID: 8300000, guid: 6cb93ed1ec21ce9409f32c1096db7877, type: 3}
-    volume: .100000001
+    volume: 1
   - name: Hit
     sounds:
     - {fileID: 8300000, guid: 3e0724c1a6b9ab8409769600a53c7cc0, type: 3}
     - {fileID: 8300000, guid: 87fef4d31a2ac864a97ac4554e9392db, type: 3}
     - {fileID: 8300000, guid: eac34977e482b29419089ebc976729e1, type: 3}
     - {fileID: 8300000, guid: 99dde30db88c41c4ebd971b6ef5df911, type: 3}
-    volume: .100000001
+    volume: .300000012
 --- !u!114 &11492264
 MonoBehaviour:
   m_ObjectHideFlags: 1
