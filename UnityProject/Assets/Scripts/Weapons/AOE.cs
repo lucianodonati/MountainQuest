@@ -25,7 +25,7 @@ public class AOE : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        if(coll.gameObject.tag == "Enemy")
+        if(coll.gameObject.tag == "Enemy" && !coll.isTrigger)
         {
             if (coll.gameObject.GetComponent<Entity>())
             {
