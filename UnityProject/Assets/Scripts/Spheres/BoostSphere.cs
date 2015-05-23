@@ -15,7 +15,6 @@ public class BoostSphere : BaseSphere
             {
                 GameManager.instance.statsManager.arrowsBoosted++;
                 proj.damageType.damage += DamageModifier;
-                proj.owner = this.gameObject;
             }
 
             if (other.rigidbody2D != null)
@@ -33,6 +32,15 @@ public class BoostSphere : BaseSphere
                     }
                 }
             }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Arrow proj = other.GetComponent<Arrow>();
+        if ((proj != null && proj.owner != null && proj.owner.name != "Boss 2") || other.tag == "Player")
+        {
+            proj.owner = this.gameObject;
         }
     }
 }
