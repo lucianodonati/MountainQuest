@@ -17,6 +17,9 @@ public class DoorRequirement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (GetComponent<Enemy>() != null)
+            if (GetComponent<Enemy>().health.currentHP <= 0.0f)
+                OnDestroy();
     }
 
     private void OnDestroy()
