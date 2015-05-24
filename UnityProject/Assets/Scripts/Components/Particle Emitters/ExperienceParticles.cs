@@ -22,6 +22,7 @@ public class ExperienceParticles : MonoBehaviour
         psys.emissionRate = 0;
         psys.startColor = new Color(205.0f / 255.0f, 208.0f / 255.0f, 8.0f / 255.0f, 255.0f / 255.0f);
         psys.startLifetime = 20.0f;
+        psys.renderer.material = new Material(Shader.Find("Particles/Additive"));
 
         psys.startSize = 0.1f;
         psys.Emit(experience);
