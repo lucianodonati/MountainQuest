@@ -237,7 +237,7 @@ MonoBehaviour:
   movementEnabled: 1
   combatEnabled: 1
   movementSpeed: 10
-  dragCoef: .949999988
+  dragCoef: 0
   jumpSpeed: 1
   jumpTimerMax: .100000001
   firstJumpModifier: 20
