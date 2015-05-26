@@ -46,12 +46,6 @@ public class PlayerController : MonoBehaviour
     //SWITCH VARS
     private bool usingSword = false;
 
-    public GameObject[] Arrows;
-    public GameObject[] Swords;
-
-    private int arrowiter;
-    private int sworditer;
-
     //target for looking
     public Vector3 looktarget;
 
@@ -74,12 +68,7 @@ public class PlayerController : MonoBehaviour
         looker = transform.GetChild(0).gameObject;
         bow = transform.GetChild(1).gameObject;
 
-        arrowiter = 0;
-        sworditer = 0;
-
-        //Arrow = Arrows[arrowiter];
         Arrow = GameManager.instance.skillsManager.arrows[0];
-        Sword = Swords[sworditer];
 
         anim = GetComponent<Animator>();
     }

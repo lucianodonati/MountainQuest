@@ -89,8 +89,6 @@ public class Boss1Movement : Enemy
 
                     if (ground != null)
                     {
-                        Vector2 velocityHold = rigidbody2D.velocity;
-
                         if (InFOV(target))
                         {
                             Vector3 toPlayer = player.transform.position - transform.position;
@@ -102,7 +100,6 @@ public class Boss1Movement : Enemy
                                 direction = true; //right
 
                             ///////////////////////////////////////////
-
 
                             if (Mathf.Abs(toPlayer.x) <= 6.5)
                             {
@@ -142,12 +139,7 @@ public class Boss1Movement : Enemy
                                     running = true;
                                 }
                             }
-
                         }
-                        //else
-                        //{
-                        //    rigidbody2D.velocity = velocityHold.normalized * moveSpeed;
-                        //}
 
                         if (!ignoreEdges)
                         {
@@ -224,7 +216,6 @@ public class Boss1Movement : Enemy
                 Camera.main.gameObject.GetComponent<CameraBehavior>().BeginShake(missShakeAmount, missShakeDampening);
                 //GetComponent<Animator>().SetInteger("Attack", 3);
                 GetComponent<Animator>().SetTrigger("StompLand");
-
             }
             stomping = false;
             abilityDelay = 1.0f;
@@ -232,7 +223,6 @@ public class Boss1Movement : Enemy
 
         if (coll.gameObject.tag == "Platform" && ground == null)
             ground = coll.gameObject;
-
     }
 
     private void OnCollisionStay2D(Collision2D coll)
@@ -306,7 +296,6 @@ public class Boss1Movement : Enemy
                 player.GetComponent<Health>().TakeDamage(40, true);
         }
 
-
         if (animTimer <= 0.0f)
         {
             attacking = false;
@@ -316,8 +305,6 @@ public class Boss1Movement : Enemy
             animFinished = false;
             hitPlayer = false;
         }
-
-
     }
 
     private void Stomp()
@@ -386,7 +373,6 @@ public class Boss1Movement : Enemy
             running = false;
             runTimer = 2.0f;
         }
-
 
         if (Mathf.Abs(toPlayer.x) > moveSpeed)
             toPlayer.x = toPlayer.x / Mathf.Abs(toPlayer.x) * moveSpeed;
