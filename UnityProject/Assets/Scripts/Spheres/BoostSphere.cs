@@ -38,7 +38,7 @@ public class BoostSphere : BaseSphere
     void OnTriggerExit2D(Collider2D other)
     {
         Arrow proj = other.GetComponent<Arrow>();
-        if ((proj != null && proj.owner != null && proj.owner.name != "Boss 2") || other.tag == "Player")
+        if ((proj != null && proj.owner != null && proj.owner.name != "Boss 2"))
         {
             proj.owner = this.gameObject;
         }

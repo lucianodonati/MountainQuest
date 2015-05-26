@@ -98,7 +98,12 @@ public class PlayerController : MonoBehaviour
         Look(looktarget);
 
         if (grounded)
+        {
             jumpCooldownTimer -= Time.deltaTime;
+            dragCoef = 0;
+        }
+        else
+            dragCoef = 1;
 
         if (movementEnabled)
         {
@@ -133,23 +138,27 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        ContactPoint2D[] contacts = coll.contacts;
-
-        int goodcount = 0, badcount = 0;
-
-        foreach (ContactPoint2D ct in contacts)
+        if (coll.gameObject.tag != "Sphere")
         {
-            if (ct.point.y < transform.position.y)
-                ++goodcount;
-            else
-                ++badcount;
+            ContactPoint2D[] contacts = coll.contacts;
+
+            int goodcount = 0, badcount = 0;
+
+            foreach (ContactPoint2D ct in contacts)
+            {
+                if (ct.point.y < transform.position.y)
+                    ++goodcount;
+                else
+                    ++badcount;
+            }
+
+            if (goodcount > badcount)
+            {
+                grounded = true;
+                jumpCooldownTimer = jumpCooldownTimerMax;
+            }
         }
 
-        if (goodcount > badcount)
-        {
-            grounded = true;
-            jumpCooldownTimer = jumpCooldownTimerMax;
-        }
         Entity entity = coll.gameObject.GetComponent<Entity>();
         if (entity != null)
         {
@@ -166,45 +175,51 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D coll)
     {
-        ContactPoint2D[] contacts = coll.contacts;
-
-        int goodcount = 0, badcount = 0;
-
-        foreach(ContactPoint2D ct in contacts)
+        if (coll.gameObject.tag != "Sphere")
         {
-            if(ct.point.y < transform.position.y)
-                ++goodcount;
-            else
-                ++badcount;
-        }
+            ContactPoint2D[] contacts = coll.contacts;
 
-        if (goodcount>badcount)
-        {
-            grounded = true;
-            jumplock = false;
-            jumpTimer = jumpTimerMax;
-            if (anim.GetBool("jump"))
-                anim.SetBool("jump", false);
+            int goodcount = 0, badcount = 0;
+
+            foreach (ContactPoint2D ct in contacts)
+            {
+                if (ct.point.y < transform.position.y)
+                    ++goodcount;
+                else
+                    ++badcount;
+            }
+
+            if (goodcount > badcount)
+            {
+                grounded = true;
+                jumplock = false;
+                jumpTimer = jumpTimerMax;
+                if (anim.GetBool("jump"))
+                    anim.SetBool("jump", false);
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D coll)
     {
-        ContactPoint2D[] contacts = coll.contacts;
-
-        int goodcount = 0, badcount = 0;
-
-        foreach (ContactPoint2D ct in contacts)
+        if (coll.gameObject.tag != "Sphere")
         {
-            if (Mathf.Abs(transform.position.y - ct.point.y) > 1.7f)
-                ++badcount;
-            else
-                ++goodcount;
+            ContactPoint2D[] contacts = coll.contacts;
+
+            int goodcount = 0, badcount = 0;
+
+            foreach (ContactPoint2D ct in contacts)
+            {
+                if (Mathf.Abs(transform.position.y - ct.point.y) > 1.7f)
+                    ++badcount;
+                else
+                    ++goodcount;
+            }
+
+
+            if (badcount > goodcount)
+                grounded = false;
         }
-
-
-        if (badcount > goodcount)
-            grounded = false;
     }
 
     private void Look(Vector3 lookat)
