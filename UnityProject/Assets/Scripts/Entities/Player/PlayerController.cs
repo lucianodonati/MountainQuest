@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
                 else
                     anim.SetBool("move", false);
 
-                Walk();                
+                Walk();
             }
 
             if (Input.GetAxisRaw("Vertical") > 0 && jumpCooldownTimer <= 0.0f && jumpTimer > 0.0f && !jumplock && !rigidbody2D.isKinematic)
@@ -216,7 +216,6 @@ public class PlayerController : MonoBehaviour
                     ++goodcount;
             }
 
-
             if (badcount > goodcount)
                 grounded = false;
         }
@@ -294,79 +293,13 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchWeaponCheck()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Space))
             GetComponent<Player>().nextSphere();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            usingSword = !usingSword;
-
-            if (usingSword)
-            {
-                bow.GetComponent<SpriteRenderer>().enabled = false;
-                Sword = (GameObject)Instantiate(Swords[sworditer], transform.position, Quaternion.Euler(0, 0, -45));
-                Sword.transform.parent = transform;
-                Sword.transform.position = Sword.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
-            }
-            else
-            {
-                bow.GetComponent<SpriteRenderer>().enabled = true;
-                Destroy(Sword);
-                Sword = Swords[sworditer];
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.Q))
             PreviousArrow();
         else if (Input.GetKeyDown(KeyCode.E))
             NextArrow();
-
-        //if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Q))
-        //    {
-        //        if (usingSword)
-        //        {
-        //            --sworditer;
-
-        //            if (sworditer < 0)
-        //                sworditer = Swords.Length - 1;
-        //        }
-        //        else
-        //        {
-        //            --arrowiter;
-
-        //            if (arrowiter < 0)
-        //                arrowiter = Arrows.Length - 1;
-        //        }
-        //    }
-        //    else if (Input.GetKeyDown(KeyCode.E))
-        //    {
-        //        if (usingSword)
-        //        {
-        //            ++sworditer;
-
-        //            if (sworditer >= Swords.Length)
-        //                sworditer = 0;
-        //        }
-        //        else
-        //        {
-        //            ++arrowiter;
-
-        //            if (arrowiter >= Arrows.Length)
-        //                arrowiter = 0;
-        //        }
-        //    }
-        //    Arrow = Arrows[arrowiter];
-
-        //    if (usingSword)
-        //    {
-        //        Destroy(Sword);
-        //        Sword = (GameObject)Instantiate(Swords[sworditer], transform.position, Quaternion.Euler(0, 0, -45));
-        //        Sword.transform.parent = transform;
-        //        Sword.transform.position = Sword.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
-        //    }
-        //}
     }
 
     private void AttackCheck()
