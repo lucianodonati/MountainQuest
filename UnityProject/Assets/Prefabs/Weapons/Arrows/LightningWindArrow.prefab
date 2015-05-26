@@ -49,7 +49,7 @@ GameObject:
   - 114: {fileID: 11457742}
   - 95: {fileID: 9540930}
   m_Layer: 14
-  m_Name: LightningArrow
+  m_Name: LightningWindArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

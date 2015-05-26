@@ -20,7 +20,7 @@ GameObject:
   - 114: {fileID: 11421234}
   - 95: {fileID: 9540930}
   m_Layer: 14
-  m_Name: ExplodingArrow
+  m_Name: ExplodingFireArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
