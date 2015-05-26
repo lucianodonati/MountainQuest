@@ -57,7 +57,7 @@ public class WaveSphere : BaseSphere
         if (notAOE)
         {
             Arrow proj = other.GetComponent<Arrow>();
-            if (proj != null)
+            if (proj != null && !proj.stuck)
             {
                 if (proj.owner != this.gameObject)
                 {

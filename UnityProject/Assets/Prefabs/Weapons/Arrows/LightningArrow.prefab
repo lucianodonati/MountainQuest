@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  speed: 50
+  speed: 40
   stuckTimer: 0
   numCollisions: 10
   damageType: {fileID: 11430572}
