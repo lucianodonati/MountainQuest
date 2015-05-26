@@ -73,4 +73,18 @@ public class SkillsManager : MonoBehaviour
         temp.prefab = arrows[(int)_id].prefab;
         arrows[(int)_id] = temp;
     }
+
+    public bool CheckArrowsEmpty()
+    {
+        bool isEmpty = true;
+        foreach (SetArrowPrefabs item in arrows)
+        {
+            if (item.active)
+            {
+                isEmpty = false;
+                break;
+            }
+        }
+        return isEmpty;
+    }
 }

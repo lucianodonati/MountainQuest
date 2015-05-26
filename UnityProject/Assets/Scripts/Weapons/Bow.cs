@@ -28,16 +28,16 @@ public class Bow : MonoBehaviour
     {
         if (playercontroller != null)
         {
-            if (playercontroller.Arrow != null)
-                GetComponent<SpriteRenderer>().color = playercontroller.Arrow.GetComponent<SpriteRenderer>().color;
+            if (playercontroller.Arrow.active)
+                GetComponent<SpriteRenderer>().color = playercontroller.Arrow.prefab.GetComponent<SpriteRenderer>().color;
 
-            if (playercontroller.Arrow.name.Contains("ExplodingArrow") ||
-                playercontroller.Arrow.name.Contains("ShatteringArrow") ||
-                playercontroller.Arrow.name.Contains("LightningArrow") ||
-                playercontroller.Arrow.name.Contains("EarthquakeArrow") ||
-                playercontroller.Arrow.name.Contains("PlagueArrow"))
+            if (playercontroller.Arrow.prefab.name.Contains("ExplodingArrow") ||
+                playercontroller.Arrow.prefab.name.Contains("ShatteringArrow") ||
+                playercontroller.Arrow.prefab.name.Contains("LightningArrow") ||
+                playercontroller.Arrow.prefab.name.Contains("EarthquakeArrow") ||
+                playercontroller.Arrow.prefab.name.Contains("PlagueArrow"))
             {
-                pSys.startColor = playercontroller.Arrow.GetComponent<SpriteRenderer>().color;
+                pSys.startColor = playercontroller.Arrow.prefab.GetComponent<SpriteRenderer>().color;
                 pSys.emissionRate = eRate;
             }
             else
