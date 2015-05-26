@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     //ARROW VARS
     [HideInInspector]
-    public GameObject Arrow = null;
+    public SkillsManager.SetArrowPrefabs Arrow;
 
     private float arrowCooldownTimer;
     public float arrowCooldownTimerMax = 0.5f;
@@ -76,7 +77,8 @@ public class PlayerController : MonoBehaviour
         arrowiter = 0;
         sworditer = 0;
 
-        Arrow = Arrows[arrowiter];
+        //Arrow = Arrows[arrowiter];
+        Arrow = GameManager.instance.skillsManager.arrows[0];
         Sword = Swords[sworditer];
 
         anim = GetComponent<Animator>();
@@ -261,52 +263,57 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (usingSword)
-                {
-                    --sworditer;
+        if (Input.GetKeyDown(KeyCode.Q))
+            PreviousArrow();
+        else if (Input.GetKeyDown(KeyCode.E))
+            NextArrow();
 
-                    if (sworditer < 0)
-                        sworditer = Swords.Length - 1;
-                }
-                else
-                {
-                    --arrowiter;
+        //if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Q))
+        //    {
+        //        if (usingSword)
+        //        {
+        //            --sworditer;
 
-                    if (arrowiter < 0)
-                        arrowiter = Arrows.Length - 1;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (usingSword)
-                {
-                    ++sworditer;
+        //            if (sworditer < 0)
+        //                sworditer = Swords.Length - 1;
+        //        }
+        //        else
+        //        {
+        //            --arrowiter;
 
-                    if (sworditer >= Swords.Length)
-                        sworditer = 0;
-                }
-                else
-                {
-                    ++arrowiter;
+        //            if (arrowiter < 0)
+        //                arrowiter = Arrows.Length - 1;
+        //        }
+        //    }
+        //    else if (Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        if (usingSword)
+        //        {
+        //            ++sworditer;
 
-                    if (arrowiter >= Arrows.Length)
-                        arrowiter = 0;
-                }
-            }
-            Arrow = Arrows[arrowiter];
+        //            if (sworditer >= Swords.Length)
+        //                sworditer = 0;
+        //        }
+        //        else
+        //        {
+        //            ++arrowiter;
 
-            if (usingSword)
-            {
-                Destroy(Sword);
-                Sword = (GameObject)Instantiate(Swords[sworditer], transform.position, Quaternion.Euler(0, 0, -45));
-                Sword.transform.parent = transform;
-                Sword.transform.position = Sword.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
-            }
-        }
+        //            if (arrowiter >= Arrows.Length)
+        //                arrowiter = 0;
+        //        }
+        //    }
+        //    Arrow = Arrows[arrowiter];
+
+        //    if (usingSword)
+        //    {
+        //        Destroy(Sword);
+        //        Sword = (GameObject)Instantiate(Swords[sworditer], transform.position, Quaternion.Euler(0, 0, -45));
+        //        Sword.transform.parent = transform;
+        //        Sword.transform.position = Sword.transform.parent.position + new Vector3(0.5f, 0.5f, -1f);
+        //    }
+        //}
     }
 
     private void AttackCheck()
@@ -325,7 +332,7 @@ public class PlayerController : MonoBehaviour
                 mousepos -= bow.transform.position;
                 mousepos.z = 0;
 
-                GameObject currArrow = (GameObject)Instantiate(Arrow, bow.transform.position + Vector3.back,
+                GameObject currArrow = (GameObject)Instantiate(Arrow.prefab, bow.transform.position + Vector3.back,
                                                                 Quaternion.FromToRotation(preserveUp, mousepos));
 
                 currArrow.rigidbody2D.velocity = mousepos.normalized * 7.5f;
@@ -348,6 +355,50 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetMouseButton(0))
                 {
                     Sword.GetComponent<Sword>().Swing();
+                }
+            }
+        }
+    }
+
+    private void NextArrow()
+    {
+        List<SkillsManager.SetArrowPrefabs> tempArrows = GameManager.instance.skillsManager.arrows;
+        if (!GameManager.instance.skillsManager.CheckArrowsEmpty())
+        {
+            int currentOne = tempArrows.IndexOf(Arrow);
+
+            for (int i = currentOne + 1; i != currentOne; i++)
+            {
+                if (i == tempArrows.Count)
+                    i = 0;
+
+                if (tempArrows[i].active)
+                {
+                    Arrow = tempArrows[i];
+                    break;
+                }
+            }
+        }
+    }
+
+    private void PreviousArrow()
+    {
+        List<SkillsManager.SetArrowPrefabs> tempArrows = GameManager.instance.skillsManager.arrows;
+        if (!GameManager.instance.skillsManager.CheckArrowsEmpty())
+        {
+            int currentOne = tempArrows.IndexOf(Arrow);
+
+            for (int i = currentOne - 1; i != currentOne; i--)
+            {
+                if (i == -1)
+                    i = tempArrows.Count - 1;
+                //if (i == (tempArrows.Count - 1))
+                //    i = 0;
+
+                if (tempArrows[i].active)
+                {
+                    Arrow = tempArrows[i];
+                    break;
                 }
             }
         }
