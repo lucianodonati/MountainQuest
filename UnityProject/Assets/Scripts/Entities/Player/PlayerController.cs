@@ -131,7 +131,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Platform")
+        ContactPoint2D[] contacts = coll.contacts;
+
+        int goodcount = 0, badcount = 0;
+
+        foreach (ContactPoint2D ct in contacts)
+        {
+            if (ct.point.y < transform.position.y)
+                ++goodcount;
+            else
+                ++badcount;
+        }
+
+        if (goodcount > badcount)
         {
             grounded = true;
             jumpCooldownTimer = jumpCooldownTimerMax;
@@ -152,7 +164,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Platform")
+        ContactPoint2D[] contacts = coll.contacts;
+
+        int goodcount = 0, badcount = 0;
+
+        foreach(ContactPoint2D ct in contacts)
+        {
+            if(ct.point.y < transform.position.y)
+                ++goodcount;
+            else
+                ++badcount;
+        }
+
+        if (goodcount>badcount)
         {
             grounded = true;
             jumplock = false;
@@ -164,7 +188,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D coll)
     {
-        grounded = false;
+        ContactPoint2D[] contacts = coll.contacts;
+
+        int goodcount = 0, badcount = 0;
+
+        foreach (ContactPoint2D ct in contacts)
+        {
+            if (Mathf.Abs(transform.position.y - ct.point.y) > 1.7f)
+                ++badcount;
+            else
+                ++goodcount;
+        }
+
+
+        if (badcount > goodcount)
+            grounded = false;
     }
 
     private void Look(Vector3 lookat)

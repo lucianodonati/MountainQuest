@@ -15,7 +15,7 @@ public class Shake : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        gameObject.transform.position += new Vector3(Random.Range(-0.06f, 0.06f), Random.Range(-0.06f, 0.06f), 0);
+        gameObject.transform.position = originalPosition + new Vector3(Random.Range(-0.06f, 0.06f), Random.Range(-0.06f, 0.06f), 0);
         duration -= Time.deltaTime;
 
         if (duration <= 0.0f)
