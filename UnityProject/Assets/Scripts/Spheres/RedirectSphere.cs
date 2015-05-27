@@ -60,11 +60,10 @@ public class RedirectSphere : MonoBehaviour
                 sfx.Play("Redirect");
 
             GameManager.instance.statsManager.arrowsRedirected++;
-            other.rigidbody2D.position = this.transform.position;
+            other.transform.position = transform.position;
+            other.rigidbody2D.velocity = Vector3.zero;
             Direction.Normalize();
-            Direction *= other.rigidbody2D.velocity.magnitude;
-            other.rigidbody2D.velocity = Direction;
-            other.rigidbody2D.rotation = RotationDirection;
+            other.transform.up = Direction;
 
             other.GetComponent<Arrow>().damageType.damage += DamageModifier;
             other.GetComponent<Arrow>().owner = this.gameObject;

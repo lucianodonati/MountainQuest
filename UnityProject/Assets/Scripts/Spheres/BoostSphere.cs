@@ -25,10 +25,10 @@ public class BoostSphere : BaseSphere
 
                 if (other.rigidbody2D.velocity.magnitude < 32)
                 {
-                    other.rigidbody2D.velocity *= VelocityModifier;
+                    proj.speed *= VelocityModifier;
                     if (other.rigidbody2D.velocity.magnitude > 32)
                     {
-                        other.rigidbody2D.velocity = other.rigidbody2D.velocity.normalized * 32;
+                        proj.speed *= 32;
                     }
                 }
             }

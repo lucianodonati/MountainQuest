@@ -41,7 +41,7 @@ public class Arrow : MonoBehaviour
             if (stuckTimer <= 0)
                 Destroy(gameObject);
         }
-        else if (owner != null && owner.name.Contains("Wave"))
+        else
             rigidbody2D.velocity = transform.up * speed;
 
         //rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
