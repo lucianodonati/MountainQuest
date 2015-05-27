@@ -126,7 +126,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   speed: 25
   stuckTimer: 5
-  numCollisions: 1
+  numCollisions: 2
   damageType: {fileID: 11432964}
   stuck: 0
   createdInsideShield: 0

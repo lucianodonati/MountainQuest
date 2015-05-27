@@ -8,9 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400190}
-  - 212: {fileID: 21200190}
-  - 114: {fileID: 11492264}
   - 95: {fileID: 9598362}
+  - 114: {fileID: 11492264}
+  - 212: {fileID: 21200190}
   m_Layer: 14
   m_Name: Tip
   m_TagString: Untagged
@@ -49,7 +49,7 @@ GameObject:
   - 114: {fileID: 11457742}
   - 95: {fileID: 9540930}
   m_Layer: 14
-  m_Name: LightningArrow
+  m_Name: LightningWindArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 151.933578, y: 73.6990051, z: 0}
   m_LocalScale: {x: 1.29999995, y: 2, z: 1.5}
   m_Children:
   - {fileID: 424856}
@@ -143,7 +143,7 @@ Animator:
   m_GameObject: {fileID: 100190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bbb4e64776472df4dbac502d940059cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
