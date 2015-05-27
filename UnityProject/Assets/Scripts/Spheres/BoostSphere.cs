@@ -11,11 +11,7 @@ public class BoostSphere : BaseSphere
         Arrow proj = other.GetComponent<Arrow>();
         if ((proj != null && proj.owner != null && proj.owner.name != "Boss 2") || other.tag == "Player")
         {
-            if (proj != null)
-            {
-                GameManager.instance.statsManager.arrowsBoosted++;
-                proj.damageType.damage += DamageModifier;
-            }
+            
 
             if (other.rigidbody2D != null)
             {
@@ -25,11 +21,17 @@ public class BoostSphere : BaseSphere
 
                 if (other.rigidbody2D.velocity.magnitude < 32)
                 {
-                    proj.speed *= VelocityModifier;
-                    if (other.rigidbody2D.velocity.magnitude > 32)
+                    if (proj != null)
                     {
-                        proj.speed *= 32;
+                        GameManager.instance.statsManager.arrowsBoosted++;
+                        proj.damageType.damage += DamageModifier;
+                        proj.speed *= VelocityModifier;
+
+                        if (other.rigidbody2D.velocity.magnitude > 32)
+                            proj.speed *= 32;
                     }
+                    else
+                        other.rigidbody2D.velocity *= VelocityModifier;
                 }
             }
         }

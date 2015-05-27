@@ -29,7 +29,6 @@ public class Arrow : MonoBehaviour
         if (sfx != null)
             sfx.Play("Fire");
         rigidbody2D.velocity = transform.up * speed;
-        //GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     // Update is called once per frame
@@ -44,7 +43,6 @@ public class Arrow : MonoBehaviour
         else
             rigidbody2D.velocity = transform.up * speed;
 
-        //rigidbody2D.position += rigidbody2D.velocity * Time.deltaTime;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -57,7 +55,7 @@ public class Arrow : MonoBehaviour
 
             if (stuck)
             {
-                if (name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow"))
+                if (name.Contains("Exploding") || name.Contains("Shattering"))
                 {
                     CircleCollider2D circle = GetComponent<CircleCollider2D>();
                     if (circle.enabled &&
@@ -72,7 +70,7 @@ public class Arrow : MonoBehaviour
             }
             else
             {
-                if ((name.Contains("ExplodingArrow") || name.Contains("ShatteringArrow")))
+                if (name.Contains("Exploding") || name.Contains("Shattering"))
                 {
                     if (!GetComponent<AOE>().enabled)
                     {
@@ -89,29 +87,27 @@ public class Arrow : MonoBehaviour
                     }
                 }
 
-                if (other.gameObject.GetComponent<Entity>())
+                Entity isEntity = other.gameObject.GetComponent<Entity>();
+                if (isEntity)
                 {
-                    if ((name.Contains("WindArrow") || name.Contains("LightningArrow")) && numCollisions >= 0)
+                    if (name.Contains("Wind") && numCollisions >= 0)
                     {
                         numCollisions--;
-                        GetComponent<BoxCollider2D>().isTrigger = true;
 
-                        if (numCollisions == -1)
+                        if (numCollisions <= 0)
                             GetStuck(other);
 
-                        if (name.Contains("LightningArrow"))
+                        if (name.Contains("Lightning"))
                             GetComponent<LightningArrow>().CreateLightningHitAnimation();
                     }
-
-                    Entity isEntity = other.gameObject.GetComponent<Entity>();
-                    if (isEntity != null)
-                        damageType.attachToEnemy(isEntity);
+                    damageType.attachToEnemy(isEntity);
                 }
 
                 if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
                     GameManager.instance.statsManager.shotsHit++;
 
-                if ((!name.Contains("WindArrow") && !name.Contains("LightningArrow")) || (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss"))
+                if (!name.Contains("Wind") ||
+                    (name.Contains("Wind") && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Boss" && other.gameObject.tag != "Target"))
                     GetStuck(other);
             }
         }
@@ -121,8 +117,6 @@ public class Arrow : MonoBehaviour
     {
         if (coll.tag != "Sphere" && transform.parent == null)
         {
-            rigidbody2D.velocity = new Vector2(0, 0);
-            GetComponent<BoxCollider2D>().isTrigger = true;
             stuck = true;
             Transform dummyChildTransform = coll.transform.FindChild("PreserveScale");
             if (dummyChildTransform == null)
@@ -131,14 +125,12 @@ public class Arrow : MonoBehaviour
                 dummyChild.transform.localScale = new Vector3(1, 1, 1);
                 dummyChild.transform.position = coll.transform.position;
                 dummyChild.name = "PreserveScale";
-                if (coll.tag == "Platform")
-                    dummyChild.transform.parent = coll.transform.parent;
-                else
-                    dummyChild.transform.parent = coll.transform;
+                dummyChild.transform.parent = coll.transform;
                 dummyChildTransform = dummyChild.transform;
-                transform.parent = dummyChildTransform;
-                rigidbody2D.isKinematic = true;
             }
+            transform.parent = dummyChildTransform;
+            rigidbody2D.velocity = new Vector2(0, 0);
+            rigidbody2D.isKinematic = true;
         }
     }
 }
