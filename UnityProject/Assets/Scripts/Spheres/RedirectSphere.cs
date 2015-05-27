@@ -53,21 +53,29 @@ public class RedirectSphere : MonoBehaviour
             other.GetComponent<PlayerController>().redirectedTimer = antigravityTime;
             other.rigidbody2D.gravityScale = 0;
         }
-        else if (proj != null && proj.owner != null && proj.owner.name != "Boss 2")
+        else if (proj != null)
         {
-            SoundFX sfx = GetComponent<SoundFX>();
-            if (sfx != null)
-                sfx.Play("Redirect");
+            bool valid = true;
+            if (proj.owner != null)
+                if (proj.owner.name == "Boss 2")
+                    valid = false;
 
-            GameManager.instance.statsManager.arrowsRedirected++;
-            other.rigidbody2D.position = this.transform.position;
-            Direction.Normalize();
-            Direction *= other.rigidbody2D.velocity.magnitude;
-            other.rigidbody2D.velocity = Direction;
-            other.rigidbody2D.rotation = RotationDirection;
+            if (valid)
+            {
+                SoundFX sfx = GetComponent<SoundFX>();
+                if (sfx != null)
+                    sfx.Play("Redirect");
 
-            other.GetComponent<Arrow>().damageType.damage += DamageModifier;
-            other.GetComponent<Arrow>().owner = this.gameObject;
+                GameManager.instance.statsManager.arrowsRedirected++;
+                other.rigidbody2D.position = this.transform.position;
+                Direction.Normalize();
+                Direction *= other.rigidbody2D.velocity.magnitude;
+                other.rigidbody2D.velocity = Direction;
+                other.rigidbody2D.rotation = RotationDirection;
+
+                other.GetComponent<Arrow>().damageType.damage += DamageModifier;
+                other.GetComponent<Arrow>().owner = this.gameObject;
+            }
         }
     }
 

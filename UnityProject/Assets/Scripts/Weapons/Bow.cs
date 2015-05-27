@@ -31,11 +31,11 @@ public class Bow : MonoBehaviour
             if (playercontroller.Arrow.active)
                 GetComponent<SpriteRenderer>().color = playercontroller.Arrow.prefab.GetComponent<SpriteRenderer>().color;
 
-            if (playercontroller.Arrow.prefab.name.Contains("ExplodingArrow") ||
-                playercontroller.Arrow.prefab.name.Contains("ShatteringArrow") ||
-                playercontroller.Arrow.prefab.name.Contains("LightningArrow") ||
-                playercontroller.Arrow.prefab.name.Contains("EarthquakeArrow") ||
-                playercontroller.Arrow.prefab.name.Contains("PlagueArrow"))
+            if (playercontroller.Arrow.prefab.name.Contains("Exploding") ||
+                playercontroller.Arrow.prefab.name.Contains("Shattering") ||
+                playercontroller.Arrow.prefab.name.Contains("Lightning") ||
+                playercontroller.Arrow.prefab.name.Contains("Earthquake") ||
+                playercontroller.Arrow.prefab.name.Contains("Plague"))
             {
                 pSys.startColor = playercontroller.Arrow.prefab.GetComponent<SpriteRenderer>().color;
                 pSys.emissionRate = eRate;
