@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.73999977, y: -.170000002, z: 0}
+  m_LocalPosition: {x: 6.57999992, y: 2.19000006, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 425198}
@@ -245,23 +245,12 @@ MonoBehaviour:
   facingRight: 1
   jumpCooldownTimerMax: .100000001
   redirectedTimer: 0
-  Arrow: {fileID: 0}
+  Arrow:
+    id: 0
+    active: 0
+    prefab: {fileID: 0}
   arrowCooldownTimerMax: .5
   Sword: {fileID: 0}
-  Arrows:
-  - {fileID: 155430, guid: 93193d5403b50c342aaaa5883cf884a6, type: 2}
-  - {fileID: 155430, guid: 5177a45d42172084cb1aea617b338a42, type: 2}
-  - {fileID: 104710, guid: a1c5b306c14ebea4ab5c5dfef8a7429e, type: 2}
-  - {fileID: 132966, guid: f1f15e846f34b0d46be717ca92023b28, type: 2}
-  - {fileID: 163060, guid: eecf8075511ff354a86f85c5bd89b6e0, type: 2}
-  - {fileID: 155430, guid: 5173c76e1a72a9f49ba192c2412a0420, type: 2}
-  - {fileID: 104710, guid: 6dc67c4fe39b1054db44b855436137dc, type: 2}
-  - {fileID: 130572, guid: 98d6a6f81dd717841b4fc76687f31c46, type: 2}
-  - {fileID: 155430, guid: 040b89db688440d4c97c8ab0cae21b63, type: 2}
-  - {fileID: 146716, guid: d1181c8f34e601b4f8789421658d7f38, type: 2}
-  Swords:
-  - {fileID: 134122, guid: eb64e1f3a97451f46971f77373b4d21a, type: 2}
-  - {fileID: 137498, guid: f4c72e89f71f04f4c950ba43ad3c0b2d, type: 2}
   looktarget: {x: 0, y: 0, z: 0}
 --- !u!198 &19805556
 ParticleSystem:
